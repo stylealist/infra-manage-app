@@ -1622,7 +1622,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Sample projects</source>
-        <translation>Beispielprojekte</translation>
+        <translation type="vanished">Beispielprojekte</translation>
     </message>
     <message>
         <source>Created projects</source>
@@ -2471,7 +2471,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation>Diese Seite wird Sie durch die Erstellung eines einfachen Projektes mithilfe von einfachen Konfigurations-Schaltern leiten. Für fortgeschrittene Anforderungen, empfehlen wir Ihnen ein Projekt in QGIS zu erstellen und QFieldSync zu nutzen.</translation>
+        <translation>Diese Seite wird Sie durch die Erstellung eines einfachen Projektes mithilfe von einfachen Konfigurations-Schaltern leiten. Für fortgeschrittene Anforderungen, empfehlen wir Ihnen, ein Projekt in QGIS zu erstellen und QFieldSync zu nutzen.</translation>
     </message>
     <message>
         <source>New project name</source>
@@ -2515,7 +2515,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation>Mache schnell Notizen mit Datum, Zeit und Kommentaren. Optional können Sie Multimediadaten wie Bilder und Videos anfügen, um die Notizen zu bereichern.</translation>
+        <translation>Machen Sie schnell Notizen mit Datum, Zeit und Kommentaren. Optional können Sie Multimediadaten wie Bilder und Videos anfügen, um die Notizen zu bereichern.</translation>
     </message>
     <message>
         <source>Take image and video attachments</source>
@@ -2527,7 +2527,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation>Zeichnen Sie ihre Position zusammen mit Datum und Zeit auf, um eine genaue Spur Ihrer Bewegungen zu bekommen.</translation>
+        <translation>Zeichnen Sie Ihre Position zusammen mit Datum und Zeit auf, um eine genaue Spur Ihrer Bewegungen zu bekommen.</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
@@ -2539,7 +2539,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation>Lernen Sie mehr über QFieldCloud hier</translation>
+        <translation>Lernen Sie hier mehr über QFieldCloud</translation>
     </message>
     <message>
         <source>Create Project</source>
@@ -2551,7 +2551,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud ermöglicht es Ihnen Daten, die von ihrem Team in QField gesammelt wurden, zu synchronisieren und zusammenzufügen. Von kleinen individuellen Projekten bis zu großen Datenerfassungskampagnen.</translation>
     </message>
 </context>
 <context>

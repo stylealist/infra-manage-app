@@ -1682,7 +1682,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sample projects</source>
-        <translation>Sample projects</translation>
+        <translation type="vanished">Sample projects</translation>
     </message>
     <message>
         <source>Created projects</source>
