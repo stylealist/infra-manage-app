@@ -3404,7 +3404,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
-        <translation type="unfinished"/>
+        <translation>Le réseau est inactif pour le moment. Nous effectuerons les changements automatiquement dès que tu seras de nouveau en ligne.</translation>
     </message>
 </context>
 <context>
@@ -4417,23 +4417,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Behavior when locked to position:</source>
-        <translation type="unfinished"/>
+        <translation>Comportement lorsqu&apos;il est verrouillé sur la position :</translation>
     </message>
     <message>
         <source>Follow position only</source>
-        <translation type="unfinished"/>
+        <translation>Suivre la position seulement</translation>
     </message>
     <message>
         <source>Follow position and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Suivre la position et l&apos;orientation du compas</translation>
     </message>
     <message>
         <source>Follow position and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Suivre la position et la direction du mouvement</translation>
     </message>
     <message>
         <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
-        <translation type="unfinished"/>
+        <translation>Lorsque le canevas de la carte suit ou verrouille sa position, il peut également pivoter pour correspondre à l&apos;orientation de la boussole ou à la direction du mouvement.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the experience for everyone.</source>
@@ -4453,7 +4453,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Réseau</translation>
     </message>
     <message>
         <source>Enable proxy</source>
@@ -4465,7 +4465,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Par défaut (système)</translation>
     </message>
     <message>
         <source>Host</source>
@@ -4497,7 +4497,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>URL&apos;s exclues du proxy (séparés par des virgules)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
@@ -4505,7 +4505,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>Configure un réseau proxy pour router le trafic de QField via un serveur proxy. Utile pour les réseaux d&apos;entreprise et les VPN.</translation>
     </message>
 </context>
 <context>
@@ -4691,11 +4691,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Circle #1: point</source>
-        <translation type="unfinished"/>
+        <translation>Cercle #1 : point</translation>
     </message>
     <message>
         <source>Circle #2: point</source>
-        <translation type="unfinished"/>
+        <translation>Cercle #2 : point</translation>
     </message>
 </context>
 <context>
@@ -6063,7 +6063,7 @@ projet</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
-        <translation type="unfinished"/>
+        <translation>Sélectionnez une  entité point</translation>
     </message>
 </context>
 <context>
@@ -6850,7 +6850,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Le canevas de la carte suit l&apos;emplacement et la direction du mouvement</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
@@ -6858,11 +6858,11 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Chargement du terrain...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Fermer la vue 3D</translation>
     </message>
     <message>
         <source>About %1</source>
