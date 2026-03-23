@@ -133,6 +133,7 @@ Item {
     jumpDetails.toRotation = !isNaN(rotation) ? rotation : -1;
     jumpDetails.position = 0.0;
     jumpDetails.handleMargins = handleMargins;
+    kineticHandler.stopAll();
     freeze('jumping');
     jumpDetails.enabled = true;
     jumpDetails.position = 1.0;
@@ -220,6 +221,12 @@ Item {
     }
   }
 
+  KineticHandler {
+    id: kineticHandler
+    mapCanvas: mapArea
+    mapCanvasWrapper: mapCanvasWrapper
+  }
+
   MapCanvasMap {
     id: mapCanvasWrapper
 
@@ -279,6 +286,9 @@ Item {
     }
 
     onPressedChanged: {
+      if (pressed) {
+        kineticHandler.stopAll();
+      }
       if (longPressActive)
         mapArea.longPressReleased("stylus");
       longPressActive = false;
@@ -303,6 +313,7 @@ Item {
 
     onActiveChanged: {
       if (active) {
+        kineticHandler.stopAll();
         if (mainTapHandler.doublePressed) {
           oldTranslationY = 0;
           zoomCenter = centroid.position;
@@ -311,9 +322,14 @@ Item {
         } else {
           oldPos = centroid.position;
           isPanning = true;
+          kineticHandler.resetPanSamples();
+          kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
           freeze('pan');
         }
       } else {
+        if (isPanning) {
+          kineticHandler.startPanInertia();
+        }
         if (isZooming || isPanning) {
           unfreeze(isZooming ? 'zoom' : 'pan');
         }
@@ -328,6 +344,7 @@ Item {
           mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
+          kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
           mapCanvasWrapper.pan(centroid.position, oldPos);
           oldPos = centroid.position;
         }
@@ -365,6 +382,9 @@ Item {
 
     onPressedChanged: {
       if (pressed) {
+        if (!pinchHandler.pinchReleasing) {
+          kineticHandler.stopAll();
+        }
         if (point.pressedButtons !== Qt.RightButton) {
           if (timer.running) {
             timer.stop();
@@ -413,6 +433,9 @@ Item {
 
     onActiveChanged: {
       if (active) {
+        if (!pinchHandler.pinchReleasing) {
+          kineticHandler.stopAll();
+        }
         if (mainTapHandler.doublePressed) {
           oldTranslationY = 0;
           zoomCenter = centroid.position;
@@ -421,9 +444,14 @@ Item {
         } else {
           oldPos = centroid.position;
           isPanning = true;
+          kineticHandler.resetPanSamples();
+          kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
           freeze('pan');
         }
       } else {
+        if (isPanning) {
+          kineticHandler.startPanInertia();
+        }
         if (isZooming || isPanning) {
           unfreeze(isZooming ? 'zoom' : 'pan');
         }
@@ -438,6 +466,7 @@ Item {
           mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
+          kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
           mapCanvasWrapper.pan(centroid.position, oldPos);
           oldPos = centroid.position;
         }
@@ -568,16 +597,28 @@ Item {
 
     property bool rotationActive: false
     property bool rotationTresholdReached: false
+    property bool pinchReleasing: false
 
     onActiveChanged: {
       if (active) {
+        kineticHandler.stopAll();
         freeze('pinch');
         oldScale = 1.0;
         oldRotation = 0.0;
         rotationTresholdReached = false;
         oldPos = centroid.position;
+        kineticHandler.resetPanSamples();
+        kineticHandler.resetZoomSamples();
+        kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
+        kineticHandler.addZoomSample(1.0);
       } else {
+        pinchReleasing = true;
+        kineticHandler.startPanInertia();
+        kineticHandler.startZoomInertia(centroid.position);
         unfreeze('pinch');
+        Qt.callLater(function () {
+          pinchReleasing = false;
+        });
       }
     }
 
@@ -585,6 +626,7 @@ Item {
       var oldPos1 = oldPos;
       oldPos = centroid.position;
       if (active) {
+        kineticHandler.addPanSample(centroid.position.x, centroid.position.y);
         mapCanvasWrapper.pan(centroid.position, oldPos1);
       }
     }
@@ -602,9 +644,12 @@ Item {
     }
 
     onActiveScaleChanged: {
-      mapCanvasWrapper.zoomByFactor(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
-      mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
-      oldScale = pinchHandler.activeScale;
+      if (active) {
+        kineticHandler.addZoomSample(pinchHandler.activeScale);
+        mapCanvasWrapper.zoomByFactor(pinchHandler.centroid.position, oldScale / pinchHandler.activeScale);
+        mapCanvasWrapper.pan(pinchHandler.centroid.position, oldPos);
+        oldScale = pinchHandler.activeScale;
+      }
     }
   }
 
