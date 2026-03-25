@@ -5070,6 +5070,10 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>%n feature(s)</source>
         <translation><numerusform>%n Objekt</numerusform><numerusform>%n Objekt(e)</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

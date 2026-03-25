@@ -4949,6 +4949,10 @@ Cancel to make a minimal device scan instead.</translation>
             <numerusform></numerusform>
         </translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

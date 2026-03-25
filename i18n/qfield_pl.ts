@@ -5077,6 +5077,10 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>%n feature(s)</source>
         <translation><numerusform>%n obiekt</numerusform><numerusform>%n obiekty</numerusform><numerusform>%n obiektów</numerusform><numerusform>%n obiektów</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

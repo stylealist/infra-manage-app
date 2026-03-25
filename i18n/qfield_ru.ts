@@ -5076,6 +5076,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>%n feature(s)</source>
         <translation><numerusform>%n объект</numerusform><numerusform>%n объекта</numerusform><numerusform>%n объектов</numerusform><numerusform>%n объектов</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

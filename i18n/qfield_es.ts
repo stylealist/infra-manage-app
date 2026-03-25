@@ -5074,6 +5074,10 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
         <source>%n feature(s)</source>
         <translation><numerusform>%n característica(s)</numerusform><numerusform>%n característica(s)</numerusform><numerusform>%n característica(s)</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

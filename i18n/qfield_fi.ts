@@ -5075,6 +5075,10 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
         <source>%n feature(s)</source>
         <translation><numerusform>%n kohde(tta)</numerusform><numerusform>%n kohde(tta)</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Reshape</name>

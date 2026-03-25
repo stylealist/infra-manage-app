@@ -27,11 +27,11 @@
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 répertoires de l&apos;application</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 répertoire de l&apos;application</translation>
     </message>
 </context>
 <context>
@@ -505,7 +505,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vide</translation>
     </message>
 </context>
 <context>
@@ -520,39 +520,39 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>Opération de coupage : les couches source et de destination sont les mêmes, annulation du collage.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>Le collage a échoué : l&apos;objet du presse-papier est invalide</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de coupage : impossible de démarrer l&apos;édition sur la couche source %1</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de coupage : impossible de supprimer l&apos;objet d&apos;origine depuis la couche source %1</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de collage : aucun objet compatible n&apos;a pu être créé</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de collage : impossible de démarrer l&apos;édition pour la couche %1</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de collage : impossible d&apos;ajouter un objet dans la couche %1</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Erreur de collage : application des changements échoué sur la couche %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>Enregistrement du coupage échoué sur la couche %1</translation>
     </message>
 </context>
 <context>
@@ -853,7 +853,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vide</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4932,7 +4932,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vide</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -4997,7 +4997,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vide</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5069,6 +5069,10 @@ Cancel to make a minimal device scan instead.</source>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation><numerusform>%n entité(s)</numerusform><numerusform>%n entité(s)</numerusform><numerusform>%n entité(s)</numerusform></translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5251,7 +5255,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vide</translation>
     </message>
     <message>
         <source>NULL</source>

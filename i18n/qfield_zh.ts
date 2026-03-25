@@ -5071,6 +5071,10 @@ Cancel to make a minimal device scan instead.</source>
         <source>%n feature(s)</source>
         <translation><numerusform>%n个要素</numerusform></translation>
     </message>
+    <message>
+        <source>Open Form</source>
+        <translation>打开表单</translation>
+    </message>
 </context>
 <context>
     <name>Reshape</name>
@@ -5870,7 +5874,7 @@ project</source>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation>欢迎使用%1。</translation>
+        <translation>欢迎使用%1</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
