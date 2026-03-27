@@ -519,22 +519,20 @@ ResourceSource *AndroidPlatformUtilities::getGalleryVideo( const QString &prefix
   return processGalleryActivity( prefix, videoFilePath, QStringLiteral( "video/*" ), parent );
 }
 
-ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, FileType fileType, QObject *parent )
+ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const QString &filePath, const QString &filter, QObject *parent )
 {
   const QFileInfo destinationInfo( prefix + filePath );
   const QDir prefixDir( prefix );
   prefixDir.mkpath( destinationInfo.absolutePath() );
 
   QString mimeType;
-  switch ( fileType )
+  if ( filter.contains( QStringLiteral( "*.mp3" ) ) )
   {
-    case AudioFiles:
-      mimeType = "audio/*";
-      break;
-    case AllFiles:
-    default:
-      mimeType = "*/*";
-      break;
+    mimeType = "audio/*";
+  }
+  else
+  {
+    mimeType = "*/*";
   }
 
   AndroidResourceSource *resourceSource = nullptr;
@@ -550,7 +548,6 @@ ResourceSource *AndroidPlatformUtilities::getFile( const QString &prefix, const 
         QJniObject filePathJni = QJniObject::fromString( filePath );
         QJniObject mimeTypeJni = QJniObject::fromString( mimeType );
 
-        QSettings().setValue( QStringLiteral( "QField/nativeCameraLaunched" ), true );
         activity.callMethod<void>( "getFilePickerResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
                                    prefixJni.object<jstring>(),
                                    filePathJni.object<jstring>(),
