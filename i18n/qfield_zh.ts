@@ -864,6 +864,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
     </message>
+    <message>
+        <source>Audio files</source>
+        <translation>音频文件</translation>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation>所有文件</translation>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2040,10 +2048,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Select File</source>
         <translation>选择文件</translation>
-    </message>
-    <message>
-        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation>音频文件 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -6874,6 +6878,10 @@ to show actions</source>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation>您希望将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入%3吗？</translation>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation>长按您的位置标记显示动作选项</translation>
     </message>
 </context>
 <context>

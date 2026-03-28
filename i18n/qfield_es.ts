@@ -864,6 +864,14 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation>Falta el ID de configuración de autenticación del almacenamiento externo. Asegúrese de importarlo a %1.</translation>
     </message>
+    <message>
+        <source>Audio files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All files</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2044,10 +2052,6 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Select File</source>
         <translation>Seleccionar archivo</translation>
-    </message>
-    <message>
-        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation>Archivos de audio (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -6877,6 +6881,10 @@ para mostrar las acciones</translation>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
         <translation>¿Desea importar &lt;b&gt;%1&lt;/b&gt; desde &lt;b&gt;%2&lt;/b&gt; a %3?</translation>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
