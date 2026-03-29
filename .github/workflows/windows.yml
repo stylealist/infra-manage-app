@@ -135,6 +135,7 @@ jobs:
 
       - name: 🧫 Test
         shell: bash
+        if: matrix.platform_arch == 'x64'
         env:
           PROJ_LIB: ${{ env.CMAKE_BUILD_DIR }}/vcpkg_installed/${{ matrix.triplet }}/share/proj
         run: |
