@@ -475,6 +475,7 @@ RelationEditorBase {
               visible: attachmentIsAudio
 
               Repeater {
+                id: listWaveformRepeater
                 model: 18
 
                 property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
@@ -482,7 +483,7 @@ RelationEditorBase {
                 Rectangle {
                   width: 2
                   height: {
-                    const seed = (pathHash + index) * 0.3;
+                    const seed = (listWaveformRepeater.pathHash + index) * 0.3;
                     const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
                     return Math.min(h, 44);
                   }
@@ -494,11 +495,46 @@ RelationEditorBase {
               }
             }
 
+            //Document placeholder
+            Item {
+              anchors.centerIn: parent
+              width: 32
+              height: 32
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath !== ""
+
+              Image {
+                anchors.fill: parent
+                source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+                fillMode: Image.PreserveAspectFit
+                opacity: 0.3
+              }
+
+              Rectangle {
+                anchors.centerIn: parent
+                width: Math.min(listSuffixText.contentWidth + 6, parent.width)
+                height: listSuffixText.contentHeight + 2
+                radius: 2
+                color: Theme.controlBorderColor
+                visible: listSuffixText.text !== ""
+
+                Text {
+                  id: listSuffixText
+                  anchors.centerIn: parent
+                  text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+                  font.pointSize: Theme.tinyFont.pointSize
+                  font.weight: Font.Bold
+                  color: Theme.mainTextColor
+                  opacity: 0.6
+                }
+              }
+            }
+
+            // Empty attachment placeholder
             Image {
               anchors.centerIn: parent
               width: 28
               height: 28
-              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
               source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
               fillMode: Image.PreserveAspectFit
               opacity: 0.3
@@ -762,6 +798,8 @@ RelationEditorBase {
             spacing: 2
 
             Repeater {
+              id: gridWaveformRepeater
+
               model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
 
               property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
@@ -769,7 +807,7 @@ RelationEditorBase {
               Rectangle {
                 width: 3
                 height: {
-                  const seed = (pathHash + index) * 0.3;
+                  const seed = (gridWaveformRepeater.pathHash + index) * 0.3;
                   const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
                   return Math.max(4, waveformBars.height * h);
                 }
@@ -825,13 +863,50 @@ RelationEditorBase {
           }
         }
 
+        //Document placeholder
+        Item {
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.verticalCenter: parent.verticalCenter
+          anchors.verticalCenterOffset: -(detailsBar.height / 2)
+          width: 48
+          height: 48
+          visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath !== ""
+
+          Image {
+            anchors.fill: parent
+            source: Theme.getThemeVectorIcon("ic_file_black_24dp")
+            fillMode: Image.PreserveAspectFit
+            opacity: 0.3
+          }
+
+          Rectangle {
+            anchors.centerIn: parent
+            width: Math.min(gridSuffixText.contentWidth + 8, parent.width)
+            height: gridSuffixText.contentHeight + 4
+            radius: 2
+            color: Theme.controlBorderColor
+            visible: gridSuffixText.text !== ""
+
+            Text {
+              id: gridSuffixText
+              anchors.centerIn: parent
+              text: FileUtils.fileSuffix(attachmentFullPath).toUpperCase()
+              font.pointSize: Theme.tinyFont.pointSize
+              font.weight: Font.Bold
+              color: Theme.mainTextColor
+              opacity: 0.6
+            }
+          }
+        }
+
+        // Empty attachment placeholder
         Image {
           anchors.horizontalCenter: parent.horizontalCenter
           anchors.verticalCenter: parent.verticalCenter
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
@@ -884,7 +959,7 @@ RelationEditorBase {
 
             text: model.displayString
             color: Theme.mainTextColor
-            font.pixelSize: Theme.tipFont.pixelSize
+            font.pointSize: Theme.tipFont.pointSize
             font.weight: Font.Medium
             elide: Text.ElideRight
           }
