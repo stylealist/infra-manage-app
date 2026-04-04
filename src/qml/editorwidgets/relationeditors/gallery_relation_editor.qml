@@ -78,26 +78,28 @@ RelationEditorBase {
 
   readonly property int visibleCards: Math.max(2, Math.floor(gridView.width / 180))
   readonly property int cardSize: Math.floor(gridView.width / (visibleCards + 0.5))
+  readonly property int listItemHeight: 72
   readonly property int toggleHeight: 40
+  readonly property int gridMargin: 8
 
   bottomMargin: 10 + toggleHeight
 
   height: {
     if (isGridView) {
-      return cardSize + 16 + headerEntry.height + 10 + toggleHeight;
+      return cardSize + gridMargin * 2 + headerEntry.height + 10 + toggleHeight;
     }
-    const contentH = Math.min(gridView.contentHeight, mainWindow.height * 0.6);
-    return contentH + headerEntry.height + 10 + toggleHeight;
+    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    return cappedHeight + headerEntry.height + 10 + toggleHeight;
   }
 
   gridView.flow: isGridView ? GridView.FlowTopToBottom : GridView.FlowLeftToRight
   gridView.flickableDirection: isGridView ? Flickable.HorizontalFlick : Flickable.VerticalFlick
-  gridView.topMargin: isGridView ? 8 : 0
-  gridView.bottomMargin: isGridView ? 8 : 0
+  gridView.topMargin: isGridView ? gridMargin : 0
+  gridView.bottomMargin: isGridView ? gridMargin : 0
   gridView.ScrollBar.vertical.policy: isGridView ? ScrollBar.AlwaysOff : ScrollBar.AsNeeded
 
   gridView.cellWidth: isGridView ? cardSize : gridView.width
-  gridView.cellHeight: isGridView ? cardSize : 72
+  gridView.cellHeight: isGridView ? cardSize : listItemHeight
 
   gridView.model: DelegateModel {
     model: referencingFeatureListModel
@@ -189,25 +191,29 @@ RelationEditorBase {
 
   QfSwitch {
     id: viewSwitch
+
+    readonly property int slotSize: 36
+    readonly property int highlightInset: 1
+
     anchors.right: parent.right
     anchors.rightMargin: 1
     anchors.bottom: parent.bottom
     anchors.bottomMargin: 2
     padding: 0
-    width: 76
+    width: slotSize * 2 + 4
     height: toggleHeight
     checked: !isGridView
     indicator: Rectangle {
-      implicitHeight: 36
-      implicitWidth: 36 * 2
+      implicitHeight: viewSwitch.slotSize
+      implicitWidth: viewSwitch.slotSize * 2
       x: (viewSwitch.width - implicitWidth) / 2
       radius: 4
       color: Theme.controlBorderColor
       anchors.verticalCenter: parent.verticalCenter
 
       QfToolButton {
-        width: 36
-        height: 36
+        width: viewSwitch.slotSize
+        height: viewSwitch.slotSize
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
         round: false
@@ -219,8 +225,8 @@ RelationEditorBase {
       }
 
       QfToolButton {
-        width: 36
-        height: 36
+        width: viewSwitch.slotSize
+        height: viewSwitch.slotSize
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         round: false
@@ -232,17 +238,18 @@ RelationEditorBase {
       }
 
       Rectangle {
-        x: viewSwitch.checked ? parent.width - width - 1 : 1
-        y: 1
-        width: 34
-        height: 34
+        readonly property int inset: viewSwitch.highlightInset
+        x: viewSwitch.checked ? parent.width - width - inset : inset
+        y: inset
+        width: viewSwitch.slotSize - inset * 2
+        height: viewSwitch.slotSize - inset * 2
         radius: 3
         color: Theme.mainBackgroundColor
         clip: true
 
         QfToolButton {
-          width: 36
-          height: 36
+          width: viewSwitch.slotSize
+          height: viewSwitch.slotSize
           anchors.centerIn: parent
           round: false
           hoverEnabled: false

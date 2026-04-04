@@ -36,7 +36,10 @@ EditorWidgetBase {
     }
   }
 
-  height: footer.visible ? Math.min(gridView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + footer.height + 10 : gridView.contentHeight + headerEntry.height + 10
+  height: {
+    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    return cappedHeight + headerEntry.height + (footer.visible ? footer.height : 0) + 10;
+  }
   enabled: true
 
   Rectangle {
