@@ -58,9 +58,15 @@ Item {
   property bool zoomRunning: false
 
   function startPanInertia() {
+    const now = Date.now();
+    while (panSamples.length > 1 && now - panSamples[0].time > 100) {
+      panSamples.shift();
+    }
+
     if (panSamples.length < 2) {
       return;
     }
+
     const first = panSamples[0];
     const last = panSamples[panSamples.length - 1];
     const dt = last.time - first.time;
@@ -87,9 +93,15 @@ Item {
   }
 
   function startZoomInertia(center) {
+    const now = Date.now();
+    while (zoomSamples.length > 1 && now - zoomSamples[0].time > 150) {
+      zoomSamples.shift();
+    }
+
     if (zoomSamples.length < 2) {
       return;
     }
+
     const first = zoomSamples[0];
     const last = zoomSamples[zoomSamples.length - 1];
     const dt = last.time - first.time;
