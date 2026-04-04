@@ -168,8 +168,9 @@ EditorWidgetBase {
     GridView {
       id: gridView
       anchors.top: headerEntry.bottom
-      anchors.bottom: footer.visible ? footer.top : parent.bottom
-      width: parent.width
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height
 
       // Default to single-column list layout, subclasses can override
       cellWidth: width
