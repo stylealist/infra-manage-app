@@ -305,7 +305,8 @@ Item {
     dragThreshold: 5
 
     property var oldPos
-    property real oldTranslationY
+    property real oldTranslationY: 0
+    property real activeScale: 1.0
 
     property bool isZooming: false
     property bool isPanning: false
@@ -316,8 +317,11 @@ Item {
         kineticHandler.stopAll();
         if (mainTapHandler.doublePressed) {
           oldTranslationY = 0;
+          activeScale = 1.0;
           zoomCenter = centroid.position;
           isZooming = true;
+          kineticHandler.resetZoomSamples();
+          kineticHandler.addZoomSample(1.0);
           freeze('zoom');
         } else {
           oldPos = centroid.position;
@@ -329,9 +333,10 @@ Item {
       } else {
         if (isPanning) {
           kineticHandler.startPanInertia();
-        }
-        if (isZooming || isPanning) {
-          unfreeze(isZooming ? 'zoom' : 'pan');
+          unfreeze('pan');
+        } else if (isZooming) {
+          kineticHandler.startZoomInertia(centroid.position);
+          unfreeze('zoom');
         }
         isZooming = false;
         isPanning = false;
@@ -341,6 +346,8 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
+          activeScale += (1 - Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          kineticHandler.addZoomSample(activeScale);
           mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
@@ -425,7 +432,8 @@ Item {
     dragThreshold: 5
 
     property var oldPos
-    property real oldTranslationY
+    property real oldTranslationY: 0.0
+    property real activeScale: 1.0
 
     property bool isZooming: false
     property bool isPanning: false
@@ -438,8 +446,11 @@ Item {
         }
         if (mainTapHandler.doublePressed) {
           oldTranslationY = 0;
+          activeScale = 1.0;
           zoomCenter = centroid.position;
           isZooming = true;
+          kineticHandler.resetZoomSamples();
+          kineticHandler.addZoomSample(1.0);
           freeze('zoom');
         } else {
           oldPos = centroid.position;
@@ -451,9 +462,10 @@ Item {
       } else {
         if (isPanning) {
           kineticHandler.startPanInertia();
-        }
-        if (isZooming || isPanning) {
-          unfreeze(isZooming ? 'zoom' : 'pan');
+          unfreeze('pan');
+        } else if (isZooming) {
+          kineticHandler.startZoomInertia(centroid.position);
+          unfreeze('zoom');
         }
         isZooming = false;
         isPanning = false;
@@ -463,6 +475,8 @@ Item {
     onCentroidChanged: {
       if (active) {
         if (isZooming) {
+          activeScale += (1 - Math.pow(0.8, (translation.y - oldTranslationY) / 60));
+          kineticHandler.addZoomSample(activeScale);
           mapCanvasWrapper.zoomByFactor(zoomCenter, Math.pow(0.8, (translation.y - oldTranslationY) / 60));
           oldTranslationY = translation.y;
         } else if (isPanning) {
