@@ -21,6 +21,7 @@
         <file>GridRenderer.qml</file>
         <file>LinePolygon.qml</file>
         <file>LocationMarker.qml</file>
+        <file>KineticHandler.qml</file>
         <file>MapCanvas.qml</file>
         <file>MapCanvasPointHandler.qml</file>
         <file>MeasuringTool.qml</file>
