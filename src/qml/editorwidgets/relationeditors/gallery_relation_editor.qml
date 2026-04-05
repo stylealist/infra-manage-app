@@ -86,6 +86,9 @@ RelationEditorBase {
 
   height: {
     if (isGridView) {
+      if (itemCount === 0) {
+        return headerEntry.height + 10 + toggleHeight;
+      }
       return cardSize + gridMargin * 2 + headerEntry.height + 10 + toggleHeight;
     }
     const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
@@ -199,6 +202,7 @@ RelationEditorBase {
     anchors.rightMargin: 1
     anchors.bottom: parent.bottom
     anchors.bottomMargin: 2
+    visible: itemCount > 0
     padding: 0
     width: slotSize * 2 + 4
     height: toggleHeight
@@ -208,7 +212,7 @@ RelationEditorBase {
       implicitWidth: viewSwitch.slotSize * 2
       x: (viewSwitch.width - implicitWidth) / 2
       radius: 4
-      color: Theme.controlBorderColor
+      color: "transparent"
       anchors.verticalCenter: parent.verticalCenter
 
       QfToolButton {
@@ -245,6 +249,8 @@ RelationEditorBase {
         height: viewSwitch.slotSize - inset * 2
         radius: 3
         color: Theme.mainBackgroundColor
+        border.color: Theme.controlBorderColor
+        border.width: 1
         clip: true
 
         QfToolButton {
