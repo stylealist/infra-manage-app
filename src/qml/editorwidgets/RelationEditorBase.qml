@@ -36,7 +36,10 @@ EditorWidgetBase {
     }
   }
 
-  height: footer.visible ? Math.min(gridView.contentHeight, mainWindow.height * 0.6) + headerEntry.height + footer.height + 10 : gridView.contentHeight + headerEntry.height + 10
+  height: {
+    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    return cappedHeight + headerEntry.height + (footer.visible ? footer.height : 0) + 10;
+  }
   enabled: true
 
   Rectangle {
@@ -168,8 +171,9 @@ EditorWidgetBase {
     GridView {
       id: gridView
       anchors.top: headerEntry.bottom
-      anchors.bottom: footer.visible ? footer.top : parent.bottom
-      width: parent.width
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height
 
       // Default to single-column list layout, subclasses can override
       cellWidth: width
