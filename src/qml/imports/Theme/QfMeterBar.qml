@@ -12,9 +12,11 @@ Item {
   id: meterBar
 
   property alias value: progressBar.value
-  property alias usedText: usedLabel.text
-  property alias totalText: totalLabel.text
-  property alias relatedUrl: linkItem.url
+
+  property alias showTitleLabel: titleLabel.visible
+  property alias showUsageLabel: usageLabel.visible
+  property alias usageText: usageLabel.text
+  property string relatedUrl: ""
 
   property color normalColor: Theme.qfieldcloudBlue
   property color warningColor: Theme.warningColor
@@ -24,51 +26,40 @@ Item {
   property int animationDuration: 1000
   property int barHeight: 8
 
-  function formatStorageSize(bytes) {
-    if (bytes < 1000 * 1000 * 1000) {
-      return (bytes / (1000 * 1000)).toFixed(0) + " MB";
-    }
-    return (bytes / (1000 * 1000 * 1000)).toFixed(2) + " GB";
-  }
-
   implicitHeight: content.implicitHeight
-  implicitWidth: content.implicitWidth
 
   ColumnLayout {
     id: content
-    anchors.fill: parent
+    width: parent.width
     spacing: 8
 
-    Item {
-      id: linkItem
+    RowLayout {
+      id: titleLabel
       Layout.fillWidth: true
-      implicitHeight: linkRow.implicitHeight
 
-      property string url: ""
-      property bool isCritical: value >= meterBar.criticalThreshold
-      property bool hasUrl: url !== ""
-
-      Row {
-        id: linkRow
-        spacing: 8
-
-        Label {
-          text: {
-            if (!linkItem.hasUrl) {
-              return qsTr("Storage");
-            }
-            return linkItem.isCritical ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
+      Label {
+        Layout.alignment: Qt.AlignVCenter
+        Layout.maximumWidth: content.width - 14
+        text: {
+          if (meterBar.relatedUrl === "") {
+            return qsTr("Storage");
           }
-          font: Theme.tipFont
-          color: Theme.mainTextColor
-          anchors.verticalCenter: parent.verticalCenter
+          return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
         }
+        font: Theme.tipFont
+        color: Theme.mainTextColor
+        wrapMode: Text.WordWrap
+      }
+
+      Item {
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
 
         Shape {
           width: 10
           height: 10
           anchors.verticalCenter: parent.verticalCenter
-          visible: linkItem.hasUrl
+          visible: meterBar.relatedUrl !== ""
 
           ShapePath {
             strokeWidth: 1.5
@@ -155,30 +146,21 @@ Item {
       }
     }
 
-    RowLayout {
+    Label {
+      id: usageLabel
       Layout.fillWidth: true
-
-      Label {
-        id: usedLabel
-        Layout.fillWidth: true
-        font: Theme.tipFont
-        color: Theme.mainTextColor
-      }
-
-      Label {
-        id: totalLabel
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
-      }
+      font: Theme.tipFont
+      color: Theme.secondaryTextColor
+      wrapMode: Text.WordWrap
     }
   }
 
   MouseArea {
     anchors.fill: parent
-    cursorShape: linkItem.hasUrl ? Qt.PointingHandCursor : Qt.ArrowCursor
+    cursorShape: meterBar.relatedUrl !== "" ? Qt.PointingHandCursor : Qt.ArrowCursor
     onClicked: {
-      if (linkItem.hasUrl) {
-        Qt.openUrlExternally(linkItem.url);
+      if (meterBar.relatedUrl !== "") {
+        Qt.openUrlExternally(meterBar.relatedUrl);
       }
     }
   }
