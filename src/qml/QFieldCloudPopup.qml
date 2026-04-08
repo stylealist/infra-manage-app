@@ -925,8 +925,7 @@ Popup {
 
   function showStorageBar(usedBytes, totalBytes) {
     storageMeterBar.value = usedBytes / totalBytes;
-    storageMeterBar.usedText = qsTr("%1 used").arg(FileUtils.representFileSize(usedBytes, true));
-    storageMeterBar.totalText = qsTr("of %1").arg(FileUtils.representFileSize(totalBytes, true));
+    storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
     storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
     storageMeterBar.visible = true;
   }

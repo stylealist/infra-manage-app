@@ -12,9 +12,11 @@ Item {
   id: meterBar
 
   property alias value: progressBar.value
-  property alias usedText: usedLabel.text
-  property alias totalText: totalLabel.text
-  property alias relatedUrl: linkItem.url
+
+  property alias showTopLabel: topLabelItem.visible
+  property alias showUsageLabel: usageLabel.visible
+  property alias usageText: usageLabel.text
+  property string relatedUrl: ""
 
   property color normalColor: Theme.qfieldcloudBlue
   property color warningColor: Theme.warningColor
@@ -33,13 +35,9 @@ Item {
     spacing: 8
 
     Item {
-      id: linkItem
+      id: topLabelItem
       Layout.fillWidth: true
       implicitHeight: linkRow.implicitHeight
-
-      property string url: ""
-      property bool isCritical: value >= meterBar.criticalThreshold
-      property bool hasUrl: url !== ""
 
       Row {
         id: linkRow
@@ -47,10 +45,10 @@ Item {
 
         Label {
           text: {
-            if (!linkItem.hasUrl) {
+            if (meterBar.relatedUrl === "") {
               return qsTr("Storage");
             }
-            return linkItem.isCritical ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
+            return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
           }
           font: Theme.tipFont
           color: Theme.mainTextColor
@@ -61,7 +59,7 @@ Item {
           width: 10
           height: 10
           anchors.verticalCenter: parent.verticalCenter
-          visible: linkItem.hasUrl
+          visible: meterBar.relatedUrl !== ""
 
           ShapePath {
             strokeWidth: 1.5
@@ -148,30 +146,20 @@ Item {
       }
     }
 
-    RowLayout {
+    Label {
+      id: usageLabel
       Layout.fillWidth: true
-
-      Label {
-        id: usedLabel
-        Layout.fillWidth: true
-        font: Theme.tipFont
-        color: Theme.mainTextColor
-      }
-
-      Label {
-        id: totalLabel
-        font: Theme.tipFont
-        color: Theme.secondaryTextColor
-      }
+      font: Theme.tipFont
+      color: Theme.secondaryTextColor
     }
   }
 
   MouseArea {
     anchors.fill: parent
-    cursorShape: linkItem.hasUrl ? Qt.PointingHandCursor : Qt.ArrowCursor
+    cursorShape: meterBar.relatedUrl !== "" ? Qt.PointingHandCursor : Qt.ArrowCursor
     onClicked: {
-      if (linkItem.hasUrl) {
-        Qt.openUrlExternally(linkItem.url);
+      if (meterBar.relatedUrl !== "") {
+        Qt.openUrlExternally(meterBar.relatedUrl);
       }
     }
   }
