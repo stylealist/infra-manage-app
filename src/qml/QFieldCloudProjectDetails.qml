@@ -34,8 +34,8 @@ ColumnLayout {
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
-        detailsStorageMeter.usedText = qsTr("%1 used").arg(detailsStorageMeter.formatStorageSize(subscriptionInformation.storageUsed));
-        detailsStorageMeter.totalText = qsTr("of %1").arg(detailsStorageMeter.formatStorageSize(subscriptionInformation.storageTotal));
+        detailsStorageMeter.usedText = qsTr("%1 used").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true));
+        detailsStorageMeter.totalText = qsTr("of %1").arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
         detailsStorageMeter.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
         detailsStorageMeter.visible = true;
       }
