@@ -13,7 +13,7 @@ Item {
 
   property alias value: progressBar.value
 
-  property alias showTopLabel: topLabelItem.visible
+  property alias showTitleLabel: titleLabel.visible
   property alias showUsageLabel: usageLabel.visible
   property alias usageText: usageLabel.text
   property string relatedUrl: ""
@@ -27,33 +27,33 @@ Item {
   property int barHeight: 8
 
   implicitHeight: content.implicitHeight
-  implicitWidth: content.implicitWidth
 
   ColumnLayout {
     id: content
-    anchors.fill: parent
+    width: parent.width
     spacing: 8
 
-    Item {
-      id: topLabelItem
+    RowLayout {
+      id: titleLabel
       Layout.fillWidth: true
-      implicitHeight: linkRow.implicitHeight
 
-      Row {
-        id: linkRow
-        spacing: 8
-
-        Label {
-          text: {
-            if (meterBar.relatedUrl === "") {
-              return qsTr("Storage");
-            }
-            return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
+      Label {
+        Layout.alignment: Qt.AlignVCenter
+        Layout.maximumWidth: content.width - 14
+        text: {
+          if (meterBar.relatedUrl === "") {
+            return qsTr("Storage");
           }
-          font: Theme.tipFont
-          color: Theme.mainTextColor
-          anchors.verticalCenter: parent.verticalCenter
+          return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
         }
+        font: Theme.tipFont
+        color: Theme.mainTextColor
+        wrapMode: Text.WordWrap
+      }
+
+      Item {
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
 
         Shape {
           width: 10
@@ -151,6 +151,7 @@ Item {
       Layout.fillWidth: true
       font: Theme.tipFont
       color: Theme.secondaryTextColor
+      wrapMode: Text.WordWrap
     }
   }
 

@@ -149,7 +149,7 @@ ColumnLayout {
           id: detailsStorageMeter
           Layout.fillWidth: true
           visible: false
-          showTopLabel: false
+          showTitleLabel: false
         }
 
         ColumnLayout {
