@@ -51,7 +51,7 @@ class QFIELD_CORE_EXPORT FileUtils : public QObject
     //! Returns the suffix (extension)
     Q_INVOKABLE static QString fileSuffix( const QString &filePath );
     //! Returns a human-friendly size from bytes
-    Q_INVOKABLE static QString representFileSize( qint64 bytesm, bool decimalRepresentation = false );
+    Q_INVOKABLE static QString representFileSize( qint64 bytes, bool decimalRepresentation = false );
     //! Tries to convert the given \a filePath with path to a cross OS valid file name with path
     Q_INVOKABLE static QString sanitizeFilePath( const QString &filePath, const QString &replacement = QLatin1String( "_" ) );
     //! Tries to convert the given \a filePathPart to a cross OS valid file name part
