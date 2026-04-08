@@ -81,6 +81,11 @@ Popup {
             visible: false
           }
 
+          Item {
+            Layout.fillWidth: true
+            visible: !storageMeterBar.visible
+          }
+
           Rectangle {
             id: cloudAvatarRect
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
@@ -131,11 +136,8 @@ Popup {
                 onClicked: {
                   if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
                     return;
-                  if (!connectionSettings.visible) {
-                    connectionSettings.visible = true;
-                  } else {
-                    connectionSettings.visible = false;
-                  }
+                  connectionSettings.visible = !connectionSettings.visible;
+                  storageMeterBar.visible = Qt.binding(() => storageMeterBar.value > 0 && !connectionSettings.visible);
                 }
               }
             }
@@ -714,8 +716,7 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
-        // TODO: remove test call once storage API is integrated
-        showStorageBar(0.40, 1);
+        fetchSubscriptionInformation();
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
@@ -736,6 +737,12 @@ Popup {
 
     function onPendingAttachmentsUploadFinished() {
       uploadLabel.text = "";
+    }
+
+    function onSubscriptionInformationReceived(subscriptionInformation) {
+      if (subscriptionInformation.storageTotal > 0) {
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal);
+      }
     }
   }
 
@@ -856,6 +863,9 @@ Popup {
       }
       cloudConnection.getAuthenticationProviders();
     }
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      fetchSubscriptionInformation();
+    }
     if (cloudConnection.status === QFieldCloudConnection.Connecting) {
       displayToast(qsTr('Connecting cloud'));
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isProjectOutdated) {
@@ -904,13 +914,20 @@ Popup {
     }
   }
 
-  function showStorageBar(usedStorage, totalStorage) {
-    storageMeterBar.value = usedStorage / totalStorage;
-    storageMeterBar.usedText = qsTr("%1 GB used").arg(usedStorage);
-    storageMeterBar.totalText = qsTr("of %1 GB").arg(totalStorage);
-    if (usedStorage / totalStorage >= 0.975) {
-      storageMeterBar.upgradeUrl = "https://app.qfield.cloud/account";
+  function fetchSubscriptionInformation() {
+    storageMeterBar.visible = false;
+    storageMeterBar.value = 0;
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      cloudConnection.getSubscriptionInformation(owner);
     }
+  }
+
+  function showStorageBar(usedBytes, totalBytes) {
+    storageMeterBar.value = usedBytes / totalBytes;
+    storageMeterBar.usedText = qsTr("%1 used").arg(storageMeterBar.formatStorageSize(usedBytes));
+    storageMeterBar.totalText = qsTr("of %1").arg(storageMeterBar.formatStorageSize(totalBytes));
+    storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
     storageMeterBar.visible = true;
   }
 }

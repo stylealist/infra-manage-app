@@ -501,6 +501,33 @@ void QFieldCloudConnection::logout()
   setStatus( ConnectionStatus::Disconnected );
 }
 
+void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
+{
+  if ( mStatus != ConnectionStatus::LoggedIn )
+  {
+    return;
+  }
+
+  NetworkReply *reply = get( QStringLiteral( "/api/v1/subscriptions/%1/current/" ).arg( user ) );
+
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    reply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch subscription information: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
+    const QJsonObject obj = doc.object();
+
+    const CloudSubscriptionInformation subscriptionInformation( obj );
+    emit subscriptionInformationReceived( subscriptionInformation );
+  } );
+}
+
 QFieldCloudConnection::ConnectionStatus QFieldCloudConnection::status() const
 {
   return mStatus;
