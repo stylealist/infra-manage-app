@@ -35,7 +35,7 @@ ColumnLayout {
       if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
         detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
         detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
-        detailsStorageMeter.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
+        detailsStorageMeter.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl && projectDetails.cloudProject.owner === cloudConnection.username ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
         detailsStorageMeter.visible = true;
       }
     }
