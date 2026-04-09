@@ -112,25 +112,7 @@ QgsFeature ReferencingFeatureListModelBase::feature() const
 void ReferencingFeatureListModelBase::setRelation( const QgsRelation &relation )
 {
   mRelation = relation;
-
-  mAttachmentFieldName.clear();
-  mAttachmentFieldIndex = -1;
-  mAttachmentDocumentViewer = 0;
-  QgsVectorLayer *layer = mRelation.referencingLayer();
-  if ( layer )
-  {
-    for ( int i = 0; i < layer->fields().count(); i++ )
-    {
-      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
-      {
-        mAttachmentFieldName = layer->fields().at( i ).name();
-        mAttachmentFieldIndex = i;
-        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
-        break;
-      }
-    }
-  }
-
+  updateAttachmentFieldInfo();
   reload();
 }
 
@@ -152,24 +134,7 @@ void ReferencingFeatureListModelBase::setCurrentRelationId( const QString &relat
   }
 
   mRelation = QgsProject::instance()->relationManager()->relation( relationId );
-
-  mAttachmentFieldName.clear();
-  mAttachmentFieldIndex = -1;
-  mAttachmentDocumentViewer = 0;
-  QgsVectorLayer *layer = mRelation.referencingLayer();
-  if ( layer )
-  {
-    for ( int i = 0; i < layer->fields().count(); i++ )
-    {
-      if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
-      {
-        mAttachmentFieldName = layer->fields().at( i ).name();
-        mAttachmentFieldIndex = i;
-        mAttachmentDocumentViewer = layer->editorWidgetSetup( i ).config().value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
-        break;
-      }
-    }
-  }
+  updateAttachmentFieldInfo();
 
   emit relationChanged();
   reload();
@@ -364,6 +329,56 @@ int ReferencingFeatureListModelBase::attachmentDocumentViewer() const
   return mAttachmentDocumentViewer;
 }
 
+QString ReferencingFeatureListModelBase::attachmentStorageType() const
+{
+  return mAttachmentStorageType;
+}
+
+QString ReferencingFeatureListModelBase::attachmentStorageAuthConfigId() const
+{
+  return mAttachmentStorageAuthConfigId;
+}
+
+QString ReferencingFeatureListModelBase::attachmentStorageUrl() const
+{
+  return mAttachmentStorageUrl;
+}
+
+void ReferencingFeatureListModelBase::updateAttachmentFieldInfo()
+{
+  mAttachmentFieldName.clear();
+  mAttachmentFieldIndex = -1;
+  mAttachmentDocumentViewer = 0;
+  mAttachmentStorageType.clear();
+  mAttachmentStorageAuthConfigId.clear();
+  mAttachmentStorageUrl.clear();
+
+  QgsVectorLayer *layer = mRelation.referencingLayer();
+  if ( !layer )
+  {
+    return;
+  }
+
+  for ( int i = 0; i < layer->fields().count(); i++ )
+  {
+    if ( layer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+    {
+      const QVariantMap config = layer->editorWidgetSetup( i ).config();
+      mAttachmentFieldName = layer->fields().at( i ).name();
+      mAttachmentFieldIndex = i;
+      mAttachmentDocumentViewer = config.value( QStringLiteral( "DocumentViewer" ), 0 ).toInt();
+      mAttachmentStorageType = config.value( QStringLiteral( "StorageType" ) ).toString();
+      mAttachmentStorageAuthConfigId = config.value( QStringLiteral( "StorageAuthConfigId" ) ).toString();
+      mAttachmentStorageUrl = config.value( QStringLiteral( "StorageUrl" ) ).toString();
+      if ( !mAttachmentStorageUrl.isEmpty() && !mAttachmentStorageUrl.endsWith( QLatin1Char( '/' ) ) )
+      {
+        mAttachmentStorageUrl.append( QLatin1Char( '/' ) );
+      }
+      break;
+    }
+  }
+}
+
 bool ReferencingFeatureListModelBase::checkParentPrimaries()
 {
   if ( !mRelation.isValid() || !mFeature.isValid() )
@@ -513,6 +528,21 @@ QString ReferencingFeatureListModel::attachmentFieldName() const
 int ReferencingFeatureListModel::attachmentDocumentViewer() const
 {
   return mSourceModel->attachmentDocumentViewer();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageType() const
+{
+  return mSourceModel->attachmentStorageType();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageAuthConfigId() const
+{
+  return mSourceModel->attachmentStorageAuthConfigId();
+}
+
+QString ReferencingFeatureListModel::attachmentStorageUrl() const
+{
+  return mSourceModel->attachmentStorageUrl();
 }
 
 Qt::SortOrder ReferencingFeatureListModel::sortOrder() const

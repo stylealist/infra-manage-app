@@ -22,7 +22,6 @@ RelationEditorBase {
   }
 
   property int documentViewer: referencingFeatureListModel.attachmentDocumentViewer
-
   property var activeMediaItem: null
 
   function requestMediaFocus(item) {
@@ -58,6 +57,81 @@ RelationEditorBase {
     stopAllMedia();
     relationCameraLoader.active = false;
     relationAudioRecorderLoader.active = false;
+  }
+
+  property var pendingDownloads: ({})
+  property var failedDownloads: ({})
+  property var fetchedPaths: ({})
+  property int downloadRevision: 0
+
+  // ExternalStorage handles one fetch at a time, so requests are queued and dispatched sequentially as each one completes
+  property var fetchQueue: []
+  property string currentFetchKey: ""
+
+  function enqueueExternalFetch(relativePath, fetchUrl, authConfigId) {
+    fetchQueue.push({
+      key: relativePath,
+      url: fetchUrl,
+      authId: authConfigId
+    });
+    processNextFetch();
+  }
+
+  function processNextFetch() {
+    if (currentFetchKey !== "" || fetchQueue.length === 0)
+      return;
+    const next = fetchQueue.shift();
+    currentFetchKey = next.key;
+    externalStorage.fetch(next.url, next.authId);
+  }
+
+  QtObject {
+    id: dummyTarget
+  }
+  Connections {
+    id: cloudProjectConnection
+    ignoreUnknownSignals: true
+    target: dummyTarget
+
+    function onDownloadAttachmentFinished(fileName, errorString) {
+      if (relationEditor.pendingDownloads.hasOwnProperty(fileName)) {
+        delete relationEditor.pendingDownloads[fileName];
+        if (errorString !== "") {
+          relationEditor.failedDownloads[fileName] = true;
+          displayToast(qsTr("QFieldCloud on-demand attachment error: ") + errorString, 'error');
+        }
+        if (Object.keys(relationEditor.pendingDownloads).length === 0) {
+          cloudProjectConnection.target = dummyTarget;
+        }
+        relationEditor.downloadRevision++;
+      }
+    }
+  }
+
+  ExternalStorage {
+    id: externalStorage
+    type: referencingFeatureListModel.attachmentStorageType
+
+    onFetchedContentChanged: {
+      if (fetchedContent === "" || relationEditor.currentFetchKey === "")
+        return;
+      relationEditor.fetchedPaths[relationEditor.currentFetchKey] = fetchedContent;
+      delete relationEditor.pendingDownloads[relationEditor.currentFetchKey];
+      relationEditor.currentFetchKey = "";
+      relationEditor.downloadRevision++;
+      relationEditor.processNextFetch();
+    }
+
+    onLastErrorChanged: {
+      if (relationEditor.currentFetchKey !== "") {
+        relationEditor.failedDownloads[relationEditor.currentFetchKey] = true;
+        delete relationEditor.pendingDownloads[relationEditor.currentFetchKey];
+        relationEditor.currentFetchKey = "";
+        relationEditor.downloadRevision++;
+        relationEditor.processNextFetch();
+      }
+      displayToast(lastError, 'error');
+    }
   }
 
   property ResourceSource resourceSource
@@ -331,6 +405,8 @@ RelationEditorBase {
   }
 
   function resolveAttachmentPath(path) {
+    void (downloadRevision);
+
     if (!path || path === "") {
       return "";
     }
@@ -340,7 +416,34 @@ RelationEditorBase {
     if (FileUtils.fileExists(path)) {
       return path;
     }
-    return imagePrefix + path;
+    const fullPath = imagePrefix + path;
+    if (FileUtils.fileExists(fullPath)) {
+      return fullPath;
+    }
+    if (fetchedPaths.hasOwnProperty(path)) {
+      return fetchedPaths[path];
+    }
+    if (pendingDownloads.hasOwnProperty(path) || failedDownloads.hasOwnProperty(path)) {
+      return "";
+    }
+    // File not found locally; attempt on-demand download
+    if (externalStorage.type !== "") {
+      const authConfigId = referencingFeatureListModel.attachmentStorageAuthConfigId;
+      if (authConfigId !== "" && !iface.isAuthenticationConfigurationAvailable(authConfigId)) {
+        failedDownloads[path] = true;
+        mainWindow.displayToast(qsTr("The external storage's authentication configuration ID is missing, please insure it is imported into %1").arg(appName), "error", qsTr("Learn more"), function () {
+          Qt.openUrlExternally('https://docs.qfield.org/how-to/advanced-how-tos/authentication/');
+        });
+      } else {
+        pendingDownloads[path] = true;
+        enqueueExternalFetch(path, referencingFeatureListModel.attachmentStorageUrl + path, authConfigId);
+      }
+    } else if (cloudProjectsModel && cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.attachmentsOnDemandEnabled) {
+      pendingDownloads[path] = true;
+      cloudProjectConnection.target = cloudProjectsModel.currentProject;
+      cloudProjectsModel.currentProject.downloadAttachment(path);
+    }
+    return "";
   }
 
   Loader {
@@ -398,11 +501,19 @@ RelationEditorBase {
       width: gridView.cellWidth
       height: gridView.cellHeight
 
-      readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
+      property string attachmentFullPath: ""
+      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Connections {
+        target: relationEditor
+        function onDownloadRevisionChanged() {
+          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+        }
+      }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
 
       Loader {
         id: listVideoThumbLoader
@@ -568,10 +679,18 @@ RelationEditorBase {
               anchors.centerIn: parent
               width: 28
               height: 28
-              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
+              visible: !attachmentIsImage && !attachmentIsVideo && !attachmentIsAudio && !attachmentFetching && attachmentFullPath === ""
               source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
               fillMode: Image.PreserveAspectFit
               opacity: 0.3
+            }
+
+            BusyIndicator {
+              anchors.centerIn: parent
+              width: 32
+              height: 32
+              running: attachmentFetching
+              visible: running
             }
 
             Rectangle {
@@ -657,11 +776,19 @@ RelationEditorBase {
       width: gridView.cellWidth
       height: gridView.cellHeight
 
-      readonly property string attachmentFullPath: resolveAttachmentPath(model.attachmentPath)
+      property string attachmentFullPath: ""
+      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Connections {
+        target: relationEditor
+        function onDownloadRevisionChanged() {
+          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+        }
+      }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
       readonly property bool attachmentIsVideo: attachmentMimeType.startsWith("video/")
       readonly property bool attachmentIsAudio: attachmentMimeType.startsWith("audio/")
       readonly property bool attachmentIsImage: attachmentMimeType.startsWith("image/") && FileUtils.isImageMimeTypeSupported(attachmentMimeType)
+      readonly property bool attachmentFetching: model.attachmentPath !== "" && attachmentFullPath === "" && relationEditor.pendingDownloads.hasOwnProperty(model.attachmentPath)
 
       Component.onDestruction: {
         if (cardContainer.videoPlaying && videoThumbLoader.item) {
@@ -953,10 +1080,19 @@ RelationEditorBase {
           anchors.verticalCenterOffset: -(detailsBar.height / 2)
           width: 44
           height: 44
-          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && attachmentFullPath === ""
+          visible: cardThumbnail.status !== Image.Ready && !attachmentIsVideo && !attachmentIsAudio && !attachmentFetching && attachmentFullPath === ""
           source: Theme.getThemeVectorIcon("ic_photo_notavailable_black_24dp")
           fillMode: Image.PreserveAspectFit
           opacity: 0.3
+        }
+
+        BusyIndicator {
+          anchors.centerIn: parent
+          anchors.verticalCenterOffset: -(detailsBar.height / 2)
+          width: 36
+          height: 36
+          running: attachmentFetching
+          visible: running
         }
 
         Rectangle {

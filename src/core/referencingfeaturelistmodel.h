@@ -47,6 +47,9 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     Q_PROPERTY( bool parentPrimariesAvailable WRITE setParentPrimariesAvailable READ parentPrimariesAvailable NOTIFY parentPrimariesAvailableChanged )
     Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
     Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModelBase( QObject *parent = nullptr );
@@ -142,7 +145,35 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
      */
     QString attachmentFieldName() const;
 
+    /**
+     * Returns the document viewer type of the first ExternalResource field found
+     * on the referencing layer. The value corresponds to the "DocumentViewer"
+     * configuration entry of the editor widget setup (0 = file, 1 = image,
+     * 3 = audio, 4 = video). Returns 0 if no ExternalResource field exists.
+     *
+     * \see QgsExternalResourceWidget::DocumentViewerContent in
+     * https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
+     */
     int attachmentDocumentViewer() const;
+
+    /**
+     * Returns the external storage type configured on the attachment field
+     * (e.g. "WebDAV"), or an empty string if none is set.
+     */
+    QString attachmentStorageType() const;
+
+    /**
+     * Returns the authentication configuration ID for the external storage
+     * configured on the attachment field, or an empty string if none is set.
+     */
+    QString attachmentStorageAuthConfigId() const;
+
+    /**
+     * Returns the external storage URL configured on the attachment field
+     * (e.g. "https://server.com/remote.php/dav/files/user/"), or an empty
+     * string if none is set.
+     */
+    QString attachmentStorageUrl() const;
 
     /**
      * Reloads the model by starting the reload functionality in the gatherer (seperate thread)
@@ -208,8 +239,14 @@ class QFIELD_CORE_EXPORT ReferencingFeatureListModelBase : public QAbstractItemM
     QString mAttachmentFieldName;
     int mAttachmentFieldIndex = -1;
     int mAttachmentDocumentViewer = 0;
+    QString mAttachmentStorageType;
+    QString mAttachmentStorageAuthConfigId;
+    QString mAttachmentStorageUrl;
 
     FeatureGatherer *mGatherer = nullptr;
+
+    //! Refreshes the cached attachment field info from the current relation's referencing layer
+    void updateAttachmentFieldInfo();
 
     //! Checks if the parent pk(s) is not null
     bool checkParentPrimaries();
@@ -237,6 +274,9 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
     Q_PROPERTY( Qt::SortOrder sortOrder READ sortOrder WRITE setSortOrder NOTIFY sortOrderChanged )
     Q_PROPERTY( QString attachmentFieldName READ attachmentFieldName NOTIFY relationChanged )
     Q_PROPERTY( int attachmentDocumentViewer READ attachmentDocumentViewer NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageType READ attachmentStorageType NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageAuthConfigId READ attachmentStorageAuthConfigId NOTIFY relationChanged )
+    Q_PROPERTY( QString attachmentStorageUrl READ attachmentStorageUrl NOTIFY relationChanged )
 
   public:
     explicit ReferencingFeatureListModel( QObject *parent = nullptr );
@@ -354,6 +394,25 @@ class ReferencingFeatureListModel : public QSortFilterProxyModel
      * https://github.com/qgis/QGIS/blob/6ca6cf1bab8e017355f7631115cf48bc3c6a4601/src/gui/qgsexternalresourcewidget.h#L72-L79
      */
     int attachmentDocumentViewer() const;
+
+    /**
+     * Returns the external storage type configured on the attachment field
+     * (e.g. "WebDAV"), or an empty string if none is set.
+     */
+    QString attachmentStorageType() const;
+
+    /**
+     * Returns the authentication configuration ID for the external storage
+     * configured on the attachment field, or an empty string if none is set.
+     */
+    QString attachmentStorageAuthConfigId() const;
+
+    /**
+     * Returns the external storage URL configured on the attachment field
+     * (e.g. "https://server.com/remote.php/dav/files/user/"), or an empty
+     * string if none is set.
+     */
+    QString attachmentStorageUrl() const;
 
     /**
      * @brief Sets the sort order and re-applies sorting.
