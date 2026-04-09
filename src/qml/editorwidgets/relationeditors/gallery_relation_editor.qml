@@ -405,8 +405,6 @@ RelationEditorBase {
   }
 
   function resolveAttachmentPath(path) {
-    void (downloadRevision);
-
     if (!path || path === "") {
       return "";
     }
