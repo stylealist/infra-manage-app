@@ -187,7 +187,6 @@ RelationEditorBase {
 
   ExpressionEvaluator {
     id: attachmentNamingEvaluator
-    feature: currentFeature
     layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
@@ -200,6 +199,8 @@ RelationEditorBase {
 
   function capturePhoto() {
     stopAllMedia();
+    Qt.inputMethod.hide();
+    prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -213,6 +214,8 @@ RelationEditorBase {
 
   function captureVideo() {
     stopAllMedia();
+    Qt.inputMethod.hide();
+    prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -227,6 +230,7 @@ RelationEditorBase {
   function captureAudio() {
     stopAllMedia();
     Qt.inputMethod.hide();
+    prepareFeature();
     relationAudioRecorderLoader.active = true;
   }
 
@@ -373,7 +377,7 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  function showAddFeaturePopup(geometry, attachmentPath) {
+  function prepareFeature() {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
@@ -382,10 +386,15 @@ RelationEditorBase {
     if (relationEditorModel.orderingField) {
       embeddedPopup.linkedRelationOrderingField = relationEditorModel.orderingField;
     }
+    embeddedPopup.attributeFormModel.applyParentDefaultValues();
+    attachmentNamingEvaluator.feature = embeddedPopup.feature;
+  }
+
+  function showAddFeaturePopup(geometry, attachmentPath) {
+    prepareFeature();
     if (geometry !== undefined) {
       embeddedPopup.applyGeometry(geometry);
     }
-    embeddedPopup.attributeFormModel.applyParentDefaultValues();
     if (attachmentPath !== undefined && attachmentPath !== "") {
       const fieldName = referencingFeatureListModel.attachmentFieldName;
       embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
