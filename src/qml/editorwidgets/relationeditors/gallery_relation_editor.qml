@@ -505,11 +505,13 @@ RelationEditorBase {
       height: gridView.cellHeight
 
       property string attachmentFullPath: ""
-      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Component.onCompleted: {
+        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+      }
       Connections {
         target: relationEditor
         function onDownloadRevisionChanged() {
-          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
@@ -780,11 +782,13 @@ RelationEditorBase {
       height: gridView.cellHeight
 
       property string attachmentFullPath: ""
-      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Component.onCompleted: {
+        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+      }
       Connections {
         target: relationEditor
         function onDownloadRevisionChanged() {
-          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
