@@ -118,4 +118,12 @@ QfPopup {
     formFeatureModel.geometry = geometry;
     formFeatureModel.applyGeometry();
   }
+
+  function confirmForm() {
+    form.confirm();
+  }
+
+  function cancelForm() {
+    form.cancel();
+  }
 }

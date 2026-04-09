@@ -385,12 +385,17 @@ RelationEditorBase {
     if (geometry !== undefined) {
       embeddedPopup.applyGeometry(geometry);
     }
-    embeddedPopup.open();
     embeddedPopup.attributeFormModel.applyParentDefaultValues();
     if (attachmentPath !== undefined && attachmentPath !== "") {
       const fieldName = referencingFeatureListModel.attachmentFieldName;
       embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
+
+      if (embeddedPopup.attributeFormModel.featureModel.suppressFeatureForm()) {
+        embeddedPopup.confirmForm();
+        return;
+      }
     }
+    embeddedPopup.open();
   }
 
   function openFeatureForm(feature, nmFeature) {
