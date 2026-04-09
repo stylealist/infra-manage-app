@@ -396,13 +396,13 @@ RelationEditorBase {
       embeddedPopup.applyGeometry(geometry);
     }
     if (attachmentPath !== undefined && attachmentPath !== "") {
-      const fieldName = referencingFeatureListModel.attachmentFieldName;
-      embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
-
       if (embeddedPopup.attributeFormModel.featureModel.suppressFeatureForm()) {
+        embeddedPopup.featureModel.resetAttributes();
+        embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
         embeddedPopup.confirmForm();
         return;
       }
+      embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
     }
     embeddedPopup.open();
   }
