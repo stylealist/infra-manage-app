@@ -864,14 +864,6 @@ Abbrechen um einen minimalen Scan durchzuführen. </translation>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Audio files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2044,7 +2036,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>Alle Dateien (*.*)</translation>
+        <translation type="vanished">Alle Dateien (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2350,6 +2342,10 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>ant.</source>
         <translation>Ant.</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2870,11 +2866,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Verbindung zur Cloud</translation>
+        <translation type="vanished">Verbindung zur Cloud</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Grüße &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Grüße &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3092,6 +3088,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
         <source>%n file(s) remaining</source>
         <translation><numerusform>%n Datei(en) übrig</numerusform><numerusform>%n Datei(en) verbleibend</numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3267,6 +3267,10 @@ Du kannst das Projekt zwar weiterhin anzeigen und nutzen, aber es wird dringend 
     <message>
         <source>Synchronizing</source>
         <translation>Synchronisiere</translation>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4701,6 +4705,26 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
         <source>Circle #2: point</source>
         <translation>Kreis #2: Punkt</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4804,6 +4828,21 @@ Abbrechen um einen verkürzten Scan durchzuführen. </translation>
     <message>
         <source>Close</source>
         <translation>Schließen</translation>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6006,6 +6045,21 @@ erstellen</translation>
     <message>
         <source>inches</source>
         <translation>Inch</translation>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud Fehler im on-demand Anhang:</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Mehr Erfahren</translation>
     </message>
 </context>
 <context>

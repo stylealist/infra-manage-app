@@ -863,14 +863,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Audio files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2046,7 +2038,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>Tous les fichiers (*.*)</translation>
+        <translation type="vanished">Tous les fichiers (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2352,6 +2344,10 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>ant.</source>
         <translation>ant.</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2871,11 +2867,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Se connecter au cloud.</translation>
+        <translation type="vanished">Se connecter au cloud.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Bienvenue &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Bienvenue &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3093,6 +3089,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
         <source>%n file(s) remaining</source>
         <translation><numerusform>%n fichier(s) restant(s)</numerusform><numerusform>%n fichier(s) restant(s)</numerusform><numerusform>%n fichier(s) restant(s)</numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3268,6 +3268,10 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <message>
         <source>Synchronizing</source>
         <translation>Synchronisation</translation>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4505,7 +4509,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, la caméra native fournie par le système d&apos;exploitation sera utilisée.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
@@ -4701,6 +4705,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Circle #2: point</source>
         <translation>Cercle #2 : point</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4803,6 +4827,21 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6006,6 +6045,21 @@ projet</translation>
     <message>
         <source>inches</source>
         <translation>pouces</translation>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>Erreur lors de l&apos;envoi de la pièce jointe dans QFieldCloud:</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>En savoir plus</translation>
     </message>
 </context>
 <context>

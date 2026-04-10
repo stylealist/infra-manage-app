@@ -865,14 +865,6 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Audio files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2356,6 +2348,10 @@ Motiv:
         <source>ant.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2875,11 +2871,11 @@ Motiv:
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Se contectează la cloud.</translation>
+        <translation type="vanished">Se contectează la cloud.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Felicitări &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Felicitări &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3097,6 +3093,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3271,6 +3271,10 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4708,6 +4712,26 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
         <source>Circle #2: point</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4810,6 +4834,21 @@ Anulați pentru a efectua o scanare minimă a dispozitivului.</translation>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6009,6 +6048,21 @@ project</source>
     </message>
     <message>
         <source>inches</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
         <translation type="unfinished"/>
     </message>
 </context>

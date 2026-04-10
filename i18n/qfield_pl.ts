@@ -27,11 +27,11 @@
     </message>
     <message>
         <source>%1 app directories</source>
-        <translation type="unfinished"/>
+        <translation>%1 katalogi aplikacji</translation>
     </message>
     <message>
         <source>%1 app directory</source>
-        <translation type="unfinished"/>
+        <translation>%1 katalog aplikacji</translation>
     </message>
 </context>
 <context>
@@ -862,15 +862,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Audio files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation type="unfinished"/>
+        <translation>Brakuje identyfikatora konfiguracji uwierzytelniania zewnętrznej pamięci masowej, upewnij się, że został on zaimportowany do %1</translation>
     </message>
 </context>
 <context>
@@ -2049,7 +2041,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>Wszystkie pliki (*.*)</translation>
+        <translation type="vanished">Wszystkie pliki (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2356,6 +2348,10 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
         <source>ant.</source>
         <translation>ant.</translation>
     </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2560,7 +2556,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud pozwala synchronizować i łączyć dane zebrane przez Twój zespół w %1. Od małych indywidualnych projektów po duże kampanie gromadzenia danych. </translation>
     </message>
 </context>
 <context>
@@ -2875,11 +2871,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Łączenie z chmurą.</translation>
+        <translation type="vanished">Łączenie z chmurą.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Witaj &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Witaj &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3097,6 +3093,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <source>%n file(s) remaining</source>
         <translation><numerusform>Pozostał %n plik</numerusform><numerusform>Pozostały %n pliki</numerusform><numerusform>Pozostało %n plików</numerusform><numerusform>Pozostało %n plików</numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>Użyto %1 z %2</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3272,6 +3272,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <message>
         <source>Synchronizing</source>
         <translation>Synchronizacja</translation>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>Używasz %1 z %2</translation>
     </message>
 </context>
 <context>
@@ -3611,23 +3615,23 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>Serwer QFieldCloud nie jest osiągalny</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>Nie można uzyskać połączenia z serwerem %1. Sprawdź swoje połączenie internetowe.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud jest w trakcie konserwacji</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>Usługa QFieldCloud ulega pogorszeniu</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>Incydent jest w toku</translation>
     </message>
 </context>
 <context>
@@ -4452,31 +4456,31 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Ustawienia</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Sieć</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>Włącz proxy</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>System default</source>
-        <translation type="unfinished"/>
+        <translation>Domyślne ustawienia systemu</translation>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Serwer</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>np. proxy.example.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4484,7 +4488,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>np. 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -4492,7 +4496,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcjonalnie</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4504,7 +4508,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>np. localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
@@ -4512,11 +4516,11 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli opcja ta jest włączona, używana będzie natywny aparat dostarczany przez system operacyjny.</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli ta opcja jest włączona, anonimowe dane będą gromadzone i wysyłane, aby poprawić komfort użytkowania dla wszystkich.</translation>
     </message>
 </context>
 <context>
@@ -4708,6 +4712,26 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Circle #2: point</source>
         <translation>Okrąg #2: punkt</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation>KB</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation>GB</translation>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation>TB</translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation>B</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4802,7 +4826,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Tak</translation>
     </message>
     <message>
         <source>No</source>
@@ -4810,7 +4834,22 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij</translation>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation>Przechowywanie</translation>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation>Stuknij, aby zaktualizować pamięć</translation>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation>Stuknij, aby zarządzać pamięcią</translation>
     </message>
 </context>
 <context>
@@ -4875,7 +4914,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nie można załadować czcionki zasobu: %1</translation>
     </message>
 </context>
 <context>
@@ -5691,59 +5730,59 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Przesyłanie zakończone.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Brak lokalnych ścieżek.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV jest zajęty.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>To nie jest zaimportowany projekt WebDAV.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>W konfiguracji WebDAV brakuje wymaganych pól.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Zapisane hasło nie jest dostępne.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Wybrane elementy należą do różnych projektów WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Nie ma nic do przesłania.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nie wykryto żadnych lokalnych zmian.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Przesyłanie anulowane.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Przesyłanie pominięte.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Przesyłanie jest zablokowane przez inny proces.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się odczytać pliku konfiguracyjnego WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa konfiguracja WebDAV JSON.</translation>
     </message>
 </context>
 <context>
@@ -5876,23 +5915,23 @@ projekt</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Hej, jak ci się podobają twoje dotychczasowe doświadczenia z %1?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Aby poprawić stabilność dla wszystkich, %1 zbiera i wysyła anonimowe metryki.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Witamy ponownie w %1.</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Witamy w %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>Pierwszy raz korzystasz z tej aplikacji? Wypróbuj przykładowe projekty wymienione poniżej.</translation>
     </message>
 </context>
 <context>
@@ -6013,6 +6052,21 @@ projekt</translation>
     <message>
         <source>inches</source>
         <translation>cale</translation>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>Błąd załącznika na żądanie QFieldCloud: </translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Dowiedz się więcej</translation>
     </message>
 </context>
 <context>
@@ -6867,27 +6921,27 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się załadować widoku 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
-        <translation type="unfinished"/>
+        <translation>Ładowanie terenu...</translation>
     </message>
     <message>
         <source>Close 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij widok 3D</translation>
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>O %1</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Czy chcesz zaimportować &lt;b&gt;%1&lt;/b&gt; z &lt;b&gt;%2&lt;/b&gt; do %3?</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Naciśnij i przytrzymaj znacznik lokalizacji, aby wyświetlić działania</translation>
     </message>
 </context>
 <context>

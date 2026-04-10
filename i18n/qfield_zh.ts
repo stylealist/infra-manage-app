@@ -864,14 +864,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
     </message>
-    <message>
-        <source>Audio files</source>
-        <translation>音频文件</translation>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation>所有文件</translation>
-    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2043,7 +2035,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>所有文件 (*.*)</translation>
+        <translation type="vanished">所有文件 (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2349,6 +2341,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>ant.</source>
         <translation>ant.</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2869,11 +2865,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>连接到云。</translation>
+        <translation type="vanished">连接到云。</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
+        <translation type="vanished">您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3091,6 +3087,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>%n file(s) remaining</source>
         <translation><numerusform>剩余%n个文件</numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>已使用%2的%1</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3266,6 +3266,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Synchronizing</source>
         <translation>同步中</translation>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>正在使用%2的%1</translation>
     </message>
 </context>
 <context>
@@ -4702,6 +4706,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Circle #2: point</source>
         <translation>圆 #2: 点</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation>KB</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation>GB</translation>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation>TB</translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation>B</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4805,6 +4829,21 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Close</source>
         <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation>存储</translation>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation>点击升级存储</translation>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation>点击管理存储</translation>
     </message>
 </context>
 <context>
@@ -6007,6 +6046,21 @@ project</source>
     <message>
         <source>inches</source>
         <translation>英寸</translation>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud按需附件错误: </translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>点击了解更多信息</translation>
     </message>
 </context>
 <context>

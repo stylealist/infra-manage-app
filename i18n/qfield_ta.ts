@@ -864,14 +864,6 @@ Cancel to make a minimal device scan instead.</source>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
         <translation>வெளிப்புற சேமிப்பக அங்கீகார உள்ளமைவு ஐடி காணவில்லை, தயவுசெய்து அது %1 க்கு இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</translation>
     </message>
-    <message>
-        <source>Audio files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All files</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FeatureForm</name>
@@ -2041,7 +2033,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>அனைத்து கோப்புகளும் (*.*)</translation>
+        <translation type="vanished">அனைத்து கோப்புகளும் (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
@@ -2347,6 +2339,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>ant.</source>
         <translation>எறும்பு.</translation>
+    </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2867,11 +2863,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>மேகத்துடன் இணைக்கிறது.</translation>
+        <translation type="vanished">மேகத்துடன் இணைக்கிறது.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>வாழ்த்துக்கள் &lt;strong&gt;% 1&lt;/strong&gt;.</translation>
+        <translation type="vanished">வாழ்த்துக்கள் &lt;strong&gt;% 1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3089,6 +3085,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3264,6 +3264,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Synchronizing</source>
         <translation>ஒத்திசைத்தல்</translation>
+    </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4700,6 +4704,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Circle #2: point</source>
         <translation>வட்டம் #2: புள்ளி</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4802,6 +4826,21 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6005,6 +6044,21 @@ project</source>
     <message>
         <source>inches</source>
         <translation>அங்குலங்கள்</translation>
+    </message>
+</context>
+<context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud ஆன்-டிமாண்ட் இணைப்பு பிழை:</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>வெளிப்புற சேமிப்பக அங்கீகார உள்ளமைவு ஐடி காணவில்லை, தயவுசெய்து அது %1 க்கு இறக்குமதி செய்யப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>மேலும் அறிக</translation>
     </message>
 </context>
 <context>
