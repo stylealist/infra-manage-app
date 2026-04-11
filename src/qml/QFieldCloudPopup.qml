@@ -17,6 +17,7 @@ Popup {
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
+  property string lastSubscriptionUser: ""
 
   onAboutToHide: {
     pendingAction = "";
@@ -723,6 +724,10 @@ Popup {
         } else if (popup.pendingAction == "connect") {
           popup.visible = false;
         }
+      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+        lastSubscriptionUser = "";
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
       }
     }
 
@@ -741,7 +746,7 @@ Popup {
 
     function onSubscriptionInformationReceived(subscriptionInformation) {
       if (subscriptionInformation.storageTotal > 0) {
-        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal);
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
       }
     }
   }
@@ -915,18 +920,22 @@ Popup {
   }
 
   function fetchSubscriptionInformation() {
-    storageMeterBar.visible = false;
-    storageMeterBar.value = 0;
     if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
       const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      if (owner !== lastSubscriptionUser) {
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
+      }
       cloudConnection.getSubscriptionInformation(owner);
     }
   }
 
-  function showStorageBar(usedBytes, totalBytes) {
+  function showStorageBar(usedBytes, totalBytes, plan) {
+    const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+    lastSubscriptionUser = owner;
     storageMeterBar.value = usedBytes / totalBytes;
     storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
-    storageMeterBar.relatedUrl = cloudConnection.url === cloudConnection.defaultUrl && (!cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.owner === cloudConnection.username) ? "https://app.qfield.cloud/settings/" + cloudConnection.username + "/subscriptions" : "";
+    storageMeterBar.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username);
     storageMeterBar.visible = true;
   }
 }
