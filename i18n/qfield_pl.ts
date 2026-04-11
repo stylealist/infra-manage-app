@@ -4452,7 +4452,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
-        <translation type="unfinished"/>
+        <translation>Wartość ta skoryguje wartości Z zarejestrowane przez urządzenie pozycjonujące. Jeśli wprowadzona zostanie wartość 1,6, system automatycznie odejmie 1,6 od każdej zarejestrowanej wartości. Pamiętaj, aby wprowadzić efektywną wysokość anteny, tj. długość masztu + przesunięcie środka fazy anteny.</translation>
     </message>
     <message>
         <source>%1 Settings</source>
@@ -4504,7 +4504,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>URLs excluded from proxy (comma-separated)</source>
-        <translation type="unfinished"/>
+        <translation>Adresy URL wykluczone z serwera proxy (oddzielone przecinkami)</translation>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
@@ -4512,7 +4512,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
-        <translation type="unfinished"/>
+        <translation>Skonfiguruj sieciowy serwer proxy, aby kierować ruch QField przez serwer proxy. Jest to przydatne w sieciach korporacyjnych i VPN.</translation>
     </message>
     <message>
         <source>If enabled, the native camera provided by the operating system will be used.</source>
@@ -5122,7 +5122,7 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Otwórz formularz</translation>
     </message>
 </context>
 <context>
@@ -6062,7 +6062,7 @@ projekt</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>Brakuje identyfikatora konfiguracji uwierzytelniania zewnętrznej pamięci masowej, upewnij się, że został on zaimportowany do %1</translation>
     </message>
     <message>
         <source>Learn more</source>

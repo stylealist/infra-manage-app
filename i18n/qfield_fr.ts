@@ -4513,7 +4513,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
-        <translation type="unfinished"/>
+        <translation>Si activé, des mesures anonymes seront collectées et envoyées pour aider à améliorer l&apos;expérience utilisateur pour tout le monde.</translation>
     </message>
 </context>
 <context>
@@ -5912,7 +5912,7 @@ projet</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>Afin d&apos;améliorer la stabilité pour tout le monde, %1 recueille et envoie des données métriques anonymisées.</translation>
     </message>
     <message>
         <source>Welcome back to %1.</source>
