@@ -187,7 +187,6 @@ RelationEditorBase {
 
   ExpressionEvaluator {
     id: attachmentNamingEvaluator
-    feature: currentFeature
     layer: referencingFeatureListModel.relation ? referencingFeatureListModel.relation.referencingLayer : null
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
@@ -200,6 +199,8 @@ RelationEditorBase {
 
   function capturePhoto() {
     stopAllMedia();
+    Qt.inputMethod.hide();
+    prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -213,6 +214,8 @@ RelationEditorBase {
 
   function captureVideo() {
     stopAllMedia();
+    Qt.inputMethod.hide();
+    prepareFeature();
     platformUtilities.createDir(qgisProject.homePath, 'DCIM');
     if (platformUtilities.capabilities & PlatformUtilities.NativeCamera && settings.valueBool("nativeCamera2", true)) {
       let filepath = ExternalResourceUtils.getAttachmentFilePath(attachmentNamingEvaluator.evaluate(), documentViewer, FileUtils);
@@ -227,6 +230,7 @@ RelationEditorBase {
   function captureAudio() {
     stopAllMedia();
     Qt.inputMethod.hide();
+    prepareFeature();
     relationAudioRecorderLoader.active = true;
   }
 
@@ -373,7 +377,7 @@ RelationEditorBase {
     referencingFeatureListModel.sortOrder = referencingFeatureListModel.sortOrder === Qt.AscendingOrder ? Qt.DescendingOrder : Qt.AscendingOrder;
   }
 
-  function showAddFeaturePopup(geometry, attachmentPath) {
+  function prepareFeature() {
     ensureEmbeddedFormLoaded();
     embeddedPopup.state = 'Add';
     embeddedPopup.currentLayer = relationEditorModel.relation.referencingLayer;
@@ -382,15 +386,25 @@ RelationEditorBase {
     if (relationEditorModel.orderingField) {
       embeddedPopup.linkedRelationOrderingField = relationEditorModel.orderingField;
     }
+    embeddedPopup.attributeFormModel.applyParentDefaultValues();
+    attachmentNamingEvaluator.feature = embeddedPopup.feature;
+  }
+
+  function showAddFeaturePopup(geometry, attachmentPath) {
+    prepareFeature();
     if (geometry !== undefined) {
       embeddedPopup.applyGeometry(geometry);
     }
-    embeddedPopup.open();
-    embeddedPopup.attributeFormModel.applyParentDefaultValues();
     if (attachmentPath !== undefined && attachmentPath !== "") {
-      const fieldName = referencingFeatureListModel.attachmentFieldName;
-      embeddedPopup.attributeFormModel.changeAttribute(fieldName, attachmentPath);
+      if (embeddedPopup.attributeFormModel.featureModel.suppressFeatureForm()) {
+        embeddedPopup.featureModel.resetAttributes();
+        embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
+        embeddedPopup.confirmForm();
+        return;
+      }
+      embeddedPopup.attributeFormModel.changeAttribute(referencingFeatureListModel.attachmentFieldName, attachmentPath);
     }
+    embeddedPopup.open();
   }
 
   function openFeatureForm(feature, nmFeature) {
@@ -405,8 +419,6 @@ RelationEditorBase {
   }
 
   function resolveAttachmentPath(path) {
-    void (downloadRevision);
-
     if (!path || path === "") {
       return "";
     }
@@ -502,11 +514,13 @@ RelationEditorBase {
       height: gridView.cellHeight
 
       property string attachmentFullPath: ""
-      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Component.onCompleted: {
+        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+      }
       Connections {
         target: relationEditor
         function onDownloadRevisionChanged() {
-          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""
@@ -777,11 +791,13 @@ RelationEditorBase {
       height: gridView.cellHeight
 
       property string attachmentFullPath: ""
-      Component.onCompleted: attachmentFullPath = resolveAttachmentPath(model.attachmentPath)
+      Component.onCompleted: {
+        attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
+      }
       Connections {
         target: relationEditor
         function onDownloadRevisionChanged() {
-          attachmentFullPath = resolveAttachmentPath(model.attachmentPath);
+          attachmentFullPath = Qt.binding(() => resolveAttachmentPath(model.attachmentPath));
         }
       }
       readonly property string attachmentMimeType: attachmentFullPath !== "" ? FileUtils.mimeTypeName(attachmentFullPath) : ""

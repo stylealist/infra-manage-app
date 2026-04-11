@@ -16,6 +16,7 @@ QfPopup {
   property alias linkedRelationOrderingField: formFeatureModel.linkedRelationOrderingField
   property alias linkedParentFeature: formFeatureModel.linkedParentFeature
   property alias feature: formFeatureModel.feature
+  property alias featureModel: formFeatureModel
   property alias attributeFormModel: formAttributeFormModel
   property alias digitizingToolbar: form.digitizingToolbar
   property alias codeReader: form.codeReader
@@ -117,5 +118,13 @@ QfPopup {
   function applyGeometry(geometry) {
     formFeatureModel.geometry = geometry;
     formFeatureModel.applyGeometry();
+  }
+
+  function confirmForm() {
+    form.confirm();
+  }
+
+  function cancelForm() {
+    form.cancel();
   }
 }

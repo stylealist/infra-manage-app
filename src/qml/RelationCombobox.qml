@@ -359,18 +359,11 @@ Item {
       indicator.visible: relationCombobox.enabled || (!isEditable && isEditing)
     }
 
-    FontMetrics {
-      id: fontMetrics
-      font: comboBox.font
-    }
-
     Rectangle {
       id: searchable
       visible: !comboBox.visible
       height: searchableText.height + searchableText.topInset + searchableText.bottomInset
       Layout.fillWidth: true
-      Layout.topMargin: 5
-      Layout.bottomMargin: 5
 
       Text {
         id: searchableLabel
@@ -594,6 +587,11 @@ Item {
       text: qsTr("Invalid relation")
       color: Theme.errorColor
     }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: comboBox.font
   }
 
   Loader {
