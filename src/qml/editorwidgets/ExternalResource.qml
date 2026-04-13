@@ -139,6 +139,7 @@ EditorWidgetBase {
         audioSourcePath = fullValue;
         player.firstFrameDrawn = false;
         player.sourceUrl = UrlUtils.fromString(fullValue);
+        audioAnalyzer.analyze(player.sourceUrl);
       } else if (isVideo) {
         mediaFrame.height = 48;
         image.visible = false;
@@ -431,8 +432,6 @@ EditorWidgetBase {
             positionSlider.value = 0;
             if (!player.firstFrameDrawn && hasVideo) {
               play();
-            } else if (duration > 0 && !hasAudio) {
-              audioAnalyzer.analyze(player.sourceUrl);
             }
           }
 
