@@ -121,6 +121,7 @@ EditorWidgetBase {
       isVideo = !config.UseLink && mimeType.startsWith("video/");
       image.visible = isImage;
       geoTagBadge.visible = isImage;
+
       if (isImage) {
         mediaFrame.height = 200;
         image.visible = true;
@@ -179,6 +180,13 @@ EditorWidgetBase {
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
     expressionText: ExternalResourceUtils.getAttachmentNaming(currentLayer, field.name)
+  }
+
+  AudioAnalyzer {
+    id: audioAnalyzer
+    onReady: bars => {
+      externalWaveformRepeater.model = bars;
+    }
   }
 
   function getResourceFilePath() {
@@ -345,34 +353,30 @@ EditorWidgetBase {
       Row {
         id: audioWaveformBars
         anchors.centerIn: parent
+        width: parent.width
         height: parent.height * 0.65
         spacing: 2
 
+        property int barCount: externalWaveformRepeater.count
+        property int barWidth: (audioWaveformArea.width - (1 * barCount)) / barCount
+
         Repeater {
           id: externalWaveformRepeater
-          model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
-
-          property int pathHash: ExternalResourceUtils.hashString(audioSourcePath)
+          model: [0]
 
           Rectangle {
-            width: 3
-            height: {
-              const seed = (externalWaveformRepeater.pathHash + index) * 0.3;
-              const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
-              return Math.max(4, audioWaveformBars.height * h);
-            }
+            width: audioWaveformBars.barWidth
+            height: audioWaveformBars.height * modelData
             radius: 1.5
             anchors.verticalCenter: parent.verticalCenter
             color: {
-              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && (index / audioWaveformBars.barCount) < (player.item.position / player.item.duration)) {
                 return Theme.mainColor;
               }
               return Theme.mainTextDisabledColor;
             }
             opacity: {
-              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && (index / audioWaveformBars.barCount) < (player.item.position / player.item.duration)) {
                 return 0.9;
               }
               return 0.35;
@@ -426,6 +430,8 @@ EditorWidgetBase {
             positionSlider.value = 0;
             if (!player.firstFrameDrawn && hasVideo) {
               play();
+            } else if (duration > 0 && !hasAudio) {
+              audioAnalyzer.analyze(player.sourceUrl);
             }
           }
 
