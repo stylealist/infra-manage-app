@@ -184,8 +184,9 @@ EditorWidgetBase {
 
   AudioAnalyzer {
     id: audioAnalyzer
+    barCount: 80
     onReady: bars => {
-      externalWaveformRepeater.model = bars;
+      audioWaveformRepeater.model = bars;
     }
   }
 
@@ -357,11 +358,11 @@ EditorWidgetBase {
         height: parent.height * 0.65
         spacing: 2
 
-        property int barCount: externalWaveformRepeater.count
+        property int barCount: audioWaveformRepeater.count
         property int barWidth: (audioWaveformArea.width - (1 * barCount)) / barCount
 
         Repeater {
-          id: externalWaveformRepeater
+          id: audioWaveformRepeater
           model: [0]
 
           Rectangle {

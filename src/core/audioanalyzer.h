@@ -55,13 +55,20 @@ class AudioAnalyzer : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( int barCount READ barCount WRITE setBarCount NOTIFY barCountChanged )
+
   public:
     explicit AudioAnalyzer( QObject *parent = nullptr );
+
+    int barCount() const { return mBarCount; }
+
+    void setBarCount( int barCount );
 
     Q_INVOKABLE void analyze( const QUrl &source );
 
   signals:
     void ready( const QList<qreal> &bars );
+    void barCountChanged();
 
   private slots:
     void finalize();
@@ -69,6 +76,8 @@ class AudioAnalyzer : public QObject
 
   private:
     AudioPeaksGatherer *mGatherer = nullptr;
+
+    int mBarCount = 80;
 };
 
 #endif // AUDIORECORDER_H

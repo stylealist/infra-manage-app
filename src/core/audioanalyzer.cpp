@@ -32,6 +32,17 @@ AudioAnalyzer::AudioAnalyzer( QObject *parent )
 {
 }
 
+void AudioAnalyzer::setBarCount( int barCount )
+{
+  if ( mBarCount == barCount )
+  {
+    return;
+  }
+
+  mBarCount = barCount;
+  emit barCountChanged();
+}
+
 void AudioAnalyzer::analyze( const QUrl &url )
 {
   if ( mGatherer )
@@ -63,7 +74,6 @@ void AudioAnalyzer::finalize()
     emit ready( QList<qreal>() );
   }
 
-  const int targetBars = 80;
   QList<qreal> finalBars;
 
   float globalMax = *std::max_element( rawPeaks.begin(), rawPeaks.end() );
@@ -72,8 +82,8 @@ void AudioAnalyzer::finalize()
     globalMax = 1.0f;
   }
 
-  const double step = static_cast<double>( rawPeaks.size() ) / targetBars;
-  for ( int i = 0; i < targetBars; i++ )
+  const double step = static_cast<double>( rawPeaks.size() ) / mBarCount;
+  for ( int i = 0; i < mBarCount; i++ )
   {
     const qsizetype startIndex = static_cast<qsizetype>( i * step );
     const qsizetype endIndex = std::min( static_cast<qsizetype>( ( i + 1 ) * step ), rawPeaks.size() );
