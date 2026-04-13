@@ -359,7 +359,7 @@ EditorWidgetBase {
         spacing: 2
 
         property int barCount: audioWaveformRepeater.count
-        property int barWidth: (audioWaveformArea.width - (1 * barCount)) / barCount
+        property real barWidth: (audioWaveformArea.width - (spacing * barCount)) / barCount
 
         Repeater {
           id: audioWaveformRepeater
@@ -371,13 +371,13 @@ EditorWidgetBase {
             radius: 1.5
             anchors.verticalCenter: parent.verticalCenter
             color: {
-              if (player.active && player.item && player.item.duration > 0 && (index / audioWaveformBars.barCount) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
                 return Theme.mainColor;
               }
               return Theme.mainTextDisabledColor;
             }
             opacity: {
-              if (player.active && player.item && player.item.duration > 0 && (index / audioWaveformBars.barCount) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
                 return 0.9;
               }
               return 0.35;

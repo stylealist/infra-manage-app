@@ -678,7 +678,7 @@ RelationEditorBase {
               visible: attachmentIsAudio
 
               property int barCount: listWaveformRepeater.count
-              property int barWidth: (listWaveformBars.width - (1 * barCount)) / barCount
+              property real barWidth: (listWaveformBars.width - (spacing * barCount)) / barCount
 
               Repeater {
                 id: listWaveformRepeater
@@ -1029,7 +1029,7 @@ RelationEditorBase {
             spacing: 2
 
             property int barCount: gridWaveformRepeater.count
-            property int barWidth: (gridWaveformBars.width - (1 * barCount)) / barCount
+            property real barWidth: (gridWaveformBars.width - (spacing * barCount)) / barCount
 
             Repeater {
               id: gridWaveformRepeater
