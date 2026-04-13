@@ -66,7 +66,12 @@ void AudioAnalyzer::finalize()
   const int targetBars = 80;
   QList<qreal> finalBars;
 
-  const float globalMax = 0.9f;
+  float globalMax = *std::max_element( rawPeaks.begin(), rawPeaks.end() );
+  if ( globalMax == 0.0f )
+  {
+    globalMax = 1.0f;
+  }
+
   const double step = static_cast<double>( rawPeaks.size() ) / targetBars;
   for ( int i = 0; i < targetBars; i++ )
   {
