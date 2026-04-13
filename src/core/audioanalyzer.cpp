@@ -43,7 +43,7 @@ void AudioAnalyzer::setBarCount( int barCount )
   emit barCountChanged();
 }
 
-void AudioAnalyzer::analyze( const QUrl &url )
+void AudioAnalyzer::analyze( const QUrl &source )
 {
   if ( mGatherer )
   {
@@ -53,7 +53,7 @@ void AudioAnalyzer::analyze( const QUrl &url )
     mGatherer->stop();
   }
 
-  mGatherer = new AudioPeaksGatherer( url );
+  mGatherer = new AudioPeaksGatherer( source );
 
   connect( mGatherer, &AudioPeaksGatherer::collectedRawPeaks, this, &AudioAnalyzer::finalize );
   connect( mGatherer, &AudioPeaksGatherer::finished, this, &AudioAnalyzer::gathererThreadFinished );
@@ -117,9 +117,9 @@ void AudioAnalyzer::gathererThreadFinished()
   mGatherer = nullptr;
 }
 
-AudioPeaksGatherer::AudioPeaksGatherer( const QUrl &url )
+AudioPeaksGatherer::AudioPeaksGatherer( const QUrl &source )
+  : mSource( source )
 {
-  mUrl = url;
 }
 
 void AudioPeaksGatherer::run()
@@ -137,7 +137,7 @@ void AudioPeaksGatherer::run()
     qInfo() << "Audio Analyzer Error:" << error;
   } );
 
-  mDecoder->setSource( mUrl );
+  mDecoder->setSource( mSource );
   mDecoder->start();
 
   exec();

@@ -27,7 +27,7 @@ class AudioPeaksGatherer : public QThread
     Q_OBJECT
 
   public:
-    AudioPeaksGatherer( const QUrl &url );
+    AudioPeaksGatherer( const QUrl &source );
 
     void run() override;
 
@@ -43,7 +43,7 @@ class AudioPeaksGatherer : public QThread
     void finalize();
 
   private:
-    QUrl mUrl;
+    QUrl mSource;
     QAudioDecoder *mDecoder = nullptr;
     QVector<float> mRawPeaks;
 };
