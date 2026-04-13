@@ -49,6 +49,8 @@ class AudioPeaksGatherer : public QThread
 };
 
 /**
+ * \brief This class analyzes the peaks of audio clips and generate a list of bars
+ * that can be used to visualize the audio's overall texture.
  * \ingroup core
  */
 class AudioAnalyzer : public QObject
@@ -60,17 +62,36 @@ class AudioAnalyzer : public QObject
   public:
     explicit AudioAnalyzer( QObject *parent = nullptr );
 
+    /**
+     * Returns the bar count that will be returned upon successful audio clip analysis.
+     */
     int barCount() const { return mBarCount; }
 
+    /**
+     * Sets the bar count that will be returned upon successful audio clip analysis.
+     */
     void setBarCount( int barCount );
 
+    /**
+     * Run an analysis of the audio \a source.
+     */
     Q_INVOKABLE void analyze( const QUrl &source );
 
   signals:
+
+    /**
+     * Emitted when an analysis is over.
+     * \note If the analysis failed, the list will be empty.
+     */
     void ready( const QList<qreal> &bars );
+
+    /**
+     * Emitted when the bar count property has changed.
+     */
     void barCountChanged();
 
   private slots:
+
     void finalize();
     void gathererThreadFinished();
 
