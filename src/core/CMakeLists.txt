@@ -67,6 +67,7 @@ set(QFIELD_CORE_SRCS
     appinterface.cpp
     attributeformmodel.cpp
     attributeformmodelbase.cpp
+    audioanalyzer.cpp
     audiorecorder.cpp
     barcodedecoder.cpp
     barcodeimageprovider.cpp
@@ -212,6 +213,7 @@ set(QFIELD_CORE_HDRS
     appinterface.h
     attributeformmodel.h
     attributeformmodelbase.h
+    audioanalyzer.h
     audiorecorder.h
     barcodedecoder.h
     barcodeimageprovider.h
