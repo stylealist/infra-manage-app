@@ -121,6 +121,7 @@ EditorWidgetBase {
       isVideo = !config.UseLink && mimeType.startsWith("video/");
       image.visible = isImage;
       geoTagBadge.visible = isImage;
+
       if (isImage) {
         mediaFrame.height = 200;
         image.visible = true;
@@ -138,6 +139,7 @@ EditorWidgetBase {
         audioSourcePath = fullValue;
         player.firstFrameDrawn = false;
         player.sourceUrl = UrlUtils.fromString(fullValue);
+        audioAnalyzer.analyze(player.sourceUrl);
       } else if (isVideo) {
         mediaFrame.height = 48;
         image.visible = false;
@@ -179,6 +181,14 @@ EditorWidgetBase {
     project: qgisProject
     appExpressionContextScopesGenerator: appScopesGenerator
     expressionText: ExternalResourceUtils.getAttachmentNaming(currentLayer, field.name)
+  }
+
+  AudioAnalyzer {
+    id: audioAnalyzer
+    barCount: 80
+    onReady: bars => {
+      audioWaveformRepeater.model = bars;
+    }
   }
 
   function getResourceFilePath() {
@@ -345,34 +355,30 @@ EditorWidgetBase {
       Row {
         id: audioWaveformBars
         anchors.centerIn: parent
+        width: parent.width
         height: parent.height * 0.65
         spacing: 2
 
-        Repeater {
-          id: externalWaveformRepeater
-          model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
+        property int barCount: audioWaveformRepeater.count
+        property real barWidth: (audioWaveformArea.width - (spacing * barCount)) / barCount
 
-          property int pathHash: ExternalResourceUtils.hashString(audioSourcePath)
+        Repeater {
+          id: audioWaveformRepeater
+          model: [0]
 
           Rectangle {
-            width: 3
-            height: {
-              const seed = (externalWaveformRepeater.pathHash + index) * 0.3;
-              const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
-              return Math.max(4, audioWaveformBars.height * h);
-            }
+            width: audioWaveformBars.barWidth
+            height: audioWaveformBars.height * modelData
             radius: 1.5
             anchors.verticalCenter: parent.verticalCenter
             color: {
-              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
                 return Theme.mainColor;
               }
               return Theme.mainTextDisabledColor;
             }
             opacity: {
-              const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-              if (player.active && player.item && player.item.duration > 0 && (index / totalBars) < (player.item.position / player.item.duration)) {
+              if (player.active && player.item && player.item.duration > 0 && index < (player.item.position / player.item.duration * audioWaveformBars.barCount)) {
                 return 0.9;
               }
               return 0.35;

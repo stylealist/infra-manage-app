@@ -88,6 +88,7 @@ RelationEditorBase {
   QtObject {
     id: dummyTarget
   }
+
   Connections {
     id: cloudProjectConnection
     ignoreUnknownSignals: true
@@ -131,6 +132,40 @@ RelationEditorBase {
         relationEditor.processNextFetch();
       }
       displayToast(lastError, 'error');
+    }
+  }
+
+  AudioAnalyzer {
+    id: audioAnalyzer
+
+    property var queue: []
+    property string currentProcess: ""
+    property var availableBars: ({})
+
+    barCount: isGridView ? 40 : 20
+
+    onBarCountChanged: {
+      availableBars = {};
+    }
+
+    onReady: bars => {
+      availableBars[currentProcess] = bars;
+      availableBarsChanged();
+      processQueue();
+    }
+
+    function enqueue(audioPath) {
+      if (!(audioPath in queue) && !(audioPath in availableBars)) {
+        queue.push(audioPath);
+        processQueue();
+      }
+    }
+
+    function processQueue() {
+      if (queue.length > 0) {
+        currentProcess = queue.shift();
+        audioAnalyzer.analyze(UrlUtils.fromString(currentProcess));
+      }
     }
   }
 
@@ -426,10 +461,16 @@ RelationEditorBase {
       return path;
     }
     if (FileUtils.fileExists(path)) {
+      if (FileUtils.mimeTypeName(path).startsWith("audio/")) {
+        audioAnalyzer.enqueue(path);
+      }
       return path;
     }
     const fullPath = imagePrefix + path;
     if (FileUtils.fileExists(fullPath)) {
+      if (FileUtils.mimeTypeName(fullPath).startsWith("audio/")) {
+        audioAnalyzer.enqueue(fullPath);
+      }
       return fullPath;
     }
     if (fetchedPaths.hasOwnProperty(path)) {
@@ -629,27 +670,27 @@ RelationEditorBase {
             }
 
             Row {
+              id: listWaveformBars
               anchors.centerIn: parent
-              spacing: 1
+              spacing: 2
+              width: 56
+              height: 56
               visible: attachmentIsAudio
+
+              property int barCount: listWaveformRepeater.count
+              property real barWidth: (listWaveformBars.width - (spacing * barCount)) / barCount
 
               Repeater {
                 id: listWaveformRepeater
-                model: 18
-
-                property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
+                model: attachmentFullPath in audioAnalyzer.availableBars ? audioAnalyzer.availableBars[attachmentFullPath] : [0]
 
                 Rectangle {
-                  width: 2
-                  height: {
-                    const seed = (listWaveformRepeater.pathHash + index) * 0.3;
-                    const h = 8 + Math.abs(Math.sin(seed)) * 28 + Math.abs(Math.cos(seed * 2.1)) * 12;
-                    return Math.min(h, 44);
-                  }
-                  radius: 1
+                  width: listWaveformBars.barWidth
+                  height: listWaveformBars.height * modelData
+                  radius: 1.5
                   anchors.verticalCenter: parent.verticalCenter
-                  color: Theme.mainColor
-                  opacity: 0.4
+                  color: Theme.mainTextDisabledColor
+                  opacity: 0.35
                 }
               }
             }
@@ -975,44 +1016,39 @@ RelationEditorBase {
         }
 
         Item {
-          id: audioWaveformArea
           anchors.fill: parent
           anchors.bottomMargin: detailsBar.height
           visible: attachmentIsAudio
           clip: true
 
           Row {
-            id: waveformBars
+            id: gridWaveformBars
             anchors.centerIn: parent
+            width: parent.width
             height: parent.height * 0.7
             spacing: 2
+
+            property int barCount: gridWaveformRepeater.count
+            property real barWidth: (gridWaveformBars.width - (spacing * barCount)) / barCount
 
             Repeater {
               id: gridWaveformRepeater
 
-              model: Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5))
-
-              property int pathHash: ExternalResourceUtils.hashString(attachmentFullPath)
+              model: attachmentFullPath in audioAnalyzer.availableBars ? audioAnalyzer.availableBars[attachmentFullPath] : [0]
 
               Rectangle {
-                width: 3
-                height: {
-                  const seed = (gridWaveformRepeater.pathHash + index) * 0.3;
-                  const h = 0.15 + Math.abs(Math.sin(seed)) * 0.55 + Math.abs(Math.cos(seed * 2.1)) * 0.3;
-                  return Math.max(4, waveformBars.height * h);
-                }
+                width: gridWaveformBars.barWidth
+                height: gridWaveformBars.height * modelData
                 radius: 1.5
                 anchors.verticalCenter: parent.verticalCenter
                 color: {
-                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-                  if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
+                  if (audioPlayerLoader.active && (index / gridWaveformBars.barCount) < audioPlayerLoader.progress) {
                     return Theme.mainColor;
                   }
                   return Theme.mainTextDisabledColor;
                 }
                 opacity: {
-                  const totalBars = Math.max(1, Math.floor((audioWaveformArea.width - 24) / 5));
-                  if (audioPlayerLoader.active && (index / totalBars) < audioPlayerLoader.progress) {
+                  if (audioPlayerLoader.active && (index / gridWaveformBars.barCount) < audioPlayerLoader.progress) {
                     return 0.9;
                   }
                   return 0.35;
@@ -1023,7 +1059,7 @@ RelationEditorBase {
 
           Rectangle {
             visible: audioPlayerLoader.active && audioPlayerLoader.progress > 0
-            x: waveformBars.x + waveformBars.width * audioPlayerLoader.progress
+            x: gridWaveformBars.x + gridWaveformBars.width * audioPlayerLoader.progress
             y: 0
             width: 2
             height: parent.height

@@ -40,6 +40,7 @@
 #include "appexpressioncontextscopesgenerator.h"
 #include "appinterface.h"
 #include "attributeformmodel.h"
+#include "audioanalyzer.h"
 #include "audiorecorder.h"
 #include "badlayerhandler.h"
 #include "barcodedecoder.h"
@@ -568,6 +569,7 @@ void QgisMobileapp::initDeclarative( QQmlEngine *engine )
   qmlRegisterType<PositioningDeviceModel>( "org.qfield", 1, 0, "PositioningDeviceModel" );
   qmlRegisterType<WebdavConnection>( "org.qfield", 1, 0, "WebdavConnection" );
   qmlRegisterType<AppExpressionContextScopesGenerator>( "org.qfield", 1, 0, "AppExpressionContextScopesGenerator" );
+  qmlRegisterType<AudioAnalyzer>( "org.qfield", 1, 0, "AudioAnalyzer" );
   qmlRegisterType<AudioRecorder>( "org.qfield", 1, 0, "AudioRecorder" );
   qmlRegisterType<BarcodeDecoder>( "org.qfield", 1, 0, "BarcodeDecoder" );
   qmlRegisterType<CameraPermission>( "org.qfield", 1, 0, "QfCameraPermission" );
