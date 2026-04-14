@@ -66,12 +66,14 @@ void AudioAnalyzer::finalize()
   if ( !mGatherer )
   {
     emit ready( QList<qreal>() );
+    return;
   }
 
   QList<float> rawPeaks = mGatherer->rawPeaks();
   if ( rawPeaks.isEmpty() )
   {
     emit ready( QList<qreal>() );
+    return;
   }
 
   QList<qreal> finalBars;
@@ -133,8 +135,9 @@ void AudioPeaksGatherer::run()
 
   connect( mDecoder, &QAudioDecoder::bufferReady, this, &AudioPeaksGatherer::processBuffer, Qt::DirectConnection );
   connect( mDecoder, &QAudioDecoder::finished, this, &AudioPeaksGatherer::finalize, Qt::DirectConnection );
-  connect( mDecoder, qOverload<QAudioDecoder::Error>( &QAudioDecoder::error ), this, []( QAudioDecoder::Error error ) {
+  connect( mDecoder, qOverload<QAudioDecoder::Error>( &QAudioDecoder::error ), this, [this]( QAudioDecoder::Error error ) {
     qInfo() << "Audio Analyzer Error:" << error;
+    finalize();
   } );
 
   mDecoder->setSource( mSource );
