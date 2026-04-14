@@ -12,6 +12,7 @@ Item {
   id: meterBar
 
   property alias value: progressBar.value
+  property bool loading: false
 
   property alias showTitleLabel: titleLabel.visible
   property alias showUsageLabel: usageLabel.visible
@@ -49,6 +50,7 @@ Item {
         font: Theme.tipFont
         color: Theme.mainTextColor
         wrapMode: Text.WordWrap
+        opacity: meterBar.loading ? 0.4 : 1.0
       }
 
       Item {
@@ -122,6 +124,7 @@ Item {
         implicitHeight: meterBar.barHeight
 
         Rectangle {
+          visible: !meterBar.loading
           width: progressBar.visualPosition * parent.width
           height: parent.height
           radius: height / 2
@@ -134,6 +137,53 @@ Item {
             GradientStop {
               position: 1.0
               color: Qt.lighter(progressBar.barColor, 1.4)
+            }
+          }
+        }
+
+        Rectangle {
+          id: skeletonFill
+          visible: meterBar.loading
+          width: parent.width
+          height: parent.height
+          radius: height / 2
+          color: Theme.controlBackgroundAlternateColor
+          clip: true
+
+          Rectangle {
+            id: shimmer
+            width: parent.width * 0.4
+            height: parent.height
+            radius: height / 2
+            opacity: 0.6
+            gradient: Gradient {
+              orientation: Gradient.Horizontal
+              GradientStop {
+                position: 0.0
+                color: "transparent"
+              }
+              GradientStop {
+                position: 0.5
+                color: Theme.mainBackgroundColor
+              }
+              GradientStop {
+                position: 1.0
+                color: "transparent"
+              }
+            }
+
+            SequentialAnimation on x {
+              loops: Animation.Infinite
+              running: meterBar.loading && meterBar.visible
+              NumberAnimation {
+                from: -shimmer.width
+                to: skeletonFill.width
+                duration: 1200
+                easing.type: Easing.InOutQuad
+              }
+              PauseAnimation {
+                duration: 400
+              }
             }
           }
         }
@@ -152,6 +202,51 @@ Item {
       font: Theme.tipFont
       color: Theme.secondaryTextColor
       wrapMode: Text.WordWrap
+      visible: !meterBar.loading
+    }
+
+    Rectangle {
+      visible: meterBar.loading
+      width: 150
+      height: usageLabel.font.pointSize
+      radius: 3
+      color: Theme.controlBackgroundAlternateColor
+      clip: true
+
+      Rectangle {
+        width: parent.width * 0.4
+        height: parent.height
+        radius: 3
+        opacity: 0.6
+        gradient: Gradient {
+          orientation: Gradient.Horizontal
+          GradientStop {
+            position: 0.0
+            color: "transparent"
+          }
+          GradientStop {
+            position: 0.5
+            color: Theme.mainBackgroundColor
+          }
+          GradientStop {
+            position: 1.0
+            color: "transparent"
+          }
+        }
+        SequentialAnimation on x {
+          loops: Animation.Infinite
+          running: meterBar.loading && meterBar.visible
+          NumberAnimation {
+            from: -parent.width * 0.4
+            to: parent.width
+            duration: 1200
+            easing.type: Easing.InOutQuad
+          }
+          PauseAnimation {
+            duration: 400
+          }
+        }
+      }
     }
   }
 
