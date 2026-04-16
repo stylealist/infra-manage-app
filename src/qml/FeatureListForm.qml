@@ -433,7 +433,7 @@ Pane {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    leftMargin: featureFormList.x == 0 ? mainWindow.sceneLeftMargin : 0
+    leftMargin: featureFormList.x === 0 ? mainWindow.sceneLeftMargin : 0
     rightMargin: mainWindow.sceneRightMargin
     bottomMargin: mainWindow.sceneBottomMargin
     height: parent.height - globalFeaturesList.height
@@ -455,6 +455,11 @@ Pane {
 
     onRequestJumpToPoint: function (center, scale, handleMargins) {
       featureFormList.requestJumpToPoint(center, scale, handleMargins);
+    }
+
+    onConfirmed: {
+      featureFormList.state = featureFormList.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm";
+      displayToast(qsTr("Changes saved"));
     }
 
     onCancelled: {
@@ -614,8 +619,6 @@ Pane {
 
     onSave: {
       featureForm.confirm();
-      featureFormList.state = featureFormList.selection.model.selectedCount > 0 ? "FeatureList" : "FeatureForm";
-      displayToast(qsTr("Changes saved"));
     }
 
     onCancel: {
