@@ -689,20 +689,17 @@ EditorWidgetBase {
       id: qfieldCamera
       visible: false
 
+      allowCaptureModeToggle: true
+
       Component.onCompleted: {
-        if (isVideo) {
-          qfieldCamera.state = 'VideoCapture';
-          open();
-        } else {
-          qfieldCamera.state = 'PhotoCapture';
-          open();
-        }
+        qfieldCamera.state = isVideo ? 'VideoCapture' : 'PhotoCapture';
+        open();
       }
 
       onFinished: path => {
         const filepath = StringUtils.replaceFilenameTags(getResourceFilePath(), path);
         platformUtilities.renameFile(path, prefixToRelativePath + filepath);
-        if (!cameraLoader.isVideo) {
+        if (!FileUtils.mimeTypeName(path).startsWith("video/")) {
           const maximumWidhtHeight = iface.readProjectNumEntry("qfieldsync", "maximumImageWidthHeight", 0);
           if (maximumWidhtHeight > 0) {
             FileUtils.restrictImageSize(prefixToRelativePath + filepath, maximumWidhtHeight);
@@ -712,13 +709,8 @@ EditorWidgetBase {
         close();
       }
 
-      onCanceled: {
-        close();
-      }
-
-      onClosed: {
-        cameraLoader.active = false;
-      }
+      onCanceled: close()
+      onClosed: cameraLoader.active = false
     }
   }
 
