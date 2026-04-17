@@ -947,6 +947,18 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
         <source>Hard constraints not satisfied</source>
         <translation>Twarde ograniczenia nie zostały spełnione</translation>
     </message>
+    <message>
+        <source>Previous page</source>
+        <translation>Poprzednia strona</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Zapisz</translation>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation>Następna strona</translation>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -2600,6 +2612,18 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Track color</source>
         <translation>Kolor śledzenia</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation>Załączniki notatek</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Opis</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation>Załączniki</translation>
     </message>
 </context>
 <context>

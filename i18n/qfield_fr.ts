@@ -946,6 +946,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Hard constraints not satisfied</source>
         <translation>Contraintes renforcées non respectées</translation>
     </message>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -2597,6 +2609,18 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Track color</source>
         <translation>Couleur du suivi</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Description</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -947,6 +947,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Hard constraints not satisfied</source>
         <translation>硬约束未满足</translation>
     </message>
+    <message>
+        <source>Previous page</source>
+        <translation>上一页</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation>下一页</translation>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -2594,6 +2606,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track color</source>
         <translation>跟踪颜色</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation>注解附件</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation>附件</translation>
     </message>
 </context>
 <context>

@@ -947,6 +947,18 @@ Peruuta tehd채ksesi suppeampi laiteskannaus.</translation>
         <source>Hard constraints not satisfied</source>
         <translation>Kovia rajoitteita ei t채ytetty</translation>
     </message>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -2596,6 +2608,18 @@ Kohteen geometriat yhdistet채채n kohteeseen &apos;%1&apos;, johon sis채llytet채�
     <message>
         <source>Track color</source>
         <translation>Nauhoitus j채ljen v채ri</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Kuvaus</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

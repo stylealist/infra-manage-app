@@ -946,6 +946,18 @@ Cancel to make a minimal device scan instead.</source>
         <source>Hard constraints not satisfied</source>
         <translation>ເງື່ອນໄຂທີ່ຈຳເປັນບໍ່ໄດ້ຮັບການຕອບສະໜອງ</translation>
     </message>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FeatureHistory</name>
@@ -2587,6 +2599,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track color</source>
         <translation>ສີເສັ້ນທາງ</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>ຄຳອະທິບາຍ</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
