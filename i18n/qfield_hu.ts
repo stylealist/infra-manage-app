@@ -299,7 +299,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>A Bluetooth-eszközök kereséséhez szükség van a Bluetooth engedélyre</translation>
     </message>
     <message>
         <source>Location permission denied</source>
@@ -307,7 +307,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>A Bluetooth-eszközök kereséséhez szükség van a helymeghatározási engedélyre</translation>
     </message>
 </context>
 <context>
@@ -416,11 +416,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Leírás</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Szín módosítása</translation>
     </message>
 </context>
 <context>
@@ -506,7 +506,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
 </context>
 <context>
@@ -598,7 +598,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Jelmagyarázat</translation>
     </message>
     <message>
         <source>Return home</source>
@@ -606,11 +606,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Összes kibontása</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Összes összecsukása</translation>
     </message>
 </context>
 <context>
@@ -792,7 +792,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
         <source>Copy “%1” to clipboard</source>
-        <translation>Másold “%1”-t a vágólapra</translation>
+        <translation>„%1” másolása a vágólapra</translation>
     </message>
     <message>
         <source>Calculator</source>
@@ -822,27 +822,27 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation>Készíts egy fotót</translation>
+        <translation>Fénykép készítése</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation>Készíts egy videót</translation>
+        <translation>Videó készítése</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation>Rögzíts hangot</translation>
+        <translation>Hang rögzítése</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation>Csatolj elemet a galériából</translation>
+        <translation>Csatolás a galériából</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation>Csatolj egy fájlt</translation>
+        <translation>Fájl csatolása</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation>Rajzolj egy vázlatot</translation>
+        <translation>Vázlat rajzolása</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -854,7 +854,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -862,18 +862,18 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>A külső tároló bejelentkezési azonosítójának beállítása hiányzik. Győződjön meg róla, hogy importálásra került ide: %1</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>Az értéket alkalmaztam</translation>
+        <translation>Érték alkalmazva</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>Az értéket kihagytam</translation>
+        <translation>Érték kihagyva</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
@@ -889,19 +889,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>Nem tudom menteni a változásokat</translation>
+        <translation>Nem sikerült menteni a változásokat</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Elem hozzáadás %1-en</translation>
+        <translation>Elem hozzáadás %1 réteghez</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Elem szerkesztése %1-en</translation>
+        <translation>Elem szerkesztése %1 rétegen</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>Elem megtekintése %1-en</translation>
+        <translation>Elem megtekintése %1 rétegen</translation>
     </message>
     <message>
         <source>Cancel editing</source>
@@ -917,15 +917,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation>A mezőben utoljára megadott érték rögzítésre és újrahasználatra kerül új elem létrehozásakor</translation>
+        <translation>A mezőbe utoljára beírt értéket a rendszer megjegyzi és újra felhasználja új elemek létrehozásakor</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation>A mezőben utoljára megadott érték nem kerül újrahasználatra új elem létrehozásakor</translation>
+        <translation>A mezőbe utoljára beírt értéket a rendszer nem használja fel újra új elemek létrehozásakor</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation>Elem hozzáadás letiltva</translation>
+        <translation>Elemek hozzáadása letiltva</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
@@ -933,11 +933,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Minden újrafelhasználható érték megőrzése</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>Minden újrafelhasználható érték elfelejtése</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
@@ -949,15 +949,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Előző oldal</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Mentés</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Következő oldal</translation>
     </message>
 </context>
 <context>
@@ -2614,7 +2614,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Leírás</translation>
     </message>
     <message>
         <source>Attachments</source>
@@ -4998,7 +4998,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5063,7 +5063,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5321,7 +5321,7 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Üres</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -6075,7 +6075,7 @@ project</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>A külső tároló bejelentkezési azonosítójának beállítása hiányzik. Győződjön meg róla, hogy importálásra került ide: %1</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6816,7 +6816,7 @@ project</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Jelmagyarázat</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
