@@ -929,7 +929,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Eleműrlap menü</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -1531,18 +1531,18 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>%1 rétegen a nyomvonalrögzítés leállt</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>Nem tudom elindítani a szerkesztést, nincs réteg</translation>
+        <translation>Nem lehet elkezdeni a szerkesztést, nincs réteg</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Szerkesztés elindítása nem sikerült</translation>
+        <translation>Nem lehet elkezdeni a szerkesztést</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
@@ -1607,11 +1607,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>A nyomvonalrögzítés ezen a rétegen aktív.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>%1 rétegen a nyomvonalrögzítés leállt</translation>
     </message>
 </context>
 <context>
@@ -1638,11 +1638,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Létrehozott projektek</translation>
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Kezdőoldal</translation>
     </message>
 </context>
 <context>
@@ -2161,7 +2161,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>Még nincs telepített bővítmény. Váltson át az %1elérhető bővítmények%3 fülre, hogy azonnal kipróbálhasson néhányat.&lt;br&gt;&lt;br&gt;További információkért %2olvassa el a dokumentációt%3.</translation>
     </message>
 </context>
 <context>
@@ -2224,7 +2224,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Hibátlan</translation>
+        <translation type="vanished">Érvényes</translation>
     </message>
     <message>
         <source>Fix</source>
@@ -2254,11 +2254,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="vanished">Automatikus kitöltéséhez hagyd üresen </translation>
+        <translation type="vanished">Automatikus kitöltéséhez hagyja üresen</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="vanished">Kapcsolódási típus:</translation>
+        <translation type="vanished">Kapcsolat típusa:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2282,11 +2282,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
-        <translation>Kapcsolódás típus</translation>
+        <translation>Kapcsolat típusa</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2302,7 +2302,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Naplófájl (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2353,11 +2353,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>ant.</translation>
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2412,7 +2412,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Hibátlan</translation>
+        <translation type="vanished">Érvényes</translation>
     </message>
     <message>
         <source>Fix</source>
@@ -2427,7 +2427,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>távolság</translation>
+        <translation>Távolság</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
@@ -2449,11 +2449,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation>Különleges beállítások</translation>
+        <translation>Speciális paraméterek</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation>Help</translation>
+        <translation>Súgó</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
@@ -3762,7 +3762,7 @@ name(string), owner(string), description(string), user_role(string), is_public(b
     </message>
     <message>
         <source>Home</source>
-        <translation type="unfinished"/>
+        <translation>Kezdőoldal</translation>
     </message>
     <message>
         <source>Item Actions</source>
