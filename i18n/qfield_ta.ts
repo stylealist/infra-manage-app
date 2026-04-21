@@ -949,15 +949,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>முந்தைய பக்கம்</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>சேமி</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>அடுத்த பக்கம்</translation>
     </message>
 </context>
 <context>
@@ -996,19 +996,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n அம்சங்களின் நீக்கத்தை ரத்து செய்</numerusform><numerusform>%n அம்சங்களின் நீக்கத்தை ரத்து செய்</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>அடுக்கு %1-இல் உள்ள %n சிறப்பம்சங்களின் மாற்றங்களை ரத்து செய்.</numerusform><numerusform>அடுக்கு %1-இல் உள்ள %n சிறப்பம்சங்களின் மாற்றங்களை ரத்து செய்.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n கூறுகளில் செய்யப்பட்ட மாற்றங்களை ரத்து செய்</numerusform><numerusform>%n கூறுகளில் செய்யப்பட்ட மாற்றங்களை ரத்து செய்</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%1 அடுக்கில் %n சிறப்பம்சங்களை உருவாக்குவதை மீண்டும் செய்</numerusform><numerusform>%1 அடுக்கில் %n சிறப்பம்சங்களை உருவாக்குவதை மீண்டும் செய்</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
@@ -2607,7 +2607,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>குறிப்பு இணைப்புகள்</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2615,7 +2615,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>இணைப்புகள்</translation>
     </message>
 </context>
 <context>
@@ -3107,7 +3107,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform></translation>
     </message>
     <message>
         <source>Used %1 of %2</source>
@@ -3624,7 +3624,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform><numerusform>%n கோப்புகள் மீதமுள்ளன</numerusform></translation>
     </message>
 </context>
 <context>
@@ -4476,11 +4476,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>பிணையம்</translation>
     </message>
     <message>
         <source>Enable proxy</source>
-        <translation type="unfinished"/>
+        <translation>ப்ராக்ஸியை இயக்கு</translation>
     </message>
     <message>
         <source>Type</source>
