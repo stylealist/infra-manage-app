@@ -5,7 +5,6 @@ on:
     branches:
       - master
       - release-**
-      - winarm
   pull_request:
   release:
     types: ['published']
@@ -61,11 +60,9 @@ jobs:
 
       - name: 🔨 Prepare build env
         shell: bash
+        if: matrix.platform_arch == 'x64'
         run: |
-          # Hide terminal for release builds
-          if [[ -n "${{ env.CI_TAG }}" ]]; then
-            EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -DCMAKE_WIN32_EXECUTABLE=ON"
-          fi
+          EXTRA_CMAKE_ARGS="${EXTRA_CMAKE_ARGS} -D SENTRY_DSN=${{ secrets.SENTRY_DSN }}"
           echo "EXTRA_CMAKE_ARGS=${EXTRA_CMAKE_ARGS}" >> $GITHUB_ENV
 
       - name: 🔨 Uninstall system cmake
@@ -115,6 +112,7 @@ jobs:
                 -D VCPKG_INSTALL_OPTIONS="--x-buildtrees-root=C:/src" \
                 -D CMAKE_COMPILE_WARNING_AS_ERROR=ON \
                 -D SENTRY_ENV="${APP_ENV}" \
+                -D CMAKE_WIN32_EXECUTABLE=ON \
                 ${EXTRA_CMAKE_ARGS}
 
       - name: 📑 Upload dep build logs
