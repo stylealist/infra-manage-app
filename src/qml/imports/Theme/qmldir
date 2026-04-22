@@ -1,5 +1,4 @@
 module Theme
-singleton Theme 1.0 Theme.qml
 QfActionButton 1.0 QfActionButton.qml
 QfBadge 1.0 QfBadge.qml
 QfButton 1.0 QfButton.qml
@@ -10,11 +9,12 @@ QfDialog 1.0 QfDialog.qml
 QfDropShadow 1.0 QfDropShadow.qml
 QfExpandableGroupBox 1.0 QfExpandableGroupBox.qml
 QfMenu 1.0 QfMenu.qml
+QfMeterBar 1.0 QfMeterBar.qml
 QfOpacityMask 1.0 QfOpacityMask.qml
 QfOverlayContainer 1.0 QfOverlayContainer.qml
 QfPageHeader 1.0 QfPageHeader.qml
 QfPopup 1.0 QfPopup.qml
-QfProgrerssRing 1.0 QfProgrerssRing.qml
+QfProgressRing 1.0 QfProgressRing.qml
 QfProjectThumbnail 1.0 QfProjectThumbnail.qml
 QfScrollBar 1.0 QfScrollBar.qml
 QfSearchBar 1.0 QfSearchBar.qml
@@ -23,6 +23,7 @@ QfSwipeAnimator 1.0 QfSwipeAnimator.qml
 QfSwitch 1.0 QfSwitch.qml
 QfTabBar 1.0 QfTabBar.qml
 QfTextField 1.0 QfTextField.qml
+QfToggleButtonGroup 1.0 QfToggleButtonGroup.qml
 QfToolButton 1.0 QfToolButton.qml
 QfToolButtonDrawer 1.0 QfToolButtonDrawer.qml
 QfToolButtonPie 1.0 QfToolButtonPie.qml

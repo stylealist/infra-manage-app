@@ -453,8 +453,6 @@ void QgsQuickMapSettings::onReadProject( const QDomDocument &doc )
     {
       foundTheMapCanvas = true;
       mMapSettings.readXml( node );
-
-      mMapSettings.setZRange( QgsDoubleRange( 10, 400 ) );
     }
   }
   if ( !foundTheMapCanvas )
@@ -513,7 +511,13 @@ qreal QgsQuickMapSettings::devicePixelRatio() const
 
 void QgsQuickMapSettings::setDevicePixelRatio( const qreal &devicePixelRatio )
 {
+  if ( mDevicePixelRatio == devicePixelRatio )
+  {
+    return;
+  }
+
   mDevicePixelRatio = devicePixelRatio;
+  emit mapUnitsPerPointChanged();
 }
 
 bool QgsQuickMapSettings::isTemporal() const

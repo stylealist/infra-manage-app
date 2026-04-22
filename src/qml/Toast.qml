@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import org.qfield
 import Theme
 
 /**
@@ -39,8 +40,7 @@ Popup {
   padding: 0
   closePolicy: Popup.NoAutoClose
 
-  background: Item {
-  }
+  background: Item {}
 
   onClosed: {
     toastTimer.stop();
@@ -61,7 +61,7 @@ Popup {
     radius: 4
     opacity: 0
 
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: 250
       }

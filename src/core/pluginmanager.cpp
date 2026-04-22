@@ -18,6 +18,7 @@
 #include "pluginmanager.h"
 #include "qgsziputils.h"
 
+#include <QCoreApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QQmlApplicationEngine>
@@ -78,6 +79,20 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
     unloadPlugin( pluginPath );
   }
 
+  // Load translation file for current language locale is present
+  QFileInfo pluginFileInfo( pluginPath );
+  const QString languageCode = QLocale().name();
+  QTranslator *languageTranslator = new QTranslator();
+  if ( languageTranslator->load( QStringLiteral( "%1%2%3" ).arg( pluginFileInfo.fileName().chopped( 4 ), pluginFileInfo.fileName() == QStringLiteral( "main.qml" ) ? "" : QStringLiteral( "-plugin_" ), languageCode ), pluginFileInfo.absolutePath(), "_" ) )
+  {
+    QCoreApplication::installTranslator( languageTranslator );
+    mLoadedPluginTranslators.insert( pluginPath, languageTranslator );
+  }
+  else
+  {
+    languageTranslator->deleteLater();
+  }
+
   // Bypass caching to insure updated QML content is loaded
   QUrl url = QUrl::fromLocalFile( pluginPath );
   url.setQuery( QStringLiteral( "t=%1" ).arg( QDateTime::currentSecsSinceEpoch() ) );
@@ -125,6 +140,12 @@ void PluginManager::unloadPlugin( const QString &pluginPath )
 
     // Clear QML components cache of dynamically loaded items
     mEngine->clearComponentCache();
+  }
+  if ( mLoadedPluginTranslators.contains( pluginPath ) )
+  {
+    QCoreApplication::removeTranslator( mLoadedPluginTranslators[pluginPath] );
+    mLoadedPluginTranslators[pluginPath]->deleteLater();
+    mLoadedPluginTranslators.remove( pluginPath );
   }
 }
 
@@ -215,22 +236,33 @@ void PluginManager::clearPluginPermissions()
 
 void PluginManager::restoreAppPlugins()
 {
+  QStringList checkedPluginUUids;
   QSettings settings;
   settings.beginGroup( QStringLiteral( "/qfield/plugins/" ) );
   const QStringList pluginKeys = settings.childGroups();
   for ( const QString &pluginKey : pluginKeys )
   {
     const QString uuid = settings.value( QStringLiteral( "%1/uuid" ).arg( pluginKey ) ).toString();
+    checkedPluginUUids << uuid;
     const PluginInformation pluginInformation = mPluginModel->pluginInformation( uuid );
     if ( settings.value( QStringLiteral( "%1/userEnabled" ).arg( pluginKey ), false ).toBool() )
     {
       if ( mPluginModel->hasPluginInformation( uuid ) )
       {
-        loadPlugin( mPluginModel->pluginInformation( uuid ).path, mPluginModel->pluginInformation( uuid ).name, pluginInformation.remotelyAvailable );
+        loadPlugin( mPluginModel->pluginInformation( uuid ).path, mPluginModel->pluginInformation( uuid ).name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
       }
     }
   }
   settings.endGroup();
+
+  const QList<PluginInformation> plugins = availableAppPlugins();
+  for ( const PluginInformation &plugin : plugins )
+  {
+    if ( plugin.bundled && !checkedPluginUUids.contains( plugin.uuid ) )
+    {
+      loadPlugin( plugin.path, plugin.name, true );
+    }
+  }
 }
 
 void PluginManager::enableAppPlugin( const QString &uuid )
@@ -245,13 +277,13 @@ void PluginManager::enableAppPlugin( const QString &uuid )
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
       settings.setValue( QStringLiteral( "uuid" ), uuid );
-      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.remotelyAvailable )
+      if ( settings.value( QStringLiteral( "permissionGranted" ), false ).toBool() || pluginInformation.bundled || pluginInformation.remotelyAvailable )
       {
         settings.setValue( QStringLiteral( "userEnabled" ), true );
       }
       settings.endGroup();
 
-      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.remotelyAvailable );
+      loadPlugin( pluginInformation.path, pluginInformation.name, pluginInformation.bundled || pluginInformation.remotelyAvailable );
 
       if ( mLoadedPlugins.contains( pluginInformation.path ) )
       {
@@ -268,10 +300,12 @@ void PluginManager::disableAppPlugin( const QString &uuid )
   {
     if ( mLoadedPlugins.contains( mPluginModel->pluginInformation( uuid ).path ) )
     {
-      QSettings settings;
       QString pluginKey = mPluginModel->pluginInformation( uuid ).path;
       pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+
+      QSettings settings;
       settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+      settings.setValue( QStringLiteral( "uuid" ), uuid );
       settings.setValue( QStringLiteral( "userEnabled" ), false );
       settings.endGroup();
 
@@ -380,14 +414,14 @@ void PluginManager::installFromUrl( const QString &url )
           }
           if ( zipFiles.contains( QStringLiteral( "%1main.qml" ).arg( !pluginDirectoryName.isEmpty() ? pluginDirectoryName + "/" : QString() ) ) )
           {
-            // Insure no previous version is running
-            disableAppPlugin( fileInfo.completeBaseName() );
-
-            // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
             if ( !pluginDirectoryWithinZip )
             {
-              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zIP$", QRegularExpression::CaseInsensitiveOption ), QString() );
+              // Remove the .zip suffix as well as version information (e.g. myplugin-v1.0.zip becomes myplugin)
+              pluginDirectoryName = fileName.replace( QRegularExpression( "(-v?\\d+(\\.\\d+)*)?.zip$", QRegularExpression::CaseInsensitiveOption ), QString() );
             }
+
+            // Insure no previous version is running
+            disableAppPlugin( pluginDirectoryName );
 
             if ( mPluginModel->hasPluginInformation( pluginDirectoryName ) )
             {

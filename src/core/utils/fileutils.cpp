@@ -70,6 +70,11 @@ QString FileUtils::absolutePath( const QString &filePath )
   return fileInfo.absolutePath();
 }
 
+QString FileUtils::nativeSeparatorsPath( const QString &filePath )
+{
+  return QDir::toNativeSeparators( filePath );
+}
+
 QString FileUtils::fileName( const QString &filePath )
 {
   QFileInfo fileInfo( filePath );
@@ -88,9 +93,23 @@ bool FileUtils::fileExists( const QString &filePath )
   return ( fileInfo.exists() && fileInfo.isFile() );
 }
 
-QString FileUtils::representFileSize( qint64 bytes )
+QString FileUtils::representFileSize( qint64 bytes, bool decimalRepresentation )
 {
-  return QgsFileUtils::representFileSize( bytes );
+  QStringList list;
+  list << QObject::tr( "KB" ) << QObject::tr( "MB" ) << QObject::tr( "GB" ) << QObject::tr( "TB" );
+
+  QStringListIterator i( list );
+  QString unit = QObject::tr( "B" );
+
+  double fileSize = bytes;
+  const double factor = decimalRepresentation ? 1000.0 : 1024.0;
+  while ( fileSize >= factor && i.hasNext() )
+  {
+    fileSize /= factor;
+    unit = i.next();
+  }
+
+  return QStringLiteral( "%1 %2" ).arg( QString::number( fileSize, 'f', bytes >= factor * 2 ? 2 : 0 ), unit );
 }
 
 QString FileUtils::sanitizeFilePath( const QString &filePath, const QString &replacement )

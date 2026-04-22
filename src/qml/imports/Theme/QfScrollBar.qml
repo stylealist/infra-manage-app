@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls.impl
 import QtQuick.Templates as T
-import Theme
+import org.qfield
 
 /**
  * \ingroup qml
@@ -28,7 +28,7 @@ T.ScrollBar {
       }
       return handle.height === _maxSize;
     }
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: 20
       }

@@ -201,7 +201,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -235,7 +235,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -257,7 +257,7 @@ Rectangle {
 
     iconSource: Theme.getThemeVectorIcon("ic_check_white_24dp")
     iconColor: !featureForm.model.constraintsHardValid ? Theme.mainOverlayColor : Theme.mainTextColor
-    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : "transparent"
+    bgcolor: !featureForm.model.constraintsHardValid ? Theme.errorColor : !featureForm.model.constraintsSoftValid ? Theme.warningColor : featureForm.model.hasConstraints ? Theme.goodColor : "transparent"
     borderColor: Theme.mainBackgroundColor
     roundborder: true
     round: true
@@ -273,7 +273,7 @@ Rectangle {
         }
       }
     }
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -300,7 +300,7 @@ Rectangle {
       toolBar.cancel();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -310,9 +310,10 @@ Rectangle {
   QfToolButton {
     id: editGeomButton
 
+    property bool supportsGeometryEditing: false
     property bool readOnly: false
 
-    visible: stateMachine.state === "digitize" && !selection.focusedGeometry.isNull && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature) && toolBar.state === "Navigation" && editButton.supportsEditing && projectInfo.editRights
+    visible: stateMachine.state === "digitize" && toolBar.state === "Navigation" && supportsGeometryEditing && !featureForm.model.featureModel.geometryEditingLocked && (projectInfo.editRights || editButton.isCreatedCloudFeature)
 
     anchors.right: editButton.left
     anchors.top: parent.top
@@ -330,7 +331,7 @@ Rectangle {
       toolBar.editGeometryButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -367,7 +368,7 @@ Rectangle {
       toolBar.editAttributesButtonClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -378,6 +379,7 @@ Rectangle {
 
       function onFocusedItemChanged() {
         editButton.supportsEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing;
+        editGeomButton.supportsGeometryEditing = selection.focusedLayer && selection.focusedLayer.supportsEditing && !selection.focusedGeometry.isNull && (selection.focusedLayer.geometryType() !== Qgis.GeometryType.Point || WkbTypes.isMultiType(selection.focusedLayer.wkbType()));
       }
       function onFocusedFeatureChanged() {
         if (QFieldCloudUtils.getProjectId(qgisProject.fileName) !== '') {
@@ -413,7 +415,7 @@ Rectangle {
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -439,7 +441,7 @@ Rectangle {
 
     onClicked: toggleMultiSelection()
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }
@@ -486,7 +488,7 @@ Rectangle {
       multiEditClicked();
     }
 
-    Behavior on width  {
+    Behavior on width {
       PropertyAnimation {
         easing.type: Easing.OutQuart
       }

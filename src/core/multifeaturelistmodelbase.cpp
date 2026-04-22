@@ -25,6 +25,7 @@
 #include <qgsgeometrycollection.h>
 #include <qgsmemoryproviderutils.h>
 #include <qgsmessagelog.h>
+#include <qgsmultipoint.h>
 #include <qgsproject.h>
 #include <qgsrasterlayer.h>
 #include <qgsrelationmanager.h>
@@ -623,7 +624,8 @@ bool MultiFeatureListModelBase::mergeSelection()
 
   if ( isSuccess )
   {
-    if ( !vlayer->startEditing() )
+    const bool wasEditing = vlayer->editBuffer();
+    if ( !wasEditing && !vlayer->startEditing() )
     {
       QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
       return false;
@@ -649,7 +651,7 @@ bool MultiFeatureListModelBase::mergeSelection()
     if ( isSuccess )
     {
       // commit changes
-      isSuccess = vlayer->commitChanges();
+      isSuccess = vlayer->commitChanges( !wasEditing );
       mSelectedFeatures.clear();
       emit dataChanged( index( 0, 0 ), index( rowCount( QModelIndex() ) - 1, 0 ), QVector<int>() << MultiFeatureListModel::FeatureSelectedRole );
       emit selectedCountChanged();
@@ -657,7 +659,9 @@ bool MultiFeatureListModelBase::mergeSelection()
     else
     {
       if ( !vlayer->rollBack() )
+      {
         QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+      }
     }
   }
 
@@ -675,7 +679,8 @@ bool MultiFeatureListModelBase::deleteSelection()
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -693,13 +698,15 @@ bool MultiFeatureListModelBase::deleteSelection()
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
 
   if ( !isSuccess )
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;
@@ -755,42 +762,81 @@ bool MultiFeatureListModelBase::duplicateSelection()
   return isSuccess;
 }
 
-bool MultiFeatureListModelBase::moveSelection( const double x, const double y )
+bool MultiFeatureListModelBase::moveSelection( const double x, const double y, const QgsPoint &destinationPoint )
 {
   if ( !canMoveSelection() )
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
   }
 
   bool isSuccess = false;
+  bool isSingleSelection = mSelectedFeatures.size() == 1;
+  bool isSingleSelectionProcessed = false;
   for ( auto &pair : mSelectedFeatures )
   {
     QgsGeometry geom = pair.second.geometry();
-    geom.translate( x, y );
-    pair.second.setGeometry( geom );
+    if ( isSingleSelection && vlayer->geometryType() == Qgis::GeometryType::Point && !destinationPoint.isEmpty() )
+    {
+      if ( geom.constGet() && geom.constGet()->partCount() == 1 )
+      {
+        QgsPoint *point = nullptr;
+        if ( QgsPoint *singlePoint = dynamic_cast<QgsPoint *>( geom.get() ) )
+        {
+          point = singlePoint;
+        }
+        else if ( QgsMultiPoint *multiPoint = dynamic_cast<QgsMultiPoint *>( geom.get() ) )
+        {
+          point = multiPoint->pointN( 0 );
+        }
+
+        if ( point )
+        {
+          point->setX( destinationPoint.x() );
+          point->setY( destinationPoint.y() );
+          if ( QgsWkbTypes::hasZ( vlayer->wkbType() ) && !std::isnan( destinationPoint.z() ) )
+          {
+            point->setZ( destinationPoint.z() );
+          }
+          if ( QgsWkbTypes::hasZ( vlayer->wkbType() ) && !std::isnan( destinationPoint.m() ) )
+          {
+            point->setM( destinationPoint.m() );
+          }
+          isSingleSelectionProcessed = true;
+        }
+      }
+    }
+
+    if ( !isSingleSelectionProcessed )
+    {
+      geom.translate( x, y );
+    }
     isSuccess = vlayer->changeGeometry( pair.second.id(), geom );
     if ( !isSuccess )
     {
       QgsMessageLog::logMessage( tr( "Cannot change geometry of feature %1 in %2" ).arg( pair.second.id() ).arg( vlayer->name() ), "QField", Qgis::Critical );
       break;
     }
+    pair.second.setGeometry( geom );
   }
 
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
 
   if ( !isSuccess )
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;
@@ -802,7 +848,8 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
     return false;
 
   QgsVectorLayer *vlayer = selectedLayer();
-  if ( !vlayer->startEditing() )
+  const bool wasEditing = vlayer->editBuffer();
+  if ( !wasEditing && !vlayer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return false;
@@ -825,12 +872,14 @@ bool MultiFeatureListModelBase::rotateSelection( const double angle )
   if ( isSuccess )
   {
     // commit changes
-    isSuccess = vlayer->commitChanges();
+    isSuccess = vlayer->commitChanges( !wasEditing );
   }
   else
   {
     if ( !vlayer->rollBack() )
+    {
       QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vlayer->name() ), "QField", Qgis::Critical );
+    }
   }
 
   return isSuccess;
@@ -907,7 +956,7 @@ void MultiFeatureListModelBase::attributeValueChanged( QgsFeatureId fid, int idx
     i++;
   }
 
-  QModelIndex indexChanged = createIndex( i, 1 );
+  QModelIndex indexChanged = createIndex( i, 0 );
   emit dataChanged( indexChanged, indexChanged );
 
   for ( auto &pair : mSelectedFeatures )
@@ -938,7 +987,7 @@ void MultiFeatureListModelBase::geometryChanged( QgsFeatureId fid, const QgsGeom
     i++;
   }
 
-  QModelIndex indexChanged = createIndex( i, 1 );
+  QModelIndex indexChanged = createIndex( i, 0 );
   emit dataChanged( indexChanged, indexChanged, QVector<int>() << MultiFeatureListModel::GeometryRole << MultiFeatureListModel::FeatureSelectedRole );
 
   for ( auto &pair : mSelectedFeatures )

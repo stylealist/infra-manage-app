@@ -289,7 +289,7 @@ Item {
     visible: false
 
     iconSource: withNfc ? Theme.getThemeVectorIcon("ic_qr_nfc_code_black_24dp") : Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
-    iconColor: Theme.darkTheme ? Theme.mainTextColor : "transparent"
+    iconColor: Theme.mainTextColor
     bgcolor: "transparent"
 
     onClicked: {
@@ -334,7 +334,7 @@ Item {
     visible: searchFieldRect.visible && resultsList.count > 0
     clip: true
 
-    Behavior on height  {
+    Behavior on height {
       NumberAnimation {
         duration: 150
         easing.type: Easing.InOutQuad
@@ -351,8 +351,7 @@ Item {
       height: resultsList.count > 0 ? Math.min(contentHeight, mainWindow.height / 2 - searchFieldRect.height - 10) : 0
       clip: true
 
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
 
       delegate: searchField.displayText !== '' ? resultsComponent : filtersComponent
     }

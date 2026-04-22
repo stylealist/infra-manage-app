@@ -116,7 +116,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
     {
       case AttributeFormModel::AttributeAllowEdit:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeAllowEdit );
         item->setData( value, AttributeFormModel::AttributeAllowEdit );
         updateVisibilityAndConstraints( fieldIndex );
@@ -125,7 +125,7 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::RememberValue:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
         mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::RememberAttribute );
         item->setData( value, AttributeFormModel::RememberValue );
         break;
@@ -133,8 +133,8 @@ bool AttributeFormModelBase::setData( const QModelIndex &index, const QVariant &
 
       case AttributeFormModel::AttributeValue:
       {
-        int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
-        bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+        const int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
+        const bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
         if ( changed )
         {
           mExpressionContext.popScope();
@@ -162,7 +162,7 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   if ( mFeatureModel )
   {
-    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+    disconnect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onCurrentLayerChanged );
     disconnect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
     disconnect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
     disconnect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
@@ -170,12 +170,18 @@ void AttributeFormModelBase::setFeatureModel( FeatureModel *featureModel )
 
   mFeatureModel = featureModel;
 
-  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::resetModel );
+  connect( mFeatureModel, &FeatureModel::currentLayerChanged, this, &AttributeFormModelBase::onCurrentLayerChanged );
   connect( mFeatureModel, &FeatureModel::modelReset, this, &AttributeFormModelBase::applyFeatureModel );
   connect( mFeatureModel, &FeatureModel::featureUpdated, this, &AttributeFormModelBase::applyFeatureModel );
   connect( mFeatureModel, &FeatureModel::linkedParentFeatureChanged, this, &AttributeFormModelBase::applyFeatureModel );
 
   emit featureModelChanged();
+}
+
+void AttributeFormModelBase::onCurrentLayerChanged()
+{
+  setIsWizard( QgsProject::instance()->readBoolEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "featureFormWizardModeEnabled" ), false ) );
+  resetModel();
 }
 
 void AttributeFormModelBase::resetModel()
@@ -193,6 +199,7 @@ void AttributeFormModelBase::resetModel()
   setConstraintsSoftValid( true );
   setHasTabs( false );
   setHasRemembrance( false );
+  setHasConstraints( false );
 
   if ( !mFeatureModel )
     return;
@@ -242,7 +249,7 @@ void AttributeFormModelBase::resetModel()
           QString visibilityExpression;
           if ( container->visibilityExpression().enabled() )
           {
-            visibilityExpression = container->visibilityExpression().data().expression();
+            visibilityExpression = QStringLiteral( "(%1)" ).arg( container->visibilityExpression().data().expression() );
           }
 
           buildForm( container, item, visibilityExpression, containers, currentTab, columnCount );
@@ -397,6 +404,21 @@ void AttributeFormModelBase::updateAttributeValue( QStandardItem *item )
   {
     int fieldIndex = item->data( AttributeFormModel::FieldIndex ).toInt();
     QVariant attributeValue = mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
+
+    if ( attributeValue.userType() == QMetaType::QDate )
+    {
+      // if the field is a QDate, the automatic conversion to JS date [1]
+      // leads to the creation of date time object with the time zone.
+      // For instance shapefiles has support for dates but not date/time or time.
+      // So a date coming from a shapefile as 2001-01-01 will become 2000-12-31 19:00:00 -05 in QML/JS (in the carribeans).
+      // And when formatting this with the display format, this is shown as 2000-12-31.
+      // So we detect if the field is a date only and revert the time zone offset.
+      // [1] http://doc.qt.io/qt-5/qtqml-cppintegration-data.html#basic-qt-data-types
+
+      const QDate d = attributeValue.toDate();
+      attributeValue = QDateTime( d, QTime() );
+    }
+
     item->setData( attributeValue.isNull() ? QVariant() : attributeValue, AttributeFormModel::AttributeValue );
     item->setData( mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeAllowEdit ), AttributeFormModel::AttributeAllowEdit );
     // set item editable state to false in case it's a linked attribute
@@ -512,9 +534,13 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         if ( innerContainer->visibilityExpression().enabled() )
         {
           if ( visibilityExpression.isNull() )
-            visibilityExpression = innerContainer->visibilityExpression().data().expression();
+          {
+            visibilityExpression = QStringLiteral( "(%1)" ).arg( innerContainer->visibilityExpression().data().expression() );
+          }
           else
-            visibilityExpression += " AND " + innerContainer->visibilityExpression().data().expression();
+          {
+            visibilityExpression += QStringLiteral( " AND (%1)" ).arg( innerContainer->visibilityExpression().data().expression() );
+          }
         }
 
         item->setData( "container", AttributeFormModel::ElementType );
@@ -524,14 +550,18 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( false, AttributeFormModel::AttributeAllowEdit );
         item->setData( element->showLabel() ? innerContainer->name() : QString(), AttributeFormModel::GroupName );
         if ( innerContainer->backgroundColor().isValid() )
+        {
           item->setData( innerContainer->backgroundColor(), AttributeFormModel::GroupColor );
+        }
 
         buildForm( innerContainer, item, visibilityExpression, containers, 0, innerColumnCount );
         parent->appendRow( item );
         containers << item;
 
         if ( !visibilityExpression.isEmpty() )
+        {
           mVisibilityExpressions.append( qMakePair( QgsExpression( visibilityExpression ), item ) );
+        }
         break;
       }
 
@@ -553,16 +583,12 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( !mLayer->editFormConfig().readOnly( fieldIndex ) && setup.type() != QStringLiteral( "Binary" ), AttributeFormModel::AttributeEditable );
         item->setData( setup.type(), AttributeFormModel::EditorWidget );
         item->setData( setup.config(), AttributeFormModel::EditorWidgetConfig );
-#if _QGIS_VERSION_INT >= 39900
-        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed;
+        const bool canRemember = mLayer->editFormConfig().reuseLastValuePolicy( fieldIndex ) != Qgis::AttributeFormReuseLastValuePolicy::NotAllowed || QgsProject::instance()->lastSaveVersion().majorVersion() < 4;
         item->setData( canRemember, AttributeFormModel::CanRememberValue );
         if ( canRemember )
         {
           setHasRemembrance( true );
         }
-#else
-        item->setData( true, AttributeFormModel::CanRememberValue );
-#endif
         item->setData( mFeatureModel->rememberedAttributes().at( fieldIndex ) ? Qt::Checked : Qt::Unchecked, AttributeFormModel::RememberValue );
         item->setData( QgsField( field ), AttributeFormModel::Field );
         item->setData( "field", AttributeFormModel::ElementType );
@@ -587,7 +613,15 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
           descriptions << tr( "Unique" );
         }
 
-        item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        if ( !descriptions.isEmpty() )
+        {
+          setHasConstraints( true );
+          item->setData( descriptions.join( ", " ), AttributeFormModel::ConstraintDescription );
+        }
+        else
+        {
+          item->setData( QString(), AttributeFormModel::ConstraintDescription );
+        }
 
         QgsProperty property = mLayer->editFormConfig().dataDefinedFieldProperties( field.name() ).property( QgsEditFormConfig::DataDefinedProperty::Alias );
         if ( property.isActive() )
@@ -618,7 +652,23 @@ void AttributeFormModelBase::buildForm( QgsAttributeEditorContainer *container, 
         item->setData( true, AttributeFormModel::CurrentlyVisible );
         item->setData( "relation", AttributeFormModel::ElementType );
         item->setData( "RelationEditor", AttributeFormModel::EditorWidget );
-        item->setData( editorRelation->relationWidgetTypeId(), AttributeFormModel::RelationEditorWidget );
+        QString relationWidgetType = editorRelation->relationWidgetTypeId();
+        if ( relationWidgetType != QLatin1String( "ordered_relation_editor" ) )
+        {
+          QgsVectorLayer *referencingLayer = relation.referencingLayer();
+          if ( referencingLayer )
+          {
+            for ( int i = 0; i < referencingLayer->fields().count(); i++ )
+            {
+              if ( referencingLayer->editorWidgetSetup( i ).type() == QLatin1String( "ExternalResource" ) )
+              {
+                relationWidgetType = QStringLiteral( "gallery_relation_editor" );
+                break;
+              }
+            }
+          }
+        }
+        item->setData( relationWidgetType, AttributeFormModel::RelationEditorWidget );
         item->setData( editorRelation->relationEditorConfiguration(), AttributeFormModel::RelationEditorWidgetConfig );
         item->setData( relation.id(), AttributeFormModel::RelationId );
         item->setData( editorRelation->nmRelationId(), AttributeFormModel::NmRelationId );
@@ -711,7 +761,9 @@ void AttributeFormModelBase::synchronizeFieldValue( int fieldIndex, QVariant val
     QStandardItem *item = fieldIterator.key();
     const int fidx = fieldIterator.value();
     if ( fidx != fieldIndex )
+    {
       continue;
+    }
 
     item->setData( value, AttributeFormModel::AttributeValue );
   }
@@ -749,6 +801,9 @@ void AttributeFormModelBase::updateDefaultValues( int fieldIndex, QVector<int> u
     const QVariant updatedValue = mFeatureModel->data( mFeatureModel->index( fidx ), FeatureModel::AttributeValue );
     if ( success && updatedValue != previousValue )
     {
+      mExpressionContext.popScope();
+      mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+
       synchronizeFieldValue( fidx, updatedValue );
       if ( !updatedFields.contains( fidx ) )
       {
@@ -1088,8 +1143,44 @@ QVariant AttributeFormModelBase::attribute( const QString &name )
   if ( !mLayer )
     return QVariant();
 
-  int idx = mLayer->fields().indexOf( name );
-  return mFeatureModel->data( mFeatureModel->index( idx ), FeatureModel::AttributeValue );
+  const int fieldIndex = mLayer->fields().indexOf( name );
+  return mFeatureModel->data( mFeatureModel->index( fieldIndex ), FeatureModel::AttributeValue );
+}
+
+bool AttributeFormModelBase::changeAttribute( const QString &name, const QVariant &value )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const int fieldIndex = mLayer->fields().indexOf( name );
+  const bool changed = mFeatureModel->setData( mFeatureModel->index( fieldIndex ), value, FeatureModel::AttributeValue );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+    synchronizeFieldValue( fieldIndex, value );
+    updateDefaultValues( fieldIndex );
+    updateVisibilityAndConstraints( fieldIndex );
+  }
+
+  return changed;
+}
+
+bool AttributeFormModelBase::changeGeometry( const QgsGeometry &geometry )
+{
+  if ( !mLayer || !mFeatureModel )
+    return false;
+
+  const bool changed = mFeatureModel->changeGeometry( geometry );
+  if ( changed )
+  {
+    mExpressionContext.popScope();
+    mExpressionContext << QgsExpressionContextUtils::formScope( mFeatureModel->feature() );
+    updateDefaultValues();
+    updateVisibilityAndConstraints();
+  }
+
+  return changed;
 }
 
 void AttributeFormModelBase::setConstraintsHardValid( bool constraintsHardValid )
@@ -1178,6 +1269,20 @@ QgsEditorWidgetSetup AttributeFormModelBase::findBest( const int fieldIndex )
   return QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), QVariantMap() );
 }
 
+bool AttributeFormModelBase::isWizard() const
+{
+  return mIsWizard;
+}
+
+void AttributeFormModelBase::setIsWizard( bool isWizard )
+{
+  if ( mIsWizard == isWizard )
+    return;
+
+  mIsWizard = isWizard;
+  emit isWizardChanged();
+}
+
 bool AttributeFormModelBase::hasTabs() const
 {
   return mHasTabs;
@@ -1204,6 +1309,20 @@ void AttributeFormModelBase::setHasRemembrance( bool hasRemembrance )
 
   mHasRemembrance = hasRemembrance;
   emit hasRemembranceChanged();
+}
+
+bool AttributeFormModelBase::hasConstraints() const
+{
+  return mHasConstraints;
+}
+
+void AttributeFormModelBase::setHasConstraints( bool hasConstraints )
+{
+  if ( hasConstraints == mHasConstraints )
+    return;
+
+  mHasConstraints = hasConstraints;
+  emit hasConstraintsChanged();
 }
 
 bool AttributeFormModelBase::save()

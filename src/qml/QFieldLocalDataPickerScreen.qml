@@ -195,6 +195,24 @@ Page {
             }
 
             Image {
+              id: thumbnail
+              Layout.alignment: Qt.AlignVCenter
+              Layout.topMargin: 5
+              Layout.bottomMargin: 5
+              Layout.leftMargin: 4
+              Layout.preferredWidth: 48
+              Layout.preferredHeight: 48
+              visible: ItemHasThumbnail
+              asynchronous: true
+              source: ItemHasThumbnail ? "image://localfiles/" + ItemPath : ""
+              sourceSize.width: 92
+              sourceSize.height: 92
+              fillMode: Image.PreserveAspectFit
+              width: 48
+              height: 48
+            }
+
+            ParameterizedImage {
               id: type
               Layout.alignment: Qt.AlignVCenter
               Layout.topMargin: 5
@@ -202,32 +220,27 @@ Page {
               Layout.leftMargin: 4
               Layout.preferredWidth: 48
               Layout.preferredHeight: 48
-              asynchronous: true
+              visible: !ItemHasThumbnail
+
+              fillColor: Theme.secondaryTextColor
+              strokeColor: Theme.mainColor
+
               source: {
-                if (ItemHasThumbnail) {
-                  return "image://localfiles/" + ItemPath;
-                } else {
-                  switch (ItemType) {
-                  case LocalFilesModel.ApplicationFolder:
-                    return Theme.getThemeVectorIcon('ic_folder_qfield_gray_48dp');
-                  case LocalFilesModel.ExternalStorage:
-                    return Theme.getThemeVectorIcon('ic_sd_card_gray_48dp');
-                  case LocalFilesModel.SimpleFolder:
-                    return Theme.getThemeVectorIcon(ItemMetaType == LocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_gray_48dp' : 'ic_folder_gray_48dp');
-                  case LocalFilesModel.ProjectFile:
-                    return Theme.getThemeVectorIcon('ic_map_green_48dp');
-                  case LocalFilesModel.VectorDataset:
-                  case LocalFilesModel.RasterDataset:
-                  case LocalFilesModel.OtherFile:
-                    return Theme.getThemeVectorIcon('ic_file_green_48dp');
-                  }
+                switch (ItemType) {
+                case LocalFilesModel.ApplicationFolder:
+                  return Theme.getThemeVectorIcon('ic_folder_qfield_param_48dp');
+                case LocalFilesModel.ExternalStorage:
+                  return Theme.getThemeVectorIcon('ic_sd_card_param_48dp');
+                case LocalFilesModel.SimpleFolder:
+                  return Theme.getThemeVectorIcon(ItemMetaType == LocalFilesModel.Folder && ItemIsFavorite ? 'ic_folder_favorite_param_48dp' : 'ic_folder_param_48dp');
+                case LocalFilesModel.ProjectFile:
+                  return Theme.getThemeVectorIcon('ic_map_param_48dp');
+                case LocalFilesModel.VectorDataset:
+                case LocalFilesModel.RasterDataset:
+                case LocalFilesModel.OtherFile:
+                  return Theme.getThemeVectorIcon('ic_file_param_48dp');
                 }
               }
-              sourceSize.width: 92
-              sourceSize.height: 92
-              fillMode: Image.PreserveAspectFit
-              width: 48
-              height: 48
             }
 
             ColumnLayout {
@@ -1039,14 +1052,55 @@ Page {
         color: Theme.mainTextColor
       }
 
-      TextField {
+      TextArea {
         id: importUrlInput
         width: importUrlLabel.width
+        rightPadding: scanCodeBtn.width
+        wrapMode: TextEdit.WrapAnywhere
+
+        QfToolButton {
+          id: scanCodeBtn
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: Theme.mainTextColor
+
+          onClicked: {
+            codeReaderConnection.enabled = true;
+            codeReader.open();
+          }
+        }
       }
     }
 
     onAccepted: {
       iface.importUrl(importUrlInput.text);
+    }
+  }
+
+  Connections {
+    id: codeReaderConnection
+    target: codeReader
+    enabled: false
+
+    function onDecoded(string) {
+      if (string.toLowerCase().startsWith("http://") || string.toLowerCase().startsWith("https://")) {
+        codeReader.close();
+        importUrlInput.text = string;
+        importUrlDialog.accept();
+      } else {
+        const details = UrlUtils.getActionDetails(string);
+        if (details.type === "local" && details.import !== undefined && details.import !== "") {
+          importUrlInput.text = details.import;
+          importUrlDialog.accept();
+        }
+      }
+    }
+
+    function onAboutToHide() {
+      codeReaderConnection.enabled = false;
     }
   }
 
@@ -1062,6 +1116,7 @@ Page {
         onIsImportingPathChanged: {
           if (isImportingPath) {
             busyOverlay.text = qsTr("Importing WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
@@ -1072,6 +1127,7 @@ Page {
         onIsDownloadingPathChanged: {
           if (isDownloadingPath) {
             busyOverlay.text = qsTr("Downloading WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
@@ -1086,6 +1142,7 @@ Page {
         onIsUploadingPathChanged: {
           if (isUploadingPath) {
             busyOverlay.text = qsTr("Uploading WebDAV folder");
+            busyOverlay.showProgress = true;
             busyOverlay.progress = 0;
             busyOverlay.state = "visible";
           } else {
@@ -1119,7 +1176,7 @@ Page {
           if (!isFetchingAvailablePaths && importWebdavDialog.visible) {
             swipeDialog.currentIndex = 1;
             importWebdavPathInput.model = availablePaths;
-            importWebdavPathInput.currentIndex = -1;
+            importWebdavPathInput.currentIndex = importWebdavPathInput.model.indexOf(importWebdavPathInput.lastIndexPath);
           }
         }
       }
@@ -1444,8 +1501,8 @@ Page {
           id: importWebdavFetchFoldersIndicator
           Layout.preferredWidth: 48
           Layout.preferredHeight: 48
-          visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-          running: visible
+          running: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+          visible: running
         }
       }
 
@@ -1487,8 +1544,8 @@ Page {
             anchors.verticalCenter: importWebdavRefetchFoldersButton.verticalCenter
             width: importWebdavRefetchFoldersButton.width
             height: importWebdavRefetchFoldersButton.width
-            visible: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
-            running: visible
+            running: webdavConnectionLoader.item && webdavConnectionLoader.item.isFetchingAvailablePaths
+            visible: running
           }
         }
 
@@ -1505,11 +1562,11 @@ Page {
             anchors.fill: parent
             anchors.margins: 1
             enabled: !webdavConnectionLoader.item || !webdavConnectionLoader.item.isFetchingAvailablePaths
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
             clip: true
             model: []
 
+            property string lastIndexPath: ""
             property var expandedPaths: []
             property int expandedPathsClicks: 0
 
@@ -1551,6 +1608,10 @@ Page {
                   return true;
                 }
                 property bool hasChildren: {
+                  if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                    return true;
+                  }
+
                   for (const availablePath of importWebdavPathInput.model) {
                     if (availablePath.indexOf(modelData) === 0 && availablePath !== modelData) {
                       return true;
@@ -1586,7 +1647,7 @@ Page {
                   opacity: lineDialog.level > 0 && lineDialog.hasChildren && !lineDialog.isImported ? 1 : 0
                   rotation: importWebdavPathInput.expandedPaths.indexOf(modelData) > -1 ? 90 : 0
 
-                  Behavior on rotation  {
+                  Behavior on rotation {
                     NumberAnimation {
                       duration: 100
                     }
@@ -1646,6 +1707,10 @@ Page {
                   const index = importWebdavPathInput.expandedPaths.indexOf(modelData);
                   if (importWebdavPathInput.expandedPaths.indexOf(modelData) == -1) {
                     importWebdavPathInput.expandedPaths.push(modelData);
+                    if (webdavConnectionLoader.item.checkedPaths.indexOf(modelData) === -1) {
+                      importWebdavPathInput.lastIndexPath = modelData;
+                      webdavConnectionLoader.item.fetchAvailablePaths(modelData);
+                    }
                   } else {
                     importWebdavPathInput.expandedPaths.splice(index, 1);
                   }

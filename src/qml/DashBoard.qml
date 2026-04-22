@@ -18,6 +18,7 @@ Drawer {
   signal showCloudPopup
   signal showProjectFolder
   signal toggleMeasurementTool
+  signal toggle3DView
   signal returnHome
 
   property bool preventFromOpening: overlayFeatureFormDrawer.visible
@@ -137,6 +138,20 @@ Drawer {
           }
 
           QfToolButton {
+            id: view3DButton
+            objectName: "View3DButton"
+            anchors.verticalCenter: parent.verticalCenter
+            round: true
+            iconSource: Theme.getThemeVectorIcon("ic_3d_white_24dp")
+            iconColor: Theme.mainTextColor
+            bgcolor: "transparent"
+            onClicked: {
+              toggle3DView();
+              highlighted = false;
+            }
+          }
+
+          QfToolButton {
             id: printItemButton
             objectName: "PrintItemButton"
             anchors.verticalCenter: parent.verticalCenter
@@ -184,7 +199,7 @@ Drawer {
               if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject) {
                 return Theme.mainTextColor;
               } else {
-                return "transparent";
+                return Theme.cloudColor;
               }
             }
             bgcolor: "transparent"
@@ -279,13 +294,14 @@ Drawer {
 
       label: Label {
         x: parent.leftPadding
-        y: 2
+        height: 25
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
         color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
       }
 
       background: Rectangle {
@@ -380,13 +396,39 @@ Drawer {
 
       label: Label {
         x: mapThemeContainer.leftPadding
-        y: 2
+        height: 25
         width: parent.availableWidth
         leftPadding: mainWindow.sceneLeftMargin
         text: parent.title
         color: Theme.mainTextColor
         font: Theme.strongTipFont
         elide: Text.ElideRight
+        verticalAlignment: Text.AlignVCenter
+        clip: true
+
+        QfButton {
+          id: toggleAllButton
+
+          anchors {
+            verticalCenter: parent.verticalCenter
+            right: parent.right
+            rightMargin: 10
+          }
+          visible: legend.model.hasCollapsibleItems
+
+          text: legend.model.isCollapsed ? qsTr('Expand All') : qsTr('Collapse All')
+          bgcolor: Theme.darkTheme ? Theme.mainBackgroundColorSemiOpaque : Theme.lightestGraySemiOpaque
+          color: Theme.mainTextColor
+          icon.source: legend.model.isCollapsed ? Theme.getThemeVectorIcon('ic_expand_all_24dp') : Theme.getThemeVectorIcon('ic_collapse_all_24dp')
+          icon.width: 14
+          icon.height: 14
+          font.pointSize: 8
+
+          onClicked: {
+            legend.model.setAllCollapsed(!legend.model.isCollapsed);
+            projectInfo.saveLayerTreeState();
+          }
+        }
       }
 
       Legend {
@@ -479,7 +521,7 @@ Drawer {
               sourceSize.width: parent.height * screen.devicePixelRatio
               sourceSize.height: parent.width * screen.devicePixelRatio
             }
-            Behavior on x  {
+            Behavior on x {
               PropertyAnimation {
                 duration: 100
                 easing.type: Easing.OutQuart

@@ -42,6 +42,7 @@
 #include <qgssymbol.h>
 #include <qgssymbollayer.h>
 #include <qgstextbuffersettings.h>
+#include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectorlayerlabeling.h>
 #include <qgsvectorlayerutils.h>
@@ -351,10 +352,12 @@ bool LayerUtils::addFeature( QgsVectorLayer *layer, QgsFeature feature )
   return false;
 }
 
-bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool shouldWriteChanges )
+bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, const QgsFeatureId fid, bool flushBuffer )
 {
   if ( !project )
+  {
     return false;
+  }
 
   if ( !layer )
   {
@@ -362,21 +365,13 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
     return false;
   }
 
-  if ( !shouldWriteChanges )
+  const bool wasEditing = layer->editBuffer();
+  if ( !wasEditing && !layer->startEditing() )
   {
-    if ( !layer->startEditing() || !layer->editBuffer() )
-    {
-      QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
-      return false;
-    }
+    QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
+    return false;
   }
-  else
-  {
-    if ( !layer->editBuffer() )
-    {
-      return false;
-    }
-  }
+  flushBuffer = flushBuffer || !wasEditing;
 
   bool isSuccess = true;
 
@@ -384,10 +379,10 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   QgsVectorLayer::DeleteContext deleteContext( true, project );
   if ( layer->deleteFeature( fid, &deleteContext ) )
   {
-    if ( !shouldWriteChanges )
+    if ( flushBuffer )
     {
       // commit changes
-      if ( !layer->commitChanges() )
+      if ( !layer->commitChanges( !wasEditing ) )
       {
         const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
         QgsMessageLog::logMessage( tr( "Cannot commit deletion of feature %2 in layer \"%1\". Reason:\n%3" ).arg( layer->name() ).arg( fid ).arg( msgs ), QStringLiteral( "QField" ), Qgis::Warning );
@@ -405,7 +400,9 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
         QgsVectorLayer *vl = *it;
 
         if ( vl == layer )
+        {
           continue;
+        }
 
         if ( !vl->commitChanges() )
         {
@@ -420,22 +417,24 @@ bool LayerUtils::deleteFeature( QgsProject *project, QgsVectorLayer *layer, cons
   else
   {
     QgsMessageLog::logMessage( tr( "Cannot delete feature %1" ).arg( fid ), "QField", Qgis::Warning );
-
     isSuccess = false;
   }
 
-  if ( !shouldWriteChanges )
+  if ( !flushBuffer && !isSuccess )
   {
-    if ( !isSuccess )
-    {
-      const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
-      for ( QgsVectorLayer *vl : constHandledLayers )
-        if ( vl != layer )
-          if ( !vl->rollBack() )
-            QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+    const QList<QgsVectorLayer *> constHandledLayers = deleteContext.handledLayers();
+    for ( QgsVectorLayer *vl : constHandledLayers )
+      if ( vl != layer )
+      {
+        if ( !vl->rollBack() )
+        {
+          QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( vl->name() ), "QField", Qgis::Critical );
+        }
+      }
 
-      if ( !layer->rollBack() )
-        QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
+    if ( !layer->rollBack() )
+    {
+      QgsMessageLog::logMessage( tr( "Cannot rollback layer changes in layer %1" ).arg( layer->name() ), "QField", Qgis::Critical );
     }
   }
 
@@ -456,7 +455,8 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
     return QgsFeature();
   }
 
-  if ( !layer->startEditing() || !layer->editBuffer() )
+  const bool wasEditing = layer->editBuffer();
+  if ( !wasEditing && !layer->startEditing() )
   {
     QgsMessageLog::logMessage( tr( "Cannot start editing" ), "QField", Qgis::Warning );
     return QgsFeature();
@@ -484,7 +484,7 @@ QgsFeature LayerUtils::duplicateFeature( QgsVectorLayer *layer, QgsFeature featu
   const auto duplicateFeatureContextLayers = duplicateFeatureContext.layers();
 
   // commit changes
-  if ( !layer->commitChanges() )
+  if ( !layer->commitChanges( !wasEditing ) )
   {
     const QString msgs = layer->commitErrors().join( QStringLiteral( "\n" ) );
     QgsMessageLog::logMessage( tr( "Cannot add new feature in layer \"%1\". Reason:\n%2" ).arg( layer->name(), msgs ), "QField", Qgis::Warning );
@@ -546,6 +546,16 @@ bool LayerUtils::hasMValue( QgsVectorLayer *layer )
   return QgsWkbTypes::hasM( layer->wkbType() );
 }
 
+QSet<QVariant> LayerUtils::uniqueValuesForVectorLayerFieldIndex( QgsVectorLayer *layer, int fieldIndex )
+{
+  if ( !layer )
+  {
+    return QSet<QVariant>();
+  }
+
+  return layer->uniqueValues( fieldIndex );
+}
+
 QgsVectorLayer *LayerUtils::loadVectorLayer( const QString &uri, const QString &name, const QString &provider )
 {
   QgsVectorLayer *layer = new QgsVectorLayer( uri, name, provider );
@@ -585,9 +595,18 @@ QgsVectorLayer *LayerUtils::createMemoryLayer( const QString &name, const QgsFie
   return layer;
 }
 
+FeatureIterator LayerUtils::createFeatureIterator( QgsVectorLayer *layer )
+{
+  return FeatureIterator( layer );
+}
+
 FeatureIterator LayerUtils::createFeatureIteratorFromExpression( QgsVectorLayer *layer, const QString &expression )
 {
-  const QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  QgsFeatureRequest request = QgsFeatureRequest( QgsExpression( expression ) );
+  if ( layer )
+  {
+    request.setExpressionContext( layer->createExpressionContext() );
+  }
   return FeatureIterator( layer, request );
 }
 
@@ -595,4 +614,65 @@ FeatureIterator LayerUtils::createFeatureIteratorFromRectangle( QgsVectorLayer *
 {
   const QgsFeatureRequest request = QgsFeatureRequest( rectangle );
   return FeatureIterator( layer, request );
+}
+
+QString LayerUtils::saveVectorLayerAs( QgsVectorLayer *layer, const QString &filePath, const QString &driverName, const QString &filterExpression )
+{
+  if ( !layer || filePath.isEmpty() )
+  {
+    return QString();
+  }
+
+  QFileInfo fileInfo( filePath );
+  const QString finalDriverName = driverName.isEmpty() ? QgsVectorFileWriter::driverForExtension( fileInfo.suffix() ) : driverName;
+  if ( finalDriverName.isEmpty() )
+  {
+    return QString();
+  }
+  QDir dir;
+  if ( !dir.mkpath( fileInfo.absolutePath() ) )
+  {
+    return QString();
+  }
+
+  QStringList datasetOptions = QgsVectorFileWriter::defaultDatasetOptions( finalDriverName );
+  if ( finalDriverName == QStringLiteral( "GPX" ) )
+  {
+    datasetOptions.removeAll( QStringLiteral( "GPX_USE_EXTENSIONS=NO" ) );
+    datasetOptions << QStringLiteral( "GPX_USE_EXTENSIONS=YES" );
+  }
+
+  QString finalFileName;
+  QString finalLayerName;
+  QgsVectorFileWriter::SaveVectorOptions saveOptions;
+  saveOptions.fileEncoding = QStringLiteral( "UTF8" );
+  saveOptions.layerName = fileInfo.completeBaseName();
+  saveOptions.driverName = finalDriverName;
+  saveOptions.datasourceOptions = datasetOptions;
+  saveOptions.layerOptions = QgsVectorFileWriter::defaultLayerOptions( finalDriverName );
+  saveOptions.symbologyExport = Qgis::FeatureSymbologyExport::NoSymbology;
+  saveOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteFile;
+
+  std::unique_ptr<QgsVectorFileWriter> writer( QgsVectorFileWriter::create( filePath, layer->fields(), layer->wkbType(), layer->crs(), QgsProject::instance()->transformContext(), saveOptions, QgsFeatureSink::RegeneratePrimaryKey, &finalFileName, &finalLayerName ) );
+  if ( writer->hasError() )
+  {
+    qInfo() << QStringLiteral( "Vector layer file writer error: %1" ).arg( writer->errorMessage() );
+    return QString();
+  }
+
+  QgsFeatureRequest request;
+  if ( !filterExpression.isEmpty() )
+  {
+    request.setFilterExpression( filterExpression );
+    request.setExpressionContext( layer->createExpressionContext() );
+  }
+
+  QgsFeatureIterator it = layer->getFeatures( request );
+  QgsFeature feature;
+  while ( it.nextFeature( feature ) )
+  {
+    writer->addFeature( feature, QgsFeatureSink::FastInsert );
+  }
+
+  return finalFileName;
 }

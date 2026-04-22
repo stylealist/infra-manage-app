@@ -76,6 +76,41 @@ struct CloudUserInformation
 /**
  * \ingroup core
  */
+struct CloudSubscriptionInformation
+{
+    Q_GADGET
+
+    Q_PROPERTY( QString plan MEMBER plan )
+    Q_PROPERTY( double storageTotal MEMBER storageTotal )
+    Q_PROPERTY( double storageUsed MEMBER storageUsed )
+    Q_PROPERTY( QString status MEMBER status )
+
+  public:
+    CloudSubscriptionInformation() = default;
+
+    explicit CloudSubscriptionInformation( const QJsonObject &subscriptionInformation )
+      : plan( subscriptionInformation.value( QStringLiteral( "plan_display_name" ) ).toString() )
+      , storageTotal( subscriptionInformation.value( QStringLiteral( "active_storage_total_bytes" ) ).toDouble() )
+      , storageUsed( subscriptionInformation.value( QStringLiteral( "storage_used_bytes" ) ).toDouble() )
+      , status( subscriptionInformation.value( QStringLiteral( "status" ) ).toString() )
+    {}
+
+    bool operator==( const CloudSubscriptionInformation &other ) const
+    {
+      return plan == other.plan && storageTotal == other.storageTotal && storageUsed == other.storageUsed && status == other.status;
+    }
+
+    QString plan;
+    double storageTotal = 0;
+    double storageUsed = 0;
+    QString status;
+};
+
+Q_DECLARE_METATYPE( CloudSubscriptionInformation )
+
+/**
+ * \ingroup core
+ */
 class QFieldCloudUtils : public QObject
 {
     Q_OBJECT
@@ -160,6 +195,12 @@ class QFieldCloudUtils : public QObject
 
     //! Removes a \a fileName for a given \a projectId to the pending attachments list
     Q_INVOKABLE static void removePendingAttachment( const QString &username, const QString &projectId, const QString &fileName );
+
+    /**
+     * Returns the URL for managing the subscription for a given \a plan, \a serverUrl, and \a username.
+     * Returns an empty string if the server is not the default QFieldCloud server or if the \a projectOwner does not match the \a username.
+     */
+    Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
 
   private:
     static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };

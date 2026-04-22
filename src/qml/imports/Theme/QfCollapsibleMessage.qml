@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
-import Theme
+import org.qfield
 
 /**
  * \ingroup qml
@@ -20,7 +20,7 @@ Item {
   height: collapsed ? titleText.height + 1 : titleText.height + detailsText.height + 1
   implicitHeight: height
 
-  Behavior on height  {
+  Behavior on height {
     NumberAnimation {
       duration: 100
       easing.type: Easing.InQuad

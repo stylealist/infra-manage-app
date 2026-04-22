@@ -30,8 +30,10 @@ class AttributeFormModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY( FeatureModel *featureModel READ featureModel WRITE setFeatureModel NOTIFY featureModelChanged )
+    Q_PROPERTY( bool isWizard READ isWizard NOTIFY isWizardChanged )
     Q_PROPERTY( bool hasTabs READ hasTabs NOTIFY hasTabsChanged )
     Q_PROPERTY( bool hasRemembrance READ hasRemembrance NOTIFY hasRemembranceChanged )
+    Q_PROPERTY( bool hasConstraints READ hasConstraints NOTIFY hasConstraintsChanged )
     Q_PROPERTY( bool constraintsHardValid READ constraintsHardValid NOTIFY constraintsHardValidChanged )
     Q_PROPERTY( bool constraintsSoftValid READ constraintsSoftValid NOTIFY constraintsSoftValidChanged )
 
@@ -74,8 +76,10 @@ class AttributeFormModel : public QSortFilterProxyModel
 
     explicit AttributeFormModel( QObject *parent = nullptr );
 
+    bool isWizard() const;
     bool hasTabs() const;
     bool hasRemembrance() const;
+    bool hasConstraints() const;
 
     FeatureModel *featureModel() const;
     void setFeatureModel( FeatureModel *featureModel );
@@ -99,11 +103,21 @@ class AttributeFormModel : public QSortFilterProxyModel
     Q_INVOKABLE bool deleteFeature();
 
     /**
-     * Get the attribute of the current feature by name
-     * \param name the name of the attribute
+     * Returns the value for an attribute \a name of the current feature.
      * \return value of the attribute
      */
     Q_INVOKABLE QVariant attribute( const QString &name );
+
+    /**
+     * Gets the \a value for an attribute \a name of the current feature
+     * \param value the value of the attribute
+     */
+    Q_INVOKABLE bool changeAttribute( const QString &name, const QVariant &value );
+
+    /**
+     * Sets the \a geometry of the current feature
+     */
+    Q_INVOKABLE bool changeGeometry( const QgsGeometry &geometry );
 
     //! Applies feature model data such as attribute values, constraints, visibility to the attribute form model
     Q_INVOKABLE void applyFeatureModel();
@@ -122,9 +136,10 @@ class AttributeFormModel : public QSortFilterProxyModel
 
   signals:
     void featureModelChanged();
+    void isWizardChanged();
     void hasTabsChanged();
     void hasRemembranceChanged();
-    void featureChanged();
+    void hasConstraintsChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
 

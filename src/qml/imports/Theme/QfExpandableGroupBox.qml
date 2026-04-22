@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import org.qfield
 
 /**
  * \ingroup qml
@@ -22,7 +23,7 @@ Rectangle {
 
   signal clicked
 
-  Behavior on implicitHeight  {
+  Behavior on implicitHeight {
     NumberAnimation {
       duration: 200
     }

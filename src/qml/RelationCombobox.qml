@@ -19,6 +19,7 @@ Item {
   property var relation: undefined
   property var layerResolver: undefined
   property var currentKeyValue: value
+  readonly property alias count: comboBox.count
   property EmbeddedFeatureForm embeddedFeatureForm: embeddedPopupLoader.item
   readonly property alias searchPopup: searchFeaturePopup
   property color displayedTextColor: FeatureUtils.attributeIsNull(value) || value === "" || (!isEditable && isEditing) ? Theme.mainTextDisabledColor : Theme.mainTextColor
@@ -112,10 +113,9 @@ Item {
         anchors.top: searchBar.bottom
         model: featureListModel
         width: parent.width
-        height: searchFeaturePopup.height - searchBar.height - 50
+        height: searchFeaturePopup.height - searchBar.height - 60
         clip: true
-        ScrollBar.vertical: QfScrollBar {
-        }
+        ScrollBar.vertical: QfScrollBar {}
         section.property: featureListModel ? featureListModel.groupField != "" ? "groupFieldValue" : "" : ""
         section.labelPositioning: ViewSection.CurrentLabelAtStart | ViewSection.InlineLabels
         section.delegate: Component {
@@ -167,8 +167,7 @@ Item {
               font.weight: model.checked ? Font.DemiBold : Font.Normal
 
               checked: model.checked
-              indicator: Rectangle {
-              }
+              indicator: Rectangle {}
             }
 
             CheckBox {
@@ -352,8 +351,7 @@ Item {
             }
           }
 
-          ScrollIndicator.vertical: ScrollIndicator {
-          }
+          ScrollIndicator.vertical: ScrollIndicator {}
         }
       }
 
@@ -361,18 +359,11 @@ Item {
       indicator.visible: relationCombobox.enabled || (!isEditable && isEditing)
     }
 
-    FontMetrics {
-      id: fontMetrics
-      font: comboBox.font
-    }
-
     Rectangle {
       id: searchable
       visible: !comboBox.visible
       height: searchableText.height + searchableText.topInset + searchableText.bottomInset
       Layout.fillWidth: true
-      Layout.topMargin: 5
-      Layout.bottomMargin: 5
 
       Text {
         id: searchableLabel
@@ -596,6 +587,11 @@ Item {
       text: qsTr("Invalid relation")
       color: Theme.errorColor
     }
+  }
+
+  FontMetrics {
+    id: fontMetrics
+    font: comboBox.font
   }
 
   Loader {

@@ -10,13 +10,20 @@ EditorWidgetBase {
 
   property var relationEditorModel: undefined
 
-  property alias listView: listView
+  property alias gridView: gridView
+  property alias footer: footer
+  property alias headerEntry: headerEntry
 
   property int itemHeight: 48
   property int bottomMargin: 10
   property int maximumVisibleItems: 4
   property bool showAllItems: false
   property bool showSortButton: true
+  property alias itemCount: gridView.count
+
+  // Generic container slots for subclass specific content
+  property alias headerActions: headerActionsContainer.data
+  property alias footerContent: footerContentContainer.data
 
   signal toggleSortAction
 
@@ -29,7 +36,10 @@ EditorWidgetBase {
     }
   }
 
-  height: listView.height + headerEntry.height + 10
+  height: {
+    const cappedHeight = !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * gridView.cellHeight, gridView.contentHeight) : gridView.contentHeight;
+    return cappedHeight + headerEntry.height + (footer.visible ? footer.height : 0) + 10;
+  }
   enabled: true
 
   Rectangle {
@@ -49,11 +59,11 @@ EditorWidgetBase {
       focus: true
       topLeftRadius: parent.radius
       topRightRadius: parent.radius
-      bottomLeftRadius: listView.count === 0 ? parent.radius : 0
-      bottomRightRadius: listView.count === 0 ? parent.radius : 0
+      bottomLeftRadius: itemCount === 0 ? parent.radius : 0
+      bottomRightRadius: itemCount === 0 ? parent.radius : 0
 
       Text {
-        text: qsTr("%n feature(s)", "", listView.count)
+        text: qsTr("%n feature(s)", "", itemCount)
         anchors {
           leftMargin: 10
           left: parent.left
@@ -73,6 +83,12 @@ EditorWidgetBase {
           rightMargin: 10
         }
         height: parent.height
+
+        Item {
+          id: headerActionsContainer
+          width: childrenRect.width
+          height: parent.height
+        }
 
         QfToolButton {
           id: addButton
@@ -94,7 +110,7 @@ EditorWidgetBase {
           id: sortButton
           width: parent.height
           height: parent.height
-          visible: listView.count > 0 && relationEditorBase.showSortButton
+          visible: itemCount > 0 && relationEditorBase.showSortButton
 
           round: false
           iconSource: Theme.getThemeVectorIcon('ic_sort_white_24dp')
@@ -152,16 +168,36 @@ EditorWidgetBase {
       }
     }
 
-    ListView {
-      id: listView
+    GridView {
+      id: gridView
       anchors.top: headerEntry.bottom
-      width: parent.width
-      height: !showAllItems && maximumVisibleItems > 0 ? Math.min(maximumVisibleItems * itemHeight, contentHeight) : contentHeight
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: footer.visible ? parent.height - headerEntry.height - footer.height : parent.height - headerEntry.height
+
+      // Default to single-column list layout, subclasses can override
+      cellWidth: width
+      cellHeight: itemHeight
       focus: true
       clip: true
       boundsBehavior: Flickable.StopAtBounds
-      highlightRangeMode: ListView.ApplyRange
-      ScrollBar.vertical: QfScrollBar {
+      ScrollBar.vertical: QfScrollBar {}
+    }
+
+    Rectangle {
+      id: footer
+      anchors.bottom: parent.bottom
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: visible ? itemHeight : 0
+      visible: footerContentContainer.children.length > 0
+      color: Theme.controlBorderColor
+      bottomLeftRadius: 5
+      bottomRightRadius: 5
+
+      Item {
+        id: footerContentContainer
+        anchors.fill: parent
       }
     }
 
@@ -250,7 +286,7 @@ EditorWidgetBase {
   property Menu childMenu: QfMenu {
     id: childMenu
     title: qsTr("Child Menu")
-    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature formes
+    z: 10000 // 1000s are embedded feature forms, use a higher value to insure feature form popups always show above embedded feature forms
 
     property var entryReferencingFeature: undefined
     property string entryDisplayString: ""
@@ -263,6 +299,27 @@ EditorWidgetBase {
 
     topMargin: mainWindow.sceneTopMargin
     bottomMargin: mainWindow.sceneBottomMargin
+
+    MenuItem {
+      id: openFormChildFeature
+
+      font: Theme.defaultFont
+      width: parent.width
+      height: 48
+      leftPadding: Theme.menuItemLeftPadding
+      icon.source: Theme.getThemeVectorIcon("ic_edit_attributes_white_24dp")
+
+      text: qsTr("Open Form")
+      onTriggered: {
+        ensureEmbeddedFormLoaded();
+        embeddedPopup.state = isEnabled ? 'Edit' : 'ReadOnly';
+        embeddedPopup.currentLayer = nmRelationId ? relationEditorModel.nmRelation.referencedLayer : relationEditorModel.relation.referencingLayer;
+        embeddedPopup.linkedRelation = relationEditorModel.relation;
+        embeddedPopup.linkedParentFeature = relationEditorModel.feature;
+        embeddedPopup.feature = nmRelationId ? childMenu.entryNmReferencedFeature : childMenu.entryReferencingFeature;
+        embeddedPopup.open();
+      }
+    }
 
     MenuItem {
       id: copyChildFeatureAttributes
@@ -320,7 +377,7 @@ EditorWidgetBase {
   }
 
   // The loader is used to defer the cost involved in atlas-related item / model generation until the
-  // menu is opened in order to avoid extra cost when opening a feature form
+  // menu is opened in order to avoid feature form popups always show above embedded feature forms
   Loader {
     id: atlasMenuLoader
     enabled: false

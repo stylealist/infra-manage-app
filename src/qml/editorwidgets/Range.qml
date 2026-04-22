@@ -59,13 +59,32 @@ EditorWidgetBase {
 
       validator: doubleValidator
 
-      inputMethodHints: Qt.ImhFormattedNumbersOnly
+      inputMethodHints: Qt.ImhFormattedNumbersOnly | Qt.ImhNoPredictiveText
 
       background.visible: isEnabled || (!isEditable && isEditing)
 
-      onTextChanged: {
-        if (text === '' || !isNaN(parseFloat(text))) {
-          valueChangeRequested(text, text === '');
+      onTextEdited: {
+        if (text !== "") {
+          const parsedValue = parseFloat(text);
+          if (!isNaN(parsedValue)) {
+            let clampedValue = parsedValue;
+            if (Number.isFinite(rangeItem.min) && parsedValue < rangeItem.min) {
+              clampedValue = rangeItem.min;
+            } else if (Number.isFinite(rangeItem.max) && parsedValue > rangeItem.max) {
+              clampedValue = rangeItem.max;
+            }
+
+            if (clampedValue !== value) {
+              valueChangeRequested(clampedValue, false);
+            }
+            if (parsedValue !== value) {
+              text = Qt.binding(function () {
+                return isNull ? '' : value;
+              });
+            }
+          }
+        } else if (!isNull) {
+          valueChangeRequested(text, true);
         }
       }
     }
@@ -163,9 +182,14 @@ EditorWidgetBase {
     let newValue;
     if (!isNaN(currentValue)) {
       newValue = roundValue(currentValue - rangeItem.step, rangeItem.precision);
-      valueChangeRequested(Math.max(rangeItem.min, newValue), false);
+      newValue = Math.max(rangeItem.min, Math.min(rangeItem.max, newValue));
+      valueChangeRequested(newValue, false);
     } else {
-      newValue = 0;
+      if (rangeItem.max <= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
       valueChangeRequested(newValue, false);
     }
   }
@@ -175,9 +199,14 @@ EditorWidgetBase {
     let newValue;
     if (!isNaN(currentValue)) {
       newValue = roundValue(currentValue + rangeItem.step, rangeItem.precision);
-      valueChangeRequested(Math.min(rangeItem.max, newValue), false);
+      newValue = Math.min(rangeItem.max, Math.max(rangeItem.min, newValue));
+      valueChangeRequested(newValue, false);
     } else {
-      newValue = 0;
+      if (rangeItem.max >= 0) {
+        newValue = Math.max(0, rangeItem.min);
+      } else {
+        newValue = rangeItem.min;
+      }
       valueChangeRequested(newValue, false);
     }
   }
@@ -202,9 +231,6 @@ EditorWidgetBase {
       elide: Text.ElideRight
       text: {
         const formattedValue = Number(slider.value).toFixed(rangeItem.precision).toLocaleString() + rangeItem.suffix;
-        if (isEditing) {
-          return (!isNull && !isEmpty) ? formattedValue : '';
-        }
         if (isEmpty) {
           return qsTr("Empty");
         } else if (isNull) {

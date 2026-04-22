@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
-import Theme
+import org.qfield
 
 /**
  * \ingroup qml
@@ -18,7 +18,7 @@ ToolButton {
   width: height + (buttonText.visible ? buttonText.width + 24 : 0) + (innerAction.visible ? 32 : 0)
   clip: true
 
-  Behavior on width  {
+  Behavior on width {
     NumberAnimation {
       duration: 200
     }
@@ -80,8 +80,8 @@ ToolButton {
       horizontalAlignment: Image.AlignHCenter
       verticalAlignment: Image.AlignVCenter
       source: Theme.getThemeVectorIcon("ic_close_white_24dp")
-      sourceSize.width: 24 * screen.devicePixelRatio
-      sourceSize.height: 24 * screen.devicePixelRatio
+      sourceSize.width: 24 * Screen.devicePixelRatio
+      sourceSize.height: 24 * Screen.devicePixelRatio
       visible: true
     }
   }

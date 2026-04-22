@@ -22,12 +22,16 @@
         <translation>Bağlantılar Menüsü</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField uygulama dizinleri</translation>
+        <source>Powered by QField</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField uygulama dizini</translation>
+        <source>%1 app directories</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -600,6 +604,14 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Return home</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -833,10 +845,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Çizim yap</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>Harici depolamanın kimlik doğrulama yapılandırma kimliği eksik, lütfen QField&apos;a aktarıldığından emin olun</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>Daha fazla bilgi edinin</translation>
     </message>
@@ -851,6 +859,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>NULL</source>
         <translation>NULL</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -933,6 +945,18 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Previous page</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next page</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1606,7 +1630,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sample projects</source>
-        <translation>Örnek projeler</translation>
+        <translation type="vanished">Örnek projeler</translation>
     </message>
     <message>
         <source>Created projects</source>
@@ -2020,15 +2044,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>Tüm dosyalar (*.*)</translation>
+        <translation type="vanished">Tüm dosyalar (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
         <translation>Dosya Seç</translation>
-    </message>
-    <message>
-        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation>Ses dosyaları (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -2331,6 +2351,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>ant.</source>
         <translation>ant.</translation>
     </message>
+    <message>
+        <source>%1/s</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2522,10 +2546,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation type="unfinished"/>
     </message>
@@ -2535,6 +2555,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>My Project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2578,6 +2602,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Track color</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>Açıklama</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2850,11 +2886,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Buluta bağlanıyor.</translation>
+        <translation type="vanished">Buluta bağlanıyor.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation type="vanished">Merhaba &lt;strong&gt;%1&lt;/strong&gt;.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3072,6 +3108,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3248,6 +3288,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
         <source>Synchronizing</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -3385,6 +3429,10 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>Cloud project could not be created.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3576,6 +3624,29 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     <message numerus="yes">
         <source>%n file(s) remaining</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3946,7 +4017,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>Devre dışı bırakılırsa, QField cihazdaki kamera uygulaması yerine minimalist bir dahili kamera kullanır.&lt;br&gt;İpucu: Bu seçeneği etkinleştirin ve coğrafi etiketli fotoğraflar oluşturmak için açık kamera uygulamasını yükleyin.</translation>
+        <translation type="vanished">Devre dışı bırakılırsa, QField cihazdaki kamera uygulaması yerine minimalist bir dahili kamera kullanır.&lt;br&gt;İpucu: Bu seçeneği etkinleştirin ve coğrafi etiketli fotoğraflar oluşturmak için açık kamera uygulamasını yükleyin.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3978,7 +4049,7 @@ Projeyi görüntülemeye ve kullanmaya devam edebilseniz de, geri alınamaz veri
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>Etkinleştirildiğinde, anonimleştirilmiş metrikler toplanacak ve QField&apos;ı herkes için geliştirmeye yardımcı olmak üzere gönderilecektir.</translation>
+        <translation type="vanished">Etkinleştirildiğinde, anonimleştirilmiş metrikler toplanacak ve QField&apos;ı herkes için geliştirmeye yardımcı olmak üzere gönderilecektir.</translation>
     </message>
     <message>
         <source>General</source>
@@ -4140,7 +4211,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField Ayarları</translation>
+        <translation type="vanished">QField Ayarları</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4253,10 +4324,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>Daha düşük bir kalite, daha düşük bellek kullanımı ve işleme süresi lehine işleme hassasiyetinden feragat eder.</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>Bu değer, konumlandırma cihazından kaydedilen Z değerlerini düzeltecektir. 1.6 değeri girilirse, QField otomatik olarak her kaydedilen değerden 1.6 çıkaracaktır. Etkili anten yüksekliğini, yani direk uzunluğu + anten faz merkezi ofsetini girdiğinizden emin olun.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4376,6 +4443,98 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Port</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Kullanıcı adı</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4568,6 +4727,26 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Circle #2: point</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>B</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4651,6 +4830,44 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
 </context>
 <context>
+    <name>QfDialog</name>
+    <message>
+        <source>OK</source>
+        <translation>Tamam</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Vazgeç</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>Hayır</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
@@ -4709,6 +4926,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message>
         <source>Map printed on %1 using QField</source>
         <translation>%1 üzerinde QField kullanılarak harita yazdırıldı</translation>
+    </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4913,6 +5134,10 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5518,6 +5743,62 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>Dosya %1 yüklenirken ağ hatası nedeniyle başarısız oldu (%2)</translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -5531,7 +5812,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Merhaba, QField deneyiminizden şu ana kadar memnun musunuz?</translation>
+        <translation type="vanished">Merhaba, QField deneyiminizden şu ana kadar memnun musunuz?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5547,7 +5828,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>Herkes için kararlılığı artırmak amacıyla QField anonimleştirilmiş metrikler toplar ve gönderir.</translation>
+        <translation type="vanished">Herkes için kararlılığı artırmak amacıyla QField anonimleştirilmiş metrikler toplar ve gönderir.</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5591,7 +5872,7 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>QField&apos;a tekrar hoşgeldiniz.</translation>
+        <translation type="vanished">QField&apos;a tekrar hoşgeldiniz.</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5622,10 +5903,6 @@ Bunun yerine minimum cihaz taraması yapmak için iptal edin.</translation>
         <translation>Son Proje Eylemleri</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>QField&apos;a hoş geldiniz. Bu uygulamayı ilk kez mi kullanıyorsunuz? Aşağıda listelenen örnek projeleri deneyin.</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>Harika! Aşağıdaki butona tıklayarak bir değerlendirme bırakmanızı çok isteriz.</translation>
     </message>
@@ -5646,6 +5923,26 @@ projects</source>
     <message>
         <source>Create new
 project</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5770,6 +6067,21 @@ project</source>
     </message>
 </context>
 <context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud talep üzerine ekleme hatası: </translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>Daha fazla bilgi edinin</translation>
+    </message>
+</context>
+<context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
@@ -5828,6 +6140,10 @@ project</source>
     </message>
     <message>
         <source>elevation [Z]</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5983,7 +6299,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>QField Hakkında</translation>
+        <translation type="vanished">QField Hakkında</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6434,10 +6750,6 @@ project</source>
         <translation>İçe Aktarma Onayı</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>QField&apos;a &lt;b&gt;%2&lt;/b&gt; içinden &lt;b&gt;%1&lt;/b&gt; içe aktarmak istiyor musunuz?</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>Eklenti İzni</translation>
     </message>
@@ -6608,6 +6920,38 @@ to show actions</source>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
         <translation type="unfinished"/>
     </message>
 </context>

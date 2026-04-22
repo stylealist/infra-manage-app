@@ -23,12 +23,18 @@ AttributeFormModel::AttributeFormModel( QObject *parent )
 {
   setSourceModel( mSourceModel );
 
+  connect( mSourceModel, &AttributeFormModelBase::isWizardChanged, this, &AttributeFormModel::isWizardChanged );
   connect( mSourceModel, &AttributeFormModelBase::hasTabsChanged, this, &AttributeFormModel::hasTabsChanged );
   connect( mSourceModel, &AttributeFormModelBase::hasRemembranceChanged, this, &AttributeFormModel::hasRemembranceChanged );
+  connect( mSourceModel, &AttributeFormModelBase::hasConstraintsChanged, this, &AttributeFormModel::hasConstraintsChanged );
   connect( mSourceModel, &AttributeFormModelBase::featureModelChanged, this, &AttributeFormModel::featureModelChanged );
-  connect( mSourceModel, &AttributeFormModelBase::featureChanged, this, &AttributeFormModel::featureChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsHardValidChanged, this, &AttributeFormModel::constraintsHardValidChanged );
   connect( mSourceModel, &AttributeFormModelBase::constraintsSoftValidChanged, this, &AttributeFormModel::constraintsSoftValidChanged );
+}
+
+bool AttributeFormModel::isWizard() const
+{
+  return mSourceModel->isWizard();
 }
 
 bool AttributeFormModel::hasTabs() const
@@ -39,6 +45,11 @@ bool AttributeFormModel::hasTabs() const
 bool AttributeFormModel::hasRemembrance() const
 {
   return mSourceModel->hasRemembrance();
+}
+
+bool AttributeFormModel::hasConstraints() const
+{
+  return mSourceModel->hasConstraints();
 }
 
 FeatureModel *AttributeFormModel::featureModel() const
@@ -79,6 +90,16 @@ bool AttributeFormModel::deleteFeature()
 QVariant AttributeFormModel::attribute( const QString &name )
 {
   return mSourceModel->attribute( name );
+}
+
+bool AttributeFormModel::changeAttribute( const QString &name, const QVariant &value )
+{
+  return mSourceModel->changeAttribute( name, value );
+}
+
+bool AttributeFormModel::changeGeometry( const QgsGeometry &geometry )
+{
+  return mSourceModel->changeGeometry( geometry );
 }
 
 void AttributeFormModel::applyFeatureModel()

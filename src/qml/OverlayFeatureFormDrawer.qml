@@ -36,7 +36,7 @@ Drawer {
   width: {
     if (dragWidthAdjustment != 0) {
       return lastWidth - dragWidthAdjustment;
-    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width < parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
+    } else if (overlayFeatureFormDrawer.fullScreenView || parent.width <= parent.height || parent.width < 300 || width >= 0.95 * parent.width) {
       lastWidth = parent.width;
       return parent.width;
     } else {
@@ -209,14 +209,14 @@ Drawer {
     }
   }
 
-  Behavior on width  {
+  Behavior on width {
     PropertyAnimation {
       duration: parent.width > parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     PropertyAnimation {
       duration: parent.width < parent.height && !isDragging ? 250 : 0
       easing.type: Easing.OutQuart

@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import Theme
+import org.qfield
 
 Item {
   id: screenLocker
@@ -81,7 +81,7 @@ Item {
     radius: width / 2
     opacity: unlockHandler.entered ? 1 : 0
 
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: 250
       }
@@ -114,7 +114,7 @@ Item {
       sourceSize.height: 96
     }
 
-    Behavior on opacity  {
+    Behavior on opacity {
       NumberAnimation {
         duration: 250
       }

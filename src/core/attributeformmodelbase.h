@@ -41,11 +41,17 @@ class AttributeFormModelBase : public QStandardItemModel
     FeatureModel *featureModel() const;
     void setFeatureModel( FeatureModel *featureModel );
 
+    bool isWizard() const;
+    void setIsWizard( bool isWizard );
+
     bool hasTabs() const;
     void setHasTabs( bool hasTabs );
 
     bool hasRemembrance() const;
     void setHasRemembrance( bool hasRemembrance );
+
+    bool hasConstraints() const;
+    void setHasConstraints( bool hasConstraints );
 
     //! \copydoc AttributeFormModel::save
     bool save();
@@ -62,6 +68,12 @@ class AttributeFormModelBase : public QStandardItemModel
 
     //! \copydoc AttributeFormModel::attribute
     QVariant attribute( const QString &name );
+
+    //! \copydoc AttributeFormModel::setAttribute
+    bool changeAttribute( const QString &name, const QVariant &value );
+
+    //! \copydoc AttributeFormModel::changeGeometry
+    bool changeGeometry( const QgsGeometry &geometry );
 
     //! \copydoc AttributeFormModel::applyFeatureModel
     void applyFeatureModel();
@@ -80,9 +92,10 @@ class AttributeFormModelBase : public QStandardItemModel
 
   signals:
     void featureModelChanged();
+    void isWizardChanged();
     void hasTabsChanged();
     void hasRemembranceChanged();
-    void featureChanged();
+    void hasConstraintsChanged();
     void constraintsHardValidChanged();
     void constraintsSoftValidChanged();
 
@@ -109,7 +122,6 @@ class AttributeFormModelBase : public QStandardItemModel
                     QList<QStandardItem *> &containers,
                     int currentTabIndex = 0,
                     int columnCount = 1 );
-
 
     //! Synchronize all items linked to the \a fieldIndex to have the same \a value.
     void synchronizeFieldValue( int fieldIndex, QVariant value );
@@ -143,6 +155,9 @@ class AttributeFormModelBase : public QStandardItemModel
     //! Resets the attribute form model
     void resetModel();
 
+    //! Sets up relevant layer-level details and resets the model
+    void onCurrentLayerChanged();
+
     //! Sets up a connection to listen to project map theme change
     void onMapThemeCollectionChanged();
 
@@ -150,8 +165,10 @@ class AttributeFormModelBase : public QStandardItemModel
     QPointer<QgsVectorLayer> mLayer;
     std::unique_ptr<QgsAttributeEditorContainer> mTemporaryContainer;
 
+    bool mIsWizard = false;
     bool mHasTabs = false;
     bool mHasRemembrance = false;
+    bool mHasConstraints = false;
 
     typedef QPair<QgsExpression, QStandardItem *> VisibilityExpression;
     QList<VisibilityExpression> mVisibilityExpressions;

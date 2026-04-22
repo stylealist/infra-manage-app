@@ -47,7 +47,7 @@ Item {
   //! Overwritten by stylus / hoverHandler.
   property variant sourceLocation: undefined // Screen coordinate
 
-  readonly property variant currentCoordinate: !!overrideLocation ? overrideLocation : snappingUtils.snappedCoordinate
+  readonly property variant currentCoordinate: !!overrideLocation && overrideLocation.x ? overrideLocation : snappingUtils.snappedCoordinate
 
   // some trickery here: the first part (!mapSettings.visibleExtent) is only there to get a signal when
   // the map canvas extent changes (user pans/zooms) and the calculation of the display position is retriggered
@@ -205,21 +205,21 @@ Item {
     x: displayPosition.x - halfWidth
     y: displayPosition.y - halfWidth
 
-    Behavior on x  {
+    Behavior on x {
       enabled: !overrideLocation && !sourceLocation // It looks strange if the GPS position indicator and the crosshair are not synchronized
       NumberAnimation {
         duration: 100
       }
     }
 
-    Behavior on y  {
+    Behavior on y {
       enabled: !overrideLocation && !sourceLocation
       NumberAnimation {
         duration: 100
       }
     }
 
-    Behavior on width  {
+    Behavior on width {
       SmoothedAnimation {
         duration: 2000
       }
@@ -234,7 +234,7 @@ Item {
 
     ShapePath {
       id: crosshairPath
-      strokeColor: overrideLocation !== undefined ? Theme.positionColor : "#000000"
+      strokeColor: !!overrideLocation && overrideLocation.x ? Theme.positionColor : "#000000"
       strokeWidth: 2
       fillColor: "transparent"
 

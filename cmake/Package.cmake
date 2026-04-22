@@ -16,6 +16,8 @@ set(CPACK_PACKAGE_VERSION_MAJOR ${CMAKE_PROJECT_VERSION_MAJOR})
 set(CPACK_PACKAGE_VERSION_MINOR ${CMAKE_PROJECT_VERSION_MINOR})
 set(CPACK_PACKAGE_VERSION_PATCH ${CMAKE_PROJECT_VERSION_PATCH})
 
+set(PACKAGE_ZIP OFF CACHE BOOL "Create an additional ZIP package")
+
 function(macdeployqt bundle targetdir _PACKAGER)
     file(GENERATE OUTPUT ${CMAKE_BINARY_DIR}/CPackMacDeployQt-${_PACKAGER}.cmake
                   CONTENT "execute_process(COMMAND \"${MACDEPLOYQT_EXECUTABLE}\" \"${CPACK_PACKAGE_DIRECTORY}/_CPack_Packages/Darwin/${_PACKAGER}/${targetdir}/${bundle}\" -always-overwrite COMMAND_ERROR_IS_FATAL ANY)")
@@ -37,6 +39,13 @@ if(WIN32)
     set(CPACK_NSIS_DISPLAY_NAME "QField")
 
     list(APPEND CPACK_GENERATOR "NSIS")
+endif()
+
+if(PACKAGE_ZIP)
+    message(STATUS "   + ZIP archive                       YES ")
+    list(APPEND CPACK_GENERATOR "ZIP")
+else()
+    message(STATUS "   + ZIP archive                        NO ")
 endif()
 
 get_target_property(qmake_executable Qt::qmake IMPORTED_LOCATION)
@@ -81,13 +90,14 @@ if(ANDROID AND ANDROIDDEPLOYQT_EXECUTABLE)
         <uses-permission android:name=\"android.permission.READ_MEDIA_VIDEO\" />")
     endif()
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/AndroidManifest.xml.in ${CMAKE_SOURCE_DIR}/platform/android/AndroidManifest.xml @ONLY)
-    configure_file(${CMAKE_SOURCE_DIR}/platform/android/splash.xml.in ${CMAKE_SOURCE_DIR}/platform/android/res/drawable/splash.xml @ONLY)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/generated.xml.in ${CMAKE_SOURCE_DIR}/platform/android/generated.xml @ONLY)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/build.gradle.in ${CMAKE_SOURCE_DIR}/platform/android/build.gradle @ONLY)
     configure_file(${CMAKE_SOURCE_DIR}/platform/android/CPackAndroidDeployQt.cmake.in "${CMAKE_BINARY_DIR}/CPackExternal.cmake" @ONLY)
 
     set(ANDROID_TEMPLATE_FOLDER "${CMAKE_BINARY_DIR}/android-template")
     file(COPY ${CMAKE_SOURCE_DIR}/platform/android/ DESTINATION ${ANDROID_TEMPLATE_FOLDER}/)
+    file(REMOVE ${ANDROID_TEMPLATE_FOLDER}/res/drawable/splash.xml.in)
+    configure_file(${CMAKE_SOURCE_DIR}/platform/android/res/drawable/splash.xml.in ${ANDROID_PACKAGE_SOURCE_DIR}/res/drawable/splash.xml @ONLY)
     set(SRC_FOLDER "${ANDROID_TEMPLATE_FOLDER}/src/ch/opengis/${APP_PACKAGE_NAME}")
     if (NOT APP_PACKAGE_NAME STREQUAL "qfield")
         file(REMOVE_RECURSE ${SRC_FOLDER}) # remove any pre-existing content

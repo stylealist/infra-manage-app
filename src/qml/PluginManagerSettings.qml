@@ -185,9 +185,7 @@ QfPopup {
           text: qsTr("Install plugin from URL")
 
           onClicked: {
-            if (!popup.availablePluginsFetched) {
-              pluginManager.pluginModel.refresh(true);
-            }
+            installFromUrlInput.text = '';
             installFromUrlDialog.open();
           }
 
@@ -278,8 +276,10 @@ QfPopup {
     parent: mainWindow.contentItem
 
     onAboutToShow: {
-      installFromUrlDialog.standardButton(Dialog.Ok).enabled = popup.availablePluginsFetched;
-      installFromUrlInput.text = '';
+      if (!popup.availablePluginsFetched) {
+        pluginManager.pluginModel.refresh(true);
+      }
+      installFromUrlDialog.standardButton(Dialog.Ok).enabled = Qt.binding(() => popup.availablePluginsFetched);
     }
 
     Column {
@@ -302,9 +302,26 @@ QfPopup {
         color: Theme.mainTextColor
       }
 
-      TextField {
+      TextArea {
         id: installFromUrlInput
         width: installFromUrlLabel.width
+        rightPadding: scanCodeBtn.width
+        wrapMode: TextEdit.WrapAnywhere
+
+        QfToolButton {
+          id: scanCodeBtn
+          anchors.right: parent.right
+          anchors.verticalCenter: parent.verticalCenter
+
+          bgcolor: "transparent"
+          iconSource: Theme.getThemeVectorIcon("ic_qr_code_black_24dp")
+          iconColor: Theme.mainTextColor
+
+          onClicked: {
+            codeReaderConnection.enabled = true;
+            codeReader.open();
+          }
+        }
       }
     }
 
@@ -344,6 +361,24 @@ QfPopup {
 
     onAccepted: {
       pluginManager.uninstall(pluginUuid);
+    }
+  }
+
+  Connections {
+    id: codeReaderConnection
+    target: codeReader
+    enabled: false
+
+    function onDecoded(string) {
+      if (string.toLowerCase().startsWith("http://") || string.toLowerCase().startsWith("https://")) {
+        codeReader.close();
+        installFromUrlInput.text = string;
+        installFromUrlDialog.accept();
+      }
+    }
+
+    function onAboutToHide() {
+      codeReaderConnection.enabled = false;
     }
   }
 

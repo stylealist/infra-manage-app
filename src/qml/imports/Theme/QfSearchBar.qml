@@ -1,7 +1,6 @@
 import QtQuick
 import QtQuick.Controls
 import org.qfield
-import Theme
 
 /**
  * \ingroup qml
@@ -13,6 +12,8 @@ Item {
   property string placeHolderText: qsTr("Search")
 
   signal returnPressed
+
+  height: childrenRect.height
 
   Rectangle {
     width: parent.width
@@ -60,8 +61,7 @@ Item {
       selectByMouse: true
       inputMethodHints: Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase | Qt.ImhSensitiveData
       placeholderText: (!searchField.activeFocus && text === "" && displayText === "") ? searchBar.placeHolderText : ""
-      background: Item {
-      }
+      background: Item {}
 
       Keys.onPressed: event => {
         if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {

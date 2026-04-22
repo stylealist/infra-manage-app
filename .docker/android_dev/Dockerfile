@@ -11,7 +11,7 @@ ENV APT_PACKAGES="git curl zip unzip tar"
 ## Common build prereqs
 ENV APT_PACKAGES="$APT_PACKAGES g++ vim pkg-config cmake ninja-build ca-certificates"
 
-ENV APT_PACKAGES="$APT_PACKAGES autoconf nasm bison python2 flex build-essential libtool libtool-bin gettext automake autoconf-archive libltdl-dev"
+ENV APT_PACKAGES="$APT_PACKAGES autoconf nasm bison python3 flex build-essential libtool libtool-bin gettext automake autoconf-archive libltdl-dev"
 
 ## Python related
 ENV APT_PACKAGES="$APT_PACKAGES python3-setuptools python3-pip python3-jinja2 python3-venv"
@@ -29,7 +29,7 @@ ENV APT_PACKAGES="$APT_PACKAGES libxext-dev libxfixes-dev libxrender-dev \
   libxcb-image0-dev libxcb-shm0-dev libxcb-icccm4-dev libxcb-sync-dev \
   libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev \
   libxcb-render-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xinput-dev \
-  libxcb-cursor-dev libxkbcommon-x11-dev libcups2-dev"
+  libxcb-cursor-dev libxkbcommon-x11-dev libcups2-dev libsm-dev libice-dev"
 
 ## qtbase for android
 ENV APT_PACKAGES="$APT_PACKAGES openjdk-17-jre-headless openjdk-17-jdk-headless"

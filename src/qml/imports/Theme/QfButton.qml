@@ -5,6 +5,7 @@ import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
 import QtQuick.Effects
 import QtQuick.Shapes
+import org.qfield
 
 /**
  * \ingroup qml
@@ -12,8 +13,8 @@ import QtQuick.Shapes
 Button {
   id: button
 
-  property color bgcolor: Theme.mainColor
-  property color color: button.enabled ? Theme.buttonTextColor : Theme.mainTextDisabledColor
+  property color bgcolor: Theme.buttonBackgroundColor
+  property color color: button.enabled ? Theme.buttonColor : Theme.mainTextDisabledColor
   property alias radius: backgroundRectangle.radius
   property alias borderColor: backgroundRectangle.border.color
   property bool dropdown: false
@@ -70,7 +71,7 @@ Button {
         color: Theme.mainColor
         clip: true
 
-        Behavior on width  {
+        Behavior on width {
           NumberAnimation {
             duration: 200
           }
@@ -91,7 +92,7 @@ Button {
           radius: backgroundRectangle.radius
           color: Theme.mainColor
           opacity: 0.9
-          SequentialAnimation on x  {
+          SequentialAnimation on x {
             loops: Animation.Infinite
             NumberAnimation {
               from: -bar.width

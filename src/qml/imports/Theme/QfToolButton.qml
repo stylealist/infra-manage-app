@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import QtQuick.Controls.Material.impl
-import Theme 1.0
+import org.qfield
 
 /**
  * \ingroup qml
@@ -43,7 +43,7 @@ RoundButton {
     radius: round ? height / 2 : roundborder ? 12 : 0
     clip: true
 
-    Behavior on color  {
+    Behavior on color {
       ColorAnimation {
         duration: 200
       }

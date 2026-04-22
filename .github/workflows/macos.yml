@@ -52,7 +52,7 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
       - name: ⛓️ Setup SSH
-        uses: webfactory/ssh-agent@v0.9.1
+        uses: webfactory/ssh-agent@v0.10.0
         if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         with:
           ssh-private-key: ${{ secrets.SSH_KEY_DEPLOYMENT_CERTIFICATES }}
@@ -70,7 +70,7 @@ jobs:
         with:
           cmakeVersion: 3.31.6
       - name: 🍭 Setup XCode
-        uses: maxim-lobanov/setup-xcode@v1.6.0
+        uses: maxim-lobanov/setup-xcode@v1.7.0
         with:
           xcode-version: 16.2
 
@@ -108,7 +108,8 @@ jobs:
                 -D CMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.deployment-target }} \
                 -D CMAKE_OSX_ARCHITECTURES=${{ matrix.target-arch }} \
                 -D VCPKG_TARGET_TRIPLET=${{ matrix.triplet }} \
-                -D WITH_CCACHE=ON
+                -D WITH_CCACHE=ON \
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 🌋 Build
         run: |
@@ -136,20 +137,20 @@ jobs:
           gtar -cpvzf qfield-app-${{ matrix.triplet }}.tar.gz staging
 
       - name: 📦 Upload package
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
-          name: "qfield-app-${{ matrix.triplet }}"
+          name: qfield-app-${{ matrix.triplet }}
           path: qfield-app-${{ matrix.triplet }}.tar.gz
 
       - name: 📊 Upload test report
         if: ${{ matrix.run-tests == true && always() }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: "test-report-${{ matrix.triplet }}-${{ env.BUILD_TYPE }}"
           path: "${{ env.CMAKE_BUILD_DIR }}/report"
 
       - name: 📑 Upload logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: logs-${{ matrix.triplet }}
@@ -157,7 +158,7 @@ jobs:
             ${{ env.CMAKE_BUILD_DIR }}/**/*.log
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.301.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -185,7 +186,7 @@ jobs:
           brew install create-dmg
 
       - name: 📤 Download app
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           pattern: qfield-app-*
           path: |
@@ -216,11 +217,13 @@ jobs:
           export DMG_PATH=qfield.dmg
           ./platform/macos/create_dmg.sh
 
-      - name: 📤 Upload app
-        uses: actions/upload-artifact@v6
+          echo "ARTIFACT_PACKAGE_NAME=qfield-dmg" >> $GITHUB_ENV
+
+      - name: 📦 Upload artifacts
+        uses: actions/upload-artifact@v7
         id: artifact-macos
         with:
-          name: qfield-dmg
+          name: ${{ env.ARTIFACT_PACKAGE_NAME }}
           path: |
             *.dmg
 
@@ -231,7 +234,7 @@ jobs:
           marker: macos
           body: |
             ### 🍎 MacOS DMG universal builds
-            Download a [MacOS DMG universal build of this PR for testing](${{ steps.artifact-macos.outputs.artifact-url }}).
+            Download a [MacOS DMG universal build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_PACKAGE_NAME }}.zip).
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 

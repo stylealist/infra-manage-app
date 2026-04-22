@@ -35,6 +35,14 @@ Page {
   property alias snapToCommonAngleDegrees: registry.snapToCommonAngleDegrees
   property alias snapToCommonAngleTolerance: registry.snapToCommonAngleTolerance
 
+  property bool proxyEnabled: false
+  property string proxyType: "DefaultProxy"
+  property string proxyHost: ""
+  property int proxyPort: 0
+  property string proxyUser: ""
+  property string proxyPassword: ""
+  property string proxyExcludedUrls: ""
+
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
@@ -46,10 +54,29 @@ Page {
       // a crash occured while the native camera was launched, disable it
       nativeCamera2 = false;
     }
+    proxyEnabled = settings.valueBool('proxy/proxyEnabled', false);
+    proxyType = settings.value('proxy/proxyType', 'DefaultProxy');
+    proxyHost = settings.value('proxy/proxyHost', '');
+    proxyPort = settings.valueInt('proxy/proxyPort', 0);
+    proxyUser = settings.value('proxy/proxyUser', '');
+    proxyPassword = settings.value('proxy/proxyPassword', '');
+    const excludedRaw = settings.value('proxy/proxyExcludedUrls', '');
+    proxyExcludedUrls = Array.isArray(excludedRaw) ? excludedRaw.join(', ') : (excludedRaw || '');
   }
 
   function reset() {
     variableEditor.reset();
+  }
+
+  function applyProxySettings() {
+    settings.setValue('proxy/proxyEnabled', proxyEnabled);
+    settings.setValue('proxy/proxyType', proxyType);
+    settings.setValue('proxy/proxyHost', proxyHost);
+    settings.setValue('proxy/proxyPort', proxyPort);
+    settings.setValue('proxy/proxyUser', proxyUser);
+    settings.setValue('proxy/proxyPassword', proxyPassword);
+    settings.setValue('proxy/proxyExcludedUrls', proxyExcludedUrls);
+    iface.setupNetworkProxy();
   }
 
   Settings {
@@ -203,13 +230,13 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If disabled, QField will use a minimalist internal camera instead of the camera app on the device.<br>Tip: Enable this option and install the open camera app to create geo tagged photos.")
+      description: qsTr("If enabled, the native camera provided by the operating system will be used.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
     ListElement {
       title: qsTr("Send anonymized metrics")
-      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.")
+      description: qsTr("If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.")
       settingAlias: "enableInfoCollection"
       isVisible: true
     }
@@ -315,8 +342,7 @@ Page {
           leftPadding: 0
           rightPadding: 0
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: generalSettingsGrid.width
           contentHeight: generalSettingsGrid.height
           anchors.fill: parent
@@ -645,14 +671,12 @@ Page {
 
                 onCurrentValueChanged: {
                   if (initialized) {
-                    settings.setValue("appearance", currentValue);
-                    Theme.applyAppearance();
+                    Theme.appearance = currentValue;
                   }
                 }
 
                 Component.onCompleted: {
-                  var appearance = settings.value("appearance", 'system');
-                  currentIndex = indexOfValue(appearance);
+                  currentIndex = indexOfValue(Theme.appearance);
                   initialized = true;
                 }
               }
@@ -702,14 +726,12 @@ Page {
 
                 onCurrentValueChanged: {
                   if (initialized) {
-                    settings.setValue("fontScale", currentValue);
-                    Theme.applyFontScale();
+                    Theme.fontScale = currentValue;
                   }
                 }
 
                 Component.onCompleted: {
-                  var fontScale = settings.value("fontScale", 1.0);
-                  currentIndex = indexOfValue(fontScale);
+                  currentIndex = indexOfValue(Theme.fontScale);
                   initialized = true;
                 }
               }
@@ -737,7 +759,7 @@ Page {
                 property variant languageCodes: undefined
                 property string currentLanguageCode: undefined
 
-                onCurrentIndexChanged: {
+                onActivated: {
                   if (currentLanguageCode != undefined) {
                     var newLanguageCode = languageCodes[currentIndex];
                     if (newLanguageCode !== currentLanguageCode) {
@@ -771,6 +793,224 @@ Page {
                 onLinkActivated: link => {
                   Qt.openUrlExternally(link);
                 }
+              }
+            }
+
+            GridLayout {
+              Layout.fillWidth: true
+              Layout.leftMargin: 20
+              Layout.rightMargin: 20
+
+              columns: 2
+              columnSpacing: 0
+              rowSpacing: 5
+
+              Label {
+                text: qsTr('Network')
+                font: Theme.strongFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.topMargin: 10
+                Layout.columnSpan: 2
+              }
+
+              Label {
+                text: qsTr("Enable proxy")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+              }
+
+              QfSwitch {
+                id: proxyEnabledSwitch
+                Layout.preferredWidth: implicitContentWidth
+                Layout.alignment: Qt.AlignTop | Qt.AlignRight
+                checked: proxyEnabled
+                onCheckedChanged: proxyEnabled = checked
+              }
+
+              Label {
+                text: qsTr("Type")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfComboBox {
+                id: proxyTypeComboBox
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.leftMargin: 8
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                model: ListModel {
+                  ListElement {
+                    name: qsTr("System default")
+                    value: "DefaultProxy"
+                  }
+                  ListElement {
+                    name: "HTTP"
+                    value: "HttpProxy"
+                  }
+                  ListElement {
+                    name: "SOCKS5"
+                    value: "Socks5Proxy"
+                  }
+                }
+                textRole: "name"
+                valueRole: "value"
+
+                property bool initialized: false
+
+                onCurrentValueChanged: {
+                  if (initialized) {
+                    proxyType = currentValue;
+                  }
+                }
+
+                Component.onCompleted: {
+                  currentIndex = indexOfValue(proxyType);
+                  if (currentIndex < 0)
+                    currentIndex = 0;
+                  initialized = true;
+                }
+              }
+
+              Label {
+                text: qsTr("Host")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+              }
+
+              QfTextField {
+                id: proxyHostField
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                placeholderText: qsTr("e.g. proxy.example.com")
+                inputMethodHints: Qt.ImhUrlCharactersOnly
+                text: proxyHost
+                onTextChanged: proxyHost = text
+              }
+
+              Label {
+                text: qsTr("Port")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+              }
+
+              QfTextField {
+                id: proxyPortField
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                placeholderText: qsTr("e.g. 8888")
+                inputMethodHints: Qt.ImhDigitsOnly
+                validator: IntValidator {
+                  bottom: 0
+                  top: 65535
+                }
+                text: proxyPort > 0 ? proxyPort : ''
+                onTextChanged: proxyPort = text.length > 0 ? parseInt(text) : 0
+              }
+
+              Label {
+                text: qsTr("Username")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+              }
+
+              QfTextField {
+                id: proxyUserField
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                placeholderText: qsTr("Optional")
+                text: proxyUser
+                onTextChanged: proxyUser = text
+              }
+
+              Label {
+                text: qsTr("Password")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy' ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+              }
+
+              QfTextField {
+                id: proxyPasswordField
+                enabled: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                visible: proxyEnabledSwitch.checked && proxyType !== 'DefaultProxy'
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                echoMode: TextInput.Password
+                placeholderText: qsTr("Optional")
+                text: proxyPassword
+                onTextChanged: proxyPassword = text
+              }
+
+              Label {
+                text: qsTr("URLs excluded from proxy (comma-separated)")
+                font: Theme.defaultFont
+                color: proxyEnabledSwitch.checked ? Theme.mainTextColor : Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.leftMargin: 8
+                visible: proxyEnabledSwitch.checked
+              }
+
+              QfTextField {
+                id: proxyExcludedUrlsField
+                enabled: proxyEnabledSwitch.checked
+                visible: proxyEnabledSwitch.checked
+                font: Theme.defaultFont
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.leftMargin: 8
+                placeholderText: qsTr("e.g. localhost, 192.168.*")
+                text: proxyExcludedUrls
+                onTextChanged: proxyExcludedUrls = text
+              }
+
+              Label {
+                text: qsTr("Configure a network proxy to route QField's traffic through a proxy server. Useful for corporate networks and VPNs.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
               }
             }
 
@@ -820,8 +1060,7 @@ Page {
           leftPadding: 20
           rightPadding: 20
           ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-          ScrollBar.vertical: QfScrollBar {
-          }
+          ScrollBar.vertical: QfScrollBar {}
           contentWidth: positioningGrid.width
           contentHeight: positioningGrid.height
           anchors.fill: parent
@@ -938,14 +1177,19 @@ Page {
                     }
                   }
 
+                  property bool loaded: false
+
                   onCurrentIndexChanged: {
-                    var modelIndex = positioningDeviceModel.index(currentIndex, 0);
-                    positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
-                    positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    if (loaded && currentIndex !== -1) {
+                      const modelIndex = positioningDeviceModel.index(currentIndex, 0);
+                      positioningSettings.positioningDevice = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceId);
+                      positioningSettings.positioningDeviceName = positioningDeviceModel.data(modelIndex, PositioningDeviceModel.DeviceName);
+                    }
                   }
 
                   Component.onCompleted: {
-                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(settings.value('positioningDevice', ''));
+                    currentIndex = positioningDeviceModel.findIndexFromDeviceId(positioningSettings.positioningDevice);
+                    loaded = true;
                   }
                 }
               }
@@ -1060,6 +1304,53 @@ Page {
                 onCheckedChanged: {
                   positioningSettings.showPositionInformation = checked;
                 }
+              }
+
+              Label {
+                id: positionFollowModeLabel
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                text: qsTr("Behavior when locked to position:")
+                font: Theme.defaultFont
+                color: Theme.mainTextColor
+
+                wrapMode: Text.WordWrap
+              }
+
+              QfComboBox {
+                id: positionFollowModeComboBox
+                Layout.fillWidth: true
+                Layout.columnSpan: 2
+                Layout.alignment: Qt.AlignVCenter
+                font: Theme.defaultFont
+                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
+
+                popup.font: Theme.defaultFont
+                popup.topMargin: mainWindow.sceneTopMargin
+                popup.bottomMargin: mainWindow.sceneTopMargin
+
+                property bool loaded: false
+
+                Component.onCompleted: {
+                  positionFollowModeComboBox.currentIndex = positioningSettings.positionFollowMode;
+                  loaded = true;
+                }
+
+                onCurrentIndexChanged: {
+                  if (loaded) {
+                    positioningSettings.positionFollowMode = currentIndex;
+                  }
+                }
+              }
+
+              Label {
+                id: positionFollowModeTipLabel
+                Layout.fillWidth: true
+                text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
+                font: Theme.tipFont
+                color: Theme.secondaryTextColor
+
+                wrapMode: Text.WordWrap
               }
 
               Label {
@@ -1243,12 +1534,12 @@ Page {
 
               Label {
                 text: qsTr("When the accuracy indicator is enabled, a badge is attached to the location button and colored <span %1>red</span> if the accuracy value is worse than <i>bad</i>, <span %2>yellow</span> if it falls short of <i>excellent</i>, or <span %3>green</span>.<br><br>In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.").arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyBad
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyTolerated
-                      }))).arg("style='%1'".arg(Theme.toInlineStyles({
-                        "color": Theme.accuracyExcellent
-                      })))
+                  "color": Theme.accuracyBad
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyTolerated
+                }))).arg("style='%1'".arg(Theme.toInlineStyles({
+                  "color": Theme.accuracyExcellent
+                })))
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 textFormat: Qt.RichText
@@ -1425,7 +1716,7 @@ Page {
               }
 
               Label {
-                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.")
+                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1522,23 +1813,23 @@ Page {
                   reloading = true;
                   verticalGridShiftComboBox.model.clear();
                   verticalGridShiftComboBox.model.append({
-                      "text": qsTr("None"),
-                      "value": Positioning.ElevationCorrectionMode.None
-                    });
+                    "text": qsTr("None"),
+                    "value": Positioning.ElevationCorrectionMode.None
+                  });
                   if ((positionSource.deviceCapabilities & AbstractGnssReceiver.OrthometricAltitude) != 0) {
                     verticalGridShiftComboBox.model.append({
-                        "text": qsTr("Orthometric from device"),
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
-                      });
+                      "text": qsTr("Orthometric from device"),
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromDevice
+                    });
                   }
 
                   // Add geoid files to combobox
                   var geoidFiles = platformUtilities.availableGrids();
                   for (var i = 0; i < geoidFiles.length; i++)
                     verticalGridShiftComboBox.model.append({
-                        "text": geoidFiles[i],
-                        "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
-                      });
+                      "text": geoidFiles[i],
+                      "value": Positioning.ElevationCorrectionMode.OrthometricFromGeoidFile
+                    });
                   if (positioningSettings.elevationCorrectionMode === Positioning.ElevationCorrectionMode.None) {
                     verticalGridShiftComboBox.currentIndex = indexOfValue(positioningSettings.elevationCorrectionMode);
                     positioningSettings.verticalGrid = "";
@@ -1642,12 +1933,11 @@ Page {
       }
       var index = positioningDeviceModel.addDevice(type, name, settings);
       positioningDeviceComboBox.currentIndex = index;
-      positioningDeviceComboBox.onCurrentIndexChanged();
     }
   }
 
   header: QfPageHeader {
-    title: qsTr("QField Settings")
+    title: qsTr("%1 Settings").arg(appName)
 
     showBackButton: true
     showApplyButton: false
@@ -1658,6 +1948,7 @@ Page {
     onFinished: {
       parent.finished();
       variableEditor.apply();
+      applyProxySettings();
     }
   }
 
@@ -1665,6 +1956,7 @@ Page {
     if (event.key === Qt.Key_Back || event.key === Qt.Key_Escape) {
       event.accepted = true;
       variableEditor.apply();
+      applyProxySettings();
       finished();
     }
   }

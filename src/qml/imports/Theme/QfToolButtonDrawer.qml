@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import Theme
+import org.qfield
 
 /**
  * \ingroup qml
@@ -25,7 +25,7 @@ Container {
   property alias iconColor: toggleButton.iconColor
 
   onNameChanged: {
-    collapsed = settings.valueBool("QField/QfToolButtonContainer/" + name + "/collapsed", true);
+    collapsed = settings.valueBool("QField/QfToolButtonContainer/" + name + "/collapsed", collapsed);
   }
 
   width: {
@@ -52,14 +52,14 @@ Container {
   clip: true
   focusPolicy: Qt.NoFocus
 
-  Behavior on width  {
+  Behavior on width {
     enabled: true
     NumberAnimation {
       duration: 200
     }
   }
 
-  Behavior on height  {
+  Behavior on height {
     enabled: true
     NumberAnimation {
       duration: 200

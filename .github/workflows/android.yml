@@ -96,7 +96,7 @@ jobs:
           echo "CMAKE_BUILD_DIR=${BUILD_ROOT}/builddir" >> $GITHUB_ENV
 
       - name: 💎 Setup ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.301.0
         with:
           ruby-version: '3.4' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
@@ -123,7 +123,7 @@ jobs:
       - name: 🔨 Prepare build env
         run: |
           sudo apt-get update
-          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libx11-xcb-dev libsm-dev libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libcups2-dev nasm libltdl-dev
+          sudo apt-get install -y gperf autopoint '^libxcb.*-dev' libxrandr-dev libx11-xcb-dev libsm-dev libegl1-mesa-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf-archive libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0 libfuse2 libcups2-dev nasm libltdl-dev
           wget https://github.com/Kitware/CMake/releases/download/v3.31.6/cmake-3.31.6-linux-x86_64.sh -O /tmp/cmakeinstall.sh
           chmod +x /tmp/cmakeinstall.sh
           sudo /tmp/cmakeinstall.sh --prefix=/usr/local --exclude-subdir
@@ -137,7 +137,7 @@ jobs:
       - name: 📐 Download sentry libs
         run: |
           mkdir /tmp/sentry-android-ndk
-          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.5/sentry-android-ndk-7.22.5.aar -O /tmp/sentry.zip
+          wget https://repo1.maven.org/maven2/io/sentry/sentry-android-ndk/7.22.6/sentry-android-ndk-7.22.6.aar -O /tmp/sentry.zip
           unzip /tmp/sentry.zip -d /tmp/sentry-android-ndk
 
       - name: 🌱 Install dependencies and generate project files
@@ -168,10 +168,11 @@ jobs:
                 -D NUGET_TOKEN=${{ secrets.GITHUB_TOKEN }} \
                 -D SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
                 -D SENTRY_ENV="${APP_ENV}" \
-                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni
+                -D SENTRY_IMPORT_PREFIX=/tmp/sentry-android-ndk/jni \
+                -D VCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions"
 
       - name: 📑 Upload Dep Build Logs
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: build-logs-${{ matrix.triplet }}
@@ -195,14 +196,20 @@ jobs:
           STOREPASS: ${{ secrets.STOREPASS }}
         run: |
           cmake --build  "${{ env.CMAKE_BUILD_DIR }}" --target bundle --config Release
+          if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk" ]; then
+            cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk
+          fi
+          if [ -f "${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk" ]; then
+            cp ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk
+          fi
 
       - name: 📦 Upload artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.APP_PACKAGE_NAME }}-android-${{ matrix.triplet }}
+          name: ${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}
           path: |
-            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/release/android-build-release-signed.apk
-            ${{ env.CMAKE_BUILD_DIR }}/src/app/android-build/build/outputs/apk/debug/android-build-debug.apk
+            /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}.apk
+            /tmp/${{ env.CI_PACKAGE_NAME }}-${{ env.CI_PACKAGE_FILE_SUFFIX }}-${{ matrix.artifact_name }}-debug.apk
 
       - name: 🍺 Deploy
         run: |
@@ -232,7 +239,7 @@ jobs:
 
   deploy_to_playstore:
     name: deploy to play store
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: build
     if: ${{ ( github.event_name == 'release' || ( github.event_name == 'push' && github.ref == 'refs/heads/master' ) ) }}
     steps:
@@ -277,42 +284,42 @@ jobs:
 
   comment_pr:
     name: comment (pr)
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: build
-    if: ${{ github.event_name == 'pull_request' }}
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
 
       - name: Vars
         id: vars
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
         run: |
           ./scripts/ci/env_gh.sh
 
-      - name: 💬 Create comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        if: ${{ env.SENTRY_AUTH_TOKEN != '' }}
+      - name: Schedule download comment
+        uses: ./.github/actions/post_sticky_comment
         with:
-          GITHUB_TOKEN: ${{ secrets.FAIRY_TOKEN }}
-          message: |
-            🎉 Ta-daaa, freshly created APKs are available for ${{ github.event.pull_request.head.sha }}: [**arm64-android**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
+          marker: android
+          body: |
+            ### 📱 Android builds
+            Download an [Android arm64 build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.zip).
+            *(Built from commit ${{ github.event.pull_request.head.sha }})*
             <details>
-            <summary>Other architectures</summary>
+            <summary>Other Android architectures</summary>
 
-            - [arm-neon-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
-            - [x64-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
-            - [x86-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
-            - [**all access arm64-android**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
-            - [all access arm-neon-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
-            - [all access x64-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
-            - [all access x86-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
+            - [arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.zip)
+            - [x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.zip)
+            - [x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.zip)
+            - [**all access arm64**](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.zip)
+            - [all access arm-neon](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.zip)
+            - [all access x64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.zip)
+            - [all access x86](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.zip)
             </details>
+          pr: ${{ github.event.number }}
 
   comment_commit:
     name: comment (commit)
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: build
     if: ${{ github.event_name == 'push' }}
     steps:
@@ -332,9 +339,10 @@ jobs:
         with:
           token: ${{ secrets.FAIRY_TOKEN }}
           body: |
-            🎉 Ta-daaa, freshly created APKs are available: [**arm64-android**](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk)
+            ### 📱 Android builds
+            Download an [Android arm64 build of this commit for testing](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm64.apk).
             <details>
-            <summary>Other architectures</summary>
+            <summary>Other Android architectures</summary>
 
             - [arm-neon-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-arm-neon.apk)
             - [x64-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
@@ -344,4 +352,3 @@ jobs:
             - [all access x64-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x64.apk)
             - [all access x86-android](https://qfieldapks.sos-ch-dk-2.exoscale-cdn.com/ci-builds/qfield_all_access-${{ env.CI_PACKAGE_FILE_SUFFIX }}-android-x86.apk)
             </details>
-

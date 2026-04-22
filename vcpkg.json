@@ -68,6 +68,7 @@
     "qtlocation",
     {
       "name": "qtmultimedia",
+      "default-features": false,
       "features": [
         {
           "name": "ffmpeg",
@@ -110,7 +111,10 @@
       "default-features": false,
       "features": [
         "backend",
-        "breakpad",
+        {
+          "name": "breakpad",
+          "platform": "windows | linux"
+        },
         "transport"
       ],
       "platform": "osx | linux | (!arm & !uwp)"

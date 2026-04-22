@@ -22,12 +22,16 @@
         <translation>链接菜单</translation>
     </message>
     <message>
-        <source>QField app directories</source>
-        <translation>QField应用程序目录</translation>
+        <source>Powered by QField</source>
+        <translation>由QField提供支持</translation>
     </message>
     <message>
-        <source>QField app directory</source>
-        <translation>QField应用程序目录</translation>
+        <source>%1 app directories</source>
+        <translation>%1应用程序目录</translation>
+    </message>
+    <message>
+        <source>%1 app directory</source>
+        <translation>%1应用程序目录</translation>
     </message>
 </context>
 <context>
@@ -600,6 +604,14 @@ Cancel to make a minimal device scan instead.</source>
         <source>Return home</source>
         <translation>返回首页</translation>
     </message>
+    <message>
+        <source>Expand All</source>
+        <translation>全部展开</translation>
+    </message>
+    <message>
+        <source>Collapse All</source>
+        <translation>全部折叠</translation>
+    </message>
 </context>
 <context>
     <name>DateTime</name>
@@ -833,10 +845,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>绘制草图</translation>
     </message>
     <message>
-        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation>外部存储的认证配置ID缺失，请确保已将其导入QField</translation>
-    </message>
-    <message>
         <source>Learn more</source>
         <translation>点击了解更多信息</translation>
     </message>
@@ -851,6 +859,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>NULL</source>
         <translation>空</translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
     </message>
 </context>
 <context>
@@ -934,6 +946,18 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Hard constraints not satisfied</source>
         <translation>硬约束未满足</translation>
+    </message>
+    <message>
+        <source>Previous page</source>
+        <translation>上一页</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>保存</translation>
+    </message>
+    <message>
+        <source>Next page</source>
+        <translation>下一页</translation>
     </message>
 </context>
 <context>
@@ -1609,7 +1633,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Sample projects</source>
-        <translation>示例工程</translation>
+        <translation type="vanished">示例工程</translation>
     </message>
     <message>
         <source>Created projects</source>
@@ -2023,15 +2047,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation>所有文件 (*.*)</translation>
+        <translation type="vanished">所有文件 (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
         <translation>选择文件</translation>
-    </message>
-    <message>
-        <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation>音频文件 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
@@ -2334,6 +2354,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>ant.</source>
         <translation>ant.</translation>
     </message>
+    <message>
+        <source>%1/s</source>
+        <translation>%1/s</translation>
+    </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
@@ -2525,10 +2549,6 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <translation>备份和协作？</translation>
     </message>
     <message>
-        <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation>QFieldCloud允许同步与合并您的团队在QField中收集的数据。从小型个人工程到大型数据收集活动。</translation>
-    </message>
-    <message>
         <source>Learn more about QFieldCloud here</source>
         <translation>在此了解有关QFieldCloud的更多信息</translation>
     </message>
@@ -2539,6 +2559,10 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>My Project</source>
         <translation>我的工程</translation>
+    </message>
+    <message>
+        <source>QFieldCloud allows to synchronize and merge the data collected by your team in %1. From small individual projects to large data collection campaigns. </source>
+        <translation>QFieldCloud允许同步与合并您的团队在%1中收集的数据。从小型个人工程到大型数据收集活动。</translation>
     </message>
 </context>
 <context>
@@ -2582,6 +2606,18 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Track color</source>
         <translation>跟踪颜色</translation>
+    </message>
+    <message>
+        <source>Note attachments</source>
+        <translation>注解附件</translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation>描述</translation>
+    </message>
+    <message>
+        <source>Attachments</source>
+        <translation>附件</translation>
     </message>
 </context>
 <context>
@@ -2654,7 +2690,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Orientation</source>
-        <translation>方向</translation>
+        <translation>朝向</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
@@ -2853,11 +2889,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>连接到云。</translation>
+        <translation type="vanished">连接到云。</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
+        <translation type="vanished">您好 &lt;strong&gt;%1&lt;/strong&gt;</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
@@ -3075,6 +3111,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>%n file(s) remaining</source>
         <translation><numerusform>剩余%n个文件</numerusform></translation>
     </message>
+    <message>
+        <source>Used %1 of %2</source>
+        <translation>已使用%2的%1</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -3251,6 +3291,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Synchronizing</source>
         <translation>同步中</translation>
     </message>
+    <message>
+        <source>Using %1 of %2</source>
+        <translation>正在使用%2的%1</translation>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
@@ -3389,6 +3433,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Cloud project could not be created.</source>
         <translation>无法创建云工程。</translation>
+    </message>
+    <message>
+        <source>Network is not currently active. We will push the changes automatically once you are back online.</source>
+        <translation>网络当前处于非活动状态。一旦您恢复网络连接，我们将自动推送更改。</translation>
     </message>
 </context>
 <context>
@@ -3579,6 +3627,29 @@ While you can still view and use the project, it is strongly recommended to rese
     <message numerus="yes">
         <source>%n file(s) remaining</source>
         <translation><numerusform>剩余%n个文件</numerusform></translation>
+    </message>
+</context>
+<context>
+    <name>QFieldCloudStatus</name>
+    <message>
+        <source>QFieldCloud server is not reachable</source>
+        <translation>QFieldCloud服务器无法访问</translation>
+    </message>
+    <message>
+        <source>The server at %1 could not be reached. Please check your internet connection.</source>
+        <translation>无法访问位于%1的服务器。请检查您的互联网连接。</translation>
+    </message>
+    <message>
+        <source>QFieldCloud is under maintenance</source>
+        <translation>QFieldCloud正在维护中</translation>
+    </message>
+    <message>
+        <source>QFieldCloud service is degraded</source>
+        <translation>QFieldCloud服务已降级</translation>
+    </message>
+    <message>
+        <source>There is an ongoing incident</source>
+        <translation>服务异常</translation>
     </message>
 </context>
 <context>
@@ -3949,7 +4020,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>如禁用，QField将使用简易的内部相机替代设备上的相机应用程序。&lt;br&gt;提示：开启此选项并安装相机应用程序可以创建带有地理位置标签的照片。</translation>
+        <translation type="vanished">如禁用，QField将使用简易的内部相机替代设备上的相机应用程序。&lt;br&gt;提示：开启此选项并安装相机应用程序可以创建带有地理位置标签的照片。</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3981,7 +4052,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>如果启用，将收集并发送匿名测评数据，以帮助改善QField的个人使用体验。</translation>
+        <translation type="vanished">如果启用，将收集并发送匿名测评数据，以帮助改善QField的个人使用体验。</translation>
     </message>
     <message>
         <source>General</source>
@@ -4143,7 +4214,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>QField设置</translation>
+        <translation type="vanished">QField设置</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
@@ -4256,10 +4327,6 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
         <translation>较低质量是以较低内存使用率和渲染时间而降低渲染精度。</translation>
-    </message>
-    <message>
-        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation>该值将校正定位设备记录的Z值。如果输入的值为1.6，QField将自动从每个记录的值中减去1.6。请确保输入有效天线高度，即杆长 + 天线相位中心偏移。</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
@@ -4380,6 +4447,98 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.</source>
         <translation>启用后，地图将自动缩放以显示所有已识别的要素，以及在打开要素表单时单个所选要素。</translation>
+    </message>
+    <message>
+        <source>Behavior when locked to position:</source>
+        <translation>锁定位置时的行为：</translation>
+    </message>
+    <message>
+        <source>Follow position only</source>
+        <translation>仅遵循位置</translation>
+    </message>
+    <message>
+        <source>Follow position and compass orientation</source>
+        <translation>遵循位置和指南针朝向</translation>
+    </message>
+    <message>
+        <source>Follow position and movement direction</source>
+        <translation>遵循位置和移动方向</translation>
+    </message>
+    <message>
+        <source>When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.</source>
+        <translation>当地图画布遵循或锁定到位置时，它也可以旋转以匹配指南针朝向或移动方向。</translation>
+    </message>
+    <message>
+        <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.</source>
+        <translation>该值将校正定位设备记录的Z值。如果输入值为1.6，系统将自动从每条记录的值中减去1.6。请确保插入有效天线高度，即杆长+天线相位中心偏移。</translation>
+    </message>
+    <message>
+        <source>%1 Settings</source>
+        <translation>%1设置</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <source>Enable proxy</source>
+        <translation>启用代理</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>类型</translation>
+    </message>
+    <message>
+        <source>System default</source>
+        <translation>系统默认</translation>
+    </message>
+    <message>
+        <source>Host</source>
+        <translation>主机</translation>
+    </message>
+    <message>
+        <source>e.g. proxy.example.com</source>
+        <translation>例如: proxy.example.com</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <source>e.g. 8888</source>
+        <translation>例如: 8888</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>可选</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <source>URLs excluded from proxy (comma-separated)</source>
+        <translation>代理排除的URL (逗号分隔)</translation>
+    </message>
+    <message>
+        <source>e.g. localhost, 192.168.*</source>
+        <translation>例如: localhost, 192.168.*</translation>
+    </message>
+    <message>
+        <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
+        <translation>配置网络代理，通过代理服务器路径QField的流量。适用于企业网络和VPN。</translation>
+    </message>
+    <message>
+        <source>If enabled, the native camera provided by the operating system will be used.</source>
+        <translation>如果启用，将使用操作系统提供的原生相机。</translation>
+    </message>
+    <message>
+        <source>If enabled, anonymized metrics will be collected and sent to help improve the user experience for everyone.</source>
+        <translation>如果启用，将收集并发送匿名测评数据，帮助改善用户的使用体验。</translation>
     </message>
 </context>
 <context>
@@ -4571,6 +4730,26 @@ Cancel to make a minimal device scan instead.</source>
         <source>Circle #2: point</source>
         <translation>圆 #2: 点</translation>
     </message>
+    <message>
+        <source>KB</source>
+        <translation>KB</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>GB</source>
+        <translation>GB</translation>
+    </message>
+    <message>
+        <source>TB</source>
+        <translation>TB</translation>
+    </message>
+    <message>
+        <source>B</source>
+        <translation>B</translation>
+    </message>
 </context>
 <context>
     <name>QfActionButton</name>
@@ -4654,6 +4833,44 @@ Cancel to make a minimal device scan instead.</source>
     </message>
 </context>
 <context>
+    <name>QfDialog</name>
+    <message>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>是</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>否</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>QfMeterBar</name>
+    <message>
+        <source>Storage</source>
+        <translation>存储</translation>
+    </message>
+    <message>
+        <source>Tap to upgrade storage</source>
+        <translation>点击升级存储</translation>
+    </message>
+    <message>
+        <source>Tap to manage storage</source>
+        <translation>点击管理存储</translation>
+    </message>
+</context>
+<context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
@@ -4712,6 +4929,10 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>Map printed on %1 using QField</source>
         <translation>使用QField在%1打印地图</translation>
+    </message>
+    <message>
+        <source>Could not load resource font: %1</source>
+        <translation>无法加载源字体: %1</translation>
     </message>
 </context>
 <context>
@@ -4916,6 +5137,10 @@ Cancel to make a minimal device scan instead.</source>
     <message numerus="yes">
         <source>%n feature(s)</source>
         <translation><numerusform>%n个要素</numerusform></translation>
+    </message>
+    <message>
+        <source>Open Form</source>
+        <translation>打开表单</translation>
     </message>
 </context>
 <context>
@@ -5521,6 +5746,62 @@ Cancel to make a minimal device scan instead.</source>
         <source>Failed to upload file %1 due to network error (%2)</source>
         <translation>由于网络错误 (%2)，上传文件%1失败</translation>
     </message>
+    <message>
+        <source>Upload finished.</source>
+        <translation>上传已完成。</translation>
+    </message>
+    <message>
+        <source>No local paths provided.</source>
+        <translation>未提供本地路径。</translation>
+    </message>
+    <message>
+        <source>WebDAV is busy.</source>
+        <translation>WebDAV繁忙。</translation>
+    </message>
+    <message>
+        <source>Not a WebDAV imported project.</source>
+        <translation>不是WebDAV导入的工程。</translation>
+    </message>
+    <message>
+        <source>WebDAV config is missing required fields.</source>
+        <translation>WebDAV配置缺少必需字段。</translation>
+    </message>
+    <message>
+        <source>No stored password available.</source>
+        <translation>无可用存储密码。</translation>
+    </message>
+    <message>
+        <source>Selected items belong to different WebDAV projects.</source>
+        <translation>所选项属于不同的WebDAV工程。</translation>
+    </message>
+    <message>
+        <source>Nothing to upload.</source>
+        <translation>没有可上传的内容。</translation>
+    </message>
+    <message>
+        <source>No local changes detected.</source>
+        <translation>未检测到本地更改。</translation>
+    </message>
+    <message>
+        <source>Upload cancelled.</source>
+        <translation>上传已取消。</translation>
+    </message>
+    <message>
+        <source>Upload skipped.</source>
+        <translation>上传已跳过。</translation>
+    </message>
+    <message>
+        <source>Upload is locked by another process.</source>
+        <translation>上传被另一个进程锁定。</translation>
+    </message>
+    <message>
+        <source>Failed to read WebDAV config file.</source>
+        <translation>读取WebDAV配置文件失败。</translation>
+    </message>
+    <message>
+        <source>Invalid WebDAV config JSON.</source>
+        <translation>WebDAV配置JSON无效。</translation>
+    </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
@@ -5534,7 +5815,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>嘿，到目前为止，您如何看待QField？</translation>
+        <translation type="vanished">嘿，到目前为止，您如何看待QField？</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
@@ -5550,7 +5831,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation>为了提高稳定性，QField将收集并发送匿名测评数据。</translation>
+        <translation type="vanished">为了提高稳定性，QField将收集并发送匿名测评数据。</translation>
     </message>
     <message>
         <source>I agree</source>
@@ -5594,7 +5875,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>欢迎使用QField</translation>
+        <translation type="vanished">欢迎使用QField</translation>
     </message>
     <message>
         <source>Default project</source>
@@ -5625,10 +5906,6 @@ Cancel to make a minimal device scan instead.</source>
         <translation>最近工程动作</translation>
     </message>
     <message>
-        <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation>欢迎来到QField！是第一次使用本应用吗？请试试下面的示例工程吧。</translation>
-    </message>
-    <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
         <translation>太棒了！希望您点击下面的按钮并留下评论。</translation>
     </message>
@@ -5653,6 +5930,26 @@ projects</source>
 project</source>
         <translation>创建新
 工程</translation>
+    </message>
+    <message>
+        <source>Hey there, how do you like your experience with %1 so far?</source>
+        <translation>嘿，到目前为止，您对%1的体验如何？</translation>
+    </message>
+    <message>
+        <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
+        <translation>为了提高稳定性，%1将收集并发送匿名测评数据。</translation>
+    </message>
+    <message>
+        <source>Welcome back to %1.</source>
+        <translation>欢迎使用%1</translation>
+    </message>
+    <message>
+        <source>Welcome to %1.</source>
+        <translation>欢迎来到%1。</translation>
+    </message>
+    <message>
+        <source>First time using this application? Try the sample projects listed below.</source>
+        <translation>是首次使用本应用程序吗？请试试下面的示例工程。</translation>
     </message>
 </context>
 <context>
@@ -5776,6 +6073,21 @@ project</source>
     </message>
 </context>
 <context>
+    <name>gallery_relation_editor</name>
+    <message>
+        <source>QFieldCloud on-demand attachment error: </source>
+        <translation>QFieldCloud按需附件错误: </translation>
+    </message>
+    <message>
+        <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
+        <translation>外部存储的认证配置ID缺失，请确保已将其导入%1</translation>
+    </message>
+    <message>
+        <source>Learn more</source>
+        <translation>点击了解更多信息</translation>
+    </message>
+</context>
+<context>
     <name>ordered_relation_editor</name>
     <message>
         <source>Ensure contraints</source>
@@ -5835,6 +6147,10 @@ project</source>
     <message>
         <source>elevation [Z]</source>
         <translation>高程 [Z]</translation>
+    </message>
+    <message>
+        <source>Point Feature Picker</source>
+        <translation>点要素选取器</translation>
     </message>
 </context>
 <context>
@@ -5989,7 +6305,7 @@ project</source>
     </message>
     <message>
         <source>About QField</source>
-        <translation>关于QField</translation>
+        <translation type="vanished">关于QField</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6440,10 +6756,6 @@ project</source>
         <translation>确认导入</translation>
     </message>
     <message>
-        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation>您想将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入QField吗？</translation>
-    </message>
-    <message>
         <source>Plugin Permission</source>
         <translation>插件权限</translation>
     </message>
@@ -6553,11 +6865,11 @@ project</source>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation>地图画布已锁定到位置和指南针方向</translation>
+        <translation>地图画布已锁定到位置和指南针朝向</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation>地图画布遵循位置和指南针方向</translation>
+        <translation>地图画布遵循位置和指南针朝向</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
@@ -6616,6 +6928,38 @@ to show actions</source>
     <message>
         <source>Positioning service has not yet received a valid location</source>
         <translation>定位服务未收到有效位置信息</translation>
+    </message>
+    <message>
+        <source>Map canvas locked to location and movement direction</source>
+        <translation>地图画布已锁定位置和移动方向</translation>
+    </message>
+    <message>
+        <source>Map canvas follows location and movement direction</source>
+        <translation>地图画布遵循位置和移动方向</translation>
+    </message>
+    <message>
+        <source>Failed to load 3D view</source>
+        <translation>未能加载3D视图</translation>
+    </message>
+    <message>
+        <source>Loading terrain...</source>
+        <translation>正在加载地形...</translation>
+    </message>
+    <message>
+        <source>Close 3D view</source>
+        <translation>关闭3D视图</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation>关于%1</translation>
+    </message>
+    <message>
+        <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
+        <translation>您希望将 &lt;b&gt;%1&lt;/b&gt; 从 &lt;b&gt;%2&lt;/b&gt; 导入%3吗？</translation>
+    </message>
+    <message>
+        <source>Long press on your location marker to show actions</source>
+        <translation>长按您的位置标记显示动作选项</translation>
     </message>
 </context>
 <context>

@@ -13,9 +13,11 @@ Popup {
   leftPadding: mainWindow.sceneLeftMargin
   rightPadding: mainWindow.sceneRightMargin
 
+  property QFieldCloudStatus cloudServiceStatus: null
   property string pendingAction: ""
   property string pendingCreationTitle: ""
   property string pendingUploadPath: ""
+  property string lastSubscriptionUser: ""
 
   onAboutToHide: {
     pendingAction = "";
@@ -54,10 +56,8 @@ Popup {
       id: scrollView
       anchors.fill: parent
 
-      ScrollBar.horizontal: QfScrollBar {
-      }
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.horizontal: QfScrollBar {}
+      ScrollBar.vertical: QfScrollBar {}
       contentWidth: mainGrid.width
       contentHeight: mainGrid.height
       padding: 0
@@ -74,25 +74,17 @@ Popup {
         RowLayout {
           id: connectionInformation
 
-          Text {
-            id: welcomeText
+          QfMeterBar {
+            id: storageMeterBar
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            padding: 10
-            text: switch (cloudConnection.status) {
-            case QFieldCloudConnection.Disconnected:
-              '';
-              break;
-            case QFieldCloudConnection.Connecting:
-              qsTr('Connecting to the cloud.');
-              break;
-            case QFieldCloudConnection.LoggedIn:
-              qsTr('Greetings <strong>%1</strong>.').arg(cloudConnection.username);
-              break;
-            }
-            wrapMode: Text.WordWrap
-            font: Theme.tipFont
-            color: Theme.mainTextColor
+            Layout.margins: 10
+            Layout.alignment: Qt.AlignVCenter
+            visible: false
+          }
+
+          Item {
+            Layout.fillWidth: true
+            visible: !storageMeterBar.visible
           }
 
           Rectangle {
@@ -145,15 +137,17 @@ Popup {
                 onClicked: {
                   if (cloudConnection.status !== QFieldCloudConnection.LoggedIn || !cloudProjectsModel.currentProject || cloudProjectsModel.currentProject.status !== QFieldCloudProject.Idle)
                     return;
-                  if (!connectionSettings.visible) {
-                    connectionSettings.visible = true;
-                  } else {
-                    connectionSettings.visible = false;
-                  }
+                  connectionSettings.visible = !connectionSettings.visible;
+                  storageMeterBar.visible = Qt.binding(() => (storageMeterBar.value > 0 || storageMeterBar.loading) && !connectionSettings.visible);
                 }
               }
             }
           }
+        }
+
+        QFieldCloudStatusBanner {
+          cloudServiceStatus: popup.cloudServiceStatus
+          Layout.margins: 10
         }
 
         Text {
@@ -650,8 +644,7 @@ Popup {
             Layout.margins: 0
             height: parent.height
             ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-            ScrollBar.vertical: QfScrollBar {
-            }
+            ScrollBar.vertical: QfScrollBar {}
             contentWidth: qfieldCloudLogin.width
             contentHeight: qfieldCloudLogin.childrenRect.height
             clip: true
@@ -660,6 +653,7 @@ Popup {
               id: qfieldCloudLogin
               isVisible: connectionSettings.visible
               width: parent.parent.width
+              cloudServiceStatus: popup.cloudServiceStatus
             }
           }
 
@@ -687,7 +681,7 @@ Popup {
       clip: true
       opacity: isVisible ? 1 : 0
 
-      Behavior on opacity  {
+      Behavior on opacity {
         PropertyAnimation {
           easing.type: Easing.OutQuart
         }
@@ -723,12 +717,17 @@ Popup {
 
     function onStatusChanged() {
       if (cloudConnection.status == QFieldCloudConnection.LoggedIn) {
+        fetchSubscriptionInformation();
         if (popup.pendingAction === "cloudify") {
           popup.pendingAction = "";
           cloudify(pendingCreationTitle, pendingUploadPath);
         } else if (popup.pendingAction == "connect") {
           popup.visible = false;
         }
+      } else if (cloudConnection.status === QFieldCloudConnection.Disconnected) {
+        lastSubscriptionUser = "";
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
       }
     }
 
@@ -743,6 +742,13 @@ Popup {
 
     function onPendingAttachmentsUploadFinished() {
       uploadLabel.text = "";
+    }
+
+    function onSubscriptionInformationReceived(subscriptionInformation) {
+      storageMeterBar.loading = false;
+      if (subscriptionInformation.storageTotal > 0) {
+        showStorageBar(subscriptionInformation.storageUsed, subscriptionInformation.storageTotal, subscriptionInformation.plan);
+      }
     }
   }
 
@@ -863,6 +869,9 @@ Popup {
       }
       cloudConnection.getAuthenticationProviders();
     }
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      fetchSubscriptionInformation();
+    }
     if (cloudConnection.status === QFieldCloudConnection.Connecting) {
       displayToast(qsTr('Connecting cloud'));
     } else if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.isProjectOutdated) {
@@ -909,5 +918,30 @@ Popup {
     } else {
       popup.pendingAction = "cloudify";
     }
+  }
+
+  function fetchSubscriptionInformation() {
+    if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+      const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+      const isOwnSubscription = !cloudProjectsModel.currentProject || owner === cloudConnection.username;
+      if (owner !== lastSubscriptionUser) {
+        storageMeterBar.visible = false;
+        storageMeterBar.value = 0;
+      }
+      if (isOwnSubscription) {
+        storageMeterBar.loading = true;
+        storageMeterBar.visible = true;
+      }
+      cloudConnection.getSubscriptionInformation(owner);
+    }
+  }
+
+  function showStorageBar(usedBytes, totalBytes, plan) {
+    const owner = cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : cloudConnection.username;
+    lastSubscriptionUser = owner;
+    storageMeterBar.value = usedBytes / totalBytes;
+    storageMeterBar.usageText = qsTr("Used %1 of %2").arg(FileUtils.representFileSize(usedBytes, true)).arg(FileUtils.representFileSize(totalBytes, true));
+    storageMeterBar.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, plan, cloudProjectsModel.currentProject ? cloudProjectsModel.currentProject.owner : "", cloudConnection.username);
+    storageMeterBar.visible = true;
   }
 }

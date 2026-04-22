@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Dialogs
 import QtQuick.Layouts
 import QtQuick.Controls.Material
+import org.qfield
 
 /**
  * \ingroup qml
@@ -101,10 +102,8 @@ QfDialog {
     contentHeight: verticalContent.height
     contentWidth: Math.max(calendarItem.visible ? calendarItem.width : 0, timePicker.visible ? timePicker.width : 0)
     boundsBehavior: Flickable.StopAtBounds
-    ScrollBar.horizontal: QfScrollBar {
-    }
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.horizontal: QfScrollBar {}
+    ScrollBar.vertical: QfScrollBar {}
     anchors.horizontalCenter: parent.horizontalCenter
     clip: true
 
@@ -137,10 +136,8 @@ QfDialog {
     contentHeight: horizontalContent.height
     contentWidth: horizontalContent.width
     boundsBehavior: Flickable.StopAtBounds
-    ScrollBar.horizontal: QfScrollBar {
-    }
-    ScrollBar.vertical: QfScrollBar {
-    }
+    ScrollBar.horizontal: QfScrollBar {}
+    ScrollBar.vertical: QfScrollBar {}
     clip: true
 
     RowLayout {

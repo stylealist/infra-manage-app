@@ -12,12 +12,42 @@ ColumnLayout {
   signal pushChanges
 
   property var cloudProject: undefined
+  property string lastSubscriptionUser: ""
 
   onCloudProjectChanged: {
     if (cloudProject != undefined) {
       cloudProject.downloadThumbnail();
+      if (cloudProject.owner !== lastSubscriptionUser) {
+        detailsStorageMeter.visible = false;
+        detailsStorageMeter.value = 0;
+      }
+      if (cloudConnection.status === QFieldCloudConnection.LoggedIn) {
+        if (cloudProject.owner === cloudConnection.username) {
+          detailsStorageMeter.loading = true;
+          detailsStorageMeter.visible = true;
+        }
+        cloudConnection.getSubscriptionInformation(cloudProject.owner);
+      }
     } else {
+      detailsStorageMeter.visible = false;
+      detailsStorageMeter.value = 0;
+      lastSubscriptionUser = "";
       projectsSwipeView.currentIndex = 0;
+    }
+  }
+
+  Connections {
+    target: cloudConnection
+
+    function onSubscriptionInformationReceived(subscriptionInformation) {
+      detailsStorageMeter.loading = false;
+      if (projectDetails.cloudProject !== undefined && subscriptionInformation.storageTotal > 0) {
+        lastSubscriptionUser = projectDetails.cloudProject.owner;
+        detailsStorageMeter.value = subscriptionInformation.storageUsed / subscriptionInformation.storageTotal;
+        detailsStorageMeter.usageText = qsTr("Using %1 of %2").arg(FileUtils.representFileSize(subscriptionInformation.storageUsed, true)).arg(FileUtils.representFileSize(subscriptionInformation.storageTotal, true));
+        detailsStorageMeter.relatedUrl = QFieldCloudUtils.subscriptionManagementUrl(cloudConnection.url, subscriptionInformation.plan, projectDetails.cloudProject.owner, cloudConnection.username);
+        detailsStorageMeter.visible = true;
+      }
     }
   }
 
@@ -79,8 +109,7 @@ ColumnLayout {
       contentWidth: width
       contentHeight: projectDetailsBodyLayout.height
       ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
-      ScrollBar.vertical: QfScrollBar {
-      }
+      ScrollBar.vertical: QfScrollBar {}
 
       ColumnLayout {
         id: projectDetailsBodyLayout
@@ -124,6 +153,13 @@ ColumnLayout {
 
             text: cloudProject != undefined ? cloudProject.owner : ""
           }
+        }
+
+        QfMeterBar {
+          id: detailsStorageMeter
+          Layout.fillWidth: true
+          visible: false
+          showTitleLabel: false
         }
 
         ColumnLayout {
@@ -190,8 +226,8 @@ ColumnLayout {
             sourceSize.width: desiredWidth * Screen.devicePixelRatio
             sourceSize.height: desiredWidth * Screen.devicePixelRatio
             source: cloudProject != undefined ? "image://barcode/?text=" + encodeURIComponent(UrlUtils.createActionUrl("qfield", "cloud", {
-                  "project": cloudProject.id
-                })) + "&color=%2380cc28" : ""
+              "project": cloudProject.id
+            })) + "&color=" + encodeURIComponent(Theme.mainColor) : ""
             property int desiredWidth: Math.min(mainWindow.width - 40, 250)
           }
 

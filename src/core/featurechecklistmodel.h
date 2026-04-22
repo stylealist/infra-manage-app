@@ -300,30 +300,11 @@ class FeatureCheckListModel : public QSortFilterProxyModel
      */
     void setSortCheckedFirst( bool enabled );
 
+    Q_INVOKABLE int rowCount( const QModelIndex &parent = QModelIndex() ) const override;
+
   protected:
-    /**
-     * Determines whether a row should be accepted based on the current filter settings.
-     * Checks if the data in the row matches the current search term.
-     */
     bool filterAcceptsRow( int sourceRow, const QModelIndex &sourceParent ) const override;
-
-    /**
-     * Compares two items for sorting in the feature check list.
-     *
-     * Sorting priority:
-     * 1. Null placeholder (if addNull() is enabled).
-     * 2. Grouping by groupField() (empty groups first, then alphabetically).
-     * 3. Checked-first (if mSortCheckedFirst is enabled and no search term).
-     * 4. Search relevance (startsWith + fuzzy score if search term is active).
-     * 5. Value-based alphabetical ordering (if orderByValue() is enabled).
-     * 6. Key-based fallback (empty keys first, then alphabetically by key).
-     *
-     * @param left  The model index of the left item.
-     * @param right The model index of the right item.
-     * @return      True if the left item should appear before the right item.
-     */
     bool lessThan( const QModelIndex &left, const QModelIndex &right ) const override;
-
 
   signals:
     // FeatureListModel signals
@@ -335,6 +316,7 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void orderByValueChanged();
     void addNullChanged();
     void filterExpressionChanged();
+    void searchTermChanged();
     void currentFormFeatureChanged();
     void appExpressionContextScopesGeneratorChanged();
 
@@ -345,17 +327,10 @@ class FeatureCheckListModel : public QSortFilterProxyModel
     void listUpdated();
 
     // Proxy-specific signals
-    void searchTermChanged();
     void sortCheckedFirstChanged();
 
   private:
-    /**
-     * Calculates a fuzzy matching score between a display string and a search term.
-     */
-    double calcFuzzyScore( const QString &displayString, const QString &searchTerm ) const;
-
     FeatureCheckListModelBase *mSourceModel = nullptr;
-    QString mSearchTerm;
-    bool mSortCheckedFirst;
+    bool mSortCheckedFirst = false;
 };
 #endif // FEATURECHECKLISTMODEL_H

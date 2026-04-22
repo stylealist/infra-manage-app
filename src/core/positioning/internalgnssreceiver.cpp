@@ -20,8 +20,8 @@
 
 InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
   : AbstractGnssReceiver( parent )
-  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( nullptr ) ) )
-  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( nullptr ) ) )
+  , mGeoPositionSource( std::unique_ptr<QGeoPositionInfoSource>( QGeoPositionInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
+  , mGeoSatelliteSource( std::unique_ptr<QGeoSatelliteInfoSource>( QGeoSatelliteInfoSource::createDefaultSource( { { "desktopId", "ch.opengis.qfield" } }, nullptr ) ) )
 {
   if ( mGeoPositionSource )
   {
@@ -44,6 +44,11 @@ InternalGnssReceiver::InternalGnssReceiver( QObject *parent )
     connect( mGeoSatelliteSource.get(), &QGeoSatelliteInfoSource::satellitesInViewUpdated, this, &InternalGnssReceiver::handleSatellitesInViewUpdated );
     connect( mGeoSatelliteSource.get(), qOverload<QGeoSatelliteInfoSource::Error>( &QGeoSatelliteInfoSource::errorOccurred ), this, &InternalGnssReceiver::handleSatelliteError );
   }
+}
+
+InternalGnssReceiver::~InternalGnssReceiver()
+{
+  disconnectDevice();
 }
 
 void InternalGnssReceiver::handleDisconnectDevice()

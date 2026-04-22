@@ -60,6 +60,94 @@ QFieldCloudConnection::QFieldCloudConnection()
     mTokenConfigId.clear();
     QSettings().remove( "/QFieldCloud/tokenConfigId" );
   }
+
+  QNetworkInformation::loadBackendByFeatures( QNetworkInformation::Feature::Reachability );
+  mNetworkInformation = QNetworkInformation::instance();
+
+  if ( mNetworkInformation )
+  {
+    connect( mNetworkInformation, &QNetworkInformation::reachabilityChanged, this,
+             [this]( QNetworkInformation::Reachability ) {
+               emit isReachableChanged();
+               tryFlushQueuedProjectPushes();
+             } );
+  }
+
+  restoreCookies();
+}
+
+QFieldCloudConnection::~QFieldCloudConnection()
+{
+  saveCookies();
+}
+
+void QFieldCloudConnection::queueProjectPush( const QString &projectId )
+{
+  if ( projectId.isEmpty() )
+  {
+    return;
+  }
+
+  mQueuedProjectPushes.insert( projectId );
+  tryFlushQueuedProjectPushes();
+}
+
+void QFieldCloudConnection::tryFlushQueuedProjectPushes()
+{
+  if ( mIsFlushingQueuedProjectPushes )
+  {
+    return;
+  }
+
+  if ( mQueuedProjectPushes.isEmpty() )
+  {
+    return;
+  }
+
+  if ( status() != ConnectionStatus::LoggedIn )
+  {
+    return;
+  }
+
+  if ( !isReachable() )
+  {
+    return;
+  }
+
+  mIsFlushingQueuedProjectPushes = true;
+
+  const QSet<QString> queued = mQueuedProjectPushes;
+  mQueuedProjectPushes.clear();
+
+  for ( const QString &id : queued )
+  {
+    emit queuedProjectPushRequested( id );
+  }
+
+  mIsFlushingQueuedProjectPushes = false;
+}
+
+bool QFieldCloudConnection::isReachable() const
+{
+  if ( !mNetworkInformation || !mNetworkInformation->supports( QNetworkInformation::Feature::Reachability ) )
+  {
+    // No backend or no reachability support, dont change behaviour
+    return true;
+  }
+
+  switch ( mNetworkInformation->reachability() )
+  {
+    case QNetworkInformation::Reachability::Online:
+    case QNetworkInformation::Reachability::Unknown:
+      return true;
+
+    case QNetworkInformation::Reachability::Disconnected:
+    case QNetworkInformation::Reachability::Local:
+    case QNetworkInformation::Reachability::Site:
+      return false;
+  }
+
+  return true;
 }
 
 QMap<QString, QString> QFieldCloudConnection::sErrors = QMap<QString, QString>(
@@ -91,7 +179,9 @@ QString QFieldCloudConnection::url() const
 void QFieldCloudConnection::setUrl( const QString &url )
 {
   if ( url == mUrl )
+  {
     return;
+  }
 
   mUrl = url;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
@@ -137,7 +227,9 @@ QString QFieldCloudConnection::provider() const
 void QFieldCloudConnection::setProvider( const QString &provider )
 {
   if ( mProvider == provider )
+  {
     return;
+  }
 
   mProvider = provider;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/provider" ), provider );
@@ -153,8 +245,11 @@ QString QFieldCloudConnection::username() const
 void QFieldCloudConnection::setUsername( const QString &username )
 {
   if ( mUsername == username )
+  {
     return;
+  }
 
+  mQueuedProjectPushes.clear();
   mUsername = username;
 
   if ( mStatus != ConnectionStatus::Disconnected )
@@ -174,7 +269,9 @@ QString QFieldCloudConnection::password() const
 void QFieldCloudConnection::setPassword( const QString &password )
 {
   if ( password == mPassword )
+  {
     return;
+  }
 
   mPassword = password;
   emit passwordChanged();
@@ -267,6 +364,7 @@ void QFieldCloudConnection::login( const QString &password )
   setStatus( ConnectionStatus::Connecting );
 
   const bool loginUsingToken = !mProvider.isEmpty() || ( !mToken.isEmpty() && ( mPassword.isEmpty() || mUsername.isEmpty() ) );
+
   NetworkReply *reply = loginUsingToken
                           ? get( QStringLiteral( "/api/v1/auth/user/" ) )
                           : post( QStringLiteral( "/api/v1/auth/token/" ), QVariantMap(
@@ -347,7 +445,6 @@ void QFieldCloudConnection::login( const QString &password )
     }
 
     QByteArray token = resp.value( QStringLiteral( "token" ) ).toString().toUtf8();
-
     if ( !token.isEmpty() )
     {
       setToken( token );
@@ -370,6 +467,9 @@ void QFieldCloudConnection::login( const QString &password )
       settings.setValue( QStringLiteral( "/QFieldCloud/urls" ), savedUrls );
       emit urlsChanged();
     }
+
+    saveCookies();
+
     setStatus( ConnectionStatus::LoggedIn );
   } );
 }
@@ -406,8 +506,36 @@ void QFieldCloudConnection::logout()
   {
     QgsNetworkAccessManager::instance()->cookieJar()->deleteCookie( cookie );
   }
+  saveCookies();
 
   setStatus( ConnectionStatus::Disconnected );
+}
+
+void QFieldCloudConnection::getSubscriptionInformation( const QString &user )
+{
+  if ( mStatus != ConnectionStatus::LoggedIn )
+  {
+    return;
+  }
+
+  NetworkReply *reply = get( QStringLiteral( "/api/v1/subscriptions/%1/current/" ).arg( user ) );
+
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+    reply->deleteLater();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      QgsMessageLog::logMessage( QStringLiteral( "Failed to fetch subscription information: %1" ).arg( rawReply->errorString() ), QStringLiteral( "QFieldCloud" ) );
+      return;
+    }
+
+    const QJsonDocument doc = QJsonDocument::fromJson( rawReply->readAll() );
+    const QJsonObject obj = doc.object();
+
+    const CloudSubscriptionInformation subscriptionInformation( obj );
+    emit subscriptionInformationReceived( subscriptionInformation );
+  } );
 }
 
 QFieldCloudConnection::ConnectionStatus QFieldCloudConnection::status() const
@@ -513,7 +641,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QStrin
   QUrl url( endpoint );
 
   if ( url.isRelative() )
+  {
     url.setUrl( mUrl + endpoint );
+  }
 
   return get( request, url, params );
 }
@@ -523,7 +653,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
   QUrlQuery urlQuery = QUrlQuery( url.query() );
 
   for ( auto [key, value] : qfield::asKeyValueRange( params ) )
+  {
     urlQuery.addQueryItem( key, value.toString() );
+  }
 
   QUrl requestUrl = url;
   requestUrl.setQuery( urlQuery );
@@ -568,7 +700,9 @@ NetworkReply *QFieldCloudConnection::get( QNetworkRequest &request, const QUrl &
 void QFieldCloudConnection::setToken( const QByteArray &token )
 {
   if ( mToken == token )
+  {
     return;
+  }
 
   mToken = token;
 
@@ -577,7 +711,7 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
     QgsAuthMethodConfig config;
     if ( QgsApplication::authManager()->availableAuthMethodConfigs().contains( mTokenConfigId ) )
     {
-      QgsApplication::authManager()->loadAuthenticationConfig( mProviderConfigId, config, true );
+      QgsApplication::authManager()->loadAuthenticationConfig( mTokenConfigId, config, true );
     }
     else
     {
@@ -603,8 +737,11 @@ void QFieldCloudConnection::setToken( const QByteArray &token )
 
 void QFieldCloudConnection::invalidateToken()
 {
+  mQueuedProjectPushes.clear();
   if ( mToken.isNull() )
+  {
     return;
+  }
 
   mToken = QByteArray();
 
@@ -621,16 +758,27 @@ void QFieldCloudConnection::invalidateToken()
 void QFieldCloudConnection::setStatus( ConnectionStatus status )
 {
   if ( mStatus == status )
+  {
     return;
+  }
 
   mStatus = status;
   emit statusChanged();
+
+  // If we just logged in and we have queued pushes waiting from offline mode,
+  // try to flush them now (reachabilityChanged will also handle later changes).
+  if ( mStatus == ConnectionStatus::LoggedIn )
+  {
+    tryFlushQueuedProjectPushes();
+  }
 }
 
 void QFieldCloudConnection::setState( ConnectionState state )
 {
   if ( mState == state )
+  {
     return;
+  }
 
   mState = state;
   emit stateChanged();
@@ -715,7 +863,9 @@ void QFieldCloudConnection::setClientHeaders( QNetworkRequest &request )
 QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 {
   if ( !reply )
+  {
     return;
+  }
 
   QString errorMessage;
 
@@ -748,15 +898,23 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
           errorMessage += QStringLiteral( "[QF/%1] " ).arg( mQfcCode );
 
           if ( sErrors.contains( mQfcCode ) )
+          {
             errorMessage += sErrors.value( mQfcCode );
+          }
           else
+          {
             errorMessage += doc.value( QStringLiteral( "message" ) ).toString();
+          }
         }
         else
+        {
           errorMessage += QStringLiteral( "<no server details>" );
+        }
 
         if ( errorMessage.isEmpty() )
+        {
           errorMessage += QStringLiteral( "<empty server details>" );
+        }
       }
       break;
   }
@@ -772,7 +930,9 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
   QString payloadPlainText = QTextDocumentFragment::fromHtml( mPayload ).toPlainText().trimmed();
 
   if ( mPayload.size() > 200 )
+  {
     errorMessage += QStringLiteral( "…" );
+  }
 
   if ( errorMessage.isEmpty() )
   {
@@ -793,7 +953,9 @@ QFieldCloudConnection::CloudError::CloudError( QNetworkReply *reply )
 qsizetype QFieldCloudConnection::uploadPendingAttachments()
 {
   if ( mUploadPendingCount > 0 )
+  {
     return mUploadPendingCount;
+  }
 
   QMultiMap<QString, QString> attachments = QFieldCloudUtils::getPendingAttachments( mUsername );
   if ( attachments.isEmpty() )
@@ -905,4 +1067,36 @@ void QFieldCloudConnection::processPendingAttachments()
     break;
   }
   return;
+}
+
+void QFieldCloudConnection::restoreCookies()
+{
+  QSettings settings;
+  settings.beginGroup( "/QFieldCloud/cookies" );
+  const QStringList cookieKeys = settings.childKeys();
+  for ( const QString &cookieKey : cookieKeys )
+  {
+    QList<QNetworkCookie> cookies = QNetworkCookie::parseCookies( settings.value( cookieKey ).toByteArray() );
+    if ( !cookies.isEmpty() )
+    {
+      if ( QDateTime::currentSecsSinceEpoch() < cookies[0].expirationDate().toSecsSinceEpoch() )
+      {
+        QgsNetworkAccessManager::instance()->cookieJar()->insertCookie( cookies[0] );
+      }
+    }
+  }
+}
+
+void QFieldCloudConnection::saveCookies()
+{
+  QSettings settings;
+  settings.remove( QStringLiteral( "/QFieldCloud/cookies" ) );
+  const QList<QNetworkCookie> cookies = QgsNetworkAccessManager::instance()->cookieJar()->cookiesForUrl( mUrl );
+  for ( int idx = 0; idx < cookies.count(); idx++ )
+  {
+    if ( !cookies[idx].isSessionCookie() && QDateTime::currentSecsSinceEpoch() < cookies[idx].expirationDate().toSecsSinceEpoch() )
+    {
+      settings.setValue( QStringLiteral( "/QFieldCloud/cookies/%1" ), cookies[idx].toRawForm() );
+    }
+  }
 }

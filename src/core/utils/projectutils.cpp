@@ -19,9 +19,13 @@
 #include "positioningutils.h"
 #include "projectutils.h"
 
+#include <qgsattributeeditorcontainer.h>
+#include <qgsattributeeditorfield.h>
+#include <qgsattributeeditorrelation.h>
 #include <qgsmaplayer.h>
 #include <qgsprojectdisplaysettings.h>
 #include <qgsrasterlayer.h>
+#include <qgsrelationcontext.h>
 #include <qgsvectorfilewriter.h>
 #include <qgsvectorlayer.h>
 #include <qgsvectortilelayer.h>
@@ -115,6 +119,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   // Notes layer
   QgsVectorLayer *notesLayer = nullptr;
+  QgsVectorLayer *attachmentsLayer = nullptr;
   if ( options.value( QStringLiteral( "notes" ) ).toBool() )
   {
     createdProject->writeEntry( QStringLiteral( "qfieldsync" ), QStringLiteral( "initialMapMode" ), QStringLiteral( "digitize" ) );
@@ -122,10 +127,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
 
     QgsFields fields;
-    if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
-    {
-      fields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
-    }
+    fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
@@ -137,7 +139,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
-    LayerUtils::setDefaultRenderer( notesLayer, nullptr, options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "media" ) : QString(), QStringLiteral( "color" ) );
+    LayerUtils::setDefaultRenderer( notesLayer, nullptr,
+                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
+                                    QStringLiteral( "color" ) );
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // Set a nice display expression for the feature list
@@ -153,6 +157,16 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     {
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
+
+    // Configure uuid field (referenced key for relations)
+    fieldIndex = fields.indexOf( QStringLiteral( "uuid" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "uuid()" ), false ) );
     }
 
     // Configure time field
@@ -203,23 +217,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
     }
 
-    if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
-    {
-      // Configure camera field
-      fieldIndex = fields.indexOf( QStringLiteral( "media" ) );
-      if ( fieldIndex >= 0 )
-      {
-        widgetOptions.clear();
-        widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
-        widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
-        widgetOptions[QStringLiteral( "FileWidget" )] = true;
-        widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-        widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
-        notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-        notesLayer->setFieldAlias( fieldIndex, tr( "Media" ) );
-      }
-    }
-
     // Insure the layer is ready cloud-friendly
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
@@ -227,6 +224,117 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayer->setDisplayExpression( QStringLiteral( "\"title\"" ) );
 
     createdProjectLayers << notesLayer;
+
+    // Attachments child layer (when camera capture is enabled)
+    if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
+    {
+      // Second layer in the same notes.gpkg
+      QgsFields attachFields;
+      attachFields.append( QgsField( QStringLiteral( "note_uuid" ), QMetaType::QString ) );
+      attachFields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );
+      attachFields.append( QgsField( QStringLiteral( "description" ), QMetaType::QString ) );
+      attachFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
+
+      QgsVectorFileWriter::SaveVectorOptions attachWriterOptions;
+      attachWriterOptions.layerName = QStringLiteral( "notes_attachments" );
+      attachWriterOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
+      QgsVectorFileWriter *attachWriter = QgsVectorFileWriter::create(
+        notesFilepath, attachFields, Qgis::WkbType::NoGeometry,
+        QgsCoordinateReferenceSystem(),
+        createdProject->transformContext(), attachWriterOptions );
+      delete attachWriter;
+
+      const QString attachUri = QStringLiteral( "%1|layername=notes_attachments" ).arg( notesFilepath );
+      attachmentsLayer = new QgsVectorLayer( attachUri, tr( "Note attachments" ) );
+      QgsFields liveAttachFields = attachmentsLayer->fields();
+
+      int attachFieldIndex;
+      QVariantMap attachWidgetOptions;
+      QgsEditorWidgetSetup attachWidgetSetup;
+
+      // Hide fid
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "fid" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+      }
+
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "note_uuid" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+      }
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "media" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetOptions.clear();
+        attachWidgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
+        attachWidgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
+        attachWidgetOptions[QStringLiteral( "FileWidget" )] = true;
+        attachWidgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), attachWidgetOptions );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+        attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Media" ) );
+      }
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "description" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetOptions.clear();
+        attachWidgetOptions[QStringLiteral( "IsMultiline" )] = true;
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), attachWidgetOptions );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+        attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Description" ) );
+      }
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "timestamp" ) );
+      if ( attachFieldIndex >= 0 )
+      {
+        attachWidgetOptions.clear();
+        attachWidgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+        attachWidgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+        attachWidgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
+        attachWidgetOptions[QStringLiteral( "allow_null" )] = true;
+        attachWidgetOptions[QStringLiteral( "calendar_popup" )] = true;
+        attachWidgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), attachWidgetOptions );
+        attachmentsLayer->setEditorWidgetSetup( attachFieldIndex, attachWidgetSetup );
+        attachmentsLayer->setDefaultValueDefinition( attachFieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+        attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Time" ) );
+      }
+
+      attachmentsLayer->setDisplayExpression( QStringLiteral( "COALESCE(\"media\", 'Attachment #' || fid)" ) );
+      QgsEditFormConfig attachFormConfig = attachmentsLayer->editFormConfig();
+      attachFormConfig.setSuppress( Qgis::AttributeFormSuppression::On );
+      attachmentsLayer->setEditFormConfig( attachFormConfig );
+      attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
+      attachmentsLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
+
+      attachmentsLayer->setFlags( attachmentsLayer->flags() | QgsMapLayer::Private );
+
+      createdProjectLayers << attachmentsLayer;
+
+      QgsEditFormConfig notesFormConfig = notesLayer->editFormConfig();
+      notesFormConfig.clearTabs();
+      notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+      QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
+      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), root );
+      root->addChildElement( relationElement );
+      const QStringList orderedFields = {
+        QStringLiteral( "color" ),
+        QStringLiteral( "title" ),
+        QStringLiteral( "note" ),
+        QStringLiteral( "timestamp" ) };
+      for ( const QString &fieldName : orderedFields )
+      {
+        const int idx = notesLayer->fields().indexOf( fieldName );
+        if ( idx >= 0 )
+        {
+          root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
+        }
+      }
+
+      notesLayer->setEditFormConfig( notesFormConfig );
+    }
   }
 
   // Tracks layer
@@ -328,45 +436,12 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   // Basemap
   QgsMapLayer *basemapLayer = nullptr;
+  QgsRectangle basemapExtent;
   const QString basemap = options.value( QStringLiteral( "basemap" ), QStringLiteral( "color" ) ).toString();
-  if ( basemap.compare( QStringLiteral( "custom" ) ) == 0 )
-  {
-    QString basemapUrl = options.value( QStringLiteral( "basemap_url" ) ).toString();
-    if ( !basemapUrl.isEmpty() )
-    {
-      if ( basemapUrl.endsWith( QStringLiteral( ".json" ), Qt::CaseInsensitive ) )
-      {
-        // Vector tile layer style URL
-        QgsDataSourceUri uri;
-        uri.setParam( QStringLiteral( "type" ), QStringLiteral( "xyz" ) );
-        uri.setParam( QStringLiteral( "styleUrl" ), basemapUrl );
-        uri.setParam( QStringLiteral( "zmin" ), QString::number( 0 ) );
-        uri.setParam( QStringLiteral( "zmax" ), QString::number( 14 ) );
-        basemapUrl = uri.encodedUri();
-
-        QgsVectorTileUtils::updateUriSources( basemapUrl );
-        QgsVectorTileLayer *layer = new QgsVectorTileLayer( basemapUrl, tr( "Basemap" ) );
-        QString error;
-        QStringList warnings;
-        QList<QgsMapLayer *> subLayers;
-        layer->loadDefaultStyleAndSubLayers( error, warnings, subLayers );
-        basemapLayer = layer;
-      }
-      else if ( basemapUrl.contains( QStringLiteral( "{z}" ), Qt::CaseInsensitive ) || basemapUrl.contains( QStringLiteral( "{q}" ), Qt::CaseInsensitive ) )
-      {
-        // XYZ raster layer URL
-        QgsDataSourceUri uri;
-        uri.setParam( QStringLiteral( "type" ), QStringLiteral( "xyz" ) );
-        uri.setParam( QStringLiteral( "url" ), basemapUrl );
-        uri.setParam( QStringLiteral( "zmin" ), QString::number( 0 ) );
-        uri.setParam( QStringLiteral( "zmax" ), QString::number( 19 ) );
-        basemapUrl = uri.encodedUri();
-
-        basemapLayer = new QgsRasterLayer( basemapUrl, tr( "Basemap" ), QStringLiteral( "wms" ) );
-      }
-    }
-  }
-  else if ( basemap.compare( QStringLiteral( "blank" ) ) != 0 )
+  const QString basemapCustomProvider = options.value( QStringLiteral( "basemap_custom_provider" ) ).toString();
+  const QString basemapCustomExtent = options.value( QStringLiteral( "basemap_custom_extent" ) ).toString();
+  QString basemapCustomSource = options.value( QStringLiteral( "basemap_custom_source" ) ).toString();
+  if ( basemap.compare( QStringLiteral( "colorful" ) ) == 0 || basemap.compare( QStringLiteral( "darkgray" ) ) == 0 || basemap.compare( QStringLiteral( "lightgray" ) ) == 0 )
   {
     basemapLayer = LayerUtils::createBasemap( basemap );
     if ( basemap.compare( QStringLiteral( "darkgray" ) ) == 0 )
@@ -382,11 +457,40 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       createdProject->setBackgroundColor( QColor( 242, 239, 233 ) );
     }
   }
+  else if ( basemap.compare( QStringLiteral( "custom" ) ) == 0 || ( !basemapCustomSource.isEmpty() && !basemapCustomProvider.isEmpty() ) )
+  {
+    if ( basemapCustomProvider.toLower() == QStringLiteral( "vectortile" ) )
+    {
+      QgsVectorTileUtils::updateUriSources( basemapCustomSource );
+      QgsVectorTileLayer *layer = new QgsVectorTileLayer( basemapCustomSource, tr( "Basemap" ) );
+      QString error;
+      QStringList warnings;
+      QList<QgsMapLayer *> subLayers;
+      layer->loadDefaultStyleAndSubLayers( error, warnings, subLayers );
+      basemapLayer = layer;
+    }
+    else
+    {
+      basemapLayer = new QgsRasterLayer( basemapCustomSource, tr( "Basemap" ), basemapCustomProvider );
+    }
 
+    basemapExtent = basemapLayer->extent();
+    if ( !basemapCustomExtent.isEmpty() )
+    {
+      const QgsRectangle customExtent = QgsRectangle::fromWkt( basemapCustomExtent );
+      if ( !customExtent.isEmpty() )
+      {
+        basemapExtent = customExtent;
+      }
+    }
+  }
+
+  QgsRectangle createdProjectExtent;
   if ( basemapLayer && basemapLayer->isValid() )
   {
     createdProjectLayers << basemapLayer;
     createdProject->setCrs( basemapLayer->crs() );
+    createdProjectExtent = basemapExtent;
   }
 
   // Insure attachment directories are populated in preparation for cloud project
@@ -397,7 +501,24 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
   createdProject->addMapLayers( createdProjectLayers );
 
-  connect( createdProject, &QgsProject::writeProject, [createdProject, basemapLayer, positionInformation]( QDomDocument &document ) {
+  // Register the notes
+  if ( notesLayer && attachmentsLayer )
+  {
+    QgsRelationContext relationContext( createdProject );
+    QgsRelation rel( relationContext );
+    rel.setId( QStringLiteral( "notes_attachments_relation" ) );
+    rel.setName( tr( "Attachments" ) );
+    rel.setReferencedLayer( notesLayer->id() );
+    rel.setReferencingLayer( attachmentsLayer->id() );
+    rel.addFieldPair( QStringLiteral( "note_uuid" ), QStringLiteral( "uuid" ) );
+    rel.setStrength( Qgis::RelationshipStrength::Association );
+    if ( rel.isValid() )
+    {
+      createdProject->relationManager()->addRelation( rel );
+    }
+  }
+
+  connect( createdProject, &QgsProject::writeProject, [createdProject, createdProjectExtent, positionInformation]( QDomDocument &document ) {
     QDomNodeList nodes = document.elementsByTagName( "qgis" );
     if ( !nodes.isEmpty() )
     {
@@ -409,7 +530,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
       node.appendChild( canvasElement );
 
-      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs() );
+      QgsRectangle extent = PositioningUtils::createExtentForDevice( positionInformation, createdProject->crs(), createdProjectExtent );
       if ( !extent.isEmpty() )
       {
         QgsMapSettings mapSettings;
@@ -424,6 +545,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   const bool written = createdProject->write( projectFilepath );
   createdProject->clear();
   createdProject->deleteLater();
+
+  // Remove any pre-existing settings
+  QSettings().remove( QStringLiteral( "/qgis/projectInfo/%1" ).arg( projectFilepath ) );
 
   return written ? projectFilepath : QString();
 }
