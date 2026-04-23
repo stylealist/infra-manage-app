@@ -422,10 +422,10 @@ Page {
                         case QFieldCloudProject.NoErrorStatus:
                           break;
                         case QFieldCloudProject.DownloadErrorStatus:
-                          status = qsTr('Downloading error. ') + ErrorString;
+                          status = qsTr('Downloading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
                         case QFieldCloudProject.PushErrorStatus:
-                          status = qsTr('Uploading error. ') + ErrorString;
+                          status = qsTr('Uploading error. ') + QFieldCloudUtils.userFriendlyErrorString(ErrorString);
                           break;
                         }
                         if (!status) {
@@ -451,7 +451,7 @@ Page {
                         return str.trim();
                       }
                     }
-                    visible: text != ""
+                    visible: text !== ""
                     font.pointSize: Theme.tipFont.pointSize - 2
                     color: Theme.secondaryTextColor
                     wrapMode: Text.WordWrap

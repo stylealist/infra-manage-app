@@ -115,6 +115,8 @@ class QFieldCloudUtils : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY( QString errorCodeOverQuota READ errorCodeOverQuota CONSTANT )
+
   public:
     /**
      * Sets the local cloud directory.
@@ -203,13 +205,11 @@ class QFieldCloudUtils : public QObject
     Q_INVOKABLE static QString subscriptionManagementUrl( const QString &serverUrl, const QString &plan, const QString &projectOwner, const QString &username );
 
   private:
-    static inline const QString errorCodeOverQuota { QStringLiteral( "over_quota" ) };
-
     static void writeToAttachmentsFile( const QString &username, const QString &projectId, const QStringList &fileNames, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QFieldCloudConnection *cloudConnection = nullptr );
-
     static void writeFilesFromDirectory( const QString &dirPath, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
-
     static void writeFileDetails( const QString &fileName, const QString &projectId, const QHash<QString, QString> *fileChecksumMap, const bool &checkSumCheck, QTextStream &attachmentsStream );
+
+    static inline const QString errorCodeOverQuota() { return QStringLiteral( "over_quota" ); };
 };
 
 #endif // QFIELDCLOUDUTILS_H
