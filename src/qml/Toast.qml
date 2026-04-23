@@ -132,7 +132,8 @@ Popup {
         id: toastAction
 
         visible: text != ''
-        height: toastMessage.height
+        anchors.verticalCenter: parent.verticalCenter
+        height: Math.min(toastActionLabelMetrics.contentHeight + 10, toastMessage.height)
 
         radius: 4
         bgcolor: "#99000000"
@@ -145,6 +146,14 @@ Popup {
           }
           toast.close();
           toastContent.opacity = 0;
+        }
+
+        Text {
+          id: toastActionLabelMetrics
+          visible: false
+          width: toastAction.width - 10
+          font: toastAction.font
+          text: toastAction.text
         }
       }
     }
