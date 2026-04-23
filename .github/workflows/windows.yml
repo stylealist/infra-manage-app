@@ -157,6 +157,8 @@ jobs:
           fi
 
           ARTIFACT_PATHNAME=$(ls ${{ env.CMAKE_BUILD_DIR }}/QField-*-win64.${INSTALLER_SUFFIX} | head -n 1)
+          mv "$ARTIFACT_PATHNAME" "QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
+          ARTIFACT_PATHNAME="QField-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}"
           ARTIFACT_NAME=$(basename $ARTIFACT_PATHNAME)
           echo "ARTIFACT_PATHNAME=${ARTIFACT_PATHNAME}" >> $GITHUB_ENV
           echo "ARTIFACT_NAME=qfield-${{ env.CI_PACKAGE_FILE_SUFFIX }}-windows-${{ matrix.platform_arch }}.${INSTALLER_SUFFIX}" >> $GITHUB_ENV
@@ -236,14 +238,28 @@ jobs:
         run: |
           bundle exec fastlane run sentry_debug_files_upload path:${{ env.CMAKE_BUILD_DIR }}/output/bin/qfield.pdb
 
+  comment_pr:
+    name: comment (pr)
+    runs-on: ubuntu-24.04
+    needs: build
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Vars
+        id: vars
+        run: |
+          ./scripts/ci/env_gh.sh
+
       - name: Schedule download comment
         uses: ./.github/actions/post_sticky_comment
-        if: github.event_name == 'pull_request'
         with:
           marker: windows
           body: |
             ### 🪟 Windows builds
-            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/${{ env.ARTIFACT_NAME }}.zip).
+            Download a [Windows build of this PR for testing](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-x64.zip) and for [arm64](https://nightly.link/opengisch/QField/actions/runs/${{ github.run_id }}/QField-arm64.zip).
+            
             *(Built from commit ${{ github.event.pull_request.head.sha }})*
           pr: ${{ github.event.number }}
 
