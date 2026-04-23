@@ -5077,12 +5077,12 @@ ApplicationWindow {
     onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
       if (hasError) {
         if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
-          if (true) {//cloudConnection.url == QFieldCloudConnection.defaultUrl) {
-            displayToast(qsTr("Project %1 failed to download as your account's available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
+          if (cloudConnection.url == QFieldCloudConnection.defaultUrl) {
+            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
               Qt.openUrlExternally('https://app.qfield.cloud/plans');
             });
           } else {
-            displayToast(qsTr("Project %1 failed to download as your account's available storage is full.").arg(projectName), 'warning');
+            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'warning');
           }
         } else {
           displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
