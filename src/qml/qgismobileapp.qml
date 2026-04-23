@@ -5076,7 +5076,7 @@ ApplicationWindow {
 
     onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
       if (hasError) {
-        if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`)) {
+        if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
           if (true) {//cloudConnection.url == QFieldCloudConnection.defaultUrl) {
             displayToast(qsTr("Project %1 failed to download as your account's available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
               Qt.openUrlExternally('https://app.qfield.cloud/plans');

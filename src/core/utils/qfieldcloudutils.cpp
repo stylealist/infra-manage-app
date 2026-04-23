@@ -111,14 +111,11 @@ QString QFieldCloudUtils::userFriendlyErrorString( const QString &errorString )
 
 QString QFieldCloudUtils::documentationFromErrorString( const QString &errorString )
 {
-  QString linkToDocumentation;
-
   if ( errorString.contains( errorCodeOverQuota() ) )
   {
-    linkToDocumentation = "https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage";
+    return QStringLiteral( "https://docs.qfield.org/get-started/storage-qfc/#adding-qfieldcloud-storage" );
   }
-
-  return linkToDocumentation;
+  return QString();
 }
 
 void QFieldCloudUtils::setProjectSetting( const QString &projectId, const QString &setting, const QVariant &value )
