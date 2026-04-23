@@ -280,7 +280,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>Nessun dispositivo bluetooth trovato.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
@@ -594,23 +594,23 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>Il progetto è in sola lettura.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <source>Return home</source>
-        <translation type="unfinished"/>
+        <translation>Torna alla home</translation>
     </message>
     <message>
         <source>Expand All</source>
-        <translation type="unfinished"/>
+        <translation>Espandi Tutto</translation>
     </message>
     <message>
         <source>Collapse All</source>
-        <translation type="unfinished"/>
+        <translation>Compatta Tutto</translation>
     </message>
 </context>
 <context>
@@ -6826,7 +6826,7 @@ project</source>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>Legenda</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
