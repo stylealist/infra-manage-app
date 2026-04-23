@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
+
 import org.qfield
 import Theme
 
@@ -52,12 +54,19 @@ Popup {
 
   Rectangle {
     id: toastContent
+
+    property int indicatorWidth: toastIndicator.visible ? toastIndicator.width + 10 : 0
+    property int actionWidth: toastAction.visible ? toastAction.width + 10 : 0
+    property int absoluteMessageWidth: toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
+    property int unrestrainedWidth: 20 + toastFontMetrics.boundingRect(toastMessage.text).width + indicatorWidth + actionWidth + 10
+
     z: 1
-    width: toastRow.width + 20
-    height: toastMessage.contentHeight + 10
+    width: Math.min(unrestrainedWidth, toast.width - 20)
+    height: toastLayout.height + 10
     anchors.centerIn: parent
 
-    color: "#66212121"
+    color: "#CC202020"
+    border.color: "#CC404040"
     radius: 4
     opacity: 0
 
@@ -78,7 +87,7 @@ Popup {
       padding: 2
       anchors.fill: parent
       visible: timeoutFeedback
-      z: toastRow.z - 1
+      z: toastLayout.z - 1
       value: animationTimer.position / toastTimer.interval
 
       background: Item {
@@ -98,43 +107,51 @@ Popup {
       }
     }
 
-    Row {
-      id: toastRow
-      anchors.centerIn: parent
-      spacing: 10
+    GridLayout {
+      id: toastLayout
+      width: parent.width - 20
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.topMargin: 5
+      anchors.leftMargin: 10
+      columnSpacing: 10
+      rowSpacing: 10
+      columns: toastContent.absoluteMessageWidth > mainWindow.width * 1.75 ? 1 : 2
 
-      Rectangle {
-        id: toastIndicator
-        anchors.verticalCenter: parent.verticalCenter
-        width: 10
-        height: 10
-        radius: 5
-        color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
-        visible: toast.type != 'info'
-      }
+      RowLayout {
+        id: toastMessageLayout
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
+        spacing: 10
 
-      Text {
-        id: toastMessage
+        Rectangle {
+          id: toastIndicator
+          Layout.alignment: Qt.AlignVCenter
+          Layout.preferredWidth: 10
+          Layout.preferredHeight: 10
+          radius: 5
+          color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
+          visible: toast.type != 'info'
+        }
 
-        property int absoluteWidth: toastFontMetrics.boundingRect(text).width + 10
+        Text {
+          id: toastMessage
 
-        width: 40 + absoluteWidth + (toastIndicator.visible ? toastIndicator.width + 10 : 0) + (toastAction.visible ? toastAction.width + 10 : 0) > toast.width ? toast.width - (toastIndicator.visible ? toastIndicator.width + 10 : 0) - (toastAction.visible ? toastAction.width + 10 : 0) - 40 : absoluteWidth
-        wrapMode: Text.Wrap
-        topPadding: 3
-        bottomPadding: 3
-        color: Theme.light
+          Layout.fillWidth: true
+          wrapMode: Text.Wrap
+          topPadding: 3
+          bottomPadding: 3
+          color: Theme.light
 
-        font: Theme.defaultFont
-        horizontalAlignment: Text.AlignHCenter
+          font: Theme.defaultFont
+          horizontalAlignment: Text.AlignHCenter
+        }
       }
 
       QfButton {
         id: toastAction
-
+        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
         visible: text != ''
-        anchors.verticalCenter: parent.verticalCenter
-        height: Math.min(toastActionLabelMetrics.contentHeight + 10, toastMessage.height)
-
         radius: 4
         bgcolor: "#99000000"
         color: Theme.mainColor
@@ -146,14 +163,6 @@ Popup {
           }
           toast.close();
           toastContent.opacity = 0;
-        }
-
-        Text {
-          id: toastActionLabelMetrics
-          visible: false
-          width: toastAction.width - 10
-          font: toastAction.font
-          text: toastAction.text
         }
       }
     }
@@ -221,6 +230,7 @@ Popup {
         }
       }
     }
+
     toastMessage.text = text;
     toast.type = type || 'info';
     if (timeout_feedback !== undefined) {
