@@ -5076,8 +5076,18 @@ ApplicationWindow {
 
     onProjectDownloaded: (projectId, projectName, hasError, errorString) => {
       if (hasError) {
-        qfieldCloudStatus.refresh();
-        displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
+        if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
+          if (cloudConnection.url == QFieldCloudConnection.defaultUrl) {
+            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'info', qsTr('Upgrade storage'), function () {
+              Qt.openUrlExternally('https://app.qfield.cloud/plans');
+            });
+          } else {
+            displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(projectName), 'warning');
+          }
+        } else {
+          displayToast(qsTr("Project %1 failed to download").arg(projectName), 'error');
+          qfieldCloudStatus.refresh();
+        }
       } else if (qfieldCloudScreen.visible || qfieldCloudPopup.visible || welcomeScreen.visible) {
         displayToast(qsTr("Project %1 successfully downloaded, it's now available to open").arg(projectName));
       }

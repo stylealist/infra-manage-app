@@ -763,9 +763,19 @@ Popup {
     }
 
     function onProjectDownloaded(projectId, projectName, hasError, errorString) {
-      transferError.hasError = hasError;
-      if (transferError.visible) {
-        transferError.detailsText = errorString;
+      if (hasError) {
+        if (errorString.indexOf(`"code":"${QFieldCloudUtils.errorCodeOverQuota}"`) >= 0) {
+          // Let the storage meter and the toast message inviting users to upgrade subscription
+          transferError.hasError = false;
+          if (transferError.visible) {
+            transferError.detailsText = "";
+          }
+        } else {
+          transferError.hasError = hasError;
+          if (transferError.visible) {
+            transferError.detailsText = errorString;
+          }
+        }
       }
       const cloudProject = cloudProjectsModel.findProject(projectId);
       if (cloudProject.packagedLayerErrors.length !== 0) {
@@ -883,6 +893,17 @@ Popup {
   }
 
   function projectPush(shouldDownloadUpdates) {
+    if (shouldDownloadUpdates && storageMeterBar.value >= 1.0) {
+      if (storageMeterBar.relatedUrl != "") {
+        displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(ProjectUtils.title(qgisProject)), 'info', qsTr('Upgrade storage'), function () {
+          Qt.openUrlExternally(storageMeterBar.relatedUrl);
+        });
+      } else {
+        displayToast(qsTr("Project %1 cannot be packaged as your account's available storage is full.").arg(ProjectUtils.title(qgisProject)), 'warning');
+      }
+      return;
+    }
+
     if (cloudProjectsModel.currentProject && cloudProjectsModel.currentProject.status === QFieldCloudProject.Idle) {
       cloudProjectsModel.projectPush(cloudProjectsModel.currentProjectId, shouldDownloadUpdates);
     }
