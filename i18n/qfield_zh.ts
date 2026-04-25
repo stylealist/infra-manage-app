@@ -3115,6 +3115,14 @@ While you can still view and use the project, it is strongly recommended to rese
         <source>Used %1 of %2</source>
         <translation>已使用%2的%1</translation>
     </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -6960,6 +6968,14 @@ to show actions</source>
     <message>
         <source>Long press on your location marker to show actions</source>
         <translation>长按您的位置标记显示动作选项</translation>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

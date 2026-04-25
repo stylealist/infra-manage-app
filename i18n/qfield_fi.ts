@@ -3118,6 +3118,14 @@ Vaikka voit edelleen tarkastella ja käyttää projektia, sen alustamista suosit
         <source>Used %1 of %2</source>
         <translation>Käytetty %1 / %2</translation>
     </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -6959,6 +6967,14 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -3120,6 +3120,14 @@ Projekt sice můžete stále prohlížet a používat, ale důrazně doporučuje
         <source>Used %1 of %2</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
@@ -6960,6 +6968,14 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -416,11 +416,11 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrizione</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>Cambia colore</translation>
     </message>
 </context>
 <context>
@@ -506,7 +506,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
 </context>
 <context>
@@ -854,7 +854,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -1220,11 +1220,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>Percorso del file</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>Intervallo (in millisecondi)</translation>
     </message>
 </context>
 <context>
@@ -1641,7 +1641,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>Progetti creati</translation>
     </message>
     <message>
         <source>Home</source>
@@ -2617,7 +2617,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>Descrizione</translation>
     </message>
     <message>
         <source>Attachments</source>
@@ -3117,6 +3117,14 @@ Anche se puoi ancora visualizzare e utilizzare questo progetto, è altamente rac
     </message>
     <message>
         <source>Used %1 of %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3977,7 +3985,7 @@ Messaggio dell&apos;errore: %4</translation>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Servizio di posizionamento in esecuzione</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -5008,7 +5016,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5073,7 +5081,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -5331,7 +5339,7 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>Vuoto</translation>
     </message>
     <message>
         <source>NULL</source>
@@ -6963,6 +6971,14 @@ to show actions</source>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Upgrade storage</source>
         <translation type="unfinished"/>
     </message>
 </context>
