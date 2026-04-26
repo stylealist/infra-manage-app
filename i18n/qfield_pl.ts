@@ -3123,11 +3123,11 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może zostać spakowany, ponieważ pamięć dostępna na Twoim koncie jest pełna.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Zwiększ pamięć w chmurze</translation>
     </message>
 </context>
 <context>
@@ -6977,11 +6977,11 @@ aby wyświetlić działania</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Projekt %1 nie może zostać spakowany, ponieważ pamięć dostępna na Twoim koncie jest pełna.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Zwiększ pamięć w chmurze</translation>
     </message>
 </context>
 <context>

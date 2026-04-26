@@ -3117,11 +3117,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>无法打包工程%1，因为您的帐户的可用存储已满。</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>升级存储</translation>
     </message>
 </context>
 <context>
@@ -6971,11 +6971,11 @@ to show actions</source>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>无法打包工程%1，因为您的帐户的可用存储已满。</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>升级存储</translation>
     </message>
 </context>
 <context>
