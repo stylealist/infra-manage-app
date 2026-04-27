@@ -948,15 +948,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Page précédente</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Sauvegarder</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Page suivante</translation>
     </message>
 </context>
 <context>
@@ -2612,7 +2612,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Pièces jointes aux notes</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2620,7 +2620,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Pièces jointes</translation>
     </message>
 </context>
 <context>
@@ -3228,7 +3228,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erreur. fichier système. Échec de l&apos;ouverture du fichier partiel `%1`.</translation>
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
@@ -5147,7 +5147,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Ouvrir le formulaire</translation>
     </message>
 </context>
 <context>
