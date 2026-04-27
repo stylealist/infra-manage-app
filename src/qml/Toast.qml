@@ -55,14 +55,16 @@ Popup {
   Rectangle {
     id: toastContent
 
-    property int indicatorWidth: toastIndicator.visible ? toastIndicator.width + 10 : 0
+    property int contentPadding: 20
+    property int topPadding: toastLayout.columns === 1 ? 8 : 10
+    property int bottomPadding: toastLayout.columns === 1 ? 12 : 10
     property int actionWidth: toastAction.visible ? toastAction.width + 10 : 0
     property int absoluteMessageWidth: toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
-    property int unrestrainedWidth: 20 + toastFontMetrics.boundingRect(toastMessage.text).width + indicatorWidth + actionWidth + 10
+    property int unrestrainedWidth: contentPadding * 2 + toastFontMetrics.boundingRect(toastMessage.text).width + actionWidth + 10
 
     z: 1
     width: Math.min(unrestrainedWidth, toast.width - 20)
-    height: toastLayout.height + 10
+    height: toastLayout.height + topPadding + bottomPadding
     anchors.centerIn: parent
 
     color: "#CC202020"
@@ -107,53 +109,47 @@ Popup {
       }
     }
 
+    Rectangle {
+      id: toastIndicator
+      anchors.left: parent.left
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+      width: 5
+      topLeftRadius: toastContent.radius
+      bottomLeftRadius: toastContent.radius
+      topRightRadius: 0
+      bottomRightRadius: 0
+      color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
+      visible: toast.type != 'info'
+    }
+
     GridLayout {
       id: toastLayout
-      width: parent.width - 20
+      width: parent.width - toastContent.contentPadding * 2
       anchors.top: parent.top
       anchors.left: parent.left
-      anchors.topMargin: 5
-      anchors.leftMargin: 10
+      anchors.topMargin: toastContent.topPadding
+      anchors.leftMargin: toastContent.contentPadding
       columnSpacing: 10
-      rowSpacing: 10
+      rowSpacing: 12
       columns: toastContent.absoluteMessageWidth > mainWindow.width * 1.75 ? 1 : 2
 
-      RowLayout {
-        id: toastMessageLayout
+      Text {
+        id: toastMessage
         Layout.fillWidth: true
-        Layout.alignment: Qt.AlignVCenter
-        spacing: 10
+        wrapMode: Text.Wrap
+        color: Theme.light
 
-        Rectangle {
-          id: toastIndicator
-          Layout.alignment: Qt.AlignVCenter
-          Layout.preferredWidth: 10
-          Layout.preferredHeight: 10
-          radius: 5
-          color: toast.type === 'error' ? Theme.errorColor : Theme.warningColor
-          visible: toast.type != 'info'
-        }
-
-        Text {
-          id: toastMessage
-
-          Layout.fillWidth: true
-          wrapMode: Text.Wrap
-          topPadding: 3
-          bottomPadding: 3
-          color: Theme.light
-
-          font: Theme.defaultFont
-          horizontalAlignment: Text.AlignHCenter
-        }
+        font: Theme.defaultFont
+        horizontalAlignment: Text.AlignLeft
       }
 
       QfButton {
         id: toastAction
-        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+        Layout.alignment: (toastLayout.columns === 1 ? Qt.AlignLeft : Qt.AlignHCenter) | Qt.AlignVCenter
         visible: text != ''
         radius: 4
-        bgcolor: "#99000000"
+        bgcolor: "#00000000"
         color: Theme.mainColor
         font.pointSize: Theme.tipFont.pointSize
 
