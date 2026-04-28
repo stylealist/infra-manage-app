@@ -861,7 +861,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ID de configuration d&apos;authentification du stockage externe est manquant, assure-toi qu&apos;il est importé dans %1.</translation>
     </message>
 </context>
 <context>
@@ -928,7 +928,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu du formulaire d&apos;entité</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
@@ -2304,7 +2304,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>Fichier journal (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2359,7 +2359,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2576,7 +2576,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>Notes</translation>
     </message>
     <message>
         <source>Time</source>
@@ -2592,7 +2592,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>Note</translation>
     </message>
     <message>
         <source>Tracks</source>
@@ -2604,7 +2604,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>Média</translation>
     </message>
     <message>
         <source>Track color</source>
@@ -3087,7 +3087,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud est en train d&apos;appliquer les derniers changements. Cela peut prendre un certain temps, merci de patienter...</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
@@ -3107,7 +3107,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement de %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3115,15 +3115,15 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Utilisé %1 sur %2</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être créé car le stockage disponible de ton compte est plein.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Améliorer le stockage</translation>
     </message>
 </context>
 <context>
@@ -3216,7 +3216,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erreur fichier système. Échec de l&apos;ouverture de la pièce jointe en écriture sur le fichier temporaire `%1`.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
@@ -3224,7 +3224,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>Erreur fichier système. Échec de l&apos;écriture sur le fichier partiel `%1`.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
@@ -3236,7 +3236,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
+        <translation>Le chemin local pour le téléchargement ne peut pas être utilisé car il contient plusieurs fichiers projet.</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
@@ -3303,7 +3303,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Utilisation de %1 sur %2</translation>
     </message>
 </context>
 <context>
@@ -3615,7 +3615,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Êtes-vous sûr de vouloir supprimer `%1` ?</translation>
     </message>
     <message>
         <source>Synchronize</source>
@@ -3630,7 +3630,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>Téléchargement de %1</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
@@ -3641,23 +3641,23 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     <name>QFieldCloudStatus</name>
     <message>
         <source>QFieldCloud server is not reachable</source>
-        <translation type="unfinished"/>
+        <translation>Le serveur QFieldCloud n&apos;est pas joignable</translation>
     </message>
     <message>
         <source>The server at %1 could not be reached. Please check your internet connection.</source>
-        <translation type="unfinished"/>
+        <translation>Le serveur à %1 n&apos;a pas pu être atteint. Vérifiez votre connexion Internet.</translation>
     </message>
     <message>
         <source>QFieldCloud is under maintenance</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud est en cours de maintenance</translation>
     </message>
     <message>
         <source>QFieldCloud service is degraded</source>
-        <translation type="unfinished"/>
+        <translation>Le service QFieldCloud est dégradé</translation>
     </message>
     <message>
         <source>There is an ongoing incident</source>
-        <translation type="unfinished"/>
+        <translation>Un incident est en cours</translation>
     </message>
 </context>
 <context>
@@ -3862,7 +3862,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Items being uploaded to QFieldCloud</source>
-        <translation type="unfinished"/>
+        <translation>Éléments téléchargés sur QFieldCloud</translation>
     </message>
     <message>
         <source>Remove File(s)</source>
@@ -4481,7 +4481,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>%1 Settings</source>
-        <translation type="unfinished"/>
+        <translation>%1 Paramètres</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4493,7 +4493,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Type</translation>
     </message>
     <message>
         <source>System default</source>
@@ -4501,11 +4501,11 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Host</source>
-        <translation type="unfinished"/>
+        <translation>Hôte</translation>
     </message>
     <message>
         <source>e.g. proxy.example.com</source>
-        <translation type="unfinished"/>
+        <translation>Exemple: proxy.exemple.com</translation>
     </message>
     <message>
         <source>Port</source>
@@ -4513,7 +4513,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. 8888</source>
-        <translation type="unfinished"/>
+        <translation>Exemple: 8888</translation>
     </message>
     <message>
         <source>Username</source>
@@ -4521,7 +4521,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Optionnel</translation>
     </message>
     <message>
         <source>Password</source>
@@ -4533,7 +4533,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>e.g. localhost, 192.168.*</source>
-        <translation type="unfinished"/>
+        <translation>Exemple localhost, 192.168.*</translation>
     </message>
     <message>
         <source>Configure a network proxy to route QField&apos;s traffic through a proxy server. Useful for corporate networks and VPNs.</source>
@@ -4667,7 +4667,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>Le fichier %1 a été ignoré en dehors du répertoire %2.</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
@@ -4715,19 +4715,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Point</source>
-        <translation type="unfinished"/>
+        <translation>Point</translation>
     </message>
     <message>
         <source>Distance</source>
-        <translation type="unfinished"/>
+        <translation>Distance</translation>
     </message>
     <message>
         <source>Angle</source>
-        <translation type="unfinished"/>
+        <translation>Angle</translation>
     </message>
     <message>
         <source>Elevation</source>
-        <translation type="unfinished"/>
+        <translation>Élévation</translation>
     </message>
     <message>
         <source>Circle #1: point</source>
@@ -4739,23 +4739,23 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
     </message>
 </context>
 <context>
@@ -4851,7 +4851,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"/>
+        <translation>Oui</translation>
     </message>
     <message>
         <source>No</source>
@@ -4859,22 +4859,22 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Stockage</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Taper pour mettre à niveau l&apos;espace de stockage</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Toucher pour gérer le stockage</translation>
     </message>
 </context>
 <context>
@@ -4939,7 +4939,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not load resource font: %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de charger la ressource police : %1</translation>
     </message>
 </context>
 <context>
@@ -5755,59 +5755,59 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Upload finished.</source>
-        <translation type="unfinished"/>
+        <translation>Le téléchargement est terminé.</translation>
     </message>
     <message>
         <source>No local paths provided.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun chemin local n&apos;est fourni.</translation>
     </message>
     <message>
         <source>WebDAV is busy.</source>
-        <translation type="unfinished"/>
+        <translation>WebDAV est occupé.</translation>
     </message>
     <message>
         <source>Not a WebDAV imported project.</source>
-        <translation type="unfinished"/>
+        <translation>Ce n&apos;est pas un projet WebDAV importé.</translation>
     </message>
     <message>
         <source>WebDAV config is missing required fields.</source>
-        <translation type="unfinished"/>
+        <translation>Des champs obligatoires dans la configuration de WebDAV sont manquants.</translation>
     </message>
     <message>
         <source>No stored password available.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun mot de passe enregistré n&apos;est disponible.</translation>
     </message>
     <message>
         <source>Selected items belong to different WebDAV projects.</source>
-        <translation type="unfinished"/>
+        <translation>Les éléments sélectionnés appartiennent à différents projets WebDAV.</translation>
     </message>
     <message>
         <source>Nothing to upload.</source>
-        <translation type="unfinished"/>
+        <translation>Rien à télécharger.</translation>
     </message>
     <message>
         <source>No local changes detected.</source>
-        <translation type="unfinished"/>
+        <translation>Aucun changement local n&apos;a été détecté.</translation>
     </message>
     <message>
         <source>Upload cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Le téléchargement a été annulé.</translation>
     </message>
     <message>
         <source>Upload skipped.</source>
-        <translation type="unfinished"/>
+        <translation>Le téléchargement a été ignoré.</translation>
     </message>
     <message>
         <source>Upload is locked by another process.</source>
-        <translation type="unfinished"/>
+        <translation>Le téléchargement est bloqué par un autre processus.</translation>
     </message>
     <message>
         <source>Failed to read WebDAV config file.</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la lecture du fichier de configuration WebDAV.</translation>
     </message>
     <message>
         <source>Invalid WebDAV config JSON.</source>
-        <translation type="unfinished"/>
+        <translation>JSON de configuration WebDAV invalide.</translation>
     </message>
 </context>
 <context>
@@ -5940,7 +5940,7 @@ projet</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with %1 so far?</source>
-        <translation type="unfinished"/>
+        <translation>Salut, comment trouves-tu ton expérience avec %1 jusqu&apos;à présent ?</translation>
     </message>
     <message>
         <source>To improve stability for everyone, %1 collects and sends anonymized metrics.</source>
@@ -5952,18 +5952,18 @@ projet</translation>
     </message>
     <message>
         <source>Welcome to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Bienvenue à %1.</translation>
     </message>
     <message>
         <source>First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>C&apos;est la première fois que vous utilisez cette application ? Essayez les exemples de projets listés ci-dessous.</translation>
     </message>
 </context>
 <context>
     <name>angle</name>
     <message>
         <source>deg</source>
-        <translation type="unfinished"/>
+        <translation>deg</translation>
     </message>
 </context>
 <context>
@@ -6002,7 +6002,7 @@ projet</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>acres</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
@@ -6087,7 +6087,7 @@ projet</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into %1</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ID de configuration d&apos;authentification du stockage externe est manquant, assure-toi qu&apos;il est importé dans %1.</translation>
     </message>
     <message>
         <source>Learn more</source>
@@ -6133,15 +6133,15 @@ projet</translation>
     <name>point</name>
     <message>
         <source>latitude</source>
-        <translation type="unfinished"/>
+        <translation>latitude</translation>
     </message>
     <message>
         <source>longitude</source>
-        <translation type="unfinished"/>
+        <translation>longitude</translation>
     </message>
     <message>
         <source>elevation</source>
-        <translation type="unfinished"/>
+        <translation>élévation</translation>
     </message>
     <message>
         <source>easting [X]</source>
@@ -6153,7 +6153,7 @@ projet</translation>
     </message>
     <message>
         <source>elevation [Z]</source>
-        <translation type="unfinished"/>
+        <translation>élévation [Z]</translation>
     </message>
     <message>
         <source>Point Feature Picker</source>
@@ -6806,7 +6806,7 @@ fermer le projet et quitter l&apos;application</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>Activez l&apos;outil de mesure pour calculer des distances et surfaces sur la carte.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
@@ -6932,7 +6932,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Enable positioning service to get points at your location</source>
-        <translation type="unfinished"/>
+        <translation>Active le service de positionnement pour obtenir des points à votre emplacement.</translation>
     </message>
     <message>
         <source>Positioning service has not yet received a valid location</source>
@@ -6940,7 +6940,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>La carte est verrouillée sur l&apos;emplacement et la direction du mouvement</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
@@ -6948,7 +6948,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
-        <translation type="unfinished"/>
+        <translation>Échec du chargement de la vue 3D</translation>
     </message>
     <message>
         <source>Loading terrain...</source>
@@ -6964,15 +6964,15 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into %3?</source>
-        <translation type="unfinished"/>
+        <translation>Voulez-vous importer &lt;b&gt;%1&lt;/b&gt; de &lt;b&gt;%2&lt;/b&gt; dans %3 ?</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Appuyez longuement sur le marqueur de localisation pour afficher les actions.</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>Le projet %1 ne peut pas être créé car le stockage disponible de ton compte est plein.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
