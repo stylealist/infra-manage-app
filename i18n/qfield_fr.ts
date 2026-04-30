@@ -548,7 +548,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation>Erreur de collage : application des changements échoué sur la couche %1</translation>
+        <translation>Erreur de collage : échec de l&apos;application des changements sur la couche %1</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
@@ -1292,7 +1292,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Terminer la recherche d&apos;adresse </translation>
+        <translation>Recherche d&apos;adresse Finlandaise</translation>
     </message>
 </context>
 <context>
@@ -2501,15 +2501,15 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>Coloré</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>Gris foncé</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>Gris clair</translation>
     </message>
     <message>
         <source>Blank</source>
@@ -2517,7 +2517,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Custom</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
@@ -3099,7 +3099,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>Cloudifier le projet</translation>
     </message>
     <message>
         <source>Cloudify!</source>
@@ -4169,7 +4169,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">Quand l&apos;indicateur de précision est activé, un badge est attaché au bouton de localisation et est coloré en &lt;span %1&gt;rouge&lt;/span&gt; si la précision est au dessus de la valeur mauvaise, &lt;span %2&gt;jaune&lt;/span&gt; si elle s&apos;approche de la valeur excellente, en &lt;span %3&gt;vert&lt;/span&gt; sinon.&lt;br&gt;&lt;br&gt;En complément, des conditions de précision peuvent être activées pour restreindre l&apos;ajout de sommets lorsque la précision de la localisation se trouve au dessus du seuil mauvais.</translation>
+        <translation type="vanished">Quand l&apos;indicateur de précision est activé, un badge est attaché au bouton de localisation et est coloré en &lt;span %1&gt;rouge&lt;/span&gt; si la précision est au-dessus de la valeur mauvaise, &lt;span %2&gt;jaune&lt;/span&gt; si elle s&apos;approche de la valeur excellente, en &lt;span %3&gt;vert&lt;/span&gt; sinon.&lt;br&gt;&lt;br&gt;En complément, des conditions de précision peuvent être activées pour restreindre l&apos;ajout de sommets lorsque la précision de la localisation se trouve au-dessus du seuil mauvais.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
@@ -5970,7 +5970,7 @@ projet</translation>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>degrés carrés</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
@@ -5986,15 +5986,15 @@ projet</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>pieds carrés</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>yards carrés</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>milles carrés</translation>
     </message>
     <message>
         <source>hectares</source>
@@ -6006,7 +6006,7 @@ projet</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>milles nautiques carrés</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
@@ -6018,7 +6018,7 @@ projet</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>pouces carrés</translation>
     </message>
 </context>
 <context>
@@ -6976,7 +6976,7 @@ pour afficher des actions</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Améliorer le stockage</translation>
     </message>
 </context>
 <context>
