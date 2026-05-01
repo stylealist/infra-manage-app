@@ -944,7 +944,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Strogi pogoji niso izpolnjeni</translation>
     </message>
     <message>
         <source>Previous page</source>
@@ -967,7 +967,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Razveljavitev izbrisanih objektov v sloju »%1« ni uspela</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
@@ -1977,7 +1977,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>Strogi pogoji niso izpolnjeni</translation>
     </message>
 </context>
 <context>
@@ -2052,7 +2052,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>Podatkovni niz bo izbrisan, naj nadaljujem z odstranitvijo?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
@@ -2086,11 +2086,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>Prenesene datoteke ni mogoče shraniti</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>Prenesena datoteka ni vtičnik v obliki ZIP</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -2113,7 +2113,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>Izbriši shranjena dovoljenja</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
@@ -2125,7 +2125,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>Ali si prepričan, da želiš odstraniti `%1`?</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
@@ -2133,7 +2133,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>Meni za upravljanje vtičnikov</translation>
     </message>
     <message>
         <source>Local Plugins</source>
@@ -2149,7 +2149,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>Pridobivanje razpoložljivih vtičnikov</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
@@ -2246,11 +2246,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Pusti prazno, da se samodejno izpolni</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Vrsta povezave:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2274,11 +2274,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>Vrsta povezave</translation>
     </message>
     <message>
         <source>Name</source>
@@ -2286,11 +2286,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation>(usti prazno, da se samodejno izpolni)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>Podrobnosti povezave</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
@@ -2449,11 +2449,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>Temu algoritmu niso dodeljeni splošni parametri.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>Opis algoritma</translation>
     </message>
 </context>
 <context>
@@ -2464,7 +2464,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Vsi algoritmi</translation>
     </message>
 </context>
 <context>
@@ -2570,7 +2570,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Čas</translation>
     </message>
     <message>
         <source>Marker color</source>
@@ -2578,7 +2578,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>Naslov</translation>
     </message>
     <message>
         <source>Note</source>
@@ -2610,7 +2610,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Priloge</translation>
     </message>
 </context>
 <context>
@@ -2639,11 +2639,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>Geooznačevanje omogočeno</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>Geooznačevanje onemogočeno</translation>
     </message>
     <message>
         <source>Grid enabled</source>
@@ -2710,7 +2710,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation type="unfinished"/>
+        <translation>Strežnik ni bil najden, preveri URL strežnika</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
@@ -2743,7 +2743,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>Manjka geslo</translation>
     </message>
 </context>
 <context>
@@ -2774,7 +2774,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>URL strežnika
+(Pusti prazno za uporabo privzetega strežnika)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -2830,7 +2831,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>ali</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
@@ -2892,7 +2893,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Prenos %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
@@ -2900,7 +2901,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Nalaganje %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
@@ -3795,7 +3796,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Delete file</source>
-        <translation type="unfinished"/>
+        <translation>Izbriši datoteko</translation>
     </message>
     <message>
         <source>Remove folder</source>
@@ -3843,7 +3844,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Delete file(s)</source>
-        <translation type="unfinished"/>
+        <translation>Izbriši datoteko(e)</translation>
     </message>
     <message>
         <source>‘%1’ is being uploaded to QFieldCloud</source>
@@ -3966,7 +3967,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>Določanje položaja je aktivno</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
@@ -4306,7 +4307,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>Kakovost izrisa prikaza karte:</translation>
     </message>
     <message>
         <source>Best quality</source>
@@ -4338,7 +4339,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>Omogoči dodajanje oglišč s pritiskom na karto</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
@@ -4350,7 +4351,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
@@ -4989,7 +4990,7 @@ Cancel to make a minimal device scan instead.</source>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Vrtenje karte ni podprto. Ponastavitev iz %1 na 0.</translation>
+        <translation type="vanished">Vrtenje prikaza karte ni podprto. Ponastavitev iz %1 na 0.</translation>
     </message>
 </context>
 <context>
@@ -5100,7 +5101,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation>Brisanje referenčnega objekta ni uspelo</translation>
     </message>
     <message>
         <source>Child Menu</source>
@@ -5116,7 +5117,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation>Natisni okbjekt iz Atlasa</translation>
+        <translation>Natisni objekt(e) iz Atlasa</translation>
     </message>
     <message>
         <source>Select template below</source>
@@ -6112,7 +6113,7 @@ project</source>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Brisanje referenčnega objekta ni uspelo</translation>
     </message>
 </context>
 <context>
@@ -6234,7 +6235,7 @@ project</source>
     </message>
     <message>
         <source>Canvas follows location</source>
-        <translation type="vanished">Zaslon sledi lokaciji</translation>
+        <translation type="vanished">Prikaz karte sledi lokaciji</translation>
     </message>
     <message>
         <source>Waiting for location</source>
@@ -6250,7 +6251,7 @@ project</source>
     </message>
     <message>
         <source>Canvas stopped following location</source>
-        <translation type="vanished">Zaslon lokaciji ne sledi več</translation>
+        <translation type="vanished">Prikaz karte je prenehal slediti lokaciji</translation>
     </message>
     <message>
         <source>Failed to create feature!</source>
@@ -6314,7 +6315,7 @@ project</source>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation type="unfinished"/>
+        <translation>Možnosti prikaza karte</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
@@ -6794,7 +6795,7 @@ project</source>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
+        <translation>Izvozi karto v PDF z uporabo nastavitev tiskanja projekta in nastavitev atlasa.</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -6850,23 +6851,23 @@ project</source>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karta je odklenjen</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte je zaklenjen na lokacijo</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte je zaklenjen na lokacijo in smer kompasa</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte sledi lokaciji in smeri kompasa</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte sledi lokaciji</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
@@ -6874,11 +6875,11 @@ project</source>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>Zakleni prikaz karte na lokacijo</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>Zaklep prikaza karte je začasno ustavljen</translation>
     </message>
     <message>
         <source>Tap on your location marker
@@ -6923,11 +6924,11 @@ to show actions</source>
     </message>
     <message>
         <source>Map canvas locked to location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte je zaklenjen na lokacijo in smer gibanja</translation>
     </message>
     <message>
         <source>Map canvas follows location and movement direction</source>
-        <translation type="unfinished"/>
+        <translation>Prikaz karte sledi lokaciji in smeri gibanja</translation>
     </message>
     <message>
         <source>Failed to load 3D view</source>
@@ -6994,7 +6995,7 @@ to show actions</source>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="unfinished"/>
+        <translation type="vanished">Brisanje referenčnega objekta ni uspelo</translation>
     </message>
 </context>
 </TS>

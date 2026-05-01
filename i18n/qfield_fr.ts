@@ -5994,7 +5994,7 @@ projet</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation>milles carrés</translation>
+        <translation>miles carrés</translation>
     </message>
     <message>
         <source>hectares</source>
@@ -6006,7 +6006,7 @@ projet</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation>milles nautiques carrés</translation>
+        <translation>miles nautiques carrés</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
