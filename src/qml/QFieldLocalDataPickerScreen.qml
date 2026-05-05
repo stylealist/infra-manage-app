@@ -660,7 +660,7 @@ Page {
         height: enabled ? 48 : 0
         leftPadding: Theme.menuItemLeftPadding
 
-        text: qsTr("Delete file")
+        text: itemMenu.itemMetaType === LocalFilesModel.Folder ? qsTr("Delete folder") : qsTr("Delete file")
         onTriggered: {
           confirmRemoveDialog.itemsToRemove = [itemMenu.itemPath];
           confirmRemoveDialog.open();
