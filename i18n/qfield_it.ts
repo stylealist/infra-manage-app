@@ -3813,6 +3813,10 @@ Messaggio dell&apos;errore: %4</translation>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
@@ -4764,6 +4768,22 @@ Annullare per eseguire una scansione veloce del dispositivo.</translation>
     </message>
     <message>
         <source>B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -3807,6 +3807,10 @@ Aínda que podes seguir vendo e utilizando este proxecto, recoméndase fortement
         <translation>Descargar directorio do servidor WebDAV</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
@@ -4758,6 +4762,22 @@ Cancela para facer, porén, unha exploración mínima do dispositivo.</translati
     </message>
     <message>
         <source>B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
 </context>

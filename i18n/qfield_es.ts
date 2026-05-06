@@ -949,15 +949,15 @@ Cancele para hacer una búsqueda mínima de dispositivos en su lugar.</translati
     </message>
     <message>
         <source>Previous page</source>
-        <translation type="unfinished"/>
+        <translation>Página anterior</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Next page</source>
-        <translation type="unfinished"/>
+        <translation>Siguiente página</translation>
     </message>
 </context>
 <context>
@@ -2360,7 +2360,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>%1/s</source>
-        <translation type="unfinished"/>
+        <translation>%1/s</translation>
     </message>
 </context>
 <context>
@@ -2613,7 +2613,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Note attachments</source>
-        <translation type="unfinished"/>
+        <translation>Adjuntos de notas</translation>
     </message>
     <message>
         <source>Description</source>
@@ -2621,7 +2621,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>Attachments</source>
-        <translation type="unfinished"/>
+        <translation>Adjuntos</translation>
     </message>
 </context>
 <context>
@@ -3115,15 +3115,15 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Used %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Usado %1 de %2</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto %1 no se puede empaquetar porque el almacenamiento de su cuenta está lleno.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Aumentar almacenamiento</translation>
     </message>
 </context>
 <context>
@@ -3303,7 +3303,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Using %1 of %2</source>
-        <translation type="unfinished"/>
+        <translation>Usando %1 de %2</translation>
     </message>
 </context>
 <context>
@@ -3805,6 +3805,10 @@ While you can still view and use the project, it is strongly recommended to rese
     <message>
         <source>Download folder from WebDAV server</source>
         <translation>Descargar carpeta del servidor WebDAV</translation>
+    </message>
+    <message>
+        <source>Delete folder</source>
+        <translation>Borrar carpeta</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -4743,23 +4747,39 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>KB</source>
-        <translation type="unfinished"/>
+        <translation>KB</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>MB</translation>
     </message>
     <message>
         <source>GB</source>
-        <translation type="unfinished"/>
+        <translation>GB</translation>
     </message>
     <message>
         <source>TB</source>
-        <translation type="unfinished"/>
+        <translation>TB</translation>
     </message>
     <message>
         <source>B</source>
-        <translation type="unfinished"/>
+        <translation>B</translation>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation>No se puede borrar el archivo (no permitido): %1</translation>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation>El archivo no existe: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation>No se pudo borrar el directorio: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
+        <translation>No se pudo borrar el archivo: %1 - %2</translation>
     </message>
 </context>
 <context>
@@ -4870,15 +4890,15 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     <name>QfMeterBar</name>
     <message>
         <source>Storage</source>
-        <translation type="unfinished"/>
+        <translation>Almacenamiento</translation>
     </message>
     <message>
         <source>Tap to upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Toque para aumentar el almacenamiento</translation>
     </message>
     <message>
         <source>Tap to manage storage</source>
-        <translation type="unfinished"/>
+        <translation>Toque para gestionar el almacenamiento</translation>
     </message>
 </context>
 <context>
@@ -5151,7 +5171,7 @@ Cancelar para hacer una búsqueda mínima de dispositivos en su lugar.</translat
     </message>
     <message>
         <source>Open Form</source>
-        <translation type="unfinished"/>
+        <translation>Abrir formulario</translation>
     </message>
 </context>
 <context>
@@ -6970,15 +6990,15 @@ para mostrar las acciones</translation>
     </message>
     <message>
         <source>Long press on your location marker to show actions</source>
-        <translation type="unfinished"/>
+        <translation>Pulsación larga en su marcador de localización para mostrar acciones</translation>
     </message>
     <message>
         <source>Project %1 cannot be packaged as your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>El proyecto %1 no se puede empaquetar porque el almacenamiento de su cuenta está lleno.</translation>
     </message>
     <message>
         <source>Upgrade storage</source>
-        <translation type="unfinished"/>
+        <translation>Aumentar almacenamiento</translation>
     </message>
 </context>
 <context>

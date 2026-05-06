@@ -3801,6 +3801,10 @@ name(string), owner(string), description(string), user_role(string), is_public(b
         <translation>Mappa letöltése WebDAV szerverről</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation type="unfinished"/>
     </message>
@@ -4754,6 +4758,22 @@ Bekapcsolható még a pontossági követelmény mód, amely megakadályozza a gy
     </message>
     <message>
         <source>B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
 </context>

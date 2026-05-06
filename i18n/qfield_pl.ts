@@ -3811,6 +3811,10 @@ Chociaż nadal możesz wyświetlać i używać projektu, zdecydowanie zaleca si�
         <translation>Pobierz katalog z serwera WebDAV</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation>Usuń katalog</translation>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation>Usuń plik</translation>
     </message>
@@ -4763,6 +4767,22 @@ Anuluj, aby wykonać zamiast tego minimalne skanowanie urządzeń.</translation>
     <message>
         <source>B</source>
         <translation>B</translation>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation>Nie można usunąć pliku (niedozwolone): %1</translation>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation>Plik nie istnieje: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation>Nie udało się usunąć katalogu: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
+        <translation>Nie udało się usunąć pliku: %1 - %2</translation>
     </message>
 </context>
 <context>

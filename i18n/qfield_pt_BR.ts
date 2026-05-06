@@ -3803,6 +3803,10 @@ Enquanto pode ver e usar o projeto, recomendamos fortemente a limpá-lo para evi
         <translation>Download pasta do servidor WebDAV</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation>Deletar elemento</translation>
     </message>
@@ -4754,6 +4758,22 @@ Cancele para fazer uma verificação mínima.</translation>
     </message>
     <message>
         <source>B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
         <translation type="unfinished"/>
     </message>
 </context>

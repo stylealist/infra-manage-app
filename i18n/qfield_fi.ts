@@ -3809,6 +3809,10 @@ Tämä voi viedä jonkin aikaa, ole hyvä ja odota...</translation>
         <translation>Lataa kansio webDAV-palvelimelta</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation>Poista tiedosto</translation>
     </message>
@@ -4761,6 +4765,22 @@ Peruuta tehdäksesi suppeampi laiteskannaus.</translation>
     <message>
         <source>B</source>
         <translation>B</translation>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

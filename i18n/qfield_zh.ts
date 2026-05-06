@@ -3805,6 +3805,10 @@ While you can still view and use the project, it is strongly recommended to rese
         <translation>从WebDAV服务器下载文件夹</translation>
     </message>
     <message>
+        <source>Delete folder</source>
+        <translation>删除文件夹</translation>
+    </message>
+    <message>
         <source>Delete file</source>
         <translation>删除文件</translation>
     </message>
@@ -4757,6 +4761,22 @@ Cancel to make a minimal device scan instead.</source>
     <message>
         <source>B</source>
         <translation>B</translation>
+    </message>
+    <message>
+        <source>Cannot delete file (not allowed): %1</source>
+        <translation>无法删除文件 (不允许): %1</translation>
+    </message>
+    <message>
+        <source>File does not exist: %1</source>
+        <translation>文件不存在: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete directory: %1</source>
+        <translation>删除目录失败: %1</translation>
+    </message>
+    <message>
+        <source>Failed to delete file: %1 - %2</source>
+        <translation>无法删除文件: %1 - %2</translation>
     </message>
 </context>
 <context>
