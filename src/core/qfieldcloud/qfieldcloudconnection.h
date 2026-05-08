@@ -85,6 +85,9 @@ class QFieldCloudConnection : public QObject
 
     Q_PROPERTY( QList<AuthenticationProvider> availableProviders READ availableProviders NOTIFY availableProvidersChanged )
     Q_PROPERTY( bool isFetchingAvailableProviders READ isFetchingAvailableProviders NOTIFY isFetchingAvailableProvidersChanged )
+
+    Q_PROPERTY( CloudWhitelabelInformation whitelabel READ whitelabel NOTIFY whitelabelChanged )
+
     Q_PROPERTY( bool isReachable READ isReachable NOTIFY isReachableChanged )
 
   public:
@@ -170,9 +173,11 @@ class QFieldCloudConnection : public QObject
 
     Q_INVOKABLE void getSubscriptionInformation( const QString &user );
 
-    Q_INVOKABLE void getAuthenticationProviders();
+    Q_INVOKABLE void getServerInformation();
     QList<AuthenticationProvider> availableProviders() const;
     bool isFetchingAvailableProviders() const;
+
+    CloudWhitelabelInformation whitelabel() const { return mWhitelabel; }
 
     ConnectionStatus status() const;
     ConnectionState state() const;
@@ -261,6 +266,7 @@ class QFieldCloudConnection : public QObject
 
     void availableProvidersChanged();
     void isFetchingAvailableProvidersChanged();
+    void whitelabelChanged();
 
     void isReachableChanged();
     void queuedProjectPushRequested( const QString &projectId );
@@ -273,6 +279,7 @@ class QFieldCloudConnection : public QObject
     void setToken( const QByteArray &token );
     void invalidateToken();
     void processPendingAttachments();
+    void fetchLegacyAuthenticationProviders();
 
     void saveCookies();
     void restoreCookies();
@@ -288,6 +295,8 @@ class QFieldCloudConnection : public QObject
     bool mIsFetchingAvailableProviders = false;
     QString mProvider;
     QString mProviderConfigId;
+
+    CloudWhitelabelInformation mWhitelabel;
 
     QString mAvatarUrl;
     CloudUserInformation mUserInformation;

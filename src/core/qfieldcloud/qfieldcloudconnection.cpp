@@ -42,6 +42,7 @@ QFieldCloudConnection::QFieldCloudConnection()
   , mTokenConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/tokenConfigId" ) ).toString() )
   , mProvider( QSettings().value( QStringLiteral( "/QFieldCloud/provider" ) ).toString() )
   , mProviderConfigId( QSettings().value( QStringLiteral( "/QFieldCloud/providerConfigId" ) ).toString() )
+  , mWhitelabel( QSettings().value( QStringLiteral( "/QFieldCloud/whitelabel" ) ).toMap() )
 {
   if ( !QgsApplication::authManager()->availableAuthMethodConfigs().contains( mProviderConfigId ) )
   {
@@ -186,6 +187,13 @@ void QFieldCloudConnection::setUrl( const QString &url )
   mUrl = url;
   QSettings().setValue( QStringLiteral( "/QFieldCloud/url" ), url );
 
+  if ( mWhitelabel != CloudWhitelabelInformation() )
+  {
+    mWhitelabel = CloudWhitelabelInformation();
+    QSettings().remove( QStringLiteral( "/QFieldCloud/whitelabel" ) );
+    emit whitelabelChanged();
+  }
+
   if ( mStatus != ConnectionStatus::Disconnected )
   {
     // Disconnect from the previously used endpoint
@@ -297,7 +305,7 @@ QList<AuthenticationProvider> QFieldCloudConnection::availableProviders() const
   return mAvailableProviders.values();
 }
 
-void QFieldCloudConnection::getAuthenticationProviders()
+void QFieldCloudConnection::getServerInformation()
 {
   if ( !mAvailableProviders.isEmpty() )
   {
@@ -308,6 +316,61 @@ void QFieldCloudConnection::getAuthenticationProviders()
   mIsFetchingAvailableProviders = true;
   emit isFetchingAvailableProvidersChanged();
 
+  QNetworkRequest request;
+  request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
+  request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
+  NetworkReply *reply = get( request, "/api/v1/server/info/" );
+
+  connect( reply, &NetworkReply::finished, this, [this, reply]() {
+    QNetworkReply *rawReply = reply->currentRawReply();
+
+    Q_ASSERT( reply->isFinished() );
+    Q_ASSERT( rawReply );
+
+    reply->deleteLater();
+    rawReply->deleteLater();
+
+    const int httpCode = rawReply->attribute( QNetworkRequest::HttpStatusCodeAttribute ).toInt();
+
+    if ( rawReply->error() != QNetworkReply::NoError )
+    {
+      if ( httpCode == 404 )
+      {
+        fetchLegacyAuthenticationProviders();
+        return;
+      }
+
+      mIsFetchingAvailableProviders = false;
+      emit isFetchingAvailableProvidersChanged();
+      return;
+    }
+
+    const QVariantMap payload = QJsonDocument::fromJson( rawReply->readAll() ).toVariant().toMap();
+
+    const CloudWhitelabelInformation whitelabel( payload.value( QStringLiteral( "whitelabel" ) ).toMap() );
+    if ( whitelabel != mWhitelabel )
+    {
+      mWhitelabel = whitelabel;
+      QSettings().setValue( QStringLiteral( "/QFieldCloud/whitelabel" ), mWhitelabel.toVariantMap() );
+      emit whitelabelChanged();
+    }
+
+    const QVariantList providers = payload.value( QStringLiteral( "auth_providers" ) ).toList();
+    for ( const QVariant &provider : providers )
+    {
+      const QVariantMap providerDetails = provider.toMap();
+      const QString providerId = providerDetails.value( QStringLiteral( "id" ) ).toString();
+      mAvailableProviders[providerId] = AuthenticationProvider( providerId, providerDetails.value( QStringLiteral( "name" ) ).toString(), providerDetails );
+    }
+
+    mIsFetchingAvailableProviders = false;
+    emit isFetchingAvailableProvidersChanged();
+    emit availableProvidersChanged();
+  } );
+}
+
+void QFieldCloudConnection::fetchLegacyAuthenticationProviders()
+{
   QNetworkRequest request;
   request.setHeader( QNetworkRequest::ContentTypeHeader, "application/json" );
   request.setAttribute( QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::RedirectPolicy::NoLessSafeRedirectPolicy );
