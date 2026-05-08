@@ -391,6 +391,15 @@ Page {
     id: qmlContainer
 
     Item {
+      property ExpressionEvaluator expression: ExpressionEvaluator {
+        attributeFormModel: form.model
+
+        feature: form.model.featureModel.feature
+        onFeatureChanged: {
+          expressionChanged();
+        }
+      }
+
       height: childrenRect.height
       anchors {
         left: parent.left
