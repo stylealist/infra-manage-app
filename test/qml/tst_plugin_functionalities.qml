@@ -1,4 +1,6 @@
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import QtTest
 import org.qfield
 import org.qgis
@@ -170,5 +172,115 @@ TestCase {
     apiary.clicked();
     verify(dashBoardItem.activeLayer !== null);
     compare(dashBoardItem.activeLayer.name, "ApiaryLayer");
+  }
+
+  // Layer combobox dialog backed by MapLayerModel
+
+  Component {
+    id: layerComboBoxDialogPlugin
+
+    Item {
+      id: plugin
+
+      property var mainWindow: iface.mainWindow()
+      property alias layersButton: layersButton
+      property alias layersDialog: layersDialog
+      property alias layersComboBox: layersComboBox
+      property alias layersModel: layersModel
+
+      Component.onCompleted: {
+        iface.addItemToPluginsToolbar(layersButton);
+      }
+
+      QfToolButton {
+        id: layersButton
+        text: "?"
+        iconColor: Theme.toolButtonColor
+        bgcolor: Theme.toolButtonBackgroundColor
+        round: true
+        onClicked: layersDialog.open()
+      }
+
+      QfDialog {
+        id: layersDialog
+
+        x: mainWindow ? (mainWindow.width - width) / 2 : 0
+        y: mainWindow ? (mainWindow.height - height) / 2 : 0
+        width: 300
+        height: layersLayout.height + 100
+        parent: mainWindow ? mainWindow.contentItem : plugin
+
+        ColumnLayout {
+          id: layersLayout
+          width: parent.width
+
+          Label {
+            Layout.fillWidth: true
+            text: "A combobox full of layers"
+          }
+
+          QfComboBox {
+            id: layersComboBox
+            Layout.fillWidth: true
+            model: MapLayerModel {
+              id: layersModel
+              project: qgisProject
+            }
+            textRole: 'Name'
+            valueRole: 'LayerPointer'
+          }
+        }
+      }
+    }
+  }
+
+  function test_dialogPluginInstantiatesWithRealIface() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+    verify(plugin !== null);
+  }
+
+  function test_dialogPluginRegistersToolbarButton() {
+    createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+    compare(pluginsToolbar.children.length, 1);
+    compare(pluginsToolbar.children[0].text, "?");
+  }
+
+  function test_mapLayerModelTracksProjectLayers() {
+    makeMemoryLayer("ComboLayerA");
+    makeMemoryLayer("ComboLayerB");
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+    verify(plugin.layersModel.rowCount() >= 2);
+  }
+
+  function test_mapLayerModelGetExposesNameAndLayerPointer() {
+    const layer = makeMemoryLayer("ComboRolesProbe");
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+
+    let foundEntry = null;
+    for (let row = 0; row < plugin.layersModel.rowCount(); ++row) {
+      const entry = plugin.layersModel.get(row);
+      if (entry.Name === "ComboRolesProbe") {
+        foundEntry = entry;
+        break;
+      }
+    }
+    verify(foundEntry !== null);
+    compare(foundEntry.Name, "ComboRolesProbe");
+    verify(foundEntry.LayerPointer !== null);
+    compare(foundEntry.LayerPointer.id, layer.id);
+  }
+
+  function test_qfComboBoxBindsToMapLayerModelWithExpectedRoles() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+    compare(plugin.layersComboBox.textRole, "Name");
+    compare(plugin.layersComboBox.valueRole, "LayerPointer");
+    compare(plugin.layersComboBox.model, plugin.layersModel);
+  }
+
+  function test_qfDialogOpensOnToolbarButtonClick() {
+    const plugin = createTemporaryObject(layerComboBoxDialogPlugin, testCase);
+    compare(plugin.layersDialog.visible, false);
+    plugin.layersButton.clicked();
+    tryCompare(plugin.layersDialog, "visible", true);
   }
 }
