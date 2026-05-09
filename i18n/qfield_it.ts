@@ -2786,7 +2786,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL del server
+        <translation type="vanished">URL del server
 (Lasciare vuoto per utilizzare il server predefinito)</translation>
     </message>
     <message>
@@ -2839,7 +2839,7 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2847,6 +2847,11 @@ Le geometrie degli elementi verranno combinate in un elemento &apos;%1&apos; che
     </message>
     <message>
         <source>Sign in using %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
 </context>

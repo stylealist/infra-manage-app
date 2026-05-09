@@ -2783,7 +2783,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Server-URL
+        <translation type="vanished">Server-URL
 (Leerlassen, um den Standardserver zu nutzen)</translation>
     </message>
     <message>
@@ -2836,7 +2836,7 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2845,6 +2845,11 @@ Die Objekt-Geometrien werden in Objekt &apos;%1&apos; zusammengeführt, welches 
     <message>
         <source>Sign in using %1</source>
         <translation>Melden Sie sich mit %1 an</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -2784,7 +2784,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL do Servidor
+        <translation type="vanished">URL do Servidor
 (Deixar en branco para utilizar o servidor predeterminado)</translation>
     </message>
     <message>
@@ -2837,7 +2837,7 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2846,6 +2846,11 @@ As xeometrías das entidades combinaranse na entidade &apos;%1&apos;, a cal cons
     <message>
         <source>Sign in using %1</source>
         <translation>Iniciar sesión utilizando %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

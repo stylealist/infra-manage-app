@@ -2788,7 +2788,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL serwera
+        <translation type="vanished">URL serwera
 (Pozostaw puste, aby użyć domyślnego serwera)</translation>
     </message>
     <message>
@@ -2841,7 +2841,7 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2850,6 +2850,11 @@ Geometrie elementów zostaną połączone w element &quot;%1&quot;, który zacho
     <message>
         <source>Sign in using %1</source>
         <translation>Zaloguj się przy użyciu %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

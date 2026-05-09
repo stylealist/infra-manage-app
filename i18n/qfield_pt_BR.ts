@@ -2780,7 +2780,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL do Servidor
+        <translation type="vanished">URL do Servidor
 (Deixe vazio se usar o servidor padrão)</translation>
     </message>
     <message>
@@ -2833,7 +2833,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2842,6 +2842,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Sign in using %1</source>
         <translation>Login usando %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

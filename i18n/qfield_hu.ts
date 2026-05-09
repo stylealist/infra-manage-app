@@ -2782,7 +2782,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Szerver URL
+        <translation type="vanished">Szerver URL
 (hagyja üresen az alapértelmezett szerver használatához)</translation>
     </message>
     <message>
@@ -2835,7 +2835,7 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2844,6 +2844,11 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
     <message>
         <source>Sign in using %1</source>
         <translation>Bejelentkezés %1-el</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

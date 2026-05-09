@@ -2785,7 +2785,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL du serveur (Laissez vide pour utiliser le serveur par défaut)</translation>
+        <translation type="vanished">URL du serveur (Laissez vide pour utiliser le serveur par défaut)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -2837,7 +2837,7 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2846,6 +2846,11 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>Sign in using %1</source>
         <translation>S&apos;identifier en utilisant %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

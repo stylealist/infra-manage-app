@@ -2787,7 +2787,7 @@ Dôvod:
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL servera
+        <translation type="vanished">URL servera
 (ponechajte prázdne pre predvolený server)</translation>
     </message>
     <message>
@@ -2840,7 +2840,7 @@ Dôvod:
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2848,6 +2848,11 @@ Dôvod:
     </message>
     <message>
         <source>Sign in using %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -2774,7 +2774,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>ເຊີບເວີ URL (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ເຊີບເວີເລີ່ມຕົ້ນ)</translation>
+        <translation type="vanished">ເຊີບເວີ URL (ປ່ອຍໃຫ້ຫວ່າງເພື່ອໃຊ້ເຊີບເວີເລີ່ມຕົ້ນ)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -2826,7 +2826,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2835,6 +2835,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Sign in using %1</source>
         <translation>ເຂົ້າສູ່ລະບົບໂດຍໃຊ້ %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

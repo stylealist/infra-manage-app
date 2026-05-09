@@ -2788,7 +2788,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL server (ponech prázdné pro výchozí server)</translation>
+        <translation type="vanished">URL server (ponech prázdné pro výchozí server)</translation>
     </message>
     <message>
         <source>Username or email</source>
@@ -2840,7 +2840,7 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2848,6 +2848,11 @@ Geometrie objektů budou zkombinovány do objektu &apos;%1&apos;, který si zach
     </message>
     <message>
         <source>Sign in using %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
 </context>

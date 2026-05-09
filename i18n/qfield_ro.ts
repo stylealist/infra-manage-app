@@ -2788,7 +2788,7 @@ Motiv:
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Server URL
+        <translation type="vanished">Server URL
 (Lăsați câmpul gol pentru a utiliza serverul implicit)</translation>
     </message>
     <message>
@@ -2841,7 +2841,7 @@ Motiv:
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2849,6 +2849,11 @@ Motiv:
     </message>
     <message>
         <source>Sign in using %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
         <translation type="unfinished"/>
     </message>
 </context>

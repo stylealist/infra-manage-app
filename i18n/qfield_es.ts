@@ -2786,7 +2786,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>URL del servidor
+        <translation type="vanished">URL del servidor
 (Dejar en blanco para usar el servidor predeterminado)</translation>
     </message>
     <message>
@@ -2839,7 +2839,7 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2848,6 +2848,11 @@ Las geometrías de los objetos se combinarán en el objeto &apos;%1&apos;, que c
     <message>
         <source>Sign in using %1</source>
         <translation>Identificarse usando %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

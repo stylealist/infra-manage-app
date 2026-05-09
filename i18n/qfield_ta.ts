@@ -2780,7 +2780,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>சேவையக முகவரி 
+        <translation type="vanished">சேவையக முகவரி 
 (இயல்புநிலை சேவையகத்தைப் பயன்படுத்த காலியாக விடவும்)</translation>
     </message>
     <message>
@@ -2833,7 +2833,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2842,6 +2842,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>Sign in using %1</source>
         <translation>% 1ஐப் பயன்படுத்தி உள்நுழைக</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

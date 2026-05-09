@@ -2784,7 +2784,7 @@ syy: %2</translation>
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Palvelimen URL
+        <translation type="vanished">Palvelimen URL
 (Jätä tyhjäksi, jos haluat käyttää oletuspalvelinta)</translation>
     </message>
     <message>
@@ -2837,7 +2837,7 @@ syy: %2</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>or</source>
@@ -2846,6 +2846,11 @@ syy: %2</translation>
     <message>
         <source>Sign in using %1</source>
         <translation>Kirjaudu sisään käyttämällä %1</translation>
+    </message>
+    <message>
+        <source>%1Server URL
+(Leave empty to use the default server)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
