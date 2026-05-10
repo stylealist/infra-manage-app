@@ -2848,7 +2848,8 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>%1服务器URL
+(留空使用默认服务器)</translation>
     </message>
 </context>
 <context>

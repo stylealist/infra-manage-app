@@ -2850,7 +2850,8 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
     <message>
         <source>%1Server URL
 (Leave empty to use the default server)</source>
-        <translation type="unfinished"/>
+        <translation>URL du serveur %1
+(Laisser vide pour utiliser le serveur par défaut)</translation>
     </message>
 </context>
 <context>
@@ -3811,7 +3812,7 @@ Même si vous pouvez toujours voir et utiliser ce projet, il est fortement recom
     </message>
     <message>
         <source>Delete folder</source>
-        <translation type="unfinished"/>
+        <translation>Supprimer le dossier</translation>
     </message>
     <message>
         <source>Delete file</source>
@@ -4768,19 +4769,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot delete file (not allowed): %1</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de supprimer le fichier (non autorisé) : %1</translation>
     </message>
     <message>
         <source>File does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Le fichier n&apos;existe pas : %1</translation>
     </message>
     <message>
         <source>Failed to delete directory: %1</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la suppression du répertoire : %1</translation>
     </message>
     <message>
         <source>Failed to delete file: %1 - %2</source>
-        <translation type="unfinished"/>
+        <translation>Échec de la suppression du fichier : %1 - %2</translation>
     </message>
 </context>
 <context>
