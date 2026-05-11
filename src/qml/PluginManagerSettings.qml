@@ -191,7 +191,8 @@ QfPopup {
           }
 
           onDropdownClicked: {
-            pluginsManagementMenu.popup(installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
+            const point = mapToItem(page, installFromUrlButton.width - pluginsManagementMenu.width + 10, installFromUrlButton.y + 10);
+            pluginsManagementMenu.popup(point);
           }
         }
 
