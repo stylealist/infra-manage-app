@@ -54,24 +54,27 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   QString pluginKey = pluginPath;
   pluginKey.replace( QChar( '/' ), QChar( '_' ) );
   settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+
   const QString pluginUuid = settings.value( QStringLiteral( "uuid" ) ).toString();
-  if ( !skipPermissionCheck )
+  bool permissionGranted = false;
+
+  const QStringList keys = settings.childKeys();
+  if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
   {
-    const QStringList keys = settings.childKeys();
-    if ( keys.contains( QStringLiteral( "permissionGranted" ) ) )
+    permissionGranted = settings.value( QStringLiteral( "permissionGranted" ) ).toBool();
+    if ( !permissionGranted )
     {
-      if ( !settings.value( QStringLiteral( "permissionGranted" ) ).toBool() )
-      {
-        return;
-      }
-    }
-    else
-    {
-      mPermissionRequestPluginPath = pluginPath;
-      emit pluginPermissionRequested( pluginName, isProjectPlugin );
       return;
     }
   }
+
+  if ( !skipPermissionCheck && !permissionGranted )
+  {
+    mPermissionRequestPluginPath = pluginPath;
+    emit pluginPermissionRequested( pluginName, isProjectPlugin );
+    return;
+  }
+
   settings.endGroup();
 
   if ( mLoadedPlugins.contains( pluginPath ) )
@@ -113,6 +116,10 @@ void PluginManager::loadPlugin( const QString &pluginPath, const QString &plugin
   if ( !pluginUuid.isEmpty() )
   {
     emit appPluginEnabled( pluginUuid );
+  }
+  else if ( isProjectPlugin )
+  {
+    emit projectPluginEnabled();
   }
 }
 

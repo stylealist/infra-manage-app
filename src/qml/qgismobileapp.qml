@@ -5607,6 +5607,10 @@ ApplicationWindow {
       pluginPermissionDialog.isProjectPlugin = isProjectPlugin;
       pluginPermissionDialog.open();
     }
+
+    function onProjectPluginEnabled() {
+      displayToast(qsTr("Project plugin loaded"));
+    }
   }
 
   QFieldGuide {

@@ -190,6 +190,7 @@ class PluginManager : public QObject
 
     void appPluginEnabled( const QString &uuid );
     void appPluginDisabled( const QString &uuid );
+    void projectPluginEnabled();
 
     void installTriggered( const QString &name );
     void installProgress( double progress );

@@ -1207,7 +1207,15 @@ void QgisMobileapp::readProjectFile()
   const QString projectPluginPath = PluginManager::findProjectPlugin( mProjectFilePath );
   if ( !projectPluginPath.isEmpty() )
   {
-    mPluginManager->loadPlugin( projectPluginPath, tr( "Project Plugin" ), false, true );
+    bool skipPermission = false;
+
+    const QString cloudProjectId = QFieldCloudUtils::getProjectId( projectPluginPath );
+    if ( !cloudProjectId.isEmpty() )
+    {
+      skipPermission = QFieldCloudUtils::projectSetting( cloudProjectId, QStringLiteral( "userRoleOrigin" ), QStringLiteral( "public" ) ).toString() != QStringLiteral( "public" );
+    }
+
+    mPluginManager->loadPlugin( projectPluginPath, tr( "Project Plugin" ), skipPermission, true );
   }
 }
 
