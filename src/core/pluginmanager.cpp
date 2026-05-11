@@ -343,6 +343,32 @@ bool PluginManager::isAppPluginConfigurable( const QString &uuid ) const
   return false;
 }
 
+bool PluginManager::isProjectPluginEnabled( const QString &path ) const
+{
+  const QString projectPluginPath = findProjectPlugin( path );
+  if ( !projectPluginPath.isEmpty() )
+  {
+    return mLoadedPlugins.contains( projectPluginPath );
+  }
+  return false;
+}
+
+void PluginManager::denyProjectPluginPermission( const QString &path )
+{
+  QString projectPluginPath = findProjectPlugin( path );
+  if ( !projectPluginPath.isEmpty() )
+  {
+    unloadPlugin( projectPluginPath );
+
+    QSettings settings;
+    QString pluginKey = projectPluginPath;
+    pluginKey.replace( QChar( '/' ), QChar( '_' ) );
+    settings.beginGroup( QStringLiteral( "/qfield/plugins/%1" ).arg( pluginKey ) );
+    settings.setValue( QStringLiteral( "permissionGranted" ), false );
+    settings.endGroup();
+  }
+}
+
 void PluginManager::installFromRepository( const QString &uuid )
 {
   if ( mPluginModel->hasPluginInformation( uuid ) )

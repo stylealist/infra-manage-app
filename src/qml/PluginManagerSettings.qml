@@ -22,6 +22,7 @@ QfPopup {
   focus: visible
 
   onAboutToShow: {
+    projectPluginEnabledContainer.visible = pluginManager.isProjectPluginEnabled(qgisProject.fileName);
     pluginManager.pluginModel.refresh(false);
   }
 
@@ -200,6 +201,47 @@ QfPopup {
           Layout.preferredHeight: 48
           visible: running
           running: pluginManager.pluginModel.isRefreshing
+        }
+      }
+
+      Rectangle {
+        id: projectPluginEnabledContainer
+        Layout.topMargin: 10
+        Layout.fillWidth: true
+        Layout.preferredHeight: childrenRect.height + 20
+        visible: false
+
+        radius: 8
+        color: Theme.groupBoxBackgroundColor
+        clip: true
+
+        RowLayout {
+          anchors.top: parent.top
+          anchors.left: parent.left
+          anchors.right: parent.right
+          anchors.margins: 10
+          spacing: 5
+
+          Label {
+            Layout.fillWidth: true
+
+            text: qsTr("The currently opened project has loaded a project plugin")
+            font: Theme.tipFont
+            wrapMode: Text.WordWrap
+          }
+
+          QfButton {
+            text: qsTr("Deny permission")
+            radius: 4
+            bgcolor: "#00000000"
+            color: Theme.mainColor
+            font: Theme.tipFont
+
+            onClicked: {
+              pluginManager.denyProjectPluginPermission(qgisProject.fileName);
+              projectPluginEnabledContainer.visible = false;
+            }
+          }
         }
       }
     }
