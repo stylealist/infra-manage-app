@@ -7,7 +7,7 @@
 [![Digital Public Good](https://img.shields.io/badge/Digital%20Public%20Good-verified-brightgreen)](https://www.digitalpublicgoods.net/r/qfield)
 [![QFieldCloud](https://img.shields.io/badge/QFieldCloud-GitHub-blue)](https://github.com/opengisch/QFieldCloud)
 
-# QField for QGIS
+# QField for QGIS  
 
 A simplified touch-optimized interface for QGIS in the field.
 
