@@ -2165,6 +2165,14 @@ Les géométries des objets vont être combinées dans l&apos;objet &apos;%1&apo
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation>Aucun plugin n&apos;a encore été installé, allez à l&apos;onglet %1available plugins%3 pour en essayer quelques-uns.&lt;br&gt;&lt;br&gt; Pour plus d&apos;informations, %2lire la documentation%3.</translation>
     </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -7003,6 +7011,14 @@ pour afficher des actions</translation>
     <message>
         <source>Upgrade storage</source>
         <translation>Améliorer le stockage</translation>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

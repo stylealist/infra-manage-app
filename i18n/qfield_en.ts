@@ -2223,6 +2223,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -6876,6 +6884,14 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade storage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

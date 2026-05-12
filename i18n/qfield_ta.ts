@@ -2160,6 +2160,14 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation>இன்னும் செருகுநிரல்கள் எதுவும் நிறுவப்படவில்லை, %1கிடைக்கும் செருகுநிரல்கள்%3 தாவலுக்கு மாறவும், சிலவற்றை இப்போதே முயற்சிக்கவும்.&lt;br&gt;&lt;br&gt;மேலும் தகவலுக்கு, %2ஆவணத்தைப் படிக்கவும்%3.</translation>
     </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -6998,6 +7006,14 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
         <translation type="unfinished"/>
     </message>
 </context>

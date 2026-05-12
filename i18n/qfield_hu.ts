@@ -2163,6 +2163,14 @@ Az elem geometriákat összevonjuk a &apos;%1&apos; elembe, mely megőrzi az att
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
         <translation>Még nincs telepített bővítmény. Váltson át az %1elérhető bővítmények%3 fülre, hogy azonnal kipróbálhasson néhányat.&lt;br&gt;&lt;br&gt;További információkért %2olvassa el a dokumentációt%3.</translation>
     </message>
+    <message>
+        <source>The currently opened project has loaded a project plugin</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Deny permission</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PositionInformationView</name>
@@ -6994,6 +7002,14 @@ to show actions</source>
     </message>
     <message>
         <source>Upgrade storage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Manager</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Project plugin loaded</source>
         <translation type="unfinished"/>
     </message>
 </context>
