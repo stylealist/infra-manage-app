@@ -1007,11 +1007,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>FeatureListForm</name>
     <message>
         <source>Stop tracking this feature to edit attributes</source>
-        <translation>Stop tracking this feature to edit attributes</translation>
+        <translation>속성을 편집하려면 이 피처 추적을 중지하세요</translation>
     </message>
     <message>
         <source>Stop tracking this feature to edit geometry</source>
-        <translation>Stop tracking this feature to edit geometry</translation>
+        <translation>지오메트리를 편집하려면 이 피처 추적을 중지하세요</translation>
     </message>
     <message>
         <source>Changes saved</source>
@@ -1023,61 +1023,61 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>Successfully duplicated feature</translation>
+        <translation>피처가 성공적으로 복제되었습니다</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to delete those</source>
-        <translation>A number of features are being tracked, stop tracking to delete those</translation>
+        <translation>일부 피처가 추적 중입니다. 삭제하려면 추적을 중지하세요</translation>
     </message>
     <message>
         <source>A number of features are being tracked, stop tracking to merge those</source>
-        <translation>A number of features are being tracked, stop tracking to merge those</translation>
+        <translation>일부 피처가 추적 중입니다. 병합하려면 추적을 중지하세요</translation>
     </message>
     <message>
         <source>Successfully duplicated selected features, list updated to show newly-created features</source>
-        <translation>Successfully duplicated selected features, list updated to show newly-created features</translation>
+        <translation>선택한 피처가 성공적으로 복제되었으며, 새로 생성된 피처가 목록에 표시됩니다</translation>
     </message>
     <message>
         <source>No feature at this position</source>
-        <translation>현재 위치에 대상이 없습니다</translation>
+        <translation>현재 위치에 피처가 없습니다</translation>
     </message>
     <message>
         <source>Merge feature(s)</source>
-        <translation>Merge feature(s)</translation>
+        <translation>피처 병합</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be merge?
 
 The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</source>
         <comment>0</comment>
-        <translation><numerusform>Should the %n feature(s) selected really be merge?
+        <translation><numerusform>선택한 피처 %n개를 정말 병합하시겠습니까?
 
-The features geometries will be combined into feature &apos;%1&apos;, which will keep its attributes.</numerusform></translation>
+피처의 지오메트리가 &apos;%1&apos; 피처로 합쳐지며, 해당 피처의 속성이 유지됩니다.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully merged %n feature(s)</source>
-        <translation><numerusform>Successfully merged %n feature(s)</numerusform></translation>
+        <translation><numerusform>피처 %n개가 성공적으로 병합되었습니다</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to merge %n feature(s)</source>
-        <translation><numerusform>Failed to merge %n feature(s)</numerusform></translation>
+        <translation><numerusform>피처 %n개 병합에 실패했습니다</numerusform></translation>
     </message>
     <message>
         <source>Delete feature(s)</source>
-        <translation>대상 삭제</translation>
+        <translation>피처 삭제</translation>
     </message>
     <message numerus="yes">
         <source>Should the %n feature(s) selected really be deleted?</source>
         <comment>0</comment>
-        <translation><numerusform>Should the %n feature(s) selected really be deleted?</numerusform></translation>
+        <translation><numerusform>선택한 피처 %n개를 정말 삭제하시겠습니까?</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Successfully deleted %n feature(s)</source>
-        <translation><numerusform>Successfully deleted %n feature(s)</numerusform></translation>
+        <translation><numerusform>피처 %n개가 성공적으로 삭제되었습니다</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Failed to delete %n feature(s)</source>
-        <translation><numerusform>Failed to delete %n feature(s)</numerusform></translation>
+        <translation><numerusform>피처 %n개 삭제에 실패했습니다</numerusform></translation>
     </message>
     <message>
         <source>Changes discarded</source>
@@ -1085,87 +1085,87 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Transfer Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>피처 속성 이전</translation>
     </message>
     <message>
         <source>Select a feature below from which attributes will be transfered onto the currently opened feature.</source>
-        <translation type="unfinished"/>
+        <translation>현재 열린 피처로 속성을 이전할 피처를 아래에서 선택하세요.</translation>
     </message>
     <message>
         <source>Feature attributes transferred</source>
-        <translation type="unfinished"/>
+        <translation>피처 속성이 이전되었습니다</translation>
     </message>
     <message>
         <source>No feature attributes were transferred</source>
-        <translation type="unfinished"/>
+        <translation>이전된 피처 속성이 없습니다</translation>
     </message>
     <message>
         <source>Features</source>
-        <translation>Features</translation>
+        <translation>피처</translation>
     </message>
     <message>
         <source>Processing Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>처리 알고리즘</translation>
     </message>
 </context>
 <context>
     <name>FeatureModel</name>
     <message>
         <source>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</source>
-        <translation>Value &quot;%1&quot; %4 could not be converted to a compatible value for field %2(%3).</translation>
+        <translation>값 &quot;%1&quot; %4을(를) %2(%3) 필드에 호환되는 값으로 변환할 수 없습니다.</translation>
     </message>
     <message>
         <source>Cannot update feature</source>
-        <translation>Cannot update feature</translation>
+        <translation>피처를 업데이트할 수 없습니다</translation>
     </message>
     <message>
         <source>Feature %1 could not be fetched after commit</source>
-        <translation>Feature %1 could not be fetched after commit</translation>
+        <translation>저장 후 피처 %1을(를) 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has parser error: %3</source>
-        <translation>Default value expression for %1:%2 has parser error: %3</translation>
+        <translation>%1:%2의 기본값 표현식에 파서 오류가 있습니다: %3</translation>
     </message>
     <message>
         <source>Default value expression for %1:%2 has evaluation error: %3</source>
-        <translation>Default value expression for %1:%2 has evaluation error: %3</translation>
+        <translation>%1:%2의 기본값 표현식에 평가 오류가 있습니다: %3</translation>
     </message>
     <message>
         <source>Cannot start editing on layer &quot;%1&quot; to create feature %2</source>
-        <translation>Cannot start editing on layer &quot;%1&quot; to create feature %2</translation>
+        <translation>피처 %2 생성을 위해 레이어 &quot;%1&quot;의 편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</source>
-        <translation>Layer &quot;%1&quot; has been commited but the newly created feature %2 could not be fetched</translation>
+        <translation>레이어 &quot;%1&quot;이(가) 저장되었지만 새로 생성된 피처 %2를 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
 %3</source>
-        <translation>Layer &quot;%1&quot; cannot be commited with the newly created feature %2. Reason:
+        <translation>레이어 &quot;%1&quot;을(를) 새로 생성된 피처 %2와 함께 저장할 수 없습니다. 이유:
 %3</translation>
     </message>
     <message>
         <source>Feature %2 could not be added in layer &quot;%1&quot;</source>
-        <translation>Feature %2 could not be added in layer &quot;%1&quot;</translation>
+        <translation>레이어 &quot;%1&quot;에 피처 %2를 추가할 수 없습니다</translation>
     </message>
     <message>
         <source>Could not save changes. Rolling back.</source>
-        <translation>Could not save changes. Rolling back.</translation>
+        <translation>변경 사항을 저장할 수 없습니다. 롤백합니다.</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation>편집을 시작할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>FeaturesLocatorFilter</name>
     <message>
         <source>Open form</source>
-        <translation>Open form</translation>
+        <translation>양식 열기</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>피처를 목적지로 설정</translation>
     </message>
     <message>
         <source>Set feature as navigation</source>
@@ -1173,118 +1173,118 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Feature has no geometry</translation>
+        <translation>피처에 지오메트리가 없습니다</translation>
     </message>
     <message>
         <source>Features in all layers</source>
-        <translation>Features in all layers</translation>
+        <translation>모든 레이어의 피처</translation>
     </message>
     <message>
         <source>Returns a list of features accross all searchable layers with matching display name.</source>
-        <translation type="unfinished"/>
+        <translation>표시 이름이 일치하는 모든 검색 가능한 레이어의 피처 목록을 반환합니다.</translation>
     </message>
 </context>
 <context>
     <name>FileDeviceChooser</name>
     <message>
         <source>File path</source>
-        <translation type="unfinished"/>
+        <translation>파일 경로</translation>
     </message>
     <message>
         <source>Interval (in milliseconds)</source>
-        <translation type="unfinished"/>
+        <translation>간격 (밀리초)</translation>
     </message>
 </context>
 <context>
     <name>FillRing</name>
     <message>
         <source>The ring is not closed</source>
-        <translation>The ring is not closed</translation>
+        <translation>링이 닫혀 있지 않습니다</translation>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation>The ring is not valid</translation>
+        <translation>링이 유효하지 않습니다</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation>The ring crosses existing rings (it is not disjoint)</translation>
+        <translation>링이 기존 링과 교차합니다 (분리되어 있지 않습니다)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation>The ring doesn&apos;t have any existing ring to fit into</translation>
+        <translation>링이 들어갈 기존 링이 없습니다</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation>Unknown error when creating the ring</translation>
+        <translation>링 생성 중 알 수 없는 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation>Fill ring</translation>
+        <translation>링 채우기</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation>Would you like to fill the ring with a new polygon?</translation>
+        <translation>새 폴리곤으로 링을 채우시겠습니까?</translation>
     </message>
 </context>
 <context>
     <name>FillRingToolBar</name>
     <message>
         <source>The ring is not closed</source>
-        <translation type="vanished">The ring is not closed</translation>
+        <translation type="vanished">링이 닫혀 있지 않습니다</translation>
     </message>
     <message>
         <source>The ring is not valid</source>
-        <translation type="vanished">The ring is not valid</translation>
+        <translation type="vanished">링이 유효하지 않습니다</translation>
     </message>
     <message>
         <source>The ring crosses existing rings (it is not disjoint)</source>
-        <translation type="vanished">The ring crosses existing rings (it is not disjoint)</translation>
+        <translation type="vanished">링이 기존 링과 교차합니다 (분리되어 있지 않습니다)</translation>
     </message>
     <message>
         <source>The ring doesn&apos;t have any existing ring to fit into</source>
-        <translation type="vanished">The ring doesn&apos;t have any existing ring to fit into</translation>
+        <translation type="vanished">링이 들어갈 기존 링이 없습니다</translation>
     </message>
     <message>
         <source>Unknown error when creating the ring</source>
-        <translation type="vanished">Unknown error when creating the ring</translation>
+        <translation type="vanished">링 생성 중 알 수 없는 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>Fill ring</source>
-        <translation type="vanished">Fill ring</translation>
+        <translation type="vanished">링 채우기</translation>
     </message>
     <message>
         <source>Would you like to fill the ring with a new polygon?</source>
-        <translation type="vanished">Would you like to fill the ring with a new polygon?</translation>
+        <translation type="vanished">새 폴리곤으로 링을 채우시겠습니까?</translation>
     </message>
 </context>
 <context>
     <name>FinlandLocatorFilter</name>
     <message>
         <source>Finnish address search</source>
-        <translation>Finnish address search</translation>
+        <translation>핀란드 주소 검색</translation>
     </message>
 </context>
 <context>
     <name>GeometryEditorsToolbar</name>
     <message>
         <source>Vertex Tool</source>
-        <translation>Vertex Tool</translation>
+        <translation>꼭짓점 도구</translation>
     </message>
     <message>
         <source>Split Tool</source>
-        <translation>Split Tool</translation>
+        <translation>분할 도구</translation>
     </message>
     <message>
         <source>Reshape Tool</source>
-        <translation>Reshape Tool</translation>
+        <translation>모양 변경 도구</translation>
     </message>
     <message>
         <source>Fill Ring Tool</source>
-        <translation>Fill Ring Tool</translation>
+        <translation>링 채우기 도구</translation>
     </message>
     <message>
         <source>Erase Tool</source>
-        <translation type="unfinished"/>
+        <translation>지우기 도구</translation>
     </message>
 </context>
 <context>
@@ -1295,7 +1295,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Set navigation point</source>
-        <translation>Set navigation point</translation>
+        <translation>탐색 지점 설정</translation>
     </message>
     <message>
         <source>Go to %1° %2° (WGS84)</source>
@@ -1303,53 +1303,53 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Go to coordinate</source>
-        <translation>Go to coordinate</translation>
+        <translation>좌표로 이동</translation>
     </message>
     <message>
         <source>Go to %1%2 %3%4 (Map CRS, %5)</source>
-        <translation type="unfinished"/>
+        <translation>%1%2 %3%4 (지도 좌표계, %5)로 이동</translation>
     </message>
     <message>
         <source>Go to %1°N %2°E (%3)</source>
-        <translation type="unfinished"/>
+        <translation>%1°N %2°E (%3)로 이동</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates - or WGS84 latitude and longitude - typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>검색창에 입력한 X, Y 좌표 또는 WGS84 위경도에 해당하는 지점을 반환합니다.</translation>
     </message>
 </context>
 <context>
     <name>HelpLocatorFilter</name>
     <message>
         <source>QField Documentation</source>
-        <translation type="unfinished"/>
+        <translation>QField 문서</translation>
     </message>
     <message>
         <source>Returns QField documentation pages matching terms.</source>
-        <translation type="unfinished"/>
+        <translation>검색어와 일치하는 QField 문서 페이지를 반환합니다.</translation>
     </message>
 </context>
 <context>
     <name>InformationDrawer</name>
     <message>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>탐색</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positioning</translation>
+        <translation>위치 측정</translation>
     </message>
     <message>
         <source>Precise view</source>
-        <translation type="unfinished"/>
+        <translation>정밀 보기</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>센서</translation>
     </message>
     <message>
         <source>Elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>고도 프로파일</translation>
     </message>
 </context>
 <context>
@@ -1360,225 +1360,225 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation>사용자 이름</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>비밀번호</translation>
     </message>
     <message>
         <source>Credentials Details</source>
-        <translation type="unfinished"/>
+        <translation>인증 정보</translation>
     </message>
 </context>
 <context>
     <name>LayerObserver</name>
     <message>
         <source>Failed to find a local primary key column in layer &quot;%1&quot;</source>
-        <translation>Failed to find a local primary key column in layer &quot;%1&quot;</translation>
+        <translation>레이어 &quot;%1&quot;에서 로컬 기본 키 열을 찾지 못했습니다</translation>
     </message>
     <message>
         <source>Failed to find a source primary key column in layer &quot;%1&quot;</source>
-        <translation>Failed to find a source primary key column in layer &quot;%1&quot;</translation>
+        <translation>레이어 &quot;%1&quot;에서 소스 기본 키 열을 찾지 못했습니다</translation>
     </message>
 </context>
 <context>
     <name>LayerTreeItemProperties</name>
     <message>
         <source>Expand group</source>
-        <translation>Expand group</translation>
+        <translation>그룹 펼치기</translation>
     </message>
     <message>
         <source>Expand legend item</source>
-        <translation>Expand legend item</translation>
+        <translation>범례 항목 펼치기</translation>
     </message>
     <message>
         <source>Stop tracking</source>
-        <translation>Stop tracking</translation>
+        <translation>추적 중지</translation>
     </message>
     <message>
         <source>Setup tracking</source>
-        <translation>Setup tracking</translation>
+        <translation>추적 설정</translation>
     </message>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</translation>
+        <translation>이 레이어가 유효하지 않습니다. 네트워크 문제, 파일 누락 또는 프로젝트 설정 오류일 수 있습니다.</translation>
     </message>
     <message>
         <source>Show on map</source>
-        <translation>Show on map</translation>
+        <translation>지도에 표시</translation>
     </message>
     <message>
         <source>Show labels</source>
-        <translation>Show labels</translation>
+        <translation>레이블 표시</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>불투명도</translation>
     </message>
     <message>
         <source>Zoom to group</source>
-        <translation type="unfinished"/>
+        <translation>그룹으로 확대</translation>
     </message>
     <message>
         <source>Zoom to parent layer</source>
-        <translation type="unfinished"/>
+        <translation>상위 레이어로 확대</translation>
     </message>
     <message>
         <source>Zoom to layer</source>
-        <translation>Zoom to layer</translation>
+        <translation>레이어로 확대</translation>
     </message>
     <message>
         <source>Reload data</source>
-        <translation type="vanished">Reload data</translation>
+        <translation type="vanished">데이터 새로고침</translation>
     </message>
     <message>
         <source>Reload of layer %1 triggered</source>
-        <translation>Reload of layer %1 triggered</translation>
+        <translation>레이어 %1 새로고침이 실행되었습니다</translation>
     </message>
     <message>
         <source>Show features list</source>
-        <translation>Show features list</translation>
+        <translation>피처 목록 표시</translation>
     </message>
     <message>
         <source>The layer has no features</source>
-        <translation>The layer has no features</translation>
+        <translation>이 레이어에는 피처가 없습니다</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation type="vanished">Track on layer %1 stopped</translation>
+        <translation type="vanished">레이어 %1 추적이 중지되었습니다</translation>
     </message>
     <message>
         <source>Read-Only Layer</source>
-        <translation type="vanished">Read-Only Layer</translation>
+        <translation type="vanished">읽기 전용 레이어</translation>
     </message>
     <message>
         <source>Geometry Locked Layer</source>
-        <translation type="vanished">Geometry Locked Layer</translation>
+        <translation type="vanished">지오메트리 잠금 레이어</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation type="vanished">This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</translation>
+        <translation type="vanished">이 레이어는 &quot;읽기 전용&quot;으로 설정되어 피처 추가, 삭제 및 편집이 비활성화됩니다.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="vanished">This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</translation>
+        <translation type="vanished">이 레이어는 &quot;지오메트리 잠금&quot;으로 설정되어 피처 추가 및 삭제, 기존 피처의 지오메트리 수정이 비활성화됩니다.</translation>
     </message>
     <message>
         <source>Show visible features list</source>
-        <translation type="unfinished"/>
+        <translation>표시된 피처 목록 보기</translation>
     </message>
     <message>
         <source>Show Features Menu</source>
-        <translation type="unfinished"/>
+        <translation>피처 메뉴 표시</translation>
     </message>
     <message>
         <source>Read-only layer</source>
-        <translation type="unfinished"/>
+        <translation>읽기 전용 레이어</translation>
     </message>
     <message>
         <source>feature addition</source>
-        <translation type="unfinished"/>
+        <translation>피처 추가</translation>
     </message>
     <message>
         <source>attribute editing</source>
-        <translation type="unfinished"/>
+        <translation>속성 편집</translation>
     </message>
     <message>
         <source>geometry editing</source>
-        <translation type="unfinished"/>
+        <translation>지오메트리 편집</translation>
     </message>
     <message>
         <source>feature deletion</source>
-        <translation type="unfinished"/>
+        <translation>피처 삭제</translation>
     </message>
     <message>
         <source>Disabled layer permissions: %1</source>
-        <translation type="unfinished"/>
+        <translation>비활성화된 레이어 권한: %1</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>레이어 %1 추적이 중지되었습니다</translation>
     </message>
 </context>
 <context>
     <name>LayerUtils</name>
     <message>
         <source>Cannot start editing, no layer</source>
-        <translation>Cannot start editing, no layer</translation>
+        <translation>편집을 시작할 수 없습니다. 레이어가 없습니다</translation>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation>편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Cannot commit deletion of feature %2 in layer &quot;%1&quot;. Reason:
+        <translation>레이어 &quot;%1&quot;에서 피처 %2 삭제를 저장할 수 없습니다. 이유:
 %3</translation>
     </message>
     <message>
         <source>Cannot commit deletion in layer &quot;%1&quot;. Reason:
 %3</source>
-        <translation>Cannot commit deletion in layer &quot;%1&quot;. Reason:
+        <translation>레이어 &quot;%1&quot;에서 삭제를 저장할 수 없습니다. 이유:
 %3</translation>
     </message>
     <message>
         <source>Cannot delete feature %1</source>
-        <translation>Cannot delete feature %1</translation>
+        <translation>피처 %1을(를) 삭제할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation>레이어 %1의 변경 사항을 롤백할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot copy invalid feature</source>
-        <translation>Cannot copy invalid feature</translation>
+        <translation>유효하지 않은 피처는 복사할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;. Reason:
 %2</source>
-        <translation>Cannot add new feature in layer &quot;%1&quot;. Reason:
+        <translation>레이어 &quot;%1&quot;에 새 피처를 추가할 수 없습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Cannot add new feature in layer &quot;%1&quot;.</source>
-        <translation type="vanished">Cannot add new feature in layer &quot;%1&quot;.</translation>
+        <translation type="vanished">레이어 &quot;%1&quot;에 새 피처를 추가할 수 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>Legend</name>
     <message>
         <source>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</source>
-        <translation>This layer is invalid. This might be due to a network issue, a missing file or a misconfiguration of the project.</translation>
+        <translation>이 레이어가 유효하지 않습니다. 네트워크 문제, 파일 누락 또는 프로젝트 설정 오류일 수 있습니다.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</source>
-        <translation>This layer is configured as &quot;Read-Only&quot; which disables adding, deleting and editing features.</translation>
+        <translation>이 레이어는 &quot;읽기 전용&quot;으로 설정되어 피처 추가, 삭제 및 편집이 비활성화됩니다.</translation>
     </message>
     <message>
         <source>This layer is configured as &quot;Lock Geometries&quot; which disables adding and deleting features, as well as modifying the geometries of existing features.</source>
-        <translation type="unfinished"/>
+        <translation>이 레이어는 &quot;지오메트리 잠금&quot;으로 설정되어 피처 추가 및 삭제, 기존 피처의 지오메트리 수정이 비활성화됩니다.</translation>
     </message>
     <message>
         <source>Stop</source>
-        <translation type="unfinished"/>
+        <translation>중지</translation>
     </message>
     <message>
         <source>Track on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>레이어 %1 추적이 중지되었습니다</translation>
     </message>
     <message>
         <source>The permissions configuration of this layer disables feature addition.</source>
-        <translation type="unfinished"/>
+        <translation>이 레이어의 권한 설정으로 인해 피처 추가가 비활성화되어 있습니다.</translation>
     </message>
     <message>
         <source>Tracking active on this layer.</source>
-        <translation type="unfinished"/>
+        <translation>이 레이어에서 추적이 활성화되어 있습니다.</translation>
     </message>
     <message>
         <source>Tracking on layer %1 stopped</source>
-        <translation type="unfinished"/>
+        <translation>레이어 %1 추적이 중지되었습니다</translation>
     </message>
 </context>
 <context>
@@ -1605,56 +1605,56 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Created projects</source>
-        <translation type="unfinished"/>
+        <translation>생성된 프로젝트</translation>
     </message>
 </context>
 <context>
     <name>LocatorFiltersModel</name>
     <message>
         <source>Returns a list of features accross all searchable layers with matching attributes</source>
-        <translation type="vanished">Returns a list of features accross all searchable layers with matching attributes</translation>
+        <translation type="vanished">속성이 일치하는 모든 검색 가능한 레이어의 피처 목록을 반환합니다</translation>
     </message>
     <message>
         <source>Returns a point from a pair of X and Y coordinates typed in the search bar</source>
-        <translation type="vanished">Returns a point from a pair of X and Y coordinates typed in the search bar</translation>
+        <translation type="vanished">검색창에 입력한 X, Y 좌표에 해당하는 지점을 반환합니다</translation>
     </message>
     <message>
         <source>Returns a list of bookmark with matching names</source>
-        <translation type="vanished">Returns a list of bookmark with matching names</translation>
+        <translation type="vanished">이름이 일치하는 북마크 목록을 반환합니다</translation>
     </message>
     <message>
         <source>Returns a list of locations and addresses within Finland with matching terms</source>
-        <translation type="vanished">Returns a list of locations and addresses within Finland with matching terms</translation>
+        <translation type="vanished">검색어와 일치하는 핀란드 내 위치 및 주소 목록을 반환합니다</translation>
     </message>
     <message>
         <source>Search filters for your locations have been activated, customize results in the settings panel</source>
-        <translation>Search filters for your locations have been activated, customize results in the settings panel</translation>
+        <translation>위치 검색 필터가 활성화되었습니다. 설정 패널에서 결과를 맞춤 설정하세요</translation>
     </message>
 </context>
 <context>
     <name>LocatorItem</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Search…</translation>
+        <translation type="vanished">검색…</translation>
     </message>
     <message>
         <source>To search features within the active layer, select a vector layer through the legend.</source>
-        <translation type="unfinished"/>
+        <translation>활성 레이어에서 피처를 검색하려면 범례에서 벡터 레이어를 선택하세요.</translation>
     </message>
     <message>
         <source>Activate a vector layer in the legend first to use this functionality</source>
-        <translation type="unfinished"/>
+        <translation>이 기능을 사용하려면 먼저 범례에서 벡터 레이어를 활성화하세요</translation>
     </message>
 </context>
 <context>
     <name>LocatorSettings</name>
     <message>
         <source>Search Settings</source>
-        <translation type="vanished">Search Settings</translation>
+        <translation type="vanished">검색 설정</translation>
     </message>
     <message>
         <source>Trigger without its prefix</source>
-        <translation type="vanished">Trigger without its prefix</translation>
+        <translation type="vanished">접두사 없이 실행</translation>
     </message>
     <message>
         <source>Search Bar Settings</source>
@@ -1662,215 +1662,215 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>When disabled, this locator filter can still be used by typing the prefix %1 in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>비활성화된 경우에도 검색창에 접두사 %1을 입력하면 이 로케이터 필터를 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Enable %1 locator by default</source>
-        <translation type="unfinished"/>
+        <translation>기본적으로 %1 로케이터 활성화</translation>
     </message>
 </context>
 <context>
     <name>MessageLog</name>
     <message>
         <source>Message Logs</source>
-        <translation>Message Logs</translation>
+        <translation>메시지 로그</translation>
     </message>
     <message>
         <source>Message text copied</source>
-        <translation>Message text copied</translation>
+        <translation>메시지 텍스트가 복사되었습니다</translation>
     </message>
     <message>
         <source>Clear message log</source>
-        <translation>Clear message log</translation>
+        <translation>메시지 로그 지우기</translation>
     </message>
     <message>
         <source>Message log cleared</source>
-        <translation>Message log cleared</translation>
+        <translation>메시지 로그가 지워졌습니다</translation>
     </message>
     <message>
         <source>Send application log</source>
-        <translation>Send application log</translation>
+        <translation>앱 로그 전송</translation>
     </message>
     <message>
         <source>Your application log is being sent</source>
-        <translation type="vanished">Your application log is being sent</translation>
+        <translation type="vanished">앱 로그를 전송 중입니다</translation>
     </message>
     <message>
         <source>Log runtime profiler</source>
-        <translation type="unfinished"/>
+        <translation>런타임 프로파일러 로그</translation>
     </message>
     <message>
         <source>Type optional details</source>
-        <translation type="unfinished"/>
+        <translation>선택적 세부 정보 입력</translation>
     </message>
     <message>
         <source>Include cloud user details</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 사용자 정보 포함</translation>
     </message>
     <message>
         <source>This will send a log of your current session to the development team. You only need to do this when you are asked for it.</source>
-        <translation type="unfinished"/>
+        <translation>현재 세션 로그를 개발팀에 전송합니다. 요청받은 경우에만 사용하세요.</translation>
     </message>
     <message>
         <source>Your application log is being sent…</source>
-        <translation type="unfinished"/>
+        <translation>앱 로그를 전송 중입니다…</translation>
     </message>
 </context>
 <context>
     <name>MultiFeatureListModelBase</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation>편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation>레이어 %1의 변경 사항을 롤백할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot change geometry of feature %1 in %2</source>
-        <translation>Cannot change geometry of feature %1 in %2</translation>
+        <translation>%2에서 피처 %1의 지오메트리를 변경할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>NavigationBar</name>
     <message>
         <source>Features</source>
-        <translation>Features</translation>
+        <translation>피처</translation>
     </message>
     <message>
         <source>Feature List Menu</source>
-        <translation>Feature List Menu</translation>
+        <translation>피처 목록 메뉴</translation>
     </message>
     <message>
         <source>Toggle Feature Selection</source>
-        <translation>Toggle Feature Selection</translation>
+        <translation>피처 선택 전환</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to PDF</source>
-        <translation>Print Atlas Feature(s) to PDF</translation>
+        <translation>아틀라스 피처 PDF로 인쇄</translation>
     </message>
     <message>
         <source>Merge Selected Features</source>
-        <translation>Merge Selected Features</translation>
+        <translation>선택한 피처 병합</translation>
     </message>
     <message>
         <source>Move Selected Feature(s)</source>
-        <translation>Move Selected Feature(s)</translation>
+        <translation>선택한 피처 이동</translation>
     </message>
     <message>
         <source>Duplicate Selected Feature(s)</source>
-        <translation>Duplicate Selected Feature(s)</translation>
+        <translation>선택한 피처 복제</translation>
     </message>
     <message>
         <source>Delete Selected Feature(s)</source>
-        <translation>Delete Selected Feature(s)</translation>
+        <translation>선택한 피처 삭제</translation>
     </message>
     <message>
         <source>Feature Menu</source>
-        <translation>Feature Menu</translation>
+        <translation>피처 메뉴</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation type="vanished">Print Atlas Feature to PDF</translation>
+        <translation type="vanished">아틀라스 피처 PDF로 인쇄</translation>
     </message>
     <message>
         <source>Zoom to Feature</source>
-        <translation>Zoom to Feature</translation>
+        <translation>피처로 확대</translation>
     </message>
     <message>
         <source>Auto-Zoom to Feature</source>
-        <translation>Auto-Zoom to Feature</translation>
+        <translation>피처 자동 확대</translation>
     </message>
     <message>
         <source>Set Feature as Destination</source>
-        <translation type="vanished">Set Feature as Destination</translation>
+        <translation type="vanished">피처를 목적지로 설정</translation>
     </message>
     <message>
         <source>Move Feature</source>
-        <translation>Move Feature</translation>
+        <translation>피처 이동</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>Duplicate Feature</translation>
+        <translation>피처 복제</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Delete Feature</translation>
+        <translation>피처 삭제</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Select template below</translation>
+        <translation>아래에서 템플릿 선택</translation>
     </message>
     <message>
         <source>Printing atlas feature(s) to PDF</source>
-        <translation type="vanished">Printing atlas feature(s) to PDF</translation>
+        <translation type="vanished">아틀라스 피처를 PDF로 인쇄 중</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed to PDF and placed in your documents</source>
-        <translation type="vanished">Atlas feature(s) successfully printed to PDF and placed in your documents</translation>
+        <translation type="vanished">아틀라스 피처가 PDF로 인쇄되어 문서에 저장되었습니다</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s) to Image</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 피처 이미지로 인쇄</translation>
     </message>
     <message>
         <source>Print Atlas Feature to Image</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 피처 이미지로 인쇄</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 피처 인쇄</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>인쇄 중...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 피처가 성공적으로 인쇄되어 프로젝트 폴더에 저장되었습니다</translation>
     </message>
     <message>
         <source>Feature attributes updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>클립보드에서 피처 속성이 업데이트되었습니다</translation>
     </message>
     <message>
         <source>No feature attributes were updated from clipboard</source>
-        <translation type="unfinished"/>
+        <translation>클립보드에서 업데이트된 피처 속성이 없습니다</translation>
     </message>
     <message>
         <source>Feature set as navigation destination</source>
-        <translation type="unfinished"/>
+        <translation>피처가 탐색 목적지로 설정되었습니다</translation>
     </message>
     <message>
         <source>Process Selected Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>선택한 피처 처리</translation>
     </message>
     <message>
         <source>Rotate Feature</source>
-        <translation type="unfinished"/>
+        <translation>피처 회전</translation>
     </message>
     <message>
         <source>Update Attributes from Feature</source>
-        <translation type="unfinished"/>
+        <translation>피처에서 속성 업데이트</translation>
     </message>
     <message>
         <source>Process Feature</source>
-        <translation type="unfinished"/>
+        <translation>피처 처리</translation>
     </message>
     <message>
         <source>Feature copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>피처가 클립보드에 복사되었습니다</translation>
     </message>
     <message>
         <source>Feature cut into clipboard</source>
-        <translation type="unfinished"/>
+        <translation>피처가 클립보드에 잘라내기되었습니다</translation>
     </message>
 </context>
 <context>
     <name>NavigationInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation type="vanished">위도</translation>
     </message>
     <message>
         <source>X</source>
@@ -1878,15 +1878,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation type="vanished">경도</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>중심점</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>경도</translation>
     </message>
     <message>
         <source>Y</source>
@@ -1894,11 +1894,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>위도</translation>
     </message>
     <message>
         <source>Dist.</source>
-        <translation>Dist.</translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -1906,26 +1906,26 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Bearing</translation>
+        <translation>방위각</translation>
     </message>
 </context>
 <context>
     <name>OrderedRelationModel</name>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation>편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation>레이어 %1의 변경 사항을 롤백할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Cannot commit layer changes in layer %1.</translation>
+        <translation>레이어 %1의 변경 사항을 저장할 수 없습니다.</translation>
     </message>
     <message>
         <source>Cannot update features ordering</source>
-        <translation>Cannot update features ordering</translation>
+        <translation>피처 순서를 업데이트할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -1940,98 +1940,98 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Last changes discarded</source>
-        <translation type="vanished">Last changes discarded</translation>
+        <translation type="vanished">마지막 변경 사항이 취소되었습니다</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
-        <translation type="vanished">Constraints not valid</translation>
+        <translation type="vanished">제약 조건이 유효하지 않습니다</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>하드 제약 조건이 충족되지 않았습니다</translation>
     </message>
 </context>
 <context>
     <name>PlatformUtilities</name>
     <message>
         <source>Select Media File</source>
-        <translation type="vanished">Select Media File</translation>
+        <translation type="vanished">미디어 파일 선택</translation>
     </message>
     <message>
         <source>JPEG images (*.jpg *.jpeg)</source>
-        <translation type="vanished">JPEG images (*.jpg *.jpeg)</translation>
+        <translation type="vanished">JPEG 이미지 (*.jpg *.jpeg)</translation>
     </message>
     <message>
         <source>Failed to save gallery picture</source>
-        <translation type="vanished">Failed to save gallery picture</translation>
+        <translation type="vanished">갤러리 사진 저장에 실패했습니다</translation>
     </message>
     <message>
         <source>Open File</source>
-        <translation>Open File</translation>
+        <translation>파일 열기</translation>
     </message>
     <message>
         <source>All Supported Files</source>
-        <translation>All Supported Files</translation>
+        <translation>지원되는 모든 파일</translation>
     </message>
     <message>
         <source>QGIS Project Files</source>
-        <translation>QGIS Project Files</translation>
+        <translation>QGIS 프로젝트 파일</translation>
     </message>
     <message>
         <source>Vector Datasets</source>
-        <translation>Vector Datasets</translation>
+        <translation>벡터 데이터셋</translation>
     </message>
     <message>
         <source>Raster Datasets</source>
-        <translation>Raster Datasets</translation>
+        <translation>래스터 데이터셋</translation>
     </message>
     <message>
         <source>Failed to save file resource</source>
-        <translation type="unfinished"/>
+        <translation>파일 리소스 저장에 실패했습니다</translation>
     </message>
     <message>
         <source>Select Image File</source>
-        <translation type="unfinished"/>
+        <translation>이미지 파일 선택</translation>
     </message>
     <message>
         <source>All images (*.jpg *.jpeg *.png *.bmp);;JPEG images (*.jpg *.jpeg);;PNG images (*.jpg *.jpeg);;BMP images (*.bmp)</source>
-        <translation type="unfinished"/>
+        <translation>모든 이미지 (*.jpg *.jpeg *.png *.bmp);;JPEG 이미지 (*.jpg *.jpeg);;PNG 이미지 (*.jpg *.jpeg);;BMP 이미지 (*.bmp)</translation>
     </message>
     <message>
         <source>Select Video File</source>
-        <translation type="unfinished"/>
+        <translation>동영상 파일 선택</translation>
     </message>
     <message>
         <source>All video (*.mp4 *.mkv *.mov);;MP4 video (*.mp4);;MKV video(*.mkv);;MOV video (*.mov)</source>
-        <translation type="unfinished"/>
+        <translation>모든 동영상 (*.mp4 *.mkv *.mov);;MP4 동영상 (*.mp4);;MKV 동영상 (*.mkv);;MOV 동영상 (*.mov)</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg)</source>
-        <translation type="unfinished"/>
+        <translation>오디오 파일 (*.mp3 *.aac *.ogg)</translation>
     </message>
     <message>
         <source>All files (*.*)</source>
-        <translation type="unfinished"/>
+        <translation>모든 파일 (*.*)</translation>
     </message>
     <message>
         <source>Select File</source>
-        <translation type="unfinished"/>
+        <translation>파일 선택</translation>
     </message>
     <message>
         <source>Audio files (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</source>
-        <translation type="unfinished"/>
+        <translation>오디오 파일 (*.mp3 *.aac *.ogg *.m4a *.mp4 *.mov)</translation>
     </message>
     <message>
         <source>Removal Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>삭제 확인</translation>
     </message>
     <message>
         <source>The dataset will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>데이터셋이 삭제됩니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>The project folder will be deleted, proceed with removal?</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더가 삭제됩니다. 계속하시겠습니까?</translation>
     </message>
 </context>
 <context>
