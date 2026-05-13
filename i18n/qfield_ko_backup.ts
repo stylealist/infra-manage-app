@@ -3383,7 +3383,7 @@ While you can still view and use the project, it is strongly recommended to rese
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>클라우드 프로젝트</translation>
+        <translation>QFieldCloud Projects</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
@@ -3607,7 +3607,7 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
-        <translation>로컬 프로젝트 및 데이터셋</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Folders</source>
@@ -5370,12 +5370,14 @@ projects</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Local projects and datasets</source>
-        <translation type="vanished">로컬 프로젝트 및 데이터셋</translation>
+        <source>Local projects and
+ datasets</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create new project</source>
-        <translation type="vanished">신규 프로젝트 생성</translation>
+        <source>Create new
+project</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
