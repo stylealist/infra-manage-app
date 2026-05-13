@@ -5298,7 +5298,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Recent Projects</source>
-        <translation>Recent Projects</translation>
+        <translation>최근 프로젝트</translation>
     </message>
     <message>
         <source>Last session</source>
