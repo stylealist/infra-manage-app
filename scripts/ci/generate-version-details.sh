@@ -19,10 +19,10 @@ if [[ -n ${CI_TAG} ]]; then
 	# ^-- SC2155: Declare and assign separately to avoid masking return values.
 
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-		export APP_NAME="SJ 시설물 관리~"
+		export APP_NAME="QField~"
 		export APP_PACKAGE_NAME="qfield_all_access"
 	else
-		export APP_NAME="SJ 시설물 관리"
+		export APP_NAME="QField"
 		export APP_PACKAGE_NAME="qfield"
 	fi
 	export APP_ICON="qfield_logo"
@@ -38,10 +38,10 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
 		export APP_NAME="${CUSTOM_APP_NAME:-QField~ Dev}"
-		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-SJ 시설물 관리_dev}"
+		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_all_access_dev}"
 	else
 		export APP_NAME="${CUSTOM_APP_NAME:-QField Dev}"
-		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-SJ 시설물 관리_dev}"
+		export APP_PACKAGE_NAME="${CUSTOM_APP_PACKAGE_NAME:-qfield_dev}"
 	fi
 	export APP_ICON="qfield_logo_beta"
 	export APP_VERSION=""
@@ -58,10 +58,10 @@ elif [[ ${CI_PULL_REQUEST} = false ]]; then
 else
 	echo "Building pull request beta"
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-		export APP_NAME="SJ 시설물 관리~ Beta ${CI_PULL_REQUEST_NUMBER}"
+		export APP_NAME="QField~ Beta ${CI_PULL_REQUEST_NUMBER}"
 		export APP_PACKAGE_NAME="qfield_all_access_beta"
 	else
-		export APP_NAME="SJ 시설물 관리 Beta ${CI_PULL_REQUEST_NUMBER}"
+		export APP_NAME="QField Beta ${CI_PULL_REQUEST_NUMBER}"
 		export APP_PACKAGE_NAME="qfield_beta"
 	fi
 
