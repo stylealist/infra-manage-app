@@ -205,7 +205,7 @@ void QFieldCloudConnection::setUrl( const QString &url )
 
 QString QFieldCloudConnection::defaultUrl()
 {
-  #return QStringLiteral( "https://app.qfield.cloud" );
+  //return QStringLiteral( "https://app.qfield.cloud" );
   return QStringLiteral( "https://qfield.sj-lab.co.kr" );
 }
 
