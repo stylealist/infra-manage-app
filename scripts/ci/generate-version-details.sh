@@ -19,10 +19,12 @@ if [[ -n ${CI_TAG} ]]; then
 	# ^-- SC2155: Declare and assign separately to avoid masking return values.
 
 	if [[ ${ALL_FILES_ACCESS} == "ON" ]]; then
-		export APP_NAME="QField~"
+		#export APP_NAME="QField~"
+		export APP_NAME="SJ시설물관리"
 		export APP_PACKAGE_NAME="qfield_all_access"
 	else
-		export APP_NAME="QField"
+		#export APP_NAME="QField"
+		export APP_NAME="SJ시설물관리"
 		export APP_PACKAGE_NAME="qfield"
 	fi
 	export APP_ICON="qfield_logo"
