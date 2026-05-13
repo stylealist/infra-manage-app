@@ -23,57 +23,57 @@
     </message>
     <message>
         <source>QField app directories</source>
-        <translation type="unfinished"/>
+        <translation>QField 앱 디렉토리</translation>
     </message>
     <message>
         <source>QField app directory</source>
-        <translation type="unfinished"/>
+        <translation>QField 앱 디렉토리</translation>
     </message>
 </context>
 <context>
     <name>AbstractGnssReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation>Connecting…</translation>
+        <translation>연결 중…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation>Successfully connected</translation>
+        <translation>연결되었습니다</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>연결이 끊어졌습니다</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation>Socket state %1</translation>
+        <translation>소켓 상태 %1</translation>
     </message>
 </context>
 <context>
     <name>ActiveLayerFeaturesLocatorFilter</name>
     <message>
         <source>Limit the search to the field &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>&apos;%1&apos; 필드로 검색 제한</translation>
     </message>
     <message>
         <source>Open form</source>
-        <translation>Open form</translation>
+        <translation>양식 열기</translation>
     </message>
     <message>
         <source>Set feature as destination</source>
-        <translation type="unfinished"/>
+        <translation>피처를 목적지로 설정</translation>
     </message>
     <message>
         <source>Feature has no geometry</source>
-        <translation>Feature has no geometry</translation>
+        <translation>피처에 지오메트리가 없습니다</translation>
     </message>
     <message>
         <source>Features from active layer</source>
-        <translation type="unfinished"/>
+        <translation>활성 레이어의 피처</translation>
     </message>
     <message>
         <source>Returns a list of features from the active layer with matching attributes. Restricting matching to a single attribute is done by identifying its name prefixed with an &apos;@&apos;.</source>
-        <translation type="unfinished"/>
+        <translation>활성 레이어에서 속성이 일치하는 피처 목록을 반환합니다. &apos;@&apos;를 앞에 붙여 특정 속성으로 검색을 제한할 수 있습니다.</translation>
     </message>
 </context>
 <context>
@@ -87,66 +87,66 @@
     <name>AppMissingGridHandler</name>
     <message>
         <source>No transform available between %1 and %2</source>
-        <translation>No transform available between %1 and %2</translation>
+        <translation>%1과 %2 사이에 사용 가능한 변환이 없습니다</translation>
     </message>
     <message>
-        <source>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>This grid is part of the “&lt;i&gt;%1&lt;/i&gt;” package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <source>This grid is part of the "&lt;i&gt;%1&lt;/i&gt;" package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
+        <translation>이 그리드는 "&lt;i&gt;%1&lt;/i&gt;" 패키지의 일부이며, &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
     </message>
     <message>
         <source>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</source>
-        <translation>This grid is available for download from &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.</translation>
+        <translation>이 그리드는 &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
     </message>
     <message>
         <source>projection</source>
-        <translation>projection</translation>
+        <translation>투영</translation>
     </message>
     <message>
-        <source>This transformation requires the grid file “%1”, which is not available for use on the system.</source>
-        <translation>This transformation requires the grid file “%1”, which is not available for use on the system.</translation>
+        <source>This transformation requires the grid file "%1", which is not available for use on the system.</source>
+        <translation>이 변환에는 "%1" 그리드 파일이 필요하지만 시스템에서 사용할 수 없습니다.</translation>
     </message>
     <message>
         <source>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</source>
-        <translation>This grid is part of the &lt;i&gt;%1&lt;/i&gt; package, available for download from &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;.</translation>
+        <translation>이 그리드는 &lt;i&gt;%1&lt;/i&gt; 패키지의 일부이며, &lt;a href=&quot;%2&quot;&gt;%2&lt;/a&gt;에서 다운로드할 수 있습니다.</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an accuracy of %2 meters, while the preferred transformation “&lt;i&gt;%3&lt;/i&gt;” has accuracy %4 meters.&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Current transform "&lt;i&gt;%1&lt;/i&gt;" has an accuracy of %2 meters, while the preferred transformation "&lt;i&gt;%3&lt;/i&gt;" has accuracy %4 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;현재 변환 "&lt;i&gt;%1&lt;/i&gt;"의 정확도는 %2m이며, 권장 변환 "&lt;i&gt;%3&lt;/i&gt;"의 정확도는 %4m입니다.&lt;/p&gt;</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Current transform “&lt;i&gt;%1&lt;/i&gt;” has an unknown accuracy, while the preferred transformation “&lt;i&gt;%2&lt;/i&gt;” has accuracy %3 meters.&lt;/p&gt;</translation>
+        <source>&lt;p&gt;Current transform "&lt;i&gt;%1&lt;/i&gt;" has an unknown accuracy, while the preferred transformation "&lt;i&gt;%2&lt;/i&gt;" has accuracy %3 meters.&lt;/p&gt;</source>
+        <translation>&lt;p&gt;현재 변환 "&lt;i&gt;%1&lt;/i&gt;"의 정확도를 알 수 없으며, 권장 변환 "&lt;i&gt;%2&lt;/i&gt;"의 정확도는 %3m입니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;The preferred transform between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt; is not available for use on the system.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;i&gt;%1&lt;/i&gt;과 &lt;i&gt;%2&lt;/i&gt; 사이의 권장 변환을 시스템에서 사용할 수 없습니다.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</source>
-        <translation>No transform is available between &lt;i&gt;%1&lt;/i&gt; and &lt;i&gt;%2&lt;/i&gt;.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
+        <translation>&lt;i&gt;%1&lt;/i&gt;과 &lt;i&gt;%2&lt;/i&gt; 사이에 사용 가능한 변환이 없습니다.&lt;p style=&quot;color: red&quot;&gt;%3&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Cannot use project transform between %1 and %2</source>
-        <translation>Cannot use project transform between %1 and %2</translation>
+        <translation>%1과 %2 사이의 프로젝트 변환을 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Used a ballpark transform from %1 to %2</source>
-        <translation>Used a ballpark transform from %1 to %2</translation>
+        <translation>%1에서 %2로 대략적인 변환을 사용했습니다</translation>
     </message>
 </context>
 <context>
     <name>AttributeFormModelBase</name>
     <message>
         <source>Expression constraint</source>
-        <translation>Expression constraint</translation>
+        <translation>표현식 제약 조건</translation>
     </message>
     <message>
         <source>Not NULL</source>
-        <translation>Not NULL</translation>
+        <translation>NULL 불가</translation>
     </message>
     <message>
         <source>Unique</source>
-        <translation>Unique</translation>
+        <translation>고유값</translation>
     </message>
 </context>
 <context>
@@ -165,7 +165,7 @@
     </message>
     <message>
         <source>You may check the %1Portable Project%2 documentation page for more help.</source>
-        <translation type="unfinished"/>
+        <translation>자세한 도움말은 %1휴대용 프로젝트%2 문서 페이지를 확인하세요.</translation>
     </message>
 </context>
 <context>
@@ -183,7 +183,7 @@
     <name>Binary</name>
     <message>
         <source>(Blob)</source>
-        <translation type="unfinished"/>
+        <translation>(바이너리 데이터)</translation>
     </message>
 </context>
 <context>
@@ -194,23 +194,23 @@
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation>Scanning for paired devices</translation>
+        <translation>페어링된 기기 검색 중</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation>Scanning failed: %1</translation>
+        <translation>검색 실패: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation>Scanning done</translation>
+        <translation>검색 완료</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation><numerusform>%n device(s) found</numerusform></translation>
+        <translation><numerusform>%n개의 기기를 찾았습니다</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation>Scanning canceled</translation>
+        <translation>검색이 취소되었습니다</translation>
     </message>
     <message>
         <source>Scan</source>
@@ -272,15 +272,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Scanning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>검색 오류: %1</translation>
     </message>
     <message>
         <source>No Bluetooth devices detected.</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기가 감지되지 않았습니다.</translation>
     </message>
     <message>
         <source>Deeper scanning for paired devices</source>
-        <translation type="unfinished"/>
+        <translation>페어링된 기기 정밀 검색</translation>
     </message>
 </context>
 <context>
@@ -291,19 +291,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bluetooth permission denied</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 권한이 거부되었습니다</translation>
     </message>
     <message>
         <source>Bluetooth permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기를 검색하려면 블루투스 권한이 필요합니다</translation>
     </message>
     <message>
         <source>Location permission denied</source>
-        <translation type="unfinished"/>
+        <translation>위치 권한이 거부되었습니다</translation>
     </message>
     <message>
         <source>Location permission is required to scan for bluetooth devices</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 기기를 검색하려면 위치 권한이 필요합니다</translation>
     </message>
 </context>
 <context>
@@ -326,61 +326,61 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Could not find the service UUID on remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트에서 서비스 UUID를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>소켓 읽기/쓰기 시도 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>The protocol is not supported on this platform</source>
-        <translation type="unfinished"/>
+        <translation>이 플랫폼에서는 해당 프로토콜을 지원하지 않습니다</translation>
     </message>
     <message>
         <source>An operation was attempted while the socket was in a state that did not permit it</source>
-        <translation type="unfinished"/>
+        <translation>소켓이 허용되지 않는 상태에서 작업을 시도했습니다</translation>
     </message>
     <message>
         <source>The remote host closed the connection</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트가 연결을 종료했습니다</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>알 수 없는 오류</translation>
     </message>
 </context>
 <context>
     <name>BookmarkLocatorFilter</name>
     <message>
         <source>Spatial bookmarks</source>
-        <translation>Spatial bookmarks</translation>
+        <translation>공간 북마크</translation>
     </message>
     <message>
         <source>Returns a list of user and currently open project bookmarks with matching names.</source>
-        <translation type="unfinished"/>
+        <translation>이름이 일치하는 사용자 및 현재 열린 프로젝트 북마크 목록을 반환합니다.</translation>
     </message>
 </context>
 <context>
     <name>BookmarkProperties</name>
     <message>
         <source>Bookmark Properties</source>
-        <translation type="unfinished"/>
+        <translation>북마크 속성</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>이름</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"/>
+        <translation>색상</translation>
     </message>
     <message>
         <source>Copy bookmark details</source>
-        <translation type="unfinished"/>
+        <translation>북마크 상세 정보 복사</translation>
     </message>
     <message>
         <source>Lon</source>
@@ -400,41 +400,41 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Bookmark details copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>북마크 상세 정보가 클립보드에 복사되었습니다</translation>
     </message>
     <message>
         <source>Remove bookmark</source>
-        <translation type="unfinished"/>
+        <translation>북마크 삭제</translation>
     </message>
     <message>
         <source>You are about to remove a bookmark, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>북마크를 삭제하려고 합니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>Description</source>
-        <translation type="unfinished"/>
+        <translation>설명</translation>
     </message>
     <message>
         <source>Change color</source>
-        <translation type="unfinished"/>
+        <translation>색상 변경</translation>
     </message>
 </context>
 <context>
     <name>BookmarkRenderer</name>
     <message>
         <source>Bookmark: %1</source>
-        <translation>Bookmark: %1</translation>
+        <translation>북마크: %1</translation>
     </message>
     <message>
         <source>Project bookmarks cannot be edited</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 북마크는 편집할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>BrowserPanel</name>
     <message>
         <source>Browser</source>
-        <translation>Browser</translation>
+        <translation>브라우저</translation>
     </message>
 </context>
 <context>
@@ -460,11 +460,11 @@ Cancel to make a minimal device scan instead.</source>
     <name>Changelog</name>
     <message>
         <source>What&apos;s new in QField</source>
-        <translation>What&apos;s new in QField</translation>
+        <translation>QField 새로운 기능</translation>
     </message>
     <message>
         <source>Error while fetching changelog, try again later.</source>
-        <translation>Error while fetching changelog, try again later.</translation>
+        <translation>변경 로그를 불러오는 중 오류가 발생했습니다. 나중에 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>Support QField</source>
@@ -472,84 +472,84 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Check the latest QField changes on </source>
-        <translation>Check the latest QField changes on </translation>
+        <translation>최신 QField 변경 사항 확인: </translation>
     </message>
     <message>
         <source>QField releases page</source>
-        <translation>QField releases page</translation>
+        <translation>QField 릴리스 페이지</translation>
     </message>
 </context>
 <context>
     <name>ChangelogContents</name>
     <message>
         <source>Previous releases on GitHub</source>
-        <translation>Previous releases on GitHub</translation>
+        <translation>GitHub 이전 릴리스</translation>
     </message>
 </context>
 <context>
     <name>CheckBox</name>
     <message>
         <source>True</source>
-        <translation>True</translation>
+        <translation>참</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>False</translation>
+        <translation>거짓</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>비어 있음</translation>
     </message>
 </context>
 <context>
     <name>ClipboardManager</name>
     <message>
         <source>Geometry</source>
-        <translation type="unfinished"/>
+        <translation>지오메트리</translation>
     </message>
     <message>
         <source>Paste failed: no destination layer provided</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 대상 레이어가 없습니다</translation>
     </message>
     <message>
         <source>Cut operation: source and destination layers are the same, skipping paste.</source>
-        <translation type="unfinished"/>
+        <translation>잘라내기 작업: 원본과 대상 레이어가 동일하여 붙여넣기를 건너뜁니다.</translation>
     </message>
     <message>
         <source>Paste failed: clipboard feature is invalid</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 클립보드의 피처가 유효하지 않습니다</translation>
     </message>
     <message>
         <source>Cut failed: could not start editing on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>잘라내기 실패: 원본 레이어 %1의 편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cut failed: could not delete original feature from source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>잘라내기 실패: 원본 레이어 %1에서 피처를 삭제할 수 없습니다</translation>
     </message>
     <message>
         <source>Paste failed: no compatible features could be created</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 호환 가능한 피처를 생성할 수 없습니다</translation>
     </message>
     <message>
         <source>Paste failed: could not start editing on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 레이어 %1의 편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Paste failed: could not add feature to layer %1</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 레이어 %1에 피처를 추가할 수 없습니다</translation>
     </message>
     <message>
         <source>Paste failed: commitChanges failed on layer %1</source>
-        <translation type="unfinished"/>
+        <translation>붙여넣기 실패: 레이어 %1에서 변경 사항 저장에 실패했습니다</translation>
     </message>
     <message>
         <source>Cut commit failed on source layer %1</source>
-        <translation type="unfinished"/>
+        <translation>원본 레이어 %1에서 잘라내기 저장에 실패했습니다</translation>
     </message>
 </context>
 <context>
@@ -563,15 +563,15 @@ Cancel to make a minimal device scan instead.</source>
     <name>CodeReader</name>
     <message>
         <source>NFC text tag detected</source>
-        <translation type="unfinished"/>
+        <translation>NFC 텍스트 태그가 감지되었습니다</translation>
     </message>
     <message>
         <source>Code Reader</source>
-        <translation>큐알코드 스캔</translation>
+        <translation>코드 스캔</translation>
     </message>
     <message>
         <source>Center your device on a code</source>
-        <translation type="unfinished"/>
+        <translation>기기를 코드 중앙에 맞춰주세요</translation>
     </message>
 </context>
 <context>
@@ -586,15 +586,15 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더</translation>
     </message>
     <message>
         <source>The project is read-only.</source>
-        <translation type="unfinished"/>
+        <translation>이 프로젝트는 읽기 전용입니다.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>범례</translation>
     </message>
 </context>
 <context>
@@ -605,7 +605,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Date value set to today.</source>
-        <translation>Date value set to today.</translation>
+        <translation>날짜가 오늘로 설정되었습니다.</translation>
     </message>
     <message>
         <source>Hours</source>
@@ -628,240 +628,240 @@ Cancel to make a minimal device scan instead.</source>
     <name>DeltaListModel</name>
     <message>
         <source>Expected the json document to be an array of delta status</source>
-        <translation>Expected the json document to be an array of delta status</translation>
+        <translation>JSON 문서가 델타 상태 배열이어야 합니다</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object, but the element at #%1 is not</source>
-        <translation>Expected all array elements to be an object, but the element at #%1 is not</translation>
+        <translation>모든 배열 요소가 객체여야 하지만 #%1 요소가 그렇지 않습니다</translation>
     </message>
     <message>
         <source>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</source>
-        <translation>Expected all array elements to be an object containing a key &quot;%1&quot;, but the element at #%2 is not</translation>
+        <translation>모든 배열 요소가 &quot;%1&quot; 키를 포함한 객체여야 하지만 #%2 요소가 그렇지 않습니다</translation>
     </message>
     <message>
         <source>Unrecognized status &quot;%1&quot; for $%2</source>
-        <translation>Unrecognized status &quot;%1&quot; for $%2</translation>
+        <translation>$%2에 대해 인식할 수 없는 상태 &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>DigitizingLogger</name>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</source>
-        <translation>Default value expression for the digitizing logger&apos;s %2 field has a parser error: %3</translation>
+        <translation>디지타이징 로거의 %2 필드 기본값 표현식에 파서 오류가 있습니다: %3</translation>
     </message>
     <message>
         <source>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</source>
-        <translation>Default value expression for the digitizing logger&apos;s %2 field has an evaluation error: %3</translation>
+        <translation>디지타이징 로거의 %2 필드 기본값 표현식에 평가 오류가 있습니다: %3</translation>
     </message>
     <message>
         <source>Digitizing logs layer feature addition failed</source>
-        <translation>Digitizing logs layer feature addition failed</translation>
+        <translation>디지타이징 로그 레이어 피처 추가에 실패했습니다</translation>
     </message>
     <message>
         <source>Digitizing logs layer change commits failed</source>
-        <translation>Digitizing logs layer change commits failed</translation>
+        <translation>디지타이징 로그 레이어 변경 사항 저장에 실패했습니다</translation>
     </message>
     <message>
         <source>Digitizing logs layer editing failed</source>
-        <translation>Digitizing logs layer editing failed</translation>
+        <translation>디지타이징 로그 레이어 편집에 실패했습니다</translation>
     </message>
 </context>
 <context>
     <name>DigitizingToolbar</name>
     <message>
         <source>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</source>
-        <translation>Position accuracy doesn&apos;t meet the minimum requirement, vertex not added</translation>
+        <translation>위치 정확도가 최소 요구 사항을 충족하지 않아 꼭짓점이 추가되지 않았습니다</translation>
     </message>
     <message>
         <source>Cancel digitizing</source>
-        <translation>Cancel digitizing</translation>
+        <translation>디지타이징 취소</translation>
     </message>
     <message>
         <source>The collected positions count does not meet the requirement</source>
-        <translation type="unfinished"/>
+        <translation>수집된 위치 수가 요구 사항을 충족하지 않습니다</translation>
     </message>
     <message>
         <source>Should the digitized geometry be discarded?</source>
-        <translation>Should the digitized geometry be discarded?</translation>
+        <translation>디지타이징된 지오메트리를 삭제하시겠습니까?</translation>
     </message>
 </context>
 <context>
     <name>DrawingTemplateModel</name>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>빈 템플릿</translation>
     </message>
 </context>
 <context>
     <name>EditorWidgetBase</name>
     <message>
         <source>Item Menu</source>
-        <translation type="unfinished"/>
+        <translation>항목 메뉴</translation>
     </message>
 </context>
 <context>
     <name>EgenioussReceiver</name>
     <message>
         <source>Successfully connected</source>
-        <translation type="unfinished"/>
+        <translation>연결되었습니다</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>연결이 끊어졌습니다</translation>
     </message>
     <message>
         <source>Received data is too short to process</source>
-        <translation type="unfinished"/>
+        <translation>수신된 데이터가 너무 짧아 처리할 수 없습니다</translation>
     </message>
     <message>
         <source>Invalid start byte</source>
-        <translation type="unfinished"/>
+        <translation>시작 바이트가 유효하지 않습니다</translation>
     </message>
     <message>
         <source>Received data is too short to contain the payload</source>
-        <translation type="unfinished"/>
+        <translation>수신된 데이터가 너무 짧아 페이로드를 포함할 수 없습니다</translation>
     </message>
     <message>
         <source>Failed to parse JSON</source>
-        <translation type="unfinished"/>
+        <translation>JSON 파싱에 실패했습니다</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>소켓 읽기/쓰기 시도 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트가 연결을 거부했습니다</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP 수신 오류 (%1)</translation>
     </message>
     <message>
         <source>Failed to start egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss 서버를 시작하지 못했습니다.</translation>
     </message>
     <message>
         <source>Failed to stop egeniouss server.</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss 서버를 중지하지 못했습니다.</translation>
     </message>
 </context>
 <context>
     <name>ElevationProfile</name>
     <message>
         <source>Digitize a path to render the elevation profile</source>
-        <translation type="unfinished"/>
+        <translation>고도 프로파일을 표시하려면 경로를 디지타이징하세요</translation>
     </message>
     <message>
         <source>Rendering elevation profile…</source>
-        <translation type="unfinished"/>
+        <translation>고도 프로파일 렌더링 중…</translation>
     </message>
 </context>
 <context>
     <name>Erase</name>
     <message>
         <source>The geometry could not be modified into multiple parts</source>
-        <translation type="unfinished"/>
+        <translation>지오메트리를 여러 부분으로 수정할 수 없습니다</translation>
     </message>
     <message>
         <source>The geometry could not be modified</source>
-        <translation type="unfinished"/>
+        <translation>지오메트리를 수정할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>ExpressionCalculatorLocatorFilter</name>
     <message>
-        <source>Copy “%1” to clipboard</source>
-        <translation type="unfinished"/>
+        <source>Copy "%1" to clipboard</source>
+        <translation>"%1"을 클립보드에 복사</translation>
     </message>
     <message>
         <source>Calculator</source>
-        <translation type="unfinished"/>
+        <translation>계산기</translation>
     </message>
     <message>
         <source>Returns the value of an expression typed in the search bar.</source>
-        <translation type="unfinished"/>
+        <translation>검색창에 입력한 표현식의 값을 반환합니다.</translation>
     </message>
 </context>
 <context>
     <name>ExpressionVariableModel</name>
     <message>
         <source>Not Available</source>
-        <translation>Not Available</translation>
+        <translation>사용 불가</translation>
     </message>
 </context>
 <context>
     <name>ExternalResource</name>
     <message>
         <source>No Value</source>
-        <translation>No Value</translation>
+        <translation>값 없음</translation>
     </message>
     <message>
         <source>Cannot handle this file type</source>
-        <translation>Cannot handle this file type</translation>
+        <translation>이 파일 형식은 지원되지 않습니다</translation>
     </message>
     <message>
         <source>Take a photo</source>
-        <translation type="unfinished"/>
+        <translation>사진 촬영</translation>
     </message>
     <message>
         <source>Take a video</source>
-        <translation type="unfinished"/>
+        <translation>동영상 촬영</translation>
     </message>
     <message>
         <source>Record an audio clip</source>
-        <translation type="unfinished"/>
+        <translation>오디오 녹음</translation>
     </message>
     <message>
         <source>Attach a gallery item</source>
-        <translation type="unfinished"/>
+        <translation>갤러리 항목 첨부</translation>
     </message>
     <message>
         <source>Attach a file</source>
-        <translation type="unfinished"/>
+        <translation>파일 첨부</translation>
     </message>
     <message>
         <source>Draw a sketch</source>
-        <translation type="unfinished"/>
+        <translation>스케치 그리기</translation>
     </message>
     <message>
         <source>The external storage&apos;s authentication configuration ID is missing, please insure it is imported into QField</source>
-        <translation type="unfinished"/>
+        <translation>외부 저장소의 인증 구성 ID가 없습니다. QField에 가져왔는지 확인해 주세요</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>자세히 알아보기</translation>
     </message>
     <message>
         <source>QFieldCloud on-demand attachment error: </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud 온디맨드 첨부 오류: </translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>비어 있음</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
     <name>FeatureForm</name>
     <message>
         <source>Value applied</source>
-        <translation>Value applied</translation>
+        <translation>값이 적용되었습니다</translation>
     </message>
     <message>
         <source>Value skipped</source>
-        <translation>Value skipped</translation>
+        <translation>값을 건너뛰었습니다</translation>
     </message>
     <message>
         <source> (click to toggle)</source>
-        <translation> (click to toggle)</translation>
+        <translation> (클릭하여 전환)</translation>
     </message>
     <message>
         <source>Constraints not valid</source>
@@ -873,134 +873,134 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Unable to save changes</source>
-        <translation>Unable to save changes</translation>
+        <translation>변경 사항을 저장할 수 없습니다</translation>
     </message>
     <message>
         <source>Add feature on %1</source>
-        <translation>Add feature on %1</translation>
+        <translation>%1에 피처 추가</translation>
     </message>
     <message>
         <source>Edit feature on %1</source>
-        <translation>Edit feature on %1</translation>
+        <translation>%1의 피처 편집</translation>
     </message>
     <message>
         <source>View feature on %1</source>
-        <translation>View feature on %1</translation>
+        <translation>%1의 피처 보기</translation>
     </message>
     <message>
         <source>Cancel editing</source>
-        <translation>Cancel editing</translation>
+        <translation>편집 취소</translation>
     </message>
     <message>
         <source>You are about to dismiss the new feature, proceed?</source>
-        <translation>You are about to dismiss the new feature, proceed?</translation>
+        <translation>새 피처를 취소하려고 합니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>You are about to leave editing state, any changes will be lost. Proceed?</source>
-        <translation>You are about to leave editing state, any changes will be lost. Proceed?</translation>
+        <translation>편집 모드를 종료하면 변경 사항이 모두 사라집니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>The last entered value for this field will be remembered and reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>이 필드에 마지막으로 입력한 값이 저장되어 새 피처 생성 시 재사용됩니다</translation>
     </message>
     <message>
         <source>The last entered value for this field will not be reused when creating new features</source>
-        <translation type="unfinished"/>
+        <translation>이 필드에 마지막으로 입력한 값은 새 피처 생성 시 재사용되지 않습니다</translation>
     </message>
     <message>
         <source>Feature addition disabled</source>
-        <translation type="unfinished"/>
+        <translation>피처 추가가 비활성화되어 있습니다</translation>
     </message>
     <message>
         <source>Feature Form Menu</source>
-        <translation type="unfinished"/>
+        <translation>피처 양식 메뉴</translation>
     </message>
     <message>
         <source>Remember All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>재사용 가능한 값 모두 기억</translation>
     </message>
     <message>
         <source>Forget All Reusable Values</source>
-        <translation type="unfinished"/>
+        <translation>재사용 가능한 값 모두 삭제</translation>
     </message>
     <message>
         <source>Soft constraints were not satisified</source>
-        <translation type="unfinished"/>
+        <translation>소프트 제약 조건이 충족되지 않았습니다</translation>
     </message>
     <message>
         <source>Hard constraints not satisfied</source>
-        <translation type="unfinished"/>
+        <translation>하드 제약 조건이 충족되지 않았습니다</translation>
     </message>
 </context>
 <context>
     <name>FeatureHistory</name>
     <message>
         <source>Failed to undo created features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; 레이어에서 생성된 피처 실행 취소에 실패했습니다</translation>
     </message>
     <message>
         <source>Failed to undo deleted features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; 레이어에서 삭제된 피처 실행 취소에 실패했습니다</translation>
     </message>
     <message>
         <source>Failed to undo update features in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; 레이어에서 수정된 피처 실행 취소에 실패했습니다</translation>
     </message>
     <message>
         <source>Failed to commit undo feature modification in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; 레이어에서 피처 수정 실행 취소 저장에 실패했습니다</translation>
     </message>
     <message>
         <source>Failed to rollback undo feature modifications in layer &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;%1&quot; 레이어에서 피처 수정 실행 취소 롤백에 실패했습니다</translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 생성 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo creation of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 생성 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 삭제 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo deletion of %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 삭제 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s) on layer %1.</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 수정 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Undo modifications on %n feature(s).</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 수정 실행 취소.</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 생성 다시 실행</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo creation of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 생성 다시 실행</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 삭제 다시 실행</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo deletion of %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 삭제 다시 실행</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s) on layer %1</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%1 레이어에서 피처 %n개 수정 다시 실행</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>Redo modifications on %n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>피처 %n개 수정 다시 실행</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5290,7 +5290,7 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">QFieldCloud projects</translation>
+        <translation type="vanished">클라우드 프로젝트</translation>
     </message>
     <message>
         <source>Open local file</source>
