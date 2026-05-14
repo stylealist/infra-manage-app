@@ -2038,104 +2038,104 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     <name>PluginItem</name>
     <message>
         <source>Authored by %1%2%3</source>
-        <translation type="unfinished"/>
+        <translation>%1%2%3 제작</translation>
     </message>
     <message>
         <source>Uninstall version %1</source>
-        <translation type="unfinished"/>
+        <translation>버전 %1 제거</translation>
     </message>
     <message>
         <source>Uninstall plugin</source>
-        <translation type="unfinished"/>
+        <translation>플러그인 제거</translation>
     </message>
 </context>
 <context>
     <name>PluginManager</name>
     <message>
         <source>The downloaded zip file could not be decompressed</source>
-        <translation type="unfinished"/>
+        <translation>다운로드된 ZIP 파일의 압축을 풀 수 없습니다</translation>
     </message>
     <message>
         <source>The downloaded zip file does not contain the required main.qml plugin file</source>
-        <translation type="unfinished"/>
+        <translation>다운로드된 ZIP 파일에 필요한 main.qml 플러그인 파일이 없습니다</translation>
     </message>
     <message>
         <source>Can&apos;t save the downloaded file</source>
-        <translation type="unfinished"/>
+        <translation>다운로드된 파일을 저장할 수 없습니다</translation>
     </message>
     <message>
         <source>Download file is not an zipped plugin</source>
-        <translation type="unfinished"/>
+        <translation>다운로드된 파일이 압축된 플러그인이 아닙니다</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 오류</translation>
     </message>
     <message>
         <source>The requested plugin URL is present in the available plugins list, please install via its download button</source>
-        <translation type="unfinished"/>
+        <translation>요청한 플러그인 URL이 사용 가능한 플러그인 목록에 있습니다. 다운로드 버튼을 통해 설치해 주세요</translation>
     </message>
 </context>
 <context>
     <name>PluginManagerSettings</name>
     <message>
         <source>Plugins</source>
-        <translation type="unfinished"/>
+        <translation>플러그인</translation>
     </message>
     <message>
         <source>Install plugin from URL</source>
-        <translation type="unfinished"/>
+        <translation>URL에서 플러그인 설치</translation>
     </message>
     <message>
         <source>Clear remembered permissions</source>
-        <translation type="unfinished"/>
+        <translation>저장된 권한 초기화</translation>
     </message>
     <message>
         <source>Type a URL below to download and install a plugin:</source>
-        <translation type="unfinished"/>
+        <translation>아래에 URL을 입력하여 플러그인을 다운로드하고 설치하세요:</translation>
     </message>
     <message>
         <source>Installing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 설치 중</translation>
     </message>
     <message>
         <source>Are you sure you want to uninstall `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>`%1`을(를) 정말 제거하시겠습니까?</translation>
     </message>
     <message>
         <source>The author details shown above are self-reported by the plugin and not independently verified. Please make sure you trust the plugin&apos;s origin.</source>
-        <translation type="unfinished"/>
+        <translation>위에 표시된 작성자 정보는 플러그인이 자체 제공한 것으로 독립적으로 검증되지 않았습니다. 플러그인의 출처를 신뢰할 수 있는지 확인해 주세요.</translation>
     </message>
     <message>
         <source>Plugins management menu</source>
-        <translation type="unfinished"/>
+        <translation>플러그인 관리 메뉴</translation>
     </message>
     <message>
         <source>Local Plugins</source>
-        <translation type="unfinished"/>
+        <translation>로컬 플러그인</translation>
     </message>
     <message>
         <source>Available Plugins</source>
-        <translation type="unfinished"/>
+        <translation>사용 가능한 플러그인</translation>
     </message>
     <message>
         <source>Search for plugin</source>
-        <translation type="unfinished"/>
+        <translation>플러그인 검색</translation>
     </message>
     <message>
         <source>Fetching available plugins</source>
-        <translation type="unfinished"/>
+        <translation>사용 가능한 플러그인 불러오는 중</translation>
     </message>
     <message>
         <source>No plugins have been installed yet, switch to the %1available plugins%3 tab to try some right away.&lt;br&gt;&lt;br&gt;For more information, %2read the documentation%3.</source>
-        <translation type="unfinished"/>
+        <translation>설치된 플러그인이 없습니다. %1사용 가능한 플러그인%3 탭으로 이동하여 바로 사용해 보세요.&lt;br&gt;&lt;br&gt;자세한 내용은 %2문서를 읽어보세요%3.</translation>
     </message>
 </context>
 <context>
     <name>PositionInformationView</name>
     <message>
         <source>Lat.</source>
-        <translation type="vanished">Lat.</translation>
+        <translation type="vanished">위도</translation>
     </message>
     <message>
         <source>N/A</source>
@@ -2147,11 +2147,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lon.</source>
-        <translation type="vanished">Lon.</translation>
+        <translation type="vanished">경도</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation type="vanished">경도</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2159,7 +2159,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation type="vanished">위도</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2171,11 +2171,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Accuracy</translation>
+        <translation type="vanished">수평 정확도</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Accuracy</translation>
+        <translation type="vanished">수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2191,41 +2191,41 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Valid</translation>
+        <translation type="vanished">유효</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Fix</translation>
+        <translation type="vanished">고정</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Quality</translation>
+        <translation type="vanished">품질</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceModel</name>
     <message>
         <source>Internal device</source>
-        <translation>Internal device</translation>
+        <translation>내부 장치</translation>
     </message>
 </context>
 <context>
     <name>PositioningDeviceSettings</name>
     <message>
         <source>Positioning Device Settings</source>
-        <translation>Positioning 장치 설정</translation>
+        <translation>위치 측정 장치 설정</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>이름:</translation>
     </message>
     <message>
         <source>Leave empty to auto-fill</source>
-        <translation type="unfinished"/>
+        <translation>자동 입력하려면 비워두세요</translation>
     </message>
     <message>
         <source>Connection type:</source>
-        <translation type="unfinished"/>
+        <translation>연결 유형:</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -2233,43 +2233,43 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Bluetooth (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>블루투스 (NMEA)</translation>
     </message>
     <message>
         <source>TCP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>TCP (NMEA)</translation>
     </message>
     <message>
         <source>UDP (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>UDP (NMEA)</translation>
     </message>
     <message>
         <source>Serial port (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 (NMEA)</translation>
     </message>
     <message>
         <source>Egeniouss</source>
-        <translation type="unfinished"/>
+        <translation>Egeniouss</translation>
     </message>
     <message>
         <source>Connection type</source>
-        <translation type="unfinished"/>
+        <translation>연결 유형</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>이름</translation>
     </message>
     <message>
         <source> (leave empty to auto-fill)</source>
-        <translation type="unfinished"/>
+        <translation> (자동 입력하려면 비워두세요)</translation>
     </message>
     <message>
         <source>Connection details</source>
-        <translation type="unfinished"/>
+        <translation>연결 상세 정보</translation>
     </message>
     <message>
         <source>Logs file (NMEA)</source>
-        <translation type="unfinished"/>
+        <translation>로그 파일 (NMEA)</translation>
     </message>
 </context>
 <context>
@@ -2284,15 +2284,15 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation>H. Accuracy</translation>
+        <translation>수평 정확도</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation>V. Accuracy</translation>
+        <translation>수직 정확도</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>경도</translation>
     </message>
     <message>
         <source>X</source>
@@ -2300,7 +2300,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>위도</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2312,22 +2312,22 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>grid</source>
-        <translation type="unfinished"/>
+        <translation>그리드</translation>
     </message>
     <message>
         <source>ortho.</source>
-        <translation type="unfinished"/>
+        <translation>정사</translation>
     </message>
     <message>
         <source>ant.</source>
-        <translation type="unfinished"/>
+        <translation>안테나</translation>
     </message>
 </context>
 <context>
     <name>PositioningInformationView</name>
     <message>
         <source>Lon</source>
-        <translation type="vanished">Lon</translation>
+        <translation type="vanished">경도</translation>
     </message>
     <message>
         <source>X</source>
@@ -2339,7 +2339,7 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Lat</source>
-        <translation type="vanished">Lat</translation>
+        <translation type="vanished">위도</translation>
     </message>
     <message>
         <source>Y</source>
@@ -2355,11 +2355,11 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>H. Accuracy</source>
-        <translation type="vanished">H. Accuracy</translation>
+        <translation type="vanished">수평 정확도</translation>
     </message>
     <message>
         <source>V. Accuracy</source>
-        <translation type="vanished">V. Accuracy</translation>
+        <translation type="vanished">수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -2375,262 +2375,262 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Valid</source>
-        <translation type="vanished">Valid</translation>
+        <translation type="vanished">유효</translation>
     </message>
     <message>
         <source>Fix</source>
-        <translation type="vanished">Fix</translation>
+        <translation type="vanished">고정</translation>
     </message>
     <message>
         <source>Quality</source>
-        <translation type="vanished">Quality</translation>
+        <translation type="vanished">품질</translation>
     </message>
 </context>
 <context>
     <name>PositioningPreciseView</name>
     <message>
         <source>Dist.</source>
-        <translation>Dist.</translation>
+        <translation>거리</translation>
     </message>
     <message>
         <source>Positioning accuracy too low for this precision level</source>
-        <translation type="unfinished"/>
+        <translation>이 정밀도 수준에 비해 위치 정확도가 너무 낮습니다</translation>
     </message>
 </context>
 <context>
     <name>PositioningSettings</name>
     <message>
         <source>Internal device</source>
-        <translation>Internal device</translation>
+        <translation>내부 장치</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmForm</name>
     <message>
         <source>General Parameters</source>
-        <translation type="unfinished"/>
+        <translation>일반 매개변수</translation>
     </message>
     <message>
         <source>Advanced Parameters</source>
-        <translation type="unfinished"/>
+        <translation>고급 매개변수</translation>
     </message>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>도움말</translation>
     </message>
     <message>
         <source>There are no general parameters attached to this algorithm.</source>
-        <translation type="unfinished"/>
+        <translation>이 알고리즘에 연결된 일반 매개변수가 없습니다.</translation>
     </message>
     <message>
         <source>Algorithm description</source>
-        <translation type="unfinished"/>
+        <translation>알고리즘 설명</translation>
     </message>
 </context>
 <context>
     <name>ProcessingAlgorithmsList</name>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>All Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>모든 알고리즘</translation>
     </message>
 </context>
 <context>
     <name>ProjectCreationScreen</name>
     <message>
         <source>Create a new project</source>
-        <translation type="unfinished"/>
+        <translation>새 프로젝트 만들기</translation>
     </message>
     <message>
         <source>This page will guide you through the creation of a simple project through simple configuration toggles. For more advanced needs, we advise you to create projects in QGIS using QFieldSync.</source>
-        <translation type="unfinished"/>
+        <translation>이 페이지에서는 간단한 설정 토글을 통해 프로젝트를 만드는 과정을 안내합니다. 더 고급 기능이 필요한 경우 QFieldSync를 사용하여 QGIS에서 프로젝트를 만드는 것을 권장합니다.</translation>
     </message>
     <message>
         <source>New project name</source>
-        <translation type="unfinished"/>
+        <translation>새 프로젝트 이름</translation>
     </message>
     <message>
         <source>Select your basemap</source>
-        <translation type="unfinished"/>
+        <translation>기본 지도 선택</translation>
     </message>
     <message>
         <source>Choose a basemap for your project. Pick from the available options or provide your own custom URL.</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트의 기본 지도를 선택하세요. 제공된 옵션 중에서 선택하거나 직접 URL을 입력하세요.</translation>
     </message>
     <message>
         <source>Colorful</source>
-        <translation type="unfinished"/>
+        <translation>컬러풀</translation>
     </message>
     <message>
         <source>Darkgray</source>
-        <translation type="unfinished"/>
+        <translation>다크 그레이</translation>
     </message>
     <message>
         <source>Lightgray</source>
-        <translation type="unfinished"/>
+        <translation>라이트 그레이</translation>
     </message>
     <message>
         <source>Blank</source>
-        <translation type="unfinished"/>
+        <translation>빈 화면</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>사용자 지정</translation>
     </message>
     <message>
         <source>Custom basemap URL</source>
-        <translation type="unfinished"/>
+        <translation>사용자 지정 기본 지도 URL</translation>
     </message>
     <message>
         <source>Take notes?</source>
-        <translation type="unfinished"/>
+        <translation>메모를 기록하시겠습니까?</translation>
     </message>
     <message>
         <source>Quickly capture notes with date, time, and comments. Optionally, attach multimedia items such as images and videos to enrich your notes.</source>
-        <translation type="unfinished"/>
+        <translation>날짜, 시간, 댓글과 함께 메모를 빠르게 기록하세요. 이미지나 동영상 등 멀티미디어 항목을 첨부하여 메모를 풍부하게 만들 수 있습니다.</translation>
     </message>
     <message>
         <source>Take image and video attachments</source>
-        <translation type="unfinished"/>
+        <translation>이미지 및 동영상 첨부</translation>
     </message>
     <message>
         <source>Track your position?</source>
-        <translation type="unfinished"/>
+        <translation>위치를 추적하시겠습니까?</translation>
     </message>
     <message>
         <source>Record your location every second, along with date and time, to keep a precise track of your movements.</source>
-        <translation type="unfinished"/>
+        <translation>날짜와 시간과 함께 매초 위치를 기록하여 이동 경로를 정밀하게 추적합니다.</translation>
     </message>
     <message>
         <source>Begin tracking automatically</source>
-        <translation type="unfinished"/>
+        <translation>자동으로 추적 시작</translation>
     </message>
     <message>
         <source>Backup &amp; collaborate?</source>
-        <translation type="unfinished"/>
+        <translation>백업 및 협업하시겠습니까?</translation>
     </message>
     <message>
         <source>QFieldCloud allows to synchronize and merge the data collected by your team in QField. From small individual projects to large data collection campaigns. </source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud를 사용하면 팀이 QField에서 수집한 데이터를 동기화하고 병합할 수 있습니다. 소규모 개인 프로젝트부터 대규모 데이터 수집 캠페인까지 활용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud here</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에 대해 자세히 알아보기</translation>
     </message>
     <message>
         <source>Create Project</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 만들기</translation>
     </message>
     <message>
         <source>My Project</source>
-        <translation type="unfinished"/>
+        <translation>내 프로젝트</translation>
     </message>
 </context>
 <context>
     <name>ProjectUtils</name>
     <message>
         <source>Created Project</source>
-        <translation type="unfinished"/>
+        <translation>생성된 프로젝트</translation>
     </message>
     <message>
         <source>Notes</source>
-        <translation type="unfinished"/>
+        <translation>메모</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>시간</translation>
     </message>
     <message>
         <source>Marker color</source>
-        <translation type="unfinished"/>
+        <translation>마커 색상</translation>
     </message>
     <message>
         <source>Title</source>
-        <translation type="unfinished"/>
+        <translation>제목</translation>
     </message>
     <message>
         <source>Note</source>
-        <translation type="unfinished"/>
+        <translation>메모</translation>
     </message>
     <message>
         <source>Tracks</source>
-        <translation type="unfinished"/>
+        <translation>트랙</translation>
     </message>
     <message>
         <source>Basemap</source>
-        <translation type="unfinished"/>
+        <translation>기본 지도</translation>
     </message>
     <message>
         <source>Media</source>
-        <translation type="unfinished"/>
+        <translation>미디어</translation>
     </message>
     <message>
         <source>Track color</source>
-        <translation type="unfinished"/>
+        <translation>트랙 색상</translation>
     </message>
 </context>
 <context>
     <name>QFieldAppAuthRequestHandler</name>
     <message>
         <source>Please enter credentials for database</source>
-        <translation type="unfinished"/>
+        <translation>데이터베이스 인증 정보를 입력해 주세요</translation>
     </message>
     <message>
         <source>at host</source>
-        <translation type="unfinished"/>
+        <translation>호스트</translation>
     </message>
     <message>
         <source>at service</source>
-        <translation type="unfinished"/>
+        <translation>서비스</translation>
     </message>
 </context>
 <context>
     <name>QFieldAudioRecorder</name>
     <message>
         <source>Audio Recorder</source>
-        <translation type="unfinished"/>
+        <translation>오디오 녹음기</translation>
     </message>
 </context>
 <context>
     <name>QFieldCamera</name>
     <message>
         <source>Geotagging enabled</source>
-        <translation type="unfinished"/>
+        <translation>위치 태그가 활성화되었습니다</translation>
     </message>
     <message>
         <source>Geotagging disabled</source>
-        <translation type="unfinished"/>
+        <translation>위치 태그가 비활성화되었습니다</translation>
     </message>
     <message>
         <source>Grid enabled</source>
-        <translation type="unfinished"/>
+        <translation>그리드가 활성화되었습니다</translation>
     </message>
     <message>
         <source>Grid disabled</source>
-        <translation type="unfinished"/>
+        <translation>그리드가 비활성화되었습니다</translation>
     </message>
     <message>
         <source>front</source>
-        <translation type="unfinished"/>
+        <translation>전면</translation>
     </message>
     <message>
         <source>back</source>
-        <translation type="unfinished"/>
+        <translation>후면</translation>
     </message>
     <message>
         <source>Details stamping enabled</source>
-        <translation type="unfinished"/>
+        <translation>상세 정보 스탬프가 활성화되었습니다</translation>
     </message>
     <message>
         <source>Latitude</source>
-        <translation type="unfinished"/>
+        <translation>위도</translation>
     </message>
     <message>
         <source>Longitude</source>
-        <translation type="unfinished"/>
+        <translation>경도</translation>
     </message>
     <message>
         <source>Altitude</source>
@@ -2642,148 +2642,148 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>Orientation</source>
-        <translation type="unfinished"/>
+        <translation>방향</translation>
     </message>
     <message>
         <source>Details stamping disabled</source>
-        <translation type="unfinished"/>
+        <translation>상세 정보 스탬프가 비활성화되었습니다</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudConnection</name>
     <message>
         <source>[timeout] The request took too long to finish, please retry.</source>
-        <translation>[timeout] The request took too long to finish, please retry.</translation>
+        <translation>[시간 초과] 요청이 너무 오래 걸렸습니다. 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>[aborted] The request has been aborted.</source>
-        <translation>[aborted] The request has been aborted.</translation>
+        <translation>[중단됨] 요청이 중단되었습니다.</translation>
     </message>
     <message>
         <source>Server Error.</source>
-        <translation>Server Error.</translation>
+        <translation>서버 오류.</translation>
     </message>
     <message>
         <source>Network Error.</source>
-        <translation>Network Error.</translation>
+        <translation>네트워크 오류.</translation>
     </message>
     <message>
         <source>Server not found, please check the server URL</source>
-        <translation>Server not found, please check the server URL</translation>
+        <translation>서버를 찾을 수 없습니다. 서버 URL을 확인해 주세요</translation>
     </message>
     <message>
         <source>Timeout error, please retry</source>
-        <translation>Timeout error, please retry</translation>
+        <translation>시간 초과 오류, 다시 시도해 주세요</translation>
     </message>
     <message>
         <source>Wrong username or password</source>
-        <translation>Wrong username or password</translation>
+        <translation>사용자 이름 또는 비밀번호가 올바르지 않습니다</translation>
     </message>
     <message>
         <source>Session expired</source>
-        <translation>Session expired</translation>
+        <translation>세션이 만료되었습니다</translation>
     </message>
     <message>
         <source>Login temporary unavailable</source>
-        <translation>Login temporary unavailable</translation>
+        <translation>로그인을 일시적으로 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation>Failed to upload attachment stored at `%1`, reason:
+        <translation>`%1`에 저장된 첨부 파일 업로드에 실패했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Login error due to unexpected redirect, please retry later</source>
-        <translation type="unfinished"/>
+        <translation>예기치 않은 리디렉션으로 로그인 오류가 발생했습니다. 나중에 다시 시도해 주세요</translation>
     </message>
     <message>
         <source>Authentication provider missing</source>
-        <translation type="unfinished"/>
+        <translation>인증 제공자가 없습니다</translation>
     </message>
     <message>
         <source>Password missing</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호가 없습니다</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudDeltaHistory</name>
     <message>
         <source>Push History</source>
-        <translation>Push History</translation>
+        <translation>푸시 기록</translation>
     </message>
     <message>
         <source>Loading…</source>
-        <translation>Loading…</translation>
+        <translation>불러오는 중…</translation>
     </message>
     <message>
         <source>No changes have been pushed yet!</source>
-        <translation type="unfinished"/>
+        <translation>아직 푸시된 변경 사항이 없습니다!</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudLogin</name>
     <message>
         <source>Failed to login</source>
-        <translation type="vanished">Failed to login</translation>
+        <translation type="vanished">로그인에 실패했습니다</translation>
     </message>
     <message>
         <source>Failed to sign in</source>
-        <translation type="unfinished"/>
+        <translation>로그인에 실패했습니다</translation>
     </message>
     <message>
         <source>Server URL
 (Leave empty to use the default server)</source>
-        <translation>Server URL
-(Leave empty to use the default server)</translation>
+        <translation>서버 URL
+(기본 서버를 사용하려면 비워두세요)</translation>
     </message>
     <message>
         <source>Username or email</source>
-        <translation>Username or email</translation>
+        <translation>사용자 이름 또는 이메일</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>비밀번호</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>로그아웃</translation>
     </message>
     <message>
         <source>Signing in, please wait</source>
-        <translation type="unfinished"/>
+        <translation>로그인 중, 잠시 기다려 주세요</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>로그인</translation>
     </message>
     <message>
         <source>New user?</source>
-        <translation type="unfinished"/>
+        <translation>처음 사용하시나요?</translation>
     </message>
     <message>
         <source>Register an account</source>
-        <translation type="unfinished"/>
+        <translation>계정 등록</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Logout</translation>
+        <translation type="vanished">로그아웃</translation>
     </message>
     <message>
         <source>Logging in, please wait</source>
-        <translation type="vanished">Logging in, please wait</translation>
+        <translation type="vanished">로그인 중, 잠시 기다려 주세요</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="vanished">Login</translation>
+        <translation type="vanished">로그인</translation>
     </message>
     <message>
         <source>The easiest way to transfer you project from QGIS to your devices!</source>
-        <translation>The easiest way to transfer you project from QGIS to your devices!</translation>
+        <translation>QGIS에서 기기로 프로젝트를 가장 쉽게 전송하는 방법!</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Learn more about QFieldCloud</translation>
+        <translation>QFieldCloud에 대해 자세히 알아보기</translation>
     </message>
     <message>
         <source>QFieldCloud</source>
@@ -2791,30 +2791,30 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>또는</translation>
     </message>
     <message>
         <source>Sign in using %1</source>
-        <translation type="unfinished"/>
+        <translation>%1로 로그인</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudPackageLayersFeedback</name>
     <message>
         <source>Problematic QFieldCloud layer packaging</source>
-        <translation type="vanished">Problematic QFieldCloud layer packaging</translation>
+        <translation type="vanished">QFieldCloud 레이어 패키징 문제</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</source>
-        <translation type="vanished">Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server.</translation>
+        <translation type="vanished">일부 레이어가 QFieldCloud에서 올바르게 패키징되지 않았습니다. 이 레이어들이 잘못 구성되었거나 QFieldCloud 서버에서 데이터 소스에 접근할 수 없을 수 있습니다.</translation>
     </message>
     <message>
         <source>QFieldCloud had troubles packaging your project</source>
-        <translation>QFieldCloud had troubles packaging your project</translation>
+        <translation>QFieldCloud에서 프로젝트 패키징 중 문제가 발생했습니다</translation>
     </message>
     <message>
         <source>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</source>
-        <translation>Some layers have not been packaged correctly on QFieldCloud. These layers might be misconfigured or their data source is not accessible from the QFieldCloud server. Please check the logs of the latest packaging job on the qfield.cloud website.</translation>
+        <translation>일부 레이어가 QFieldCloud에서 올바르게 패키징되지 않았습니다. 이 레이어들이 잘못 구성되었거나 QFieldCloud 서버에서 데이터 소스에 접근할 수 없을 수 있습니다. qfield.cloud 웹사이트에서 최신 패키징 작업 로그를 확인해 주세요.</translation>
     </message>
 </context>
 <context>
@@ -2825,411 +2825,411 @@ The features geometries will be combined into feature &apos;%1&apos;, which will
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="vanished">The current project is not stored on QFieldCloud.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">현재 프로젝트가 QFieldCloud에 저장되어 있지 않습니다.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="vanished">Storing projects on QFieldCloud offers seamless synchornization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</translation>
+        <translation type="vanished">QFieldCloud에 프로젝트를 저장하면 원활한 동기화, 오프라인 편집, 팀 관리 기능을 사용할 수 있습니다.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Learn more about QFieldCloud</source>
-        <translation>Learn more about QFieldCloud</translation>
+        <translation>QFieldCloud에 대해 자세히 알아보기</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation type="vanished">Disconnected from the cloud.</translation>
+        <translation type="vanished">클라우드 연결이 끊어졌습니다.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Connecting to the cloud.</translation>
+        <translation>클라우드에 연결 중입니다.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt;님, 환영합니다.</translation>
     </message>
     <message>
         <source>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</source>
-        <translation>This QFieldCloud project was first downloaded with another cloud account. Please sign in with the original account for this project to use the QFieldCloud functionality.</translation>
+        <translation>이 QFieldCloud 프로젝트는 다른 클라우드 계정으로 처음 다운로드되었습니다. QFieldCloud 기능을 사용하려면 이 프로젝트의 원래 계정으로 로그인해 주세요.</translation>
     </message>
     <message>
         <source>Downloading %1%…</source>
-        <translation type="vanished">Downloading %1%…</translation>
+        <translation type="vanished">%1% 다운로드 중…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</translation>
+        <translation type="vanished">QFieldCloud에서 최신 데이터를 준비 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요…</translation>
     </message>
     <message>
         <source>Uploading %1%…</source>
-        <translation type="vanished">Uploading %1%…</translation>
+        <translation type="vanished">%1% 업로드 중…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud is applying the latest uploaded changes. This might take some time, please hold tight…</translation>
+        <translation type="vanished">QFieldCloud에서 최신 업로드된 변경 사항을 적용 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요…</translation>
     </message>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation type="vanished">A server error has occured, please try again.</translation>
+        <translation type="vanished">서버 오류가 발생했습니다. 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation type="vanished">A network error has occured, please try again.</translation>
+        <translation type="vanished">네트워크 오류가 발생했습니다. 다시 시도해 주세요.</translation>
     </message>
     <message numerus="yes">
         <source>There is/are %n local change(s)</source>
-        <translation><numerusform>There is/are %n local change(s)</numerusform></translation>
+        <translation><numerusform>로컬 변경 사항이 %n개 있습니다</numerusform></translation>
     </message>
     <message>
         <source>There are no local changes</source>
-        <translation>There are no local changes</translation>
+        <translation>로컬 변경 사항이 없습니다</translation>
     </message>
     <message>
         <source>The locally stored cloud project has been corrupted</source>
-        <translation>The locally stored cloud project has been corrupted</translation>
+        <translation>로컬에 저장된 클라우드 프로젝트가 손상되었습니다</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Synchronize</translation>
+        <translation>동기화</translation>
     </message>
     <message>
         <source>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</source>
-        <translation>Synchronize the whole project with all modified features and download the freshly updated project with all the applied changes from QFieldCloud.</translation>
+        <translation>수정된 모든 피처와 함께 전체 프로젝트를 동기화하고 QFieldCloud에서 적용된 변경 사항이 포함된 최신 프로젝트를 다운로드합니다.</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push changes</translation>
+        <translation>변경 사항 푸시</translation>
     </message>
     <message>
         <source>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</source>
-        <translation>Save internet bandwidth by only pushing the local features and pictures to the cloud, without updating the whole project.</translation>
+        <translation>전체 프로젝트를 업데이트하지 않고 로컬 피처와 사진만 클라우드에 푸시하여 인터넷 대역폭을 절약합니다.</translation>
     </message>
     <message>
         <source>Revert local changes</source>
-        <translation>Revert local changes</translation>
+        <translation>로컬 변경 사항 되돌리기</translation>
     </message>
     <message>
         <source>Reset project</source>
-        <translation>Reset project</translation>
+        <translation>프로젝트 초기화</translation>
     </message>
     <message>
         <source>Revert all modified features in the local layers. You cannot restore those changes.</source>
-        <translation type="unfinished"/>
+        <translation>로컬 레이어에서 수정된 모든 피처를 되돌립니다. 이 변경 사항은 복원할 수 없습니다.</translation>
     </message>
     <message>
         <source>Revert all modified features in the local cloud layers. You cannot restore those changes.</source>
-        <translation type="vanished">Revert all modified features in the local cloud layers. You cannot restore those changes.</translation>
+        <translation type="vanished">로컬 클라우드 레이어에서 수정된 모든 피처를 되돌립니다. 이 변경 사항은 복원할 수 없습니다.</translation>
     </message>
     <message>
         <source>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
 
 While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</source>
-        <translation>The local copy of this cloud project has been corrupted. Resetting the project will re-download the cloud version and will remove any local changes, make sure those were copied first if needed.
+        <translation>이 클라우드 프로젝트의 로컬 사본이 손상되었습니다. 프로젝트를 초기화하면 클라우드 버전을 다시 다운로드하고 로컬 변경 사항이 삭제됩니다. 필요한 경우 먼저 복사해 두세요.
 
-While you can still view and use the project, it is strongly recommended to reset to avoid any accidental data loss as none of the changes made will be pushed back to the cloud.</translation>
+프로젝트를 계속 보고 사용할 수 있지만, 변경 사항이 클라우드에 푸시되지 않으므로 데이터 손실을 방지하기 위해 초기화하는 것을 강력히 권장합니다.</translation>
     </message>
     <message>
         <source>Last synchronized just now</source>
-        <translation>Last synchronized just now</translation>
+        <translation>방금 동기화되었습니다</translation>
     </message>
     <message>
         <source>Last synchronized %1 minutes ago</source>
-        <translation>Last synchronized %1 minutes ago</translation>
+        <translation>%1분 전에 동기화되었습니다</translation>
     </message>
     <message>
         <source>Last synchronized at %1</source>
-        <translation>Last synchronized at %1</translation>
+        <translation>%1에 동기화되었습니다</translation>
     </message>
     <message>
         <source>Last synchronized on %1</source>
-        <translation>Last synchronized on %1</translation>
+        <translation>%1에 동기화되었습니다</translation>
     </message>
     <message>
         <source>Last changes pushed just now</source>
-        <translation>Last changes pushed just now</translation>
+        <translation>방금 변경 사항이 푸시되었습니다</translation>
     </message>
     <message>
         <source>Last changes pushed %1 minutes ago</source>
-        <translation>Last changes pushed %1 minutes ago</translation>
+        <translation>%1분 전에 변경 사항이 푸시되었습니다</translation>
     </message>
     <message>
         <source>Last changes pushed at %1</source>
-        <translation>Last changes pushed at %1</translation>
+        <translation>%1에 변경 사항이 푸시되었습니다</translation>
     </message>
     <message>
         <source>Last changes pushed on %1</source>
-        <translation>Last changes pushed on %1</translation>
+        <translation>%1에 변경 사항이 푸시되었습니다</translation>
     </message>
     <message>
         <source>No changes pushed yet</source>
-        <translation>No changes pushed yet</translation>
+        <translation>아직 푸시된 변경 사항이 없습니다</translation>
     </message>
     <message numerus="yes">
         <source>%n attachment(s) are currently being uploaded in the background.</source>
-        <translation type="vanished"><numerusform>%n attachment(s) are currently being uploaded in the background.</numerusform></translation>
+        <translation type="vanished"><numerusform>첨부 파일 %n개가 백그라운드에서 업로드 중입니다.</numerusform></translation>
     </message>
     <message>
         <source>Should local changes be reverted?</source>
-        <translation>Should local changes be reverted?</translation>
+        <translation>로컬 변경 사항을 되돌리시겠습니까?</translation>
     </message>
     <message>
         <source>Reset cloud project</source>
-        <translation>Reset cloud project</translation>
+        <translation>클라우드 프로젝트 초기화</translation>
     </message>
     <message>
         <source>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</source>
-        <translation>Last warning, resetting the cloud project will erase any local changes, are you sure you want to go ahead?</translation>
+        <translation>마지막 경고입니다. 클라우드 프로젝트를 초기화하면 모든 로컬 변경 사항이 삭제됩니다. 계속하시겠습니까?</translation>
     </message>
     <message>
         <source>Connecting cloud</source>
-        <translation>Connecting cloud</translation>
+        <translation>클라우드에 연결 중</translation>
     </message>
     <message>
         <source>Local changes reverted</source>
-        <translation>Local changes reverted</translation>
+        <translation>로컬 변경 사항이 되돌려졌습니다</translation>
     </message>
     <message>
         <source>Failed to revert changes</source>
-        <translation>Failed to revert changes</translation>
+        <translation>변경 사항 되돌리기에 실패했습니다</translation>
     </message>
     <message>
         <source>No changes to revert</source>
-        <translation>No changes to revert</translation>
+        <translation>되돌릴 변경 사항이 없습니다</translation>
     </message>
     <message>
         <source>This project has an updated project file on the cloud, you are advised to synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>클라우드에 업데이트된 프로젝트 파일이 있습니다. 동기화하는 것을 권장합니다.</translation>
     </message>
     <message>
         <source>This project has updated data on the cloud, you should synchronize.</source>
-        <translation type="unfinished"/>
+        <translation>클라우드에 업데이트된 데이터가 있습니다. 동기화해 주세요.</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 최신 데이터를 패키징 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>다운로드 중, %2 중 %1% 완료</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>다운로드 중, %1% 완료</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 프로젝트를 다운로드하는 중입니다</translation>
     </message>
     <message numerus="yes">
         <source>Automatically push changes every %n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>매 %n분마다 자동으로 변경 사항 푸시</numerusform></translation>
     </message>
     <message>
         <source>The current project does not allow for auto-push to be turned off</source>
-        <translation type="unfinished"/>
+        <translation>현재 프로젝트는 자동 푸시를 끌 수 없습니다</translation>
     </message>
     <message>
         <source>Storing projects on QFieldCloud offers seamless synchronization, offline editing, and team management.&lt;br&gt;&lt;br&gt;</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에 프로젝트를 저장하면 원활한 동기화, 오프라인 편집, 팀 관리 기능을 사용할 수 있습니다.&lt;br&gt;&lt;br&gt;</translation>
     </message>
     <message>
         <source>Pushing changes, %1%…</source>
-        <translation type="unfinished"/>
+        <translation>변경 사항 푸시 중, %1%…</translation>
     </message>
     <message>
         <source>QFieldCloud is applying the latest pushed changes. This might take some time, please hold tight…</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 최신 푸시된 변경 사항을 적용 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요…</translation>
     </message>
     <message>
         <source>Uploading the current project to QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>현재 프로젝트를 QFieldCloud에 업로드하는 중입니다.</translation>
     </message>
     <message>
         <source>The current project is not stored on QFieldCloud.</source>
-        <translation type="unfinished"/>
+        <translation>현재 프로젝트가 QFieldCloud에 저장되어 있지 않습니다.</translation>
     </message>
     <message>
         <source>Cloudifying project</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트를 클라우드화하는 중</translation>
     </message>
     <message>
         <source>Cloudify!</source>
-        <translation type="unfinished"/>
+        <translation>클라우드화!</translation>
     </message>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 업로드 중</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n개의 파일 남음</numerusform></translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProject</name>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation>Packaging job finished unsuccessfully for `%1`. %2</translation>
+        <translation>`%1`의 패키징 작업이 실패했습니다. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation>Failed to refresh the latest info for `%1`: %2</translation>
+        <translation>`%1`의 최신 정보를 새로고침하지 못했습니다: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation>Failed to get latest package data.</translation>
+        <translation>최신 패키지 데이터를 가져오지 못했습니다.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation>Latest package data response error.</translation>
+        <translation>최신 패키지 데이터 응답 오류.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation>Latest package data structure error.</translation>
+        <translation>최신 패키지 데이터 구조 오류.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</translation>
+        <translation>프로젝트 %1: 패키징된 레이어 `%2`가 유효하지 않습니다. 오류 코드 %3, 오류 메시지: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation>Failed to open temporary file for `%1`, reason:
+        <translation>`%1`의 임시 파일을 열지 못했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 임시 위치 `%1`에 파일을 쓰지 못했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 임시 위치 `%1`에 쓰기 위한 파일을 열지 못했습니다.</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation>Network error. Failed to download file `%1`.</translation>
+        <translation>네트워크 오류. 파일 `%1` 다운로드에 실패했습니다.</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation>Failed to copy some of the downloaded files on your device. Check your device storage.</translation>
+        <translation>일부 다운로드된 파일을 기기에 복사하지 못했습니다. 기기 저장공간을 확인해 주세요.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation>Project `%1`, file `%2`: %3</translation>
+        <translation>프로젝트 `%1`, 파일 `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation>System message: </translation>
+        <translation>시스템 메시지: </translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation> (see more in the QField error log)…</translation>
+        <translation> (QField 오류 로그에서 자세히 확인)…</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation>Job creation finished, but the server response is missing required fields: id(string)</translation>
+        <translation>작업 생성이 완료되었지만 서버 응답에 필수 필드가 없습니다: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation>Getting job status, but no `%2` job triggered yet.</translation>
+        <translation>작업 상태를 가져오는 중이지만 아직 `%2` 작업이 실행되지 않았습니다.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation>job(%1) status response does not contain all the expected keys: status(string)</translation>
+        <translation>job(%1) 상태 응답에 필요한 모든 키가 없습니다: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation>Job(%1) finished with a failed status.</translation>
+        <translation>Job(%1)이 실패 상태로 종료되었습니다.</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation>project(%1) 트리거 응답 새로고침에 필요한 모든 키가 없습니다: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
     </message>
     <message>
         <source>aborted</source>
-        <translation>aborted</translation>
+        <translation>중단됨</translation>
     </message>
     <message>
         <source>File system error. Failed to write attachment to temporary location `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 임시 위치 `%1`에 첨부 파일을 쓰지 못했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to open attachment for writing on temporary `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 임시 위치 `%1`에 쓰기 위한 첨부 파일을 열지 못했습니다.</translation>
     </message>
     <message>
         <source>Network error. Failed to download attachment `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 오류. 첨부 파일 `%1` 다운로드에 실패했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to write to partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 부분 파일 `%1`에 쓰지 못했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to open partial file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>파일 시스템 오류. 부분 파일 `%1`을 열지 못했습니다.</translation>
     </message>
     <message>
         <source>Local path doesn&apos;t exist</source>
-        <translation type="unfinished"/>
+        <translation>로컬 경로가 존재하지 않습니다</translation>
     </message>
     <message>
         <source>Local path to upload cannot be used as it has multiple project files</source>
-        <translation type="unfinished"/>
+        <translation>여러 프로젝트 파일이 있어 업로드할 로컬 경로를 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Local path to upload is missing a valid project file</source>
-        <translation type="unfinished"/>
+        <translation>업로드할 로컬 경로에 유효한 프로젝트 파일이 없습니다</translation>
     </message>
     <message>
         <source>Network error. Failed to upload file `%1`.</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 오류. 파일 `%1` 업로드에 실패했습니다.</translation>
     </message>
     <message>
         <source>One or more files could not be uploaded</source>
-        <translation type="unfinished"/>
+        <translation>하나 이상의 파일을 업로드할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectDetails</name>
     <message>
         <source>Owner</source>
-        <translation type="unfinished"/>
+        <translation>소유자</translation>
     </message>
     <message>
         <source>Creation date</source>
-        <translation type="unfinished"/>
+        <translation>생성 날짜</translation>
     </message>
     <message>
         <source>Latest update date</source>
-        <translation type="unfinished"/>
+        <translation>최근 업데이트 날짜</translation>
     </message>
     <message>
         <source>This QR code can be scanned for users with the appropriate access to download and open this project</source>
-        <translation type="unfinished"/>
+        <translation>적절한 접근 권한이 있는 사용자가 이 QR 코드를 스캔하여 프로젝트를 다운로드하고 열 수 있습니다</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Synchronize</translation>
+        <translation>동기화</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push changes</translation>
+        <translation>변경 사항 푸시</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging project, hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 프로젝트를 패키징 중입니다. 잠시 기다려 주세요</translation>
     </message>
     <message>
         <source>Downloading project</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 다운로드 중</translation>
     </message>
     <message>
         <source>Download project</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 다운로드</translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation>Downloading project %1</translation>
+        <translation>프로젝트 %1 다운로드 중</translation>
     </message>
     <message>
         <source>Open project</source>
@@ -3237,221 +3237,221 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation type="unfinished"/>
+        <translation>동기화 중</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudProjectsModel</name>
     <message>
         <source>Export failed</source>
-        <translation type="vanished">Export failed</translation>
+        <translation type="vanished">내보내기 실패</translation>
     </message>
     <message>
         <source>Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</source>
-        <translation type="vanished">Packaged layer &apos;%1&apos; is not valid: &apos;%2&apos;</translation>
+        <translation type="vanished">패키징된 레이어 &apos;%1&apos;이 유효하지 않습니다: &apos;%2&apos;</translation>
     </message>
     <message>
         <source>Failed to open temporary file for &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Failed to open temporary file for &quot;%1&quot;, reason:
+        <translation type="vanished">&quot;%1&quot;의 임시 파일을 열지 못했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at &quot;%1&quot;, reason:
 %2</source>
-        <translation type="vanished">Failed to upload attachment stored at &quot;%1&quot;, reason:
+        <translation type="vanished">&quot;%1&quot;에 저장된 첨부 파일 업로드에 실패했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Failed to download file &quot;%1&quot;, reason:</source>
-        <translation type="vanished">Failed to download file &quot;%1&quot;, reason:</translation>
+        <translation type="vanished">파일 &quot;%1&quot; 다운로드에 실패했습니다. 이유:</translation>
     </message>
     <message>
         <source>Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</source>
-        <translation type="vanished">Failed to write downloaded file stored at &quot;%1&quot;, fs reason:</translation>
+        <translation type="vanished">&quot;%1&quot;에 저장된 다운로드 파일 쓰기에 실패했습니다. 파일 시스템 이유:</translation>
     </message>
     <message>
         <source>aborted</source>
-        <translation type="vanished">aborted</translation>
+        <translation type="vanished">중단됨</translation>
     </message>
     <message>
         <source>project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</source>
-        <translation type="vanished">project(%1) trigger response refresh not contain all the expected keys: name(string), owner(string), description(string), user_role(string), is_public(bool), can_repackage(bool), needs_repackaging(bool)</translation>
+        <translation type="vanished">project(%1) 트리거 응답 새로고침에 필요한 모든 키가 없습니다</translation>
     </message>
     <message>
         <source>Getting job status, but the project is deleted.</source>
-        <translation type="vanished">Getting job status, but the project is deleted.</translation>
+        <translation type="vanished">작업 상태를 가져오는 중이지만 프로젝트가 삭제되었습니다.</translation>
     </message>
     <message>
         <source>Job creation finished, but the server response is missing required fields: id(string)</source>
-        <translation type="vanished">Job creation finished, but the server response is missing required fields: id(string)</translation>
+        <translation type="vanished">작업 생성이 완료되었지만 서버 응답에 필수 필드가 없습니다: id(string)</translation>
     </message>
     <message>
         <source>Getting job status, but no `%2` job triggered yet.</source>
-        <translation type="vanished">Getting job status, but no `%2` job triggered yet.</translation>
+        <translation type="vanished">작업 상태를 가져오는 중이지만 아직 `%2` 작업이 실행되지 않았습니다.</translation>
     </message>
     <message>
         <source>Getting job status finished, but the project is deleted.</source>
-        <translation type="vanished">Getting job status finished, but the project is deleted.</translation>
+        <translation type="vanished">작업 상태 가져오기가 완료되었지만 프로젝트가 삭제되었습니다.</translation>
     </message>
     <message>
         <source>job(%1) status response does not contain all the expected keys: status(string)</source>
-        <translation type="vanished">job(%1) status response does not contain all the expected keys: status(string)</translation>
+        <translation type="vanished">job(%1) 상태 응답에 필요한 모든 키가 없습니다: status(string)</translation>
     </message>
     <message>
         <source>Job(%1) finished with a failed status.</source>
-        <translation type="vanished">Job(%1) finished with a failed status.</translation>
+        <translation type="vanished">Job(%1)이 실패 상태로 종료되었습니다.</translation>
     </message>
     <message>
         <source>Project busy.</source>
-        <translation>Project busy.</translation>
+        <translation>프로젝트가 사용 중입니다.</translation>
     </message>
     <message>
         <source>Packaging job finished unsuccessfully for `%1`. %2</source>
-        <translation type="vanished">Packaging job finished unsuccessfully for `%1`. %2</translation>
+        <translation type="vanished">`%1`의 패키징 작업이 실패했습니다. %2</translation>
     </message>
     <message>
         <source>Failed to refresh the latest info for `%1`: %2</source>
-        <translation type="vanished">Failed to refresh the latest info for `%1`: %2</translation>
+        <translation type="vanished">`%1`의 최신 정보를 새로고침하지 못했습니다: %2</translation>
     </message>
     <message>
         <source>Failed to get latest package data.</source>
-        <translation type="vanished">Failed to get latest package data.</translation>
+        <translation type="vanished">최신 패키지 데이터를 가져오지 못했습니다.</translation>
     </message>
     <message>
         <source>Latest package data response error.</source>
-        <translation type="vanished">Latest package data response error.</translation>
+        <translation type="vanished">최신 패키지 데이터 응답 오류.</translation>
     </message>
     <message>
         <source>Latest package data structure error.</source>
-        <translation type="vanished">Latest package data structure error.</translation>
+        <translation type="vanished">최신 패키지 데이터 구조 오류.</translation>
     </message>
     <message>
         <source>Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</source>
-        <translation type="vanished">Project %1: Packaged layer `%2` is not valid. Error code %3, error message: %4</translation>
+        <translation type="vanished">프로젝트 %1: 패키징된 레이어 `%2`가 유효하지 않습니다. 오류 코드 %3, 오류 메시지: %4</translation>
     </message>
     <message>
         <source>Failed to open temporary file for `%1`, reason:
 %2</source>
-        <translation type="vanished">Failed to open temporary file for `%1`, reason:
+        <translation type="vanished">`%1`의 임시 파일을 열지 못했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Failed to upload attachment stored at `%1`, reason:
 %2</source>
-        <translation type="vanished">Failed to upload attachment stored at `%1`, reason:
+        <translation type="vanished">`%1`에 저장된 첨부 파일 업로드에 실패했습니다. 이유:
 %2</translation>
     </message>
     <message>
         <source>Network error. Failed to download file `%1`.</source>
-        <translation type="vanished">Network error. Failed to download file `%1`.</translation>
+        <translation type="vanished">네트워크 오류. 파일 `%1` 다운로드에 실패했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to write file to temporary location `%1`.</source>
-        <translation type="vanished">File system error. Failed to write file to temporary location `%1`.</translation>
+        <translation type="vanished">파일 시스템 오류. 임시 위치 `%1`에 파일을 쓰지 못했습니다.</translation>
     </message>
     <message>
         <source>File system error. Failed to open file for writing on temporary `%1`.</source>
-        <translation type="vanished">File system error. Failed to open file for writing on temporary `%1`.</translation>
+        <translation type="vanished">파일 시스템 오류. 임시 위치 `%1`에 쓰기 위한 파일을 열지 못했습니다.</translation>
     </message>
     <message>
         <source>Project `%1`, file `%2`: %3</source>
-        <translation type="vanished">Project `%1`, file `%2`: %3</translation>
+        <translation type="vanished">프로젝트 `%1`, 파일 `%2`: %3</translation>
     </message>
     <message>
         <source>System message: </source>
-        <translation type="vanished">System message: </translation>
+        <translation type="vanished">시스템 메시지: </translation>
     </message>
     <message>
         <source> (see more in the QField error log)…</source>
-        <translation type="vanished"> (see more in the QField error log)…</translation>
+        <translation type="vanished"> (QField 오류 로그에서 자세히 확인)…</translation>
     </message>
     <message>
         <source>Failed to copy some of the downloaded files on your device. Check your device storage.</source>
-        <translation type="vanished">Failed to copy some of the downloaded files on your device. Check your device storage.</translation>
+        <translation type="vanished">일부 다운로드된 파일을 기기에 복사하지 못했습니다. 기기 저장공간을 확인해 주세요.</translation>
     </message>
     <message>
         <source>Project creation requires a name</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트를 생성하려면 이름이 필요합니다</translation>
     </message>
     <message>
         <source>Cloud project could not be created.</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 프로젝트를 생성할 수 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudScreen</name>
     <message>
         <source>QFieldCloud Projects</source>
-        <translation>클라우드 프로젝트</translation>
+        <translation>QFieldCloud 프로젝트</translation>
     </message>
     <message>
         <source>Disconnected from the cloud.</source>
-        <translation>Disconnected from the cloud.</translation>
+        <translation>클라우드 연결이 끊어졌습니다.</translation>
     </message>
     <message>
         <source>Connecting to the cloud.</source>
-        <translation>Connecting to the cloud.</translation>
+        <translation>클라우드에 연결 중입니다.</translation>
     </message>
     <message>
         <source>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</source>
-        <translation>Greetings &lt;strong&gt;%1&lt;/strong&gt;.</translation>
+        <translation>&lt;strong&gt;%1&lt;/strong&gt;님, 환영합니다.</translation>
     </message>
     <message>
         <source>My Projects</source>
-        <translation>My Projects</translation>
+        <translation>내 프로젝트</translation>
     </message>
     <message>
         <source>Community</source>
-        <translation>Community</translation>
+        <translation>커뮤니티</translation>
     </message>
     <message>
         <source>(Available locally)</source>
-        <translation type="vanished">(Available locally)</translation>
+        <translation type="vanished">(로컬에서 사용 가능)</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched…</source>
-        <translation type="vanished">Downloading, %1% fetched…</translation>
+        <translation type="vanished">다운로드 중, %1% 완료…</translation>
     </message>
     <message>
         <source>QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</source>
-        <translation type="vanished">QFieldCloud is preparing the latest data just for you. This might take some time, please hold tight…</translation>
+        <translation type="vanished">QFieldCloud에서 최신 데이터를 준비 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요…</translation>
     </message>
     <message>
         <source>Uploading…</source>
-        <translation>Uploading…</translation>
+        <translation>업로드 중…</translation>
     </message>
     <message>
         <source>Downloading error. </source>
-        <translation>Downloading error. </translation>
+        <translation>다운로드 오류. </translation>
     </message>
     <message>
         <source>Uploading error. </source>
-        <translation>Uploading error. </translation>
+        <translation>업로드 오류. </translation>
     </message>
     <message>
         <source>Available locally, missing on the cloud</source>
-        <translation>Available locally, missing on the cloud</translation>
+        <translation>로컬에서 사용 가능, 클라우드에 없음</translation>
     </message>
     <message>
         <source>Available on the cloud, missing locally</source>
-        <translation type="vanished">Available on the cloud, missing locally</translation>
+        <translation type="vanished">클라우드에서 사용 가능, 로컬에 없음</translation>
     </message>
     <message>
         <source>Available locally</source>
-        <translation>Available locally</translation>
+        <translation>로컬에서 사용 가능</translation>
     </message>
     <message>
         <source>Has changes. </source>
-        <translation type="vanished">Has changes. </translation>
+        <translation type="vanished">변경 사항 있음. </translation>
     </message>
     <message>
         <source>Downloading project %1</source>
-        <translation type="vanished">Downloading project %1</translation>
+        <translation type="vanished">프로젝트 %1 다운로드 중</translation>
     </message>
     <message>
         <source>Download Project</source>
-        <translation type="vanished">Download Project</translation>
+        <translation type="vanished">프로젝트 다운로드</translation>
     </message>
     <message>
         <source>Open Project</source>
@@ -3459,151 +3459,151 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Remove Stored Project</source>
-        <translation>Remove Stored Project</translation>
+        <translation>저장된 프로젝트 삭제</translation>
     </message>
     <message>
         <source>Cancel Project Download</source>
-        <translation type="vanished">Cancel Project Download</translation>
+        <translation type="vanished">프로젝트 다운로드 취소</translation>
     </message>
     <message>
         <source>Press and hold over a cloud project for a menu of additional actions.</source>
-        <translation type="vanished">Press and hold over a cloud project for a menu of additional actions.</translation>
+        <translation type="vanished">클라우드 프로젝트를 길게 눌러 추가 작업 메뉴를 여세요.</translation>
     </message>
     <message>
         <source>Refresh projects list</source>
-        <translation>Refresh projects list</translation>
+        <translation>프로젝트 목록 새로고침</translation>
     </message>
     <message>
         <source>Refreshing projects list</source>
-        <translation>Refreshing projects list</translation>
+        <translation>프로젝트 목록 새로고침 중</translation>
     </message>
     <message>
         <source>No projects found</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 작업</translation>
     </message>
     <message>
         <source>, updated data available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>, 클라우드에 업데이트된 데이터 있음</translation>
     </message>
     <message>
         <source>QFieldCloud is packaging the latest data just for you; this might take some time, please hold tight</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 최신 데이터를 패키징 중입니다. 시간이 걸릴 수 있으니 잠시 기다려 주세요</translation>
     </message>
     <message>
         <source>Downloading, %1% of %2 fetched</source>
-        <translation type="unfinished"/>
+        <translation>다운로드 중, %2 중 %1% 완료</translation>
     </message>
     <message>
         <source>Downloading, %1% fetched</source>
-        <translation type="unfinished"/>
+        <translation>다운로드 중, %1% 완료</translation>
     </message>
     <message>
         <source>Reaching out to QFieldCloud to download project</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud에서 프로젝트를 다운로드하는 중입니다</translation>
     </message>
     <message>
         <source>No cloud projects found. To get started, %1read the documentation%2.</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 프로젝트를 찾을 수 없습니다. 시작하려면 %1문서를 읽어보세요%2.</translation>
     </message>
     <message>
         <source>Search for project</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 검색</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>로그아웃</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"/>
+        <translation>로그인</translation>
     </message>
     <message>
         <source>Show invalid projects</source>
-        <translation type="unfinished"/>
+        <translation>유효하지 않은 프로젝트 표시</translation>
     </message>
     <message>
         <source>Available on the cloud</source>
-        <translation type="unfinished"/>
+        <translation>클라우드에서 사용 가능</translation>
     </message>
     <message>
         <source>, has changes locally</source>
-        <translation type="unfinished"/>
+        <translation>, 로컬 변경 사항 있음</translation>
     </message>
     <message>
         <source>View Project Details</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 상세 정보 보기</translation>
     </message>
     <message>
         <source>QFieldCloud project details fetching failed</source>
-        <translation type="unfinished"/>
+        <translation>QFieldCloud 프로젝트 상세 정보를 가져오지 못했습니다</translation>
     </message>
     <message>
         <source>View Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더 보기</translation>
     </message>
     <message>
         <source>Are you sure you want to remove `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>`%1`을(를) 정말 삭제하시겠습니까?</translation>
     </message>
     <message>
         <source>Synchronize</source>
-        <translation>Synchronize</translation>
+        <translation>동기화</translation>
     </message>
     <message>
         <source>Push changes</source>
-        <translation>Push changes</translation>
+        <translation>변경 사항 푸시</translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudService</name>
     <message>
         <source>Uploading %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 업로드 중</translation>
     </message>
     <message numerus="yes">
         <source>%n file(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n개의 파일 남음</numerusform></translation>
     </message>
 </context>
 <context>
     <name>QFieldCloudUtils</name>
     <message>
         <source>A server error has occured, please try again.</source>
-        <translation>A server error has occured, please try again.</translation>
+        <translation>서버 오류가 발생했습니다. 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>A network error has occured, please try again.</source>
-        <translation>A network error has occured, please try again.</translation>
+        <translation>네트워크 오류가 발생했습니다. 다시 시도해 주세요.</translation>
     </message>
     <message>
         <source>Your account&apos;s available storage is full.</source>
-        <translation type="unfinished"/>
+        <translation>계정의 사용 가능한 저장 공간이 가득 찼습니다.</translation>
     </message>
 </context>
 <context>
     <name>QFieldGuide</name>
     <message>
         <source>Finish</source>
-        <translation type="unfinished"/>
+        <translation>완료</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>다음</translation>
     </message>
     <message>
         <source>Previous</source>
-        <translation type="unfinished"/>
+        <translation>이전</translation>
     </message>
 </context>
 <context>
     <name>QFieldLocalDataPickerScreen</name>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더</translation>
     </message>
     <message>
         <source>Local Projects &amp; Datasets</source>
@@ -3611,86 +3611,86 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Folders</source>
-        <translation type="unfinished"/>
+        <translation>폴더</translation>
     </message>
     <message>
         <source>Projects</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트</translation>
     </message>
     <message>
         <source>Datasets</source>
-        <translation type="unfinished"/>
+        <translation>데이터셋</translation>
     </message>
     <message>
         <source>Favorites</source>
-        <translation type="unfinished"/>
+        <translation>즐겨찾기</translation>
     </message>
     <message>
         <source>Project file</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 파일</translation>
     </message>
     <message>
         <source>Vector dataset</source>
-        <translation type="unfinished"/>
+        <translation>벡터 데이터셋</translation>
     </message>
     <message>
         <source>Raster dataset</source>
-        <translation type="unfinished"/>
+        <translation>래스터 데이터셋</translation>
     </message>
     <message>
         <source>Send to...</source>
-        <translation type="unfinished"/>
+        <translation>보내기...</translation>
     </message>
     <message>
         <source>Export to folder...</source>
-        <translation type="unfinished"/>
+        <translation>폴더로 내보내기...</translation>
     </message>
     <message>
         <source>Remove dataset</source>
-        <translation type="unfinished"/>
+        <translation>데이터셋 삭제</translation>
     </message>
     <message>
         <source>Send compressed folder to...</source>
-        <translation type="unfinished"/>
+        <translation>압축 폴더 보내기...</translation>
     </message>
     <message>
         <source>Remove project folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더 삭제</translation>
     </message>
     <message>
         <source>Import project from folder</source>
-        <translation type="unfinished"/>
+        <translation>폴더에서 프로젝트 가져오기</translation>
     </message>
     <message>
         <source>Import project from ZIP</source>
-        <translation type="unfinished"/>
+        <translation>ZIP에서 프로젝트 가져오기</translation>
     </message>
     <message>
         <source>Import dataset(s)</source>
-        <translation type="unfinished"/>
+        <translation>데이터셋 가져오기</translation>
     </message>
     <message>
         <source>Storage management help</source>
-        <translation type="unfinished"/>
+        <translation>저장 공간 관리 도움말</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호</translation>
     </message>
 </context>
 <context>
     <name>QFieldPositioningService</name>
     <message>
         <source>Positioning service running</source>
-        <translation type="unfinished"/>
+        <translation>위치 측정 서비스 실행 중</translation>
     </message>
     <message>
         <source>Latitude %1 | Longitude %2 | Altitude %3 m | Speed %4 m/s | Direction %5°</source>
-        <translation type="unfinished"/>
+        <translation>위도 %1 | 경도 %2 | 고도 %3m | 속도 %4m/s | 방향 %5°</translation>
     </message>
     <message>
         <source>Positioning service stopped</source>
-        <translation type="unfinished"/>
+        <translation>위치 측정 서비스 중지됨</translation>
     </message>
 </context>
 <context>
@@ -3713,11 +3713,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Show digitizing information</source>
-        <translation>디지털화(수치화) 표시</translation>
+        <translation>디지타이징 정보 표시</translation>
     </message>
     <message>
         <source>When switched on, coordinate information, such as latitude and longitude, is overlayed onto the map while digitizing new features or using the measure tool.</source>
-        <translation>새로운 대상을 지도에 생성하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
+        <translation>새로운 피처를 디지타이징하거나 측정 도구를 사용할 때 위도 및 경도와 같은 좌표 정보가 지도 위에 겹쳐 표시됩니다.</translation>
     </message>
     <message>
         <source>Show bookmarks</source>
@@ -3729,11 +3729,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Use native camera</source>
-        <translation>Use native camera</translation>
+        <translation>기본 카메라 사용</translation>
     </message>
     <message>
         <source>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</source>
-        <translation>If disabled, QField will use a minimalist internal camera instead of the camera app on the device.&lt;br&gt;Tip: Enable this option and install the open camera app to create geo tagged photos.</translation>
+        <translation>비활성화하면 QField가 기기의 카메라 앱 대신 내장 카메라를 사용합니다.&lt;br&gt;팁: 이 옵션을 활성화하고 오픈 카메라 앱을 설치하면 지오태그 사진을 촬영할 수 있습니다.</translation>
     </message>
     <message>
         <source>Fast editing mode</source>
@@ -3741,43 +3741,43 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>If enabled, the feature is stored after having a valid geometry and the constraints are fulfilled and atributes are commited immediately.</source>
-        <translation type="vanished">대상을 생성해 저장할 수 있습니다.and the constraints are fulfilled and atributes are commited immediately.</translation>
+        <translation type="vanished">활성화하면 유효한 지오메트리와 제약 조건이 충족된 후 피처가 즉시 저장됩니다.</translation>
     </message>
     <message>
         <source>Dim screen when idling</source>
-        <translation>미사용 시 화면 밝기 지정</translation>
+        <translation>미사용 시 화면 밝기 감소</translation>
     </message>
     <message>
         <source>If enabled, the screen brightness will be dimmed after 20 seconds of inactivity to preserve battery.</source>
-        <translation type="vanished">위 시간 동안 어플 화면이 켜진 채로 아무것도 하지 않으면 배터리 유지를 위해 화면 밝기를 어둡게 조정합니다.</translation>
+        <translation type="vanished">활성화하면 20초 동안 사용하지 않을 경우 배터리 절약을 위해 화면 밝기가 줄어듭니다.</translation>
     </message>
     <message>
         <source>Consider mouse as a touchscreen device</source>
-        <translation>마우스를 터치펜으로 인식</translation>
+        <translation>마우스를 터치스크린 기기로 인식</translation>
     </message>
     <message>
         <source>If disabled, the mouse will act as a stylus pen.</source>
-        <translation type="vanished">마우스를 터치 사용과 같이 사용할 수 있습니다.</translation>
+        <translation type="vanished">비활성화하면 마우스가 스타일러스 펜으로 작동합니다.</translation>
     </message>
     <message>
         <source>Send anonymized metrics</source>
-        <translation>익명으로 측정 값 공유</translation>
+        <translation>익명 측정 데이터 전송</translation>
     </message>
     <message>
         <source>If enabled, anonymized metrics will be collected and sent to help improve QField for everyone.</source>
-        <translation>큐필드 사용 중 익명으로 측정 값을 수집/전송하여 앱 개선에 도움을 줍니다.</translation>
+        <translation>활성화하면 익명 측정 데이터가 수집/전송되어 모든 사용자를 위한 QField 개선에 도움이 됩니다.</translation>
     </message>
     <message>
         <source>General</source>
-        <translation>기본 설정</translation>
+        <translation>일반</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positioning</translation>
+        <translation>위치 측정</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation>Variables</translation>
+        <translation>변수</translation>
     </message>
     <message>
         <source>Customize search bar</source>
@@ -3785,11 +3785,11 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>User interface language:</source>
-        <translation type="vanished">사용자 언어</translation>
+        <translation type="vanished">사용자 인터페이스 언어:</translation>
     </message>
     <message>
         <source>To apply the selected user interface language, QField needs to completely shutdown and restart.</source>
-        <translation>사용자 언어를 적용하려면 큐필드를 완전히 종료한 후 다시 시작해야 합니다.</translation>
+        <translation>선택한 언어를 적용하려면 QField를 완전히 종료한 후 다시 시작해야 합니다.</translation>
     </message>
     <message>
         <source>system</source>
@@ -3797,165 +3797,165 @@ While you can still view and use the project, it is strongly recommended to rese
     </message>
     <message>
         <source>Found a missing or incomplete language? %1Join the translator community.%2</source>
-        <translation>변역이 완벽하지 않습니까? %1이 곳에서 번역을 도와주실 수 있습니다.%2</translation>
+        <translation>번역이 누락되거나 불완전한가요? %1번역 커뮤니티에 참여하세요.%2</translation>
     </message>
     <message>
         <source>Positioning device in use:</source>
-        <translation>위치 기반 기기</translation>
+        <translation>사용 중인 위치 측정 기기:</translation>
     </message>
     <message>
         <source>Scanning for paired devices</source>
-        <translation type="vanished">페어링된 장치 검색</translation>
+        <translation type="vanished">페어링된 기기 검색 중</translation>
     </message>
     <message>
         <source>Scanning failed: %1</source>
-        <translation type="vanished">장치 검색 실패: %1</translation>
+        <translation type="vanished">검색 실패: %1</translation>
     </message>
     <message>
         <source>Scanning done</source>
-        <translation type="vanished">장치 검색 완료</translation>
+        <translation type="vanished">검색 완료</translation>
     </message>
     <message numerus="yes">
         <source>%n device(s) found</source>
-        <translation type="vanished"><numerusform>%n 개의 장치를 찾았습니다.</numerusform></translation>
+        <translation type="vanished"><numerusform>%n개의 기기를 찾았습니다</numerusform></translation>
     </message>
     <message>
         <source>Scanning canceled</source>
-        <translation type="vanished">Scanning canceled</translation>
+        <translation type="vanished">검색이 취소되었습니다</translation>
     </message>
     <message>
         <source>Scan</source>
-        <translation type="vanished">Scan</translation>
+        <translation type="vanished">검색</translation>
     </message>
     <message>
         <source>Make a full service discovery</source>
-        <translation type="vanished">Make a full service discovery</translation>
+        <translation type="vanished">전체 서비스 검색</translation>
     </message>
     <message>
         <source>A full device scan can take longer. You really want to do it?
 Cancel to make a minimal device scan instead.</source>
-        <translation type="vanished">전체 장치를 스캔하면 시간이 더 걸릴 수 있습니다. 
-대신 최소 장치를 검색 하시려면 취소하시기 바랍니다.</translation>
+        <translation type="vanished">전체 장치를 스캔하면 시간이 더 걸릴 수 있습니다.
+대신 최소 장치를 검색하시려면 취소하시기 바랍니다.</translation>
     </message>
     <message>
         <source>Connected to %1</source>
-        <translation>장치 %1 연결 됨</translation>
+        <translation>%1에 연결되었습니다</translation>
     </message>
     <message>
         <source>Connect  to %1</source>
-        <translation type="vanished">장치 %1 연결</translation>
+        <translation type="vanished">%1에 연결</translation>
     </message>
     <message>
         <source>Connecting to %1</source>
-        <translation>장치 %1 연결 중</translation>
+        <translation>%1에 연결 중</translation>
     </message>
     <message>
         <source>Use orthometric altitude from device</source>
-        <translation type="vanished">수직 고도 측정 기능 사용</translation>
+        <translation type="vanished">기기의 정표고 사용</translation>
     </message>
     <message>
         <source>Show position information</source>
-        <translation>위치정보 표시</translation>
+        <translation>위치 정보 표시</translation>
     </message>
     <message>
         <source>Activate accuracy indicator</source>
-        <translation>Activate accuracy indicator</translation>
+        <translation>정확도 표시기 활성화</translation>
     </message>
     <message>
         <source>Bad accuracy below [m]</source>
-        <translation type="vanished">Bad accuracy below [m]</translation>
+        <translation type="vanished">낮은 정확도 기준 [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy above [m]</source>
-        <translation type="vanished">Excellent accuracy above [m]</translation>
+        <translation type="vanished">높은 정확도 기준 [m]</translation>
     </message>
     <message>
         <source>Enable accuracy requirement</source>
-        <translation type="vanished">Enable accuracy requirement</translation>
+        <translation type="vanished">정확도 요구 사항 활성화</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</source>
-        <translation type="vanished">When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is below bad, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of excellent, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value above the bad threshold.</translation>
+        <translation type="vanished">정확도 표시기가 활성화되면 위치 버튼에 배지가 표시되며, 정확도 값이 낮으면 &lt;span %1&gt;빨간색&lt;/span&gt;, 우수하지 않으면 &lt;span %2&gt;노란색&lt;/span&gt;, 우수하면 &lt;span %3&gt;초록색&lt;/span&gt;으로 표시됩니다.</translation>
     </message>
     <message>
         <source>Enable averaged positioning requirement</source>
-        <translation type="unfinished"/>
+        <translation>평균 위치 요구 사항 활성화</translation>
     </message>
     <message>
         <source>Minimum number of positions collected</source>
-        <translation type="unfinished"/>
+        <translation>최소 수집 위치 수</translation>
     </message>
     <message>
         <source>Automatically end collection when minimum number is met</source>
-        <translation type="unfinished"/>
+        <translation>최소 수집 수 달성 시 자동으로 수집 종료</translation>
     </message>
     <message>
         <source>When enabled, digitizing vertices with a cursor locked to position will only accepted an averaged position from a minimum number of collected positions. Digitizing using averaged positions is done by pressing and holding the add vertex button, which will collect positions until the press is released. Accuracy requirement settings are respected when enabled.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 위치에 잠긴 커서로 꼭짓점을 디지타이징할 때 최소 수집 위치 수의 평균 위치만 허용됩니다. 꼭짓점 추가 버튼을 길게 눌러 위치를 수집하고 손을 떼면 평균 위치로 디지타이징됩니다. 활성화 시 정확도 요구 사항 설정이 적용됩니다.</translation>
     </message>
     <message>
         <source>Antenna height compensation</source>
-        <translation>Antenna height compensation</translation>
+        <translation>안테나 높이 보정</translation>
     </message>
     <message>
         <source>Antenna height [m]</source>
-        <translation>Antenna height [m]</translation>
+        <translation>안테나 높이 [m]</translation>
     </message>
     <message>
         <source>Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</source>
-        <translation type="vanished">Z values which are recorded from the positioning device will be corrected by this value. If a value of 1.6 is entered, this will result in a correction of -1.6 for each recorded value.</translation>
+        <translation type="vanished">위치 측정 기기에서 기록된 Z 값이 이 값으로 보정됩니다. 1.6을 입력하면 각 기록 값에서 -1.6이 적용됩니다.</translation>
     </message>
     <message>
         <source>Skip altitude correction</source>
-        <translation>Skip altitude correction</translation>
+        <translation>고도 보정 건너뛰기</translation>
     </message>
     <message>
         <source>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</source>
-        <translation>Use the altitude as reported by the positioning device. Skip any altitude correction that may be implied by the coordinate system transformation.</translation>
+        <translation>위치 측정 기기에서 보고된 고도를 그대로 사용합니다. 좌표계 변환으로 인한 고도 보정을 건너뜁니다.</translation>
     </message>
     <message>
         <source>Vertical grid shift in use:</source>
-        <translation>Vertical grid shift in use:</translation>
+        <translation>사용 중인 수직 그리드 이동:</translation>
     </message>
     <message>
         <source>None</source>
-        <translation>None</translation>
+        <translation>없음</translation>
     </message>
     <message>
         <source>Vertical grid shift is used to increase the altitude accuracy.</source>
-        <translation>Vertical grid shift is used to increase the altitude accuracy.</translation>
+        <translation>수직 그리드 이동은 고도 정확도를 높이는 데 사용됩니다.</translation>
     </message>
     <message>
         <source>QField Settings</source>
-        <translation>설정</translation>
+        <translation>QField 설정</translation>
     </message>
     <message>
         <source>Time of inactivity in seconds before the screen brightness get be dimmed to preserve battery.</source>
-        <translation type="unfinished"/>
+        <translation>배터리 절약을 위해 화면 밝기를 줄이기 전 대기 시간 (초).</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>꼭짓점에 첨부되는 측정(M) 값:</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>타임스탬프 (에포크 이후 밀리초)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>지상 속도</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Bearing</translation>
+        <translation>방위각</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수평 정확도</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -3971,191 +3971,191 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>When digitizing features with the coordinate cursor locked to the current position, the measurement type selected above will be added to the geometry provided it has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>좌표 커서를 현재 위치에 고정하여 피처를 디지타이징할 때, M 차원이 있는 지오메트리에 위에서 선택한 측정 유형이 추가됩니다.</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>추가</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>편집</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation>삭제</translation>
     </message>
     <message>
         <source>Connect to %1</source>
-        <translation>장치 %1 연결</translation>
+        <translation>%1에 연결</translation>
     </message>
     <message>
         <source>Follow system appearance</source>
-        <translation type="unfinished"/>
+        <translation>시스템 외관 따르기</translation>
     </message>
     <message>
         <source>Light theme</source>
-        <translation type="unfinished"/>
+        <translation>라이트 테마</translation>
     </message>
     <message>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation>다크 테마</translation>
     </message>
     <message>
         <source>Tiny</source>
-        <translation type="unfinished"/>
+        <translation>아주 작게</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>보통</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>크게</translation>
     </message>
     <message>
         <source>Extra-large</source>
-        <translation type="unfinished"/>
+        <translation>아주 크게</translation>
     </message>
     <message>
         <source>Log NMEA sentences from device to file</source>
-        <translation type="unfinished"/>
+        <translation>기기의 NMEA 문장을 파일로 기록</translation>
     </message>
     <message>
         <source>Map canvas rendering quality:</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스 렌더링 품질:</translation>
     </message>
     <message>
         <source>Best quality</source>
-        <translation type="unfinished"/>
+        <translation>최고 품질</translation>
     </message>
     <message>
         <source>Lower quality</source>
-        <translation type="unfinished"/>
+        <translation>낮은 품질</translation>
     </message>
     <message>
         <source>Lowest quality</source>
-        <translation type="unfinished"/>
+        <translation>최저 품질</translation>
     </message>
     <message>
         <source>A lower quality trades rendering precision in favor of lower memory usage and rendering time.</source>
-        <translation type="unfinished"/>
+        <translation>낮은 품질은 렌더링 정밀도를 줄이는 대신 메모리 사용량과 렌더링 시간을 줄입니다.</translation>
     </message>
     <message>
         <source>This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, QField will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase centre offset.</source>
-        <translation type="unfinished"/>
+        <translation>이 값은 위치 측정 기기에서 기록된 Z 값을 보정합니다. 1.6을 입력하면 QField가 각 기록 값에서 자동으로 1.6을 뺍니다. 유효 안테나 높이(폴 길이 + 안테나 위상 중심 오프셋)를 입력하세요.</translation>
     </message>
     <message>
         <source>Orthometric from device</source>
-        <translation type="unfinished"/>
+        <translation>기기에서 정표고 사용</translation>
     </message>
     <message>
         <source>Use volume keys to digitize</source>
-        <translation type="unfinished"/>
+        <translation>볼륨 키로 디지타이징</translation>
     </message>
     <message>
         <source>If enabled, pressing the device&apos;s volume up key will add a vertex while pressing volume down key will remove the last entered vertex during digitizing sessions.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 디지타이징 중 볼륨 업 키를 누르면 꼭짓점이 추가되고 볼륨 다운 키를 누르면 마지막으로 입력한 꼭짓점이 삭제됩니다.</translation>
     </message>
     <message>
         <source>Allow finger tap on canvas to add vertices</source>
-        <translation type="unfinished"/>
+        <translation>캔버스에서 손가락 탭으로 꼭짓점 추가 허용</translation>
     </message>
     <message>
         <source>When enabled, tapping on the map canvas with a finger will add a vertex at the tapped location.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 지도 캔버스를 손가락으로 탭하면 해당 위치에 꼭짓점이 추가됩니다.</translation>
     </message>
     <message>
         <source>When enabled, the mouse will act as if it was a finger. When disabled, the mouse will match the stylus behavior.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 마우스가 손가락처럼 동작합니다. 비활성화하면 마우스가 스타일러스처럼 동작합니다.</translation>
     </message>
     <message>
         <source>Map Canvas</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스</translation>
     </message>
     <message>
         <source>Digitizing &amp; Editing</source>
-        <translation type="unfinished"/>
+        <translation>디지타이징 및 편집</translation>
     </message>
     <message>
         <source>User Interface</source>
-        <translation type="unfinished"/>
+        <translation>사용자 인터페이스</translation>
     </message>
     <message>
         <source>Appearance:</source>
-        <translation type="unfinished"/>
+        <translation>외관:</translation>
     </message>
     <message>
         <source>Font size:</source>
-        <translation type="unfinished"/>
+        <translation>글자 크기:</translation>
     </message>
     <message>
         <source>Language:</source>
-        <translation type="unfinished"/>
+        <translation>언어:</translation>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>고급</translation>
     </message>
     <message>
         <source>Manage plugins</source>
-        <translation type="unfinished"/>
+        <translation>플러그인 관리</translation>
     </message>
     <message>
         <source>Enable map rotation</source>
-        <translation type="unfinished"/>
+        <translation>지도 회전 활성화</translation>
     </message>
     <message>
         <source>When switched on, the map can be rotated by the user.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 사용자가 지도를 회전할 수 있습니다.</translation>
     </message>
     <message>
         <source>Bad accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>낮은 정확도 임계값 [m]</translation>
     </message>
     <message>
         <source>Excellent accuracy threshold [m]</source>
-        <translation type="unfinished"/>
+        <translation>우수한 정확도 임계값 [m]</translation>
     </message>
     <message>
         <source>Enforce accuracy requirement</source>
-        <translation type="unfinished"/>
+        <translation>정확도 요구 사항 강제 적용</translation>
     </message>
     <message>
         <source>When the accuracy indicator is enabled, a badge is attached to the location button and colored &lt;span %1&gt;red&lt;/span&gt; if the accuracy value is worse than &lt;i&gt;bad&lt;/i&gt;, &lt;span %2&gt;yellow&lt;/span&gt; if it falls short of &lt;i&gt;excellent&lt;/i&gt;, or &lt;span %3&gt;green&lt;/span&gt;.&lt;br&gt;&lt;br&gt;In addition, an accuracy restriction mode can be toggled on, which restricts vertex addition when locked to coordinate cursor to positions with an accuracy value worse than the bad threshold.</source>
-        <translation type="unfinished"/>
+        <translation>정확도 표시기가 활성화되면 위치 버튼에 배지가 표시되며, 정확도가 &lt;i&gt;나쁨&lt;/i&gt; 기준보다 낮으면 &lt;span %1&gt;빨간색&lt;/span&gt;, &lt;i&gt;우수&lt;/i&gt; 기준에 미치지 못하면 &lt;span %2&gt;노란색&lt;/span&gt;, 그 외에는 &lt;span %3&gt;초록색&lt;/span&gt;으로 표시됩니다.&lt;br&gt;&lt;br&gt;또한 정확도 제한 모드를 활성화하면 좌표 커서 고정 시 낮은 정확도 임계값보다 낮은 위치에서의 꼭짓점 추가가 제한됩니다.</translation>
     </message>
     <message>
         <source>Render preview content around visible map canvas</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스 주변 미리보기 콘텐츠 렌더링</translation>
     </message>
     <message>
         <source>When enabled, the feature form will open automatically if only one feature is identified, skipping the feature list.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 하나의 피처만 식별될 경우 피처 목록을 건너뛰고 피처 양식이 자동으로 열립니다.</translation>
     </message>
     <message>
         <source>Show zoom controls</source>
-        <translation type="unfinished"/>
+        <translation>확대/축소 컨트롤 표시</translation>
     </message>
     <message>
         <source>Maximize feature form</source>
-        <translation type="unfinished"/>
+        <translation>피처 양식 최대화</translation>
     </message>
     <message>
         <source>Open feature form for single feature identification</source>
-        <translation type="unfinished"/>
+        <translation>단일 피처 식별 시 피처 양식 열기</translation>
     </message>
     <message>
         <source>If enabled, areas just outside of the visible map canvas extent will be partially rendered to allow preview when zooming and panning.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 확대/이동 시 미리보기를 위해 지도 캔버스 범위 바깥 영역이 부분적으로 렌더링됩니다.</translation>
     </message>
     <message>
         <source>Enable auto-save mode</source>
-        <translation type="unfinished"/>
+        <translation>자동 저장 모드 활성화</translation>
     </message>
     <message>
         <source>If enabled, newly-added features are stored as soon as it has having a valid geometry and the constraints are fulfilled and edited atributes are commited immediately.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면 유효한 지오메트리와 제약 조건이 충족되는 즉시 새로 추가된 피처가 저장되고 편집된 속성이 바로 커밋됩니다.</translation>
     </message>
 </context>
 <context>
