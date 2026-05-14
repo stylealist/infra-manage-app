@@ -242,8 +242,10 @@ Page {
       isVisible: true
     }
     ListElement {
-      title: qsTr("Auto-zoom to identified feature(s)")
-      description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
+      //title: qsTr("Auto-zoom to identified feature(s)")
+      title: qsTr("식별된 피처(객체)로 자동 확대")
+      //description: qsTr("When enabled, the map will automatically zoom to show all identified features, as well as the individual selected feature when the feature form is opened.")
+      description: qsTr("이 기능을 활성화하면, 지도상에서 식별된 모든 객체가 한눈에 들어오도록 지도를 자동으로 확대/축소합니다. 또한, 개별 객체의 상세 창(폼)을 열 때 해당 객체의 위치로 지도를 확대합니다.")
       settingAlias: "autoZoomToIdentifiedFeature"
       isVisible: true
     }
@@ -265,7 +267,8 @@ Page {
     }
     ListElement {
       title: qsTr("Use native camera")
-      description: qsTr("If enabled, the native camera provided by the operating system will be used.")
+      //description: qsTr("If enabled, the native camera provided by the operating system will be used.")
+      description: qsTr("활성화하면 운영체제(OS)에서 제공하는 기본 카메라를 사용합니다.")
       settingAlias: "nativeCamera2"
       isVisible: true
     }
@@ -851,7 +854,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Enable proxy")
+                //text: qsTr("Enable proxy")
+                text: qsTr("프록시 사용")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
                 wrapMode: Text.WordWrap
@@ -1040,7 +1044,8 @@ Page {
               }
 
               Label {
-                text: qsTr("Configure a network proxy to route QField's traffic through a proxy server. Useful for corporate networks and VPNs.")
+                //text: qsTr("Configure a network proxy to route QField's traffic through a proxy server. Useful for corporate networks and VPNs.")
+                text: qsTr("네트워크 프록시를 설정하여 QField의 트래픽을 프록시 서버로 경유하게 합니다. 회사 내부 네트워크나 VPN 환경에서 유용합니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
                 wrapMode: Text.WordWrap
@@ -1345,7 +1350,8 @@ Page {
                 id: positionFollowModeLabel
                 Layout.fillWidth: true
                 Layout.columnSpan: 2
-                text: qsTr("Behavior when locked to position:")
+                //text: qsTr("Behavior when locked to position:")
+                text: qsTr("위치 고정 시 동작:")
                 font: Theme.defaultFont
                 color: Theme.mainTextColor
 
@@ -1358,7 +1364,8 @@ Page {
                 Layout.columnSpan: 2
                 Layout.alignment: Qt.AlignVCenter
                 font: Theme.defaultFont
-                model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
+                //model: [qsTr("Follow position only"), qsTr("Follow position and compass orientation"), qsTr("Follow position and movement direction")]
+                model: [qsTr("위치만 추적"), qsTr("위치 및 나침반 방향 추적"), qsTr("위치 및 이동 방향 추적")]
 
                 popup.font: Theme.defaultFont
                 popup.topMargin: mainWindow.sceneTopMargin
@@ -1381,7 +1388,8 @@ Page {
               Label {
                 id: positionFollowModeTipLabel
                 Layout.fillWidth: true
-                text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
+                //text: qsTr("When the map canvas is following or locked to position, it can also rotate to match compass orientation or movement direction.")
+                text: qsTr("지도 화면이 위치를 추적하거나 고정된 상태일 때, 나침반의 방향이나 실제 이동 방향에 맞춰 지도를 자동으로 회전시킬 수 있습니다.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
@@ -1751,7 +1759,8 @@ Page {
               }
 
               Label {
-                text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.")
+                //text: qsTr("This value will correct the Z values recorded from the positioning device. If a value of 1.6 is entered, the system will automatically subtract 1.6 from each recorded value. Make sure to insert the effective antenna height, i.e. pole length + antenna phase center offset.")
+                text: qsTr("이 값은 위치 측정 장치에서 기록된 고도(Z) 값을 보정합니다. 예를 들어 1.6을 입력하면, 시스템은 기록되는 모든 값에서 자동으로 1.6을 차감합니다. 안테나의 유효 높이(즉, 폴대 길이 + 안테나 위상 중심 오프셋)를 입력했는지 확인하십시오.")
                 font: Theme.tipFont
                 color: Theme.secondaryTextColor
 
