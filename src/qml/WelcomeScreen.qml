@@ -530,7 +530,7 @@ Page {
             }
 
             Repeater {
-              model: [qsTr("QFieldCloud\nprojects"), qsTr("Local projects and\n datasets"), qsTr("Create new\nproject")]
+              model: [qsTr("클라우드\n프로젝트"), qsTr("로컬 프로젝트 및\n 데이터셋"), qsTr("새 프로젝트\n 생성")]
 
               delegate: Text {
                 Layout.preferredWidth: welcomeActions.width / 3
@@ -954,7 +954,8 @@ Page {
       } else {
         var firstRun = !settings.valueBool("/QField/FirstRunDone", false);
         if (firstRun) {
-          welcomeText.text = qsTr("Welcome to %1.").arg(appName) + (table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "");
+          //welcomeText.text = qsTr("Welcome to %1.").arg(appName) + (table.count > 0 ? qsTr("First time using this application? Try the sample projects listed below.") : "");
+          welcomeText.text = qsTr("%1 시스템에 오신것을 환영합니다.").arg(appName);
           settings.setValue("/QField/FirstRunDone", true);
           settings.setValue("/QField/showMapCanvasGuide", true);
         } else {
