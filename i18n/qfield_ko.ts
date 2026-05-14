@@ -4162,299 +4162,299 @@ Cancel to make a minimal device scan instead.</source>
     <name>QFieldSketcher</name>
     <message>
         <source>Select drawing template</source>
-        <translation type="unfinished"/>
+        <translation>그리기 템플릿 선택</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Digitizing Logger</source>
-        <translation>Digitizing Logger</translation>
+        <translation>디지타이징 로거</translation>
     </message>
     <message>
         <source>Authentication required</source>
-        <translation>Authentication required</translation>
+        <translation>인증이 필요합니다</translation>
     </message>
     <message>
         <source>QFieldCloud Unknown Error</source>
-        <translation>QFieldCloud Unknown Error</translation>
+        <translation>QFieldCloud 알 수 없는 오류</translation>
     </message>
     <message>
         <source>Status not ok</source>
-        <translation>Status not ok</translation>
+        <translation>상태가 정상이 아닙니다</translation>
     </message>
     <message>
         <source>Empty content</source>
-        <translation>Empty content</translation>
+        <translation>내용이 비어 있습니다</translation>
     </message>
     <message>
         <source>Object not found</source>
-        <translation>Object not found</translation>
+        <translation>객체를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>API Error</source>
-        <translation>API Error</translation>
+        <translation>API 오류</translation>
     </message>
     <message>
         <source>Validation Error</source>
-        <translation>Validation Error</translation>
+        <translation>유효성 검사 오류</translation>
     </message>
     <message>
         <source>Multiple Projects</source>
-        <translation>Multiple Projects</translation>
+        <translation>다중 프로젝트</translation>
     </message>
     <message>
         <source>Invalid delta file</source>
-        <translation>Invalid delta file</translation>
+        <translation>유효하지 않은 델타 파일</translation>
     </message>
     <message>
         <source>The project does not contain a valid QGIS project file</source>
-        <translation>The project does not contain a valid QGIS project file</translation>
+        <translation>프로젝트에 유효한 QGIS 프로젝트 파일이 포함되어 있지 않습니다</translation>
     </message>
     <message>
         <source>Invalid job</source>
-        <translation>Invalid job</translation>
+        <translation>유효하지 않은 작업</translation>
     </message>
     <message>
         <source>QGIS export failed</source>
-        <translation>QGIS export failed</translation>
+        <translation>QGIS 내보내기 실패</translation>
     </message>
     <message>
         <source>QGIS is unable to open the QGIS project</source>
-        <translation>QGIS is unable to open the QGIS project</translation>
+        <translation>QGIS 프로젝트를 열 수 없습니다</translation>
     </message>
     <message>
         <source>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</source>
-        <translation>There was an error opening the database &lt;b&gt;%1&lt;/b&gt;: %2</translation>
+        <translation>데이터베이스 &lt;b&gt;%1&lt;/b&gt;를 여는 중 오류가 발생했습니다: %2</translation>
     </message>
     <message>
         <source>Could not flush database %1 (%3) </source>
-        <translation>Could not flush database %1 (%3) </translation>
+        <translation>데이터베이스 %1 (%3)을(를) 플러시할 수 없습니다</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation>Position</translation>
+        <translation>위치</translation>
     </message>
     <message>
         <source>Map Tool Capture</source>
-        <translation>Map Tool Capture</translation>
+        <translation>지도 도구 캡처</translation>
     </message>
     <message>
         <source>Cloud User Info</source>
-        <translation>Cloud User Info</translation>
+        <translation>클라우드 사용자 정보</translation>
     </message>
     <message>
         <source>Please wait while QField installation finalizes.</source>
-        <translation type="unfinished"/>
+        <translation>QField 설치가 마무리될 때까지 기다려 주십시오.</translation>
     </message>
     <message>
         <source>averaged</source>
-        <translation type="unfinished"/>
+        <translation>평균화됨</translation>
     </message>
     <message>
         <source>centroid</source>
-        <translation type="unfinished"/>
+        <translation>중심점</translation>
     </message>
     <message>
         <source>Error zip file does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Zip 파일이 존재하지 않습니다: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error zip filename is empty</source>
-        <translation type="unfinished"/>
+        <translation>Zip 파일 이름이 비어 있습니다</translation>
     </message>
     <message>
         <source>Error output dir does not exist: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>출력 디렉터리가 존재하지 않습니다: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not a directory: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>출력 경로가 디렉터리가 아닙니다: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error output dir is not writable: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>출력 디렉터리에 쓸 수 없습니다: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Skipped file %1 outside of the directory %2</source>
-        <translation type="unfinished"/>
+        <translation>디렉터리 %2 외부에 있는 %1 파일을 건너뛰었습니다</translation>
     </message>
     <message>
         <source>Failed to create a subdirectory %1/%2</source>
-        <translation type="unfinished"/>
+        <translation>하위 디렉터리 %1/%2 생성에 실패했습니다</translation>
     </message>
     <message>
         <source>Could not write to %1</source>
-        <translation type="unfinished"/>
+        <translation>%1에 쓸 수 없습니다</translation>
     </message>
     <message>
         <source>Error reading file: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>파일 읽기 오류: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error getting files: &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>파일 가져오기 오류: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Error opening zip archive: &apos;%1&apos; (Error code: %2)</source>
-        <translation type="unfinished"/>
+        <translation>Zip 아카이브를 여는 중 오류 발생: &apos;%1&apos; (오류 코드: %2)</translation>
     </message>
 </context>
 <context>
     <name>QfActionButton</name>
     <message>
         <source>close</source>
-        <translation>close</translation>
+        <translation>닫기</translation>
     </message>
 </context>
 <context>
     <name>QfCalendarPanel</name>
     <message>
         <source>Hours</source>
-        <translation type="unfinished"/>
+        <translation>시</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>분</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation type="unfinished"/>
+        <translation>초</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>확인</translation>
     </message>
     <message>
         <source>January</source>
-        <translation type="unfinished"/>
+        <translation>1월</translation>
     </message>
     <message>
         <source>February</source>
-        <translation type="unfinished"/>
+        <translation>2월</translation>
     </message>
     <message>
         <source>March</source>
-        <translation type="unfinished"/>
+        <translation>3월</translation>
     </message>
     <message>
         <source>April</source>
-        <translation type="unfinished"/>
+        <translation>4월</translation>
     </message>
     <message>
         <source>May</source>
-        <translation type="unfinished"/>
+        <translation>5월</translation>
     </message>
     <message>
         <source>June</source>
-        <translation type="unfinished"/>
+        <translation>6월</translation>
     </message>
     <message>
         <source>July</source>
-        <translation type="unfinished"/>
+        <translation>7월</translation>
     </message>
     <message>
         <source>August</source>
-        <translation type="unfinished"/>
+        <translation>8월</translation>
     </message>
     <message>
         <source>September</source>
-        <translation type="unfinished"/>
+        <translation>9월</translation>
     </message>
     <message>
         <source>October</source>
-        <translation type="unfinished"/>
+        <translation>10월</translation>
     </message>
     <message>
         <source>November</source>
-        <translation type="unfinished"/>
+        <translation>11월</translation>
     </message>
     <message>
         <source>December</source>
-        <translation type="unfinished"/>
+        <translation>12월</translation>
     </message>
 </context>
 <context>
     <name>QfCloseButton</name>
     <message>
         <source>close</source>
-        <translation type="unfinished"/>
+        <translation>닫기</translation>
     </message>
 </context>
 <context>
     <name>QfSearchBar</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>검색</translation>
     </message>
 </context>
 <context>
     <name>QfTimeItem</name>
     <message>
         <source>Hours</source>
-        <translation>Hours</translation>
+        <translation>시</translation>
     </message>
     <message>
         <source>Minutes</source>
-        <translation>Minutes</translation>
+        <translation>분</translation>
     </message>
     <message>
         <source>Seconds</source>
-        <translation>Seconds</translation>
+        <translation>초</translation>
     </message>
 </context>
 <context>
     <name>QgisMobileapp</name>
     <message>
         <source>Project file &quot;%1&quot; does not exist</source>
-        <translation type="vanished">Project file &quot;%1&quot; does not exist</translation>
+        <translation>프로젝트 파일 &quot;%1&quot;이(가) 존재하지 않습니다</translation>
     </message>
     <message>
         <source>No project file currently opened</source>
-        <translation>No project file currently opened</translation>
+        <translation>현재 열려 있는 프로젝트 파일이 없습니다</translation>
     </message>
     <message>
         <source>Could not load font %1</source>
-        <translation type="vanished">Could not load font %1</translation>
+        <translation>글꼴 %1을(를) 불러올 수 없습니다</translation>
     </message>
     <message>
         <source>Loading font %1</source>
-        <translation type="vanished">Loading font %1</translation>
+        <translation>글꼴 %1 로드 중</translation>
     </message>
     <message>
         <source>Project Plugin</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 플러그인</translation>
     </message>
     <message>
         <source>Could not load font: %1</source>
-        <translation type="unfinished"/>
+        <translation>글꼴을 불러올 수 없습니다: %1</translation>
     </message>
     <message>
         <source>Can&apos;t load project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트를 불러올 수 없습니다. &quot;%1&quot; 파일이 존재하지 않습니다</translation>
     </message>
     <message>
         <source>Can&apos;t read project, file &quot;%1&quot; does not exist</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트를 읽을 수 없습니다. &quot;%1&quot; 파일이 존재하지 않습니다</translation>
     </message>
     <message>
         <source>Map printed on %1 using QField</source>
-        <translation type="unfinished"/>
+        <translation>%1에 QField를 사용하여 지도가 출력되었습니다</translation>
     </message>
 </context>
 <context>
     <name>QgsGpsInformation</name>
     <message>
         <source>Simulation mode</source>
-        <translation>Simulation mode</translation>
+        <translation>시뮬레이션 모드</translation>
     </message>
     <message>
         <source>Manual input mode</source>
-        <translation>Manual input mode</translation>
+        <translation>수동 입력 모드</translation>
     </message>
     <message>
         <source>Estimated</source>
-        <translation>Estimated</translation>
+        <translation>예상됨(추정치)</translation>
     </message>
     <message>
         <source>Float RTK</source>
@@ -4474,44 +4474,44 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Autonomous</source>
-        <translation>Autonomous</translation>
+        <translation>단독 측위</translation>
     </message>
     <message>
         <source>Invalid</source>
-        <translation>Invalid</translation>
+        <translation>유효하지 않음</translation>
     </message>
     <message>
         <source>Unknown (%1)</source>
-        <translation>Unknown (%1)</translation>
+        <translation>알 수 없음 (%1)</translation>
     </message>
     <message>
         <source> + IMU</source>
-        <translation type="unfinished"/>
+        <translation> + IMU</translation>
     </message>
 </context>
 <context>
     <name>QgsQuickMapCanvasMap</name>
     <message>
         <source>Rendering</source>
-        <translation>Rendering</translation>
+        <translation>렌더링 중</translation>
     </message>
 </context>
 <context>
     <name>QgsQuickMapSettings</name>
     <message>
         <source>Map Canvas rotation is not supported. Resetting from %1 to 0.</source>
-        <translation type="vanished">Map Canvas rotation is not supported. Resetting from %1 to 0.</translation>
+        <translation>지도 캔버스 회전은 지원되지 않습니다. %1에서 0으로 재설정합니다.</translation>
     </message>
 </context>
 <context>
     <name>Range</name>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>비어 있음</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
@@ -4522,19 +4522,19 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation type="vanished">Cannot start editing</translation>
+        <translation type="vanished">편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation type="vanished">Cannot delete feature</translation>
+        <translation type="vanished">객체를 삭제할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation type="vanished">Cannot rollback layer changes in layer %1</translation>
+        <translation type="vanished">%1 레이어의 변경 사항을 롤백할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation type="vanished">Cannot commit layer changes in layer %1.</translation>
+        <translation type="vanished">%1 레이어의 변경 사항을 커밋할 수 없습니다.</translation>
     </message>
 </context>
 <context>
@@ -4545,394 +4545,394 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Cannot start editing</source>
-        <translation>Cannot start editing</translation>
+        <translation>편집을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot delete feature</source>
-        <translation>Cannot delete feature</translation>
+        <translation>객체를 삭제할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot rollback layer changes in layer %1</source>
-        <translation>Cannot rollback layer changes in layer %1</translation>
+        <translation>%1 레이어의 변경 사항을 롤백할 수 없습니다</translation>
     </message>
     <message>
         <source>Cannot commit layer changes in layer %1.</source>
-        <translation>Cannot commit layer changes in layer %1.</translation>
+        <translation>%1 레이어의 변경 사항을 커밋할 수 없습니다.</translation>
     </message>
 </context>
 <context>
     <name>RelationCombobox</name>
     <message>
         <source>Search…</source>
-        <translation type="vanished">Search…</translation>
+        <translation type="vanished">검색…</translation>
     </message>
     <message>
         <source>Invalid relation</source>
-        <translation>Invalid relation</translation>
+        <translation>유효하지 않은 관계</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>비어 있음</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
     <name>RelationEditorBase</name>
     <message>
         <source>Cannot add child feature: insure the parent feature meets all constraints and can be saved</source>
-        <translation type="unfinished"/>
+        <translation>하위 객체를 추가할 수 없습니다: 상위 객체가 모든 제약 조건을 충족하고 저장 가능한 상태인지 확인하십시오</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation>Adding child feature in layer %1</translation>
+        <translation>%1 레이어에 하위 객체 추가 중</translation>
     </message>
     <message>
         <source>Cannot add child feature: attribute value linking parent and children is not set</source>
-        <translation type="unfinished"/>
+        <translation>하위 객체를 추가할 수 없습니다: 부모와 자식을 연결하는 속성 값이 설정되지 않았습니다</translation>
     </message>
     <message>
         <source>Unlink Feature</source>
-        <translation type="unfinished"/>
+        <translation>객체 연결 해제</translation>
     </message>
     <message>
         <source>Delete Feature</source>
-        <translation>Delete Feature</translation>
+        <translation>객체 삭제</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation>&lt;b&gt;%3&lt;/b&gt; 레이어의 객체 &lt;b&gt;%1 (%2)&lt;/b&gt; 연결을 해제할까요?&lt;br&gt;&lt;i&gt;(%4 레이어에서 연결이 삭제됩니다)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</translation>
+        <translation>&lt;b&gt;%3&lt;/b&gt; 레이어의 객체 &lt;b&gt;%1 (%2)&lt;/b&gt;을(를) 삭제할까요?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation>어떤 문제로 참조 레이어를 삭제하는데 실패했습니다.</translation>
+        <translation>참조 객체를 삭제하는 데 실패했습니다.</translation>
     </message>
     <message>
         <source>Child Menu</source>
-        <translation type="unfinished"/>
+        <translation>하위 메뉴</translation>
     </message>
     <message>
         <source>Copy Feature Attributes</source>
-        <translation type="unfinished"/>
+        <translation>객체 속성 복사</translation>
     </message>
     <message>
         <source>Print Atlas Feature to PDF</source>
-        <translation>Print Atlas Feature to PDF</translation>
+        <translation>아틀라스 객체를 PDF로 출력</translation>
     </message>
     <message>
         <source>Print Atlas Feature(s)</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 객체 출력</translation>
     </message>
     <message>
         <source>Select template below</source>
-        <translation>Select template below</translation>
+        <translation>아래에서 템플릿을 선택하십시오</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>출력 중...</translation>
     </message>
     <message>
         <source>Atlas feature(s) successfully printed and placed in your project folder</source>
-        <translation type="unfinished"/>
+        <translation>아틀라스 객체가 성공적으로 출력되어 프로젝트 폴더에 저장되었습니다</translation>
     </message>
     <message numerus="yes">
         <source>%n feature(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 개의 객체</numerusform></translation>
     </message>
 </context>
 <context>
     <name>Reshape</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation>The geometry could not be reshaped</translation>
+        <translation>기하 구조의 형상을 변경할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>ReshapeToolBar</name>
     <message>
         <source>The geometry could not be reshaped</source>
-        <translation type="vanished">The geometry could not be reshaped</translation>
+        <translation type="vanished">기하 구조의 형상을 변경할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>ScaleBarMeasurement</name>
     <message>
         <source>Unknown</source>
-        <translation>Unknown</translation>
+        <translation>알 수 없음</translation>
     </message>
 </context>
 <context>
     <name>SensorInformationView</name>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>해당 없음</translation>
     </message>
 </context>
 <context>
     <name>SerialPortDeviceChooser</name>
     <message>
         <source>Select the serial port from the list below:</source>
-        <translation type="unfinished"/>
+        <translation>아래 목록에서 시리얼 포트를 선택하십시오:</translation>
     </message>
     <message>
         <source>No serial ports detected, refresh the list once a device is connected.</source>
-        <translation type="unfinished"/>
+        <translation>감지된 시리얼 포트가 없습니다. 장치를 연결한 후 목록을 새로고침하십시오.</translation>
     </message>
     <message>
         <source>Refresh list</source>
-        <translation type="unfinished"/>
+        <translation>목록 새로고침</translation>
     </message>
     <message>
         <source>Serial port display name:</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 표시 이름:</translation>
     </message>
     <message>
         <source>Serial port address:</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 주소:</translation>
     </message>
 </context>
 <context>
     <name>SerialPortReceiver</name>
     <message>
         <source>Could not find the serial port device</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 장치를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Attempt to read from the serial port returned an error</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 읽기 시도 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>The connection was refused due to not having enough permission</source>
-        <translation type="unfinished"/>
+        <translation>권한이 부족하여 연결이 거부되었습니다</translation>
     </message>
     <message>
         <source>Serial port receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>시리얼 포트 수신기 오류 (%1)</translation>
     </message>
 </context>
 <context>
     <name>SplitFeature</name>
     <message>
         <source>Feature could not be split</source>
-        <translation>Feature could not be split</translation>
+        <translation>객체를 분할할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>SplitFeatureToolbar</name>
     <message>
         <source>Feature could not be split</source>
-        <translation type="vanished">Feature could not be split</translation>
+        <translation type="vanished">객체를 분할할 수 없습니다</translation>
     </message>
 </context>
 <context>
     <name>SystemLoader</name>
     <message>
         <source>Preparing QField, this is a one time operation that might take some time</source>
-        <translation type="vanished">Preparing QField, this is a one time operation that might take some time</translation>
+        <translation type="vanished">QField를 준비 중입니다. 처음 한 번만 실행되며 시간이 다소 걸릴 수 있습니다</translation>
     </message>
 </context>
 <context>
     <name>TcpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>주소:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>포트:</translation>
     </message>
     <message>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>포트</translation>
     </message>
 </context>
 <context>
     <name>TcpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation type="vanished">Connecting…</translation>
+        <translation type="vanished">연결 중…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation type="vanished">Successfully connected</translation>
+        <translation type="vanished">성공적으로 연결됨</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="vanished">Disconnected</translation>
+        <translation type="vanished">연결 끊김</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="vanished">Socket state %1</translation>
+        <translation type="vanished">소켓 상태 %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>소켓 읽기 또는 쓰기 시도 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트에 의해 연결이 거부되었습니다</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP 수신기 오류 (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트에 의해 연결이 거부되었습니다</translation>
     </message>
     <message>
         <source>TCP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>TCP 수신기 오류 (%1)</translation>
     </message>
 </context>
 <context>
     <name>TemporalProperties</name>
     <message>
         <source>Temporal Properties</source>
-        <translation>Temporal Properties</translation>
+        <translation>시간 속성</translation>
     </message>
     <message>
         <source>Enable temporal filter</source>
-        <translation>Enable temporal filter</translation>
+        <translation>시간 필터 활성화</translation>
     </message>
 </context>
 <context>
     <name>TextEdit</name>
     <message>
         <source>Copy Text</source>
-        <translation type="unfinished"/>
+        <translation>텍스트 복사</translation>
     </message>
     <message>
         <source>Paste Text</source>
-        <translation type="unfinished"/>
+        <translation>텍스트 붙여넣기</translation>
     </message>
     <message>
         <source>Scan Code</source>
-        <translation type="unfinished"/>
+        <translation>코드 스캔</translation>
     </message>
     <message>
         <source>Empty</source>
-        <translation type="unfinished"/>
+        <translation>비어 있음</translation>
     </message>
     <message>
         <source>NULL</source>
-        <translation type="unfinished"/>
+        <translation>NULL</translation>
     </message>
 </context>
 <context>
     <name>TrackerFeatureForm</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation>Track on layer %1 started</translation>
+        <translation>%1 레이어에서 추적을 시작했습니다</translation>
     </message>
 </context>
 <context>
     <name>TrackerSettings</name>
     <message>
         <source>Tracking</source>
-        <translation type="unfinished"/>
+        <translation>추적 중</translation>
     </message>
     <message>
         <source>Requirement Settings</source>
-        <translation type="unfinished"/>
+        <translation>요구 조건 설정</translation>
     </message>
     <message>
         <source>Time requirement</source>
-        <translation type="unfinished"/>
+        <translation>시간 조건</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation>Minimum time [sec]</translation>
+        <translation>최소 시간 [초]</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the time between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면, 이전 정점과 새 정점 사이의 시간이 설정된 최소값을 충족할 때 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>Distance requirement</source>
-        <translation type="unfinished"/>
+        <translation>거리 조건</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation>Minimum distance [%1]</translation>
+        <translation>최소 거리 [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when the distance between the last and new vertex meets a configured mimimum value.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면, 이전 정점과 새 정점 사이의 거리가 설정된 최소값을 충족할 때 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>Sensor data requirement</source>
-        <translation type="unfinished"/>
+        <translation>센서 데이터 조건</translation>
     </message>
     <message>
         <source>When enabled, vertex additions will occur when sensors have captured new data.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면, 센서가 새로운 데이터를 캡처했을 때 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>Wait for all active requirements</source>
-        <translation type="unfinished"/>
+        <translation>모든 활성 조건 대기</translation>
     </message>
     <message>
         <source>When enabled, vertices will only be recorded when all active requirements are met. When disabled, individual requirement met will trigger vertex additions.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면, 모든 활성 조건이 충족될 때만 정점이 기록됩니다. 비활성화하면, 개별 조건 중 하나만 충족되어도 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>일반 설정</translation>
     </message>
     <message>
         <source>Erroneous distance safeguard</source>
-        <translation type="unfinished"/>
+        <translation>거리 오류 방지 장치</translation>
     </message>
     <message>
         <source>Maximum tolerated distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>최대 허용 거리 [%1]</translation>
     </message>
     <message>
         <source>When enabled, vertex addition will not occur when the distance between the last and new vertex is greater than a configured maximum value.</source>
-        <translation type="unfinished"/>
+        <translation>활성화하면, 이전 정점과 새 정점 사이의 거리가 설정된 최대값보다 클 경우 정점이 추가되지 않습니다.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>정점에 할당된 측정값(M):</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>경과 시간 (추적 시작 후 초 단위)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>타임스탬프 (에포크 이후 밀리초 단위)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>지표 속도</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation>Bearing</translation>
+        <translation>방위각</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수평 정확도</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -4948,102 +4948,102 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 기하 구조 유형에 M 차원이 포함되어 있는지 확인하십시오.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation>Start tracking</translation>
+        <translation>추적 시작</translation>
     </message>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
+        <translation>%1 레이어에서 추적을 시작했습니다</translation>
     </message>
     <message>
         <source>Resume tracking</source>
-        <translation type="unfinished"/>
+        <translation>추적 재개</translation>
     </message>
     <message>
         <source>Layer</source>
-        <translation type="unfinished"/>
+        <translation>레이어</translation>
     </message>
     <message>
         <source>Track on layer %1 resumed</source>
-        <translation type="unfinished"/>
+        <translation>%1 레이어에서 추적을 재개했습니다</translation>
     </message>
 </context>
 <context>
     <name>Tracking</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="vanished">Track on layer %1 started</translation>
+        <translation type="vanished">%1 레이어에서 추적을 시작했습니다</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation type="vanished">Tracker Settings</translation>
+        <translation type="vanished">추적기 설정</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="vanished">Activate time constraint</translation>
+        <translation type="vanished">시간 제약 활성화</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="vanished">Minimum time [sec]</translation>
+        <translation type="vanished">최소 시간 [초]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="vanished">Activate distance constraint</translation>
+        <translation type="vanished">거리 제약 활성화</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="vanished">Minimum distance [%1]</translation>
+        <translation type="vanished">최소 거리 [%1]</translation>
     </message>
     <message>
         <source>Record when both active constraints are met</source>
-        <translation type="vanished">Record when both active constraints are met</translation>
+        <translation type="vanished">두 활성 제약 조건이 모두 충족될 때 기록</translation>
     </message>
     <message>
         <source>When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</source>
-        <translation type="vanished">When enabled, vertices with only be recorded when both active constraints are met. If the setting is disabled, individual constraints met will trigger a vertex addition.</translation>
+        <translation type="vanished">활성화하면, 두 활성 제약 조건이 모두 충족될 때만 정점이 기록됩니다. 비활성화하면, 개별 제약 조건 중 하나만 충족되어도 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation type="vanished">Start tracking</translation>
+        <translation type="vanished">추적 시작</translation>
     </message>
     <message>
         <source>Cannot start track with empty values</source>
-        <translation type="vanished">Cannot start track with empty values</translation>
+        <translation type="vanished">빈 값으로는 추적을 시작할 수 없습니다</translation>
     </message>
     <message>
         <source>When both constraints are disabled, vertex additions will occur as frequently as delivered by the positioning device.</source>
-        <translation type="unfinished"/>
+        <translation>두 제약 조건이 모두 비활성화되면, 위치 측정 장치에서 수신되는 주기만큼 빈번하게 정점이 추가됩니다.</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>정점에 할당된 측정값(M):</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>경과 시간 (추적 시작 후 초 단위)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>타임스탬프 (에포크 이후 밀리초 단위)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>지표 속도</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="vanished">Bearing</translation>
+        <translation type="vanished">방위각</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수평 정확도</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
@@ -5059,242 +5059,242 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 기하 구조 유형에 M 차원이 포함되어 있는지 확인하십시오.</translation>
     </message>
 </context>
 <context>
     <name>TrackingSession</name>
     <message>
         <source>Track on layer %1 started</source>
-        <translation type="unfinished"/>
+        <translation>%1 레이어에서 추적을 시작했습니다</translation>
     </message>
     <message>
         <source>Tracker Settings</source>
-        <translation type="unfinished"/>
+        <translation>추적기 설정</translation>
     </message>
     <message>
         <source>Activate time constraint</source>
-        <translation type="unfinished"/>
+        <translation>시간 제약 활성화</translation>
     </message>
     <message>
         <source>Minimum time [sec]</source>
-        <translation type="unfinished"/>
+        <translation>최소 시간 [초]</translation>
     </message>
     <message>
         <source>Activate distance constraint</source>
-        <translation type="unfinished"/>
+        <translation>거리 제약 활성화</translation>
     </message>
     <message>
         <source>Minimum distance [%1]</source>
-        <translation type="unfinished"/>
+        <translation>최소 거리 [%1]</translation>
     </message>
     <message>
         <source>Measure (M) value attached to vertices:</source>
-        <translation type="unfinished"/>
+        <translation>정점에 할당된 측정값(M):</translation>
     </message>
     <message>
         <source>Elapsed time (seconds since start of tracking)</source>
-        <translation type="unfinished"/>
+        <translation>경과 시간 (추적 시작 후 초 단위)</translation>
     </message>
     <message>
         <source>Timestamp (milliseconds since epoch)</source>
-        <translation type="unfinished"/>
+        <translation>타임스탬프 (에포크 이후 밀리초 단위)</translation>
     </message>
     <message>
         <source>Ground speed</source>
-        <translation type="unfinished"/>
+        <translation>지표 속도</translation>
     </message>
     <message>
         <source>Bearing</source>
-        <translation type="unfinished"/>
+        <translation>방위각</translation>
     </message>
     <message>
         <source>Horizontal accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수평 정확도</translation>
     </message>
     <message>
         <source>Vertical accuracy</source>
-        <translation type="unfinished"/>
+        <translation>수직 정확도</translation>
     </message>
     <message>
         <source>PDOP</source>
-        <translation type="unfinished"/>
+        <translation>PDOP</translation>
     </message>
     <message>
         <source>HDOP</source>
-        <translation type="unfinished"/>
+        <translation>HDOP</translation>
     </message>
     <message>
         <source>VDOP</source>
-        <translation type="unfinished"/>
+        <translation>VDOP</translation>
     </message>
     <message>
         <source>To active the measurement functionality, make sure the vector layer&apos;s geometry type used for the tracking session has an M dimension.</source>
-        <translation type="unfinished"/>
+        <translation>측정 기능을 활성화하려면, 추적 세션에 사용되는 벡터 레이어의 기하 구조 유형에 M 차원이 포함되어 있는지 확인하십시오.</translation>
     </message>
     <message>
         <source>Start tracking</source>
-        <translation type="unfinished"/>
+        <translation>추적 시작</translation>
     </message>
 </context>
 <context>
     <name>UdpDeviceChooser</name>
     <message>
         <source>Address:</source>
-        <translation type="unfinished"/>
+        <translation>주소:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"/>
+        <translation>포트:</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>주소</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>포트</translation>
     </message>
 </context>
 <context>
     <name>UdpReceiver</name>
     <message>
         <source>Connecting…</source>
-        <translation type="vanished">Connecting…</translation>
+        <translation type="vanished">연결 중…</translation>
     </message>
     <message>
         <source>Successfully connected</source>
-        <translation type="vanished">Successfully connected</translation>
+        <translation type="vanished">성공적으로 연결됨</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation type="vanished">Disconnected</translation>
+        <translation type="vanished">연결 끊김</translation>
     </message>
     <message>
         <source>Socket state %1</source>
-        <translation type="vanished">Socket state %1</translation>
+        <translation type="vanished">소켓 상태 %1</translation>
     </message>
     <message>
         <source>Could not find the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트를 찾을 수 없습니다</translation>
     </message>
     <message>
         <source>Attempt to read or write from socket returned an error</source>
-        <translation type="unfinished"/>
+        <translation>소켓 읽기 또는 쓰기 시도 중 오류가 발생했습니다</translation>
     </message>
     <message>
         <source>The connection was refused by the remote hose</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트에 의해 연결이 거부되었습니다</translation>
     </message>
     <message>
         <source>UDP receiver error (%1)</source>
-        <translation type="unfinished"/>
+        <translation>UDP 수신기 오류 (%1)</translation>
     </message>
     <message>
         <source>The connection was refused by the remote host</source>
-        <translation type="unfinished"/>
+        <translation>원격 호스트에 의해 연결이 거부되었습니다</translation>
     </message>
 </context>
 <context>
     <name>ValueMap</name>
     <message>
         <source>Search…</source>
-        <translation type="unfinished"/>
+        <translation>검색…</translation>
     </message>
 </context>
 <context>
     <name>VariableEditor</name>
     <message>
         <source>Enter name</source>
-        <translation type="vanished">Enter name</translation>
+        <translation type="vanished">이름 입력</translation>
     </message>
     <message>
         <source>Enter value</source>
-        <translation>Enter value</translation>
+        <translation>값 입력</translation>
     </message>
     <message>
         <source>Add a new variable</source>
-        <translation>Add a new variable</translation>
+        <translation>새 변수 추가</translation>
     </message>
     <message>
         <source>Global variables</source>
-        <translation type="unfinished"/>
+        <translation>전역 변수</translation>
     </message>
     <message>
         <source>Project variables</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 변수</translation>
     </message>
 </context>
 <context>
     <name>VertexEditor</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation>대상을 저장하는데 실패하였습니다!</translation>
+        <translation>객체를 저장하는 데 실패했습니다!</translation>
     </message>
 </context>
 <context>
     <name>VertexEditorToolbar</name>
     <message>
         <source>Failed to save feature!</source>
-        <translation type="vanished">Failed to save feature!</translation>
+        <translation type="vanished">객체를 저장하는 데 실패했습니다!</translation>
     </message>
 </context>
 <context>
     <name>WebdavConnection</name>
     <message>
         <source>Failed to download file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 오류(%2)로 인해 %1 파일을 다운로드하지 못했습니다</translation>
     </message>
     <message>
         <source>Failed to upload file %1 due to network error (%2)</source>
-        <translation type="unfinished"/>
+        <translation>네트워크 오류(%2)로 인해 %1 파일을 업로드하지 못했습니다</translation>
     </message>
 </context>
 <context>
     <name>WelcomeScreen</name>
     <message>
         <source>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</source>
-        <translation>We&apos;re sorry to hear that. Click on the button below to comment or seek support.</translation>
+        <translation>불편을 드려 죄송합니다. 아래 버튼을 클릭하여 의견을 남기시거나 지원을 요청하십시오.</translation>
     </message>
     <message>
         <source>Reach out</source>
-        <translation>Reach out</translation>
+        <translation>문의하기</translation>
     </message>
     <message>
         <source>Hey there, how do you like your experience with QField so far?</source>
-        <translation>Hey there, how do you like your experience with QField so far?</translation>
+        <translation>안녕하세요! 지금까지 QField를 사용해 보신 소감이 어떠신가요?</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</source>
-        <translation type="vanished">That&apos;s great! We&apos;d love for you to click on the button below and leave a comment on the store.</translation>
+        <translation type="vanished">좋은 소식이네요! 아래 버튼을 클릭하여 스토어에 소중한 의견을 남겨주시면 감사하겠습니다.</translation>
     </message>
     <message>
         <source>Rate us</source>
-        <translation>Rate us</translation>
+        <translation>평가하기</translation>
     </message>
     <message>
         <source>Anonymized metrics collection has been disabled. You can re-enable through the settings panel.</source>
-        <translation type="unfinished"/>
+        <translation>익명화된 지표 수집이 비활성화되었습니다. 설정 패널을 통해 다시 활성화할 수 있습니다.</translation>
     </message>
     <message>
         <source>To improve stability for everyone, QField collects and sends anonymized metrics.</source>
-        <translation type="unfinished"/>
+        <translation>모든 사용자를 위한 안정성 향상을 위해 QField는 익명화된 지표를 수집하고 전송합니다.</translation>
     </message>
     <message>
         <source>I agree</source>
-        <translation type="unfinished"/>
+        <translation>동의합니다</translation>
     </message>
     <message>
         <source>I prefer not</source>
-        <translation type="unfinished"/>
+        <translation>동의하지 않습니다</translation>
     </message>
     <message>
         <source>QFieldCloud projects</source>
-        <translation type="vanished">클라우드 프로젝트</translation>
+        <translation type="vanished">QFieldCloud 프로젝트</translation>
     </message>
     <message>
         <source>Open local file</source>
-        <translation type="vanished">Open local file</translation>
+        <translation type="vanished">로컬 파일 열기</translation>
     </message>
     <message>
         <source>Recent Projects</source>
@@ -5302,72 +5302,71 @@ Cancel to make a minimal device scan instead.</source>
     </message>
     <message>
         <source>Last session</source>
-        <translation>Last session</translation>
+        <translation>마지막 세션</translation>
     </message>
     <message>
         <source>Base map project</source>
-        <translation type="vanished">Base map project</translation>
+        <translation type="vanished">기초 지도 프로젝트</translation>
     </message>
     <message>
         <source>Base Map Project</source>
-        <translation type="vanished">Base Map Project</translation>
+        <translation type="vanished">기초 지도 프로젝트</translation>
     </message>
     <message>
         <source>Remove from Recent Projects</source>
-        <translation>Remove from Recent Projects</translation>
+        <translation>최근 프로젝트에서 제거</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try out sample projects listed in the list below.</source>
-        <translation type="vanished">Welcome to QField. First time using this application? Try out sample projects listed in the list below.</translation>
+        <translation type="vanished">QField에 오신 것을 환영합니다. 처음 사용하시나요? 아래 목록에 있는 샘플 프로젝트를 실행해 보세요.</translation>
     </message>
     <message>
         <source>Welcome back to QField.</source>
-        <translation>Welcome back to QField.</translation>
+        <translation>QField에 다시 오신 것을 환영합니다.</translation>
     </message>
     <message>
         <source>Default project</source>
-        <translation type="unfinished"/>
+        <translation>기본 프로젝트</translation>
     </message>
     <message>
         <source>Base map</source>
-        <translation type="unfinished"/>
+        <translation>기초 지도</translation>
     </message>
     <message>
         <source>Default Project</source>
-        <translation type="unfinished"/>
+        <translation>기본 프로젝트</translation>
     </message>
     <message>
         <source>Individual Datasets Base Map</source>
-        <translation type="unfinished"/>
+        <translation>개별 데이터셋 기초 지도</translation>
     </message>
     <message>
         <source>Load default project on launch</source>
-        <translation type="unfinished"/>
+        <translation>시작 시 기본 프로젝트 로드</translation>
     </message>
     <message>
         <source>Load last opened project on launch</source>
-        <translation type="unfinished"/>
+        <translation>시작 시 마지막으로 열었던 프로젝트 로드</translation>
     </message>
     <message>
         <source>Recent Project Actions</source>
-        <translation type="unfinished"/>
+        <translation>최근 프로젝트 작업</translation>
     </message>
     <message>
         <source>Welcome to QField. First time using this application? Try the sample projects listed below.</source>
-        <translation type="unfinished"/>
+        <translation>QField에 오신 것을 환영합니다. 처음 사용하시나요? 아래 나열된 샘플 프로젝트를 확인해 보세요.</translation>
     </message>
     <message>
         <source>That&apos;s great! We&apos;d love for you to click on the button below and leave a review.</source>
-        <translation type="unfinished"/>
+        <translation>좋은 소식이네요! 아래 버튼을 클릭하여 리뷰를 남겨주시면 큰 도움이 됩니다.</translation>
     </message>
     <message>
         <source>Return to map</source>
-        <translation type="unfinished"/>
+        <translation>지도로 돌아가기</translation>
     </message>
     <message>
-        <source>QFieldCloud
-projects</source>
-        <translation type="unfinished"/>
+        <source>QFieldCloud\nprojects</source>
+        <translation>QFieldCloud\n프로젝트</translation>
     </message>
     <message>
         <source>Local projects and datasets</source>
@@ -5375,120 +5374,120 @@ projects</source>
     </message>
     <message>
         <source>Create new project</source>
-        <translation type="vanished">신규 프로젝트 생성</translation>
+        <translation type="vanished">새 프로젝트 생성</translation>
     </message>
 </context>
 <context>
     <name>area</name>
     <message>
         <source>square degrees</source>
-        <translation type="unfinished"/>
+        <translation>제곱도</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;알 수 없음&gt;</translation>
     </message>
     <message>
         <source>sqr. meters</source>
-        <translation type="unfinished"/>
+        <translation>제곱미터(m²)</translation>
     </message>
     <message>
         <source>sqr. kilometers</source>
-        <translation type="unfinished"/>
+        <translation>제곱킬로미터(km²)</translation>
     </message>
     <message>
         <source>sqr. feet</source>
-        <translation type="unfinished"/>
+        <translation>제곱피트(ft²)</translation>
     </message>
     <message>
         <source>sqr. yards</source>
-        <translation type="unfinished"/>
+        <translation>제곱야드(yd²)</translation>
     </message>
     <message>
         <source>sqr. miles</source>
-        <translation type="unfinished"/>
+        <translation>제곱마일(mi²)</translation>
     </message>
     <message>
         <source>hectares</source>
-        <translation type="unfinished"/>
+        <translation>헥타르(ha)</translation>
     </message>
     <message>
         <source>acres</source>
-        <translation type="unfinished"/>
+        <translation>에이커(ac)</translation>
     </message>
     <message>
         <source>sqr. nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>제곱해리</translation>
     </message>
     <message>
         <source>sqr. centimeters</source>
-        <translation type="unfinished"/>
+        <translation>제곱센티미터(cm²)</translation>
     </message>
     <message>
         <source>sqr. millimeters</source>
-        <translation type="unfinished"/>
+        <translation>제곱밀리미터(mm²)</translation>
     </message>
     <message>
         <source>sqr. inches</source>
-        <translation type="unfinished"/>
+        <translation>제곱인치(in²)</translation>
     </message>
 </context>
 <context>
     <name>boolean</name>
     <message>
         <source>True</source>
-        <translation>True</translation>
+        <translation>참(True)</translation>
     </message>
     <message>
         <source>False</source>
-        <translation>False</translation>
+        <translation>거짓(False)</translation>
     </message>
 </context>
 <context>
     <name>distance</name>
     <message>
         <source>degrees</source>
-        <translation type="unfinished"/>
+        <translation>도(°)</translation>
     </message>
     <message>
         <source>&lt;unknown&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;알 수 없음&gt;</translation>
     </message>
     <message>
         <source>meters</source>
-        <translation type="unfinished"/>
+        <translation>미터(m)</translation>
     </message>
     <message>
         <source>kilometers</source>
-        <translation type="unfinished"/>
+        <translation>킬로미터(km)</translation>
     </message>
     <message>
         <source>feet</source>
-        <translation type="unfinished"/>
+        <translation>피트(ft)</translation>
     </message>
     <message>
         <source>yards</source>
-        <translation type="unfinished"/>
+        <translation>야드(yd)</translation>
     </message>
     <message>
         <source>miles</source>
-        <translation type="unfinished"/>
+        <translation>마일(mi)</translation>
     </message>
     <message>
         <source>nautical miles</source>
-        <translation type="unfinished"/>
+        <translation>해리(nm)</translation>
     </message>
     <message>
         <source>centimeters</source>
-        <translation type="unfinished"/>
+        <translation>센티미터(cm)</translation>
     </message>
     <message>
         <source>millimeters</source>
-        <translation type="unfinished"/>
+        <translation>밀리미터(mm)</translation>
     </message>
     <message>
         <source>inches</source>
-        <translation type="unfinished"/>
+        <translation>인치(in)</translation>
     </message>
 </context>
 <context>
@@ -5530,143 +5529,91 @@ projects</source>
     <name>qgismobileapp</name>
     <message>
         <source>You are now in browse mode</source>
-        <translation>You are now in browse mode</translation>
+        <translation>탐색 모드로 전환되었습니다</translation>
     </message>
     <message>
         <source>You are now in digitize mode on layer %1</source>
-        <translation>You are now in digitize mode on layer %1</translation>
+        <translation>%1 레이어에서 디지타이징 모드로 전환되었습니다</translation>
     </message>
     <message>
         <source>You are now in digitize mode</source>
-        <translation>You are now in digitize mode</translation>
+        <translation>디지타이징 모드로 전환되었습니다</translation>
     </message>
     <message>
         <source>You are now in measure mode</source>
-        <translation>You are now in measure mode</translation>
+        <translation>측정 모드로 전환되었습니다</translation>
     </message>
     <message>
         <source>Lon</source>
-        <translation>Lon</translation>
+        <translation>경도</translation>
     </message>
     <message>
         <source>Lat</source>
-        <translation>Lat</translation>
+        <translation>위도</translation>
     </message>
     <message>
         <source>Segment</source>
-        <translation>Segment</translation>
+        <translation>세그먼트</translation>
     </message>
     <message>
         <source>Perimeter</source>
-        <translation type="unfinished"/>
+        <translation>둘레</translation>
     </message>
     <message>
         <source>Length</source>
-        <translation>Length</translation>
+        <translation>길이</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation>Area</translation>
+        <translation>면적</translation>
     </message>
     <message>
         <source>Close measure tool</source>
-        <translation>Close measure tool</translation>
+        <translation>측정 도구 닫기</translation>
     </message>
     <message>
         <source>Stop editing</source>
-        <translation>Stop editing</translation>
+        <translation>편집 중지</translation>
     </message>
     <message>
         <source>Cancel addition</source>
-        <translation>Cancel addition</translation>
+        <translation>추가 취소</translation>
     </message>
     <message>
         <source>Topological editing turned on</source>
-        <translation>Topological editing turned on</translation>
+        <translation>위상 편집 활성화됨</translation>
     </message>
     <message>
         <source>Topological editing turned off</source>
-        <translation>Topological editing turned off</translation>
+        <translation>위상 편집 비활성화됨</translation>
     </message>
     <message>
         <source>Freehand digitizing turned on</source>
-        <translation>Freehand digitizing turned on</translation>
+        <translation>자유형 디지타이징 활성화됨</translation>
     </message>
     <message>
         <source>Freehand digitizing turned off</source>
-        <translation>Freehand digitizing turned off</translation>
-    </message>
-    <message>
-        <source>Coordinate cursor now locked to position</source>
-        <translation type="vanished">Coordinate cursor now locked to position</translation>
+        <translation>자유형 디지타이징 비활성화됨</translation>
     </message>
     <message>
         <source>Coordinate cursor unlocked</source>
-        <translation>Coordinate cursor unlocked</translation>
-    </message>
-    <message>
-        <source>Received position</source>
-        <translation type="vanished">Received position</translation>
-    </message>
-    <message>
-        <source>Searching for position</source>
-        <translation type="vanished">Searching for position</translation>
-    </message>
-    <message>
-        <source>Canvas follows location</source>
-        <translation type="vanished">Canvas follows location</translation>
+        <translation>좌표 커서 잠금 해제됨</translation>
     </message>
     <message>
         <source>Waiting for location</source>
-        <translation>Waiting for location</translation>
-    </message>
-    <message>
-        <source>Positioning activated</source>
-        <translation type="vanished">위치 서비스가 활성화 되었습니다</translation>
-    </message>
-    <message>
-        <source>Positioning turned off</source>
-        <translation type="vanished">위치 서비스를 중지했습니다</translation>
-    </message>
-    <message>
-        <source>Canvas stopped following location</source>
-        <translation type="vanished">Canvas stopped following location</translation>
-    </message>
-    <message>
-        <source>Failed to create feature!</source>
-        <translation type="vanished">대상을 생성하는데 실패하였습니다!</translation>
-    </message>
-    <message>
-        <source>Failed to save feature!</source>
-        <translation type="vanished">대상을 저장하는데 실패하였습니다!</translation>
+        <translation>위치 신호 대기 중</translation>
     </message>
     <message>
         <source>Main Menu</source>
         <translation>주 메뉴</translation>
     </message>
     <message>
-        <source>Measure Tool</source>
-        <translation type="vanished">Measure Tool</translation>
-    </message>
-    <message>
-        <source>Print to PDF</source>
-        <translation type="vanished">PDF로 출력</translation>
-    </message>
-    <message>
-        <source>Printing to PDF</source>
-        <translation type="vanished">Printing to PDF</translation>
-    </message>
-    <message>
         <source>Go to Home Screen</source>
-        <translation type="unfinished"/>
+        <translation>홈 화면으로 이동</translation>
     </message>
     <message>
         <source>Open Project Folder</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Project</source>
-        <translation type="vanished">프로젝트 열기</translation>
+        <translation>프로젝트 폴더 열기</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -5674,171 +5621,147 @@ projects</source>
     </message>
     <message>
         <source>Message Log</source>
-        <translation>Message Log</translation>
+        <translation>메시지 로그</translation>
     </message>
     <message>
         <source>About QField</source>
-        <translation>About QField</translation>
-    </message>
-    <message>
-        <source>Select template below</source>
-        <translation type="vanished">Select template below</translation>
+        <translation>QField 정보</translation>
     </message>
     <message>
         <source>Activating positioning service</source>
-        <translation>Activating positioning service</translation>
-    </message>
-    <message>
-        <source>QField has no permissions to use positioning.</source>
-        <translation type="vanished">QField has no permissions to use positioning.</translation>
+        <translation>위치 서비스 활성화 중</translation>
     </message>
     <message>
         <source>Map Canvas Options</source>
-        <translation>Map Canvas Options</translation>
+        <translation>지도 캔버스 옵션</translation>
     </message>
     <message>
         <source>Add Bookmark</source>
-        <translation type="unfinished"/>
+        <translation>북마크 추가</translation>
     </message>
     <message>
         <source>Set as Destination</source>
-        <translation type="unfinished"/>
+        <translation>목적지로 설정</translation>
     </message>
     <message>
         <source>Add Bookmark at Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>해당 좌표에 북마크 추가</translation>
     </message>
     <message>
         <source>Untitled bookmark</source>
-        <translation type="unfinished"/>
+        <translation>제목 없는 북마크</translation>
     </message>
     <message>
         <source>Set Coordinates as Destination</source>
-        <translation type="unfinished"/>
+        <translation>해당 좌표를 목적지로 설정</translation>
     </message>
     <message>
         <source>Copy Coordinates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>X</source>
-        <translation type="vanished">X</translation>
-    </message>
-    <message>
-        <source>Y</source>
-        <translation type="vanished">Y</translation>
+        <translation>좌표 복사</translation>
     </message>
     <message>
         <source>Coordinates copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>좌표가 클립보드에 복사되었습니다</translation>
     </message>
     <message>
         <source>Precise View Settings</source>
-        <translation type="unfinished"/>
+        <translation>정밀 뷰 설정</translation>
     </message>
     <message>
         <source>0.25m Precision</source>
-        <translation type="unfinished"/>
+        <translation>0.25m 정밀도</translation>
     </message>
     <message>
         <source>0.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation>0.5m 정밀도</translation>
     </message>
     <message>
         <source>1m Precision</source>
-        <translation type="unfinished"/>
+        <translation>1m 정밀도</translation>
     </message>
     <message>
         <source>2.5m Precision</source>
-        <translation type="unfinished"/>
+        <translation>2.5m 정밀도</translation>
     </message>
     <message>
         <source>5m Precision</source>
-        <translation type="unfinished"/>
+        <translation>5m 정밀도</translation>
     </message>
     <message>
         <source>10m Precision</source>
-        <translation type="unfinished"/>
+        <translation>10m 정밀도</translation>
     </message>
     <message>
         <source>Always Show Precise View</source>
-        <translation type="unfinished"/>
+        <translation>항상 정밀 뷰 표시</translation>
     </message>
     <message>
         <source>Center to Location</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치를 중심으로</translation>
     </message>
     <message>
         <source>Add Bookmark at Location</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치에 북마크 추가</translation>
     </message>
     <message>
         <source>Copy Location Coordinates</source>
-        <translation type="unfinished"/>
+        <translation>위치 좌표 복사</translation>
     </message>
     <message>
         <source>Signed out</source>
-        <translation type="unfinished"/>
+        <translation>로그아웃됨</translation>
     </message>
     <message>
         <source>Signed in</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set As Destination</source>
-        <translation type="vanished">Set As Destination</translation>
+        <translation>로그인됨</translation>
     </message>
     <message>
         <source>Navigation Options</source>
-        <translation>Navigation Options</translation>
+        <translation>내비게이션 옵션</translation>
     </message>
     <message>
         <source>Clear Destination</source>
-        <translation>Clear Destination</translation>
+        <translation>목적지 해제</translation>
     </message>
     <message>
         <source>%1 Precision</source>
-        <translation type="unfinished"/>
+        <translation>%1 정밀도</translation>
     </message>
     <message>
         <source>Enable Audio Proximity Feedback</source>
-        <translation type="unfinished"/>
+        <translation>오디오 근접 피드백 활성화</translation>
     </message>
     <message>
         <source>Positioning Options</source>
-        <translation>Positioning Options</translation>
+        <translation>위치 측정 옵션</translation>
     </message>
     <message>
         <source>Enable Positioning</source>
-        <translation>Enable Positioning</translation>
+        <translation>위치 측정 활성화</translation>
     </message>
     <message>
         <source>Show Position Information</source>
-        <translation>Show Position Information</translation>
+        <translation>위치 정보 표시</translation>
     </message>
     <message>
         <source>Positioning Settings</source>
-        <translation>Positioning Settings</translation>
-    </message>
-    <message>
-        <source>Center to Current Location</source>
-        <translation type="vanished">Center to Current Location</translation>
+        <translation>위치 측정 설정</translation>
     </message>
     <message>
         <source>Add Bookmark at Current Location</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치에 북마크 추가</translation>
     </message>
     <message>
         <source>Current location unknown</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치를 알 수 없음</translation>
     </message>
     <message>
         <source>My location</source>
-        <translation type="unfinished"/>
+        <translation>내 위치</translation>
     </message>
     <message>
         <source>Copy Current Location</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치 복사</translation>
     </message>
     <message>
         <source>Accuracy</source>
@@ -5846,483 +5769,466 @@ projects</source>
     </message>
     <message>
         <source>N/A</source>
-        <translation>N/A</translation>
+        <translation>해당 없음</translation>
     </message>
     <message>
         <source>Current location copied to clipboard</source>
-        <translation type="unfinished"/>
+        <translation>현재 위치가 클립보드에 복사되었습니다</translation>
     </message>
     <message>
         <source>Current layer switched to the one holding the selected geometry.</source>
-        <translation>Current layer switched to the one holding the selected geometry.</translation>
-    </message>
-    <message>
-        <source>Editing of multi geometry layer is not supported yet.</source>
-        <translation type="vanished">Editing of multi geometry layer is not supported yet.</translation>
+        <translation>선택한 기하 구조가 포함된 레이어로 전환되었습니다.</translation>
     </message>
     <message>
         <source>Loading %1</source>
-        <translation>Loading %1</translation>
-    </message>
-    <message>
-        <source>Logged out</source>
-        <translation type="vanished">Logged out</translation>
+        <translation>%1 로딩 중</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation>Connecting...</translation>
-    </message>
-    <message>
-        <source>Logged in</source>
-        <translation type="vanished">Logged in</translation>
+        <translation>연결 중...</translation>
     </message>
     <message>
         <source>Project %1 failed to download</source>
-        <translation>Project %1 failed to download</translation>
+        <translation>%1 프로젝트 다운로드 실패</translation>
     </message>
     <message>
         <source>Project %1 successfully downloaded, it&apos;s now available to open</source>
-        <translation>Project %1 successfully downloaded, it&apos;s now available to open</translation>
+        <translation>%1 프로젝트가 성공적으로 다운로드되었습니다. 이제 열 수 있습니다.</translation>
     </message>
     <message>
         <source>Changes failed to reach QFieldCloud: %1</source>
-        <translation>Changes failed to reach QFieldCloud: %1</translation>
+        <translation>변경 사항을 QFieldCloud에 반영하지 못했습니다: %1</translation>
     </message>
     <message>
         <source>Changes successfully pushed to QFieldCloud</source>
-        <translation>Changes successfully pushed to QFieldCloud</translation>
+        <translation>변경 사항이 QFieldCloud에 성공적으로 업로드되었습니다</translation>
     </message>
     <message>
         <source>Press back again to close project and app</source>
-        <translation>다시 눌러 프로젝트 및 앱을 닫습니다</translation>
+        <translation>한 번 더 누르면 프로젝트와 앱이 종료됩니다</translation>
     </message>
     <message>
         <source>Positioning error: %1</source>
-        <translation type="unfinished"/>
+        <translation>위치 측정 오류: %1</translation>
     </message>
     <message>
         <source>Azimuth</source>
-        <translation type="unfinished"/>
+        <translation>방위각</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>화면 잠금</translation>
     </message>
     <message>
         <source>Print to Image</source>
-        <translation type="unfinished"/>
+        <translation>이미지로 출력</translation>
     </message>
     <message>
         <source>Printing...</source>
-        <translation type="unfinished"/>
+        <translation>출력 중...</translation>
     </message>
     <message>
         <source>Print</source>
-        <translation type="unfinished"/>
+        <translation>출력</translation>
     </message>
     <message>
         <source>Positioning device error: %1</source>
-        <translation type="unfinished"/>
+        <translation>위치 측정 장치 오류: %1</translation>
     </message>
     <message>
         <source>Duplicate Feature</source>
-        <translation>대상 복사하기</translation>
+        <translation>객체 복제</translation>
     </message>
     <message>
         <source>Successfully duplicated feature</source>
-        <translation>대상을 복사하였습니다.</translation>
+        <translation>객체를 성공적으로 복제했습니다.</translation>
     </message>
     <message>
         <source>Snapping turned on</source>
-        <translation type="unfinished"/>
+        <translation>스냅 활성화됨</translation>
     </message>
     <message>
         <source>Snapping turned off</source>
-        <translation type="unfinished"/>
+        <translation>스냅 비활성화됨</translation>
     </message>
     <message>
         <source>Snap to %1° angle turned on</source>
-        <translation type="unfinished"/>
+        <translation>%1° 각도 스냅 활성화됨</translation>
     </message>
     <message>
         <source>Snap to common angle turned off</source>
-        <translation type="unfinished"/>
+        <translation>공통 각도 스냅 비활성화됨</translation>
     </message>
     <message>
         <source>Relative angle</source>
-        <translation type="unfinished"/>
+        <translation>상대 각도</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>더 알아보기</translation>
     </message>
     <message>
         <source>Sensors</source>
-        <translation type="unfinished"/>
+        <translation>센서</translation>
     </message>
     <message>
         <source>No sensor available</source>
-        <translation type="unfinished"/>
+        <translation>사용 가능한 센서 없음</translation>
     </message>
     <message>
         <source>Project Folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더</translation>
     </message>
     <message>
         <source>Select sensor below</source>
-        <translation type="unfinished"/>
+        <translation>아래에서 센서를 선택하세요</translation>
     </message>
     <message>
         <source>Sensor error: %1</source>
-        <translation type="unfinished"/>
+        <translation>센서 오류: %1</translation>
     </message>
     <message>
         <source>Disconnecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>센서 &apos;%1&apos; 연결 해제 중...</translation>
     </message>
     <message>
         <source>Connecting sensor &apos;%1&apos;...</source>
-        <translation type="unfinished"/>
+        <translation>센서 &apos;%1&apos; 연결 중...</translation>
     </message>
     <message>
         <source>Select layout below</source>
-        <translation type="unfinished"/>
+        <translation>아래에서 레이아웃을 선택하세요</translation>
     </message>
     <message>
         <source>Layer:</source>
-        <translation type="unfinished"/>
+        <translation>레이어:</translation>
     </message>
     <message>
         <source>Feature:</source>
-        <translation>대상 : </translation>
+        <translation>객체:</translation>
     </message>
     <message>
         <source>Open Feature Form</source>
-        <translation type="unfinished"/>
+        <translation>객체 양식 열기</translation>
     </message>
     <message>
         <source>Feature duplication not available</source>
-        <translation>대상을 복사할 수 없습니다.</translation>
+        <translation>객체 복제를 사용할 수 없습니다.</translation>
     </message>
     <message>
         <source>Importing %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 가져오는 중</translation>
     </message>
     <message>
         <source>Import URL failed</source>
-        <translation type="unfinished"/>
+        <translation>URL 가져오기 실패</translation>
     </message>
     <message>
         <source>Do you grant permission to activate `%1`?</source>
-        <translation type="unfinished"/>
+        <translation>`%1`을(를) 활성화할 권한을 허용하시겠습니까?</translation>
     </message>
     <message>
         <source>Remember my choice</source>
-        <translation type="unfinished"/>
+        <translation>선택 기억하기</translation>
     </message>
     <message>
         <source>Position has trespassed into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>위치가 ‘%1’ 영역을 침범했습니다</translation>
     </message>
     <message>
         <source>Position outside areas after leaving ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>‘%1’ 영역을 벗어난 외부 위치입니다</translation>
     </message>
     <message>
         <source>Position entered into ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>위치가 ‘%1’ 영역에 진입했습니다</translation>
     </message>
     <message>
         <source>Position left from ‘%1’</source>
-        <translation type="unfinished"/>
+        <translation>위치가 ‘%1’ 영역을 떠났습니다</translation>
     </message>
     <message>
         <source>Enable Map Rotation</source>
-        <translation type="unfinished"/>
+        <translation>지도 회전 활성화</translation>
     </message>
     <message>
         <source>Dashboard</source>
-        <translation type="unfinished"/>
+        <translation>대시보드</translation>
     </message>
     <message>
         <source>This button opens the dashboard. With the dashboard you can interact with the legend and map theme, or start digitizing by activating the editing mode. Long-pressing the button gives you immediate access to the main menu.</source>
-        <translation type="unfinished"/>
+        <translation>이 버튼은 대시보드를 엽니다. 대시보드에서 범례 및 지도 테마와 상호작용하거나, 편집 모드를 활성화하여 디지타이징을 시작할 수 있습니다. 버튼을 길게 누르면 주 메뉴로 즉시 이동합니다.</translation>
     </message>
     <message>
         <source>Positioning</source>
-        <translation>Positioning</translation>
+        <translation>위치 측정</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>검색</translation>
     </message>
     <message>
         <source>The search bar provides you with a quick way to find features within your project, jump to a typed latitude and longitude point, and much more.</source>
-        <translation type="unfinished"/>
+        <translation>검색 바를 통해 프로젝트 내 객체를 빠르게 찾거나, 입력한 위경도 좌표로 이동하는 등 다양한 기능을 수행할 수 있습니다.</translation>
     </message>
     <message>
         <source>Cancel algorithm operation</source>
-        <translation type="unfinished"/>
+        <translation>알고리즘 작업 취소</translation>
     </message>
     <message>
         <source>You are about to dismiss the ongoing algorithm operation, proceed?</source>
-        <translation type="unfinished"/>
+        <translation>진행 중인 알고리즘 작업을 중단하시겠습니까?</translation>
     </message>
     <message>
         <source>Unlock the screen to close project and app</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트와 앱을 닫으려면 화면 잠금을 해제하세요</translation>
     </message>
     <message>
         <source>Borderless mode activated, use the top left and botom right corner to move and resize the window</source>
-        <translation type="unfinished"/>
+        <translation>테두리 없는 모드가 활성화되었습니다. 왼쪽 위와 오른쪽 아래 모서리를 사용하여 창을 이동하고 크기를 조절하세요.</translation>
     </message>
     <message>
         <source>Finish or dimiss the digitizing feature before toggling to browse mode</source>
-        <translation type="unfinished"/>
+        <translation>탐색 모드로 전환하기 전에 디지타이징 작업을 완료하거나 취소하세요</translation>
     </message>
     <message>
         <source>Variables</source>
-        <translation type="unfinished"/>
+        <translation>변수</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>실행 취소</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>다시 실행</translation>
     </message>
     <message>
         <source>Replaying collected positions, hold on</source>
-        <translation type="unfinished"/>
+        <translation>수집된 위치 정보를 재생 중입니다. 잠시만 기다려 주세요.</translation>
     </message>
     <message>
         <source>Snapping to every</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1°</source>
-        <translation type="unfinished"/>
+        <translation>스냅 간격:</translation>
     </message>
     <message>
         <source>Snapping tolerance</source>
-        <translation type="unfinished"/>
+        <translation>스냅 허용 오차</translation>
     </message>
     <message>
         <source>Narrow</source>
-        <translation type="unfinished"/>
+        <translation>좁게</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"/>
+        <translation>보통</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>넓게</translation>
     </message>
     <message>
         <source>Snapping tolerance set to %1</source>
-        <translation type="unfinished"/>
+        <translation>스냅 허용 오차가 %1(으)로 설정되었습니다</translation>
     </message>
     <message>
         <source>Import Confirmation</source>
-        <translation type="unfinished"/>
+        <translation>가져오기 확인</translation>
     </message>
     <message>
         <source>Do you want to import &lt;b&gt;%1&lt;/b&gt; from &lt;b&gt;%2&lt;/b&gt; into QField?</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%2&lt;/b&gt;의 &lt;b&gt;%1&lt;/b&gt;을(를) QField로 가져오시겠습니까?</translation>
     </message>
     <message>
         <source>Plugin Permission</source>
-        <translation type="unfinished"/>
+        <translation>플러그인 권한</translation>
     </message>
     <message>
         <source>Unlock</source>
-        <translation type="unfinished"/>
+        <translation>잠금 해제</translation>
     </message>
     <message>
-        <source> Project Plugin</source>
-        <translation type="unfinished"/>
+        <source>Project Plugin</source>
+        <translation>프로젝트 플러그인</translation>
     </message>
     <message>
         <source>Do you grant permission to activate the plugin?</source>
-        <translation type="unfinished"/>
+        <translation>플러그인을 활성화할 권한을 허용하시겠습니까?</translation>
     </message>
     <message>
         <source>Failed to create feature</source>
-        <translation type="unfinished"/>
+        <translation>객체 생성 실패</translation>
     </message>
     <message>
         <source>Failed to create feature due to feature addition permission disabled</source>
-        <translation type="unfinished"/>
+        <translation>객체 추가 권한이 비활성화되어 객체를 생성하지 못했습니다</translation>
     </message>
     <message>
         <source>Failed to save feature</source>
-        <translation type="unfinished"/>
+        <translation>객체 저장 실패</translation>
     </message>
     <message>
         <source>Digitizing toggle</source>
-        <translation type="unfinished"/>
+        <translation>디지타이징 전환</translation>
     </message>
     <message>
         <source>Switch between browse and digitize modes. Browse mode focuses on delivering the best experience viewing the map and its features, while digitize mode enables you to create features and edit geometries.</source>
-        <translation type="unfinished"/>
+        <translation>탐색 모드와 디지타이징 모드 사이를 전환합니다. 탐색 모드는 지도와 객체를 보는 데 최적화되어 있으며, 디지타이징 모드에서는 객체를 생성하고 기하 구조를 편집할 수 있습니다.</translation>
     </message>
     <message>
         <source>Measurement</source>
-        <translation type="unfinished"/>
+        <translation>측정</translation>
     </message>
     <message>
         <source>Toggle the measurement tool to calculate distances and areas on the map.</source>
-        <translation type="unfinished"/>
+        <translation>측정 도구를 켜서 지도의 거리와 면적을 계산합니다.</translation>
     </message>
     <message>
         <source>Export the map canvas to PDF using configured project print and atlas layouts.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>QFieldCloud</source>
-        <translation>QFieldCloud</translation>
+        <translation>설정된 프로젝트 인쇄 및 아틀라스 레이아웃을 사용하여 지도 캔버스를 PDF로 내보냅니다.</translation>
     </message>
     <message>
         <source>Push changes, synchronize or revert changes to and from QFieldCloud when a cloud project is opened.</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 프로젝트가 열려 있을 때 변경 사항을 QFieldCloud에 업로드하거나, 동기화하거나, 이전 상태로 되돌립니다.</translation>
     </message>
     <message>
         <source>Project folder</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더</translation>
     </message>
     <message>
         <source>Open the project folder to access project files, data sources, and related documents. Useful for managing project resources, manually uploading data to QFieldCloud, and sharing datasets, attachments, and layouts.</source>
-        <translation type="unfinished"/>
+        <translation>프로젝트 폴더를 열어 프로젝트 파일, 데이터 소스 및 관련 문서에 접근합니다. 리소스 관리, QFieldCloud 수동 업로드, 데이터셋 및 첨부 파일 공유 등에 유용합니다.</translation>
     </message>
     <message>
         <source>Legend</source>
-        <translation type="unfinished"/>
+        <translation>범례</translation>
     </message>
     <message>
         <source>The legend shows map layers and allows you to toggle visibility and opacity properties by &lt;b&gt;long-pressing on a layer to open a properties popup&lt;/b&gt;. The popup offers additional functionalities such as zooming to layer extent and displaying features contained within vector layers.</source>
-        <translation type="unfinished"/>
+        <translation>범례에는 지도 레이어가 표시됩니다. &lt;b&gt;레이어를 길게 눌러 속성 팝업을 열면&lt;/b&gt; 가시성과 투명도를 조절할 수 있습니다. 팝업에서는 레이어 범위로 확대, 벡터 레이어 객체 표시 등의 추가 기능을 제공합니다.</translation>
     </message>
     <message>
         <source>Copy Feature</source>
-        <translation type="unfinished"/>
+        <translation>객체 복사</translation>
     </message>
     <message>
         <source>Cut Feature</source>
-        <translation type="unfinished"/>
+        <translation>객체 잘라내기</translation>
     </message>
     <message>
         <source>Feature pasted successfully</source>
-        <translation type="unfinished"/>
+        <translation>객체를 성공적으로 붙여넣었습니다</translation>
     </message>
     <message>
         <source>Failed to paste feature into layer</source>
-        <translation type="unfinished"/>
+        <translation>레이어에 객체를 붙여넣지 못했습니다</translation>
     </message>
     <message>
         <source>Paste Into Layer</source>
-        <translation type="unfinished"/>
+        <translation>레이어에 붙여넣기</translation>
     </message>
     <message>
         <source>Editing of multipart geometry is not supported yet.</source>
-        <translation type="unfinished"/>
+        <translation>멀티파트 기하 구조 편집은 아직 지원되지 않습니다.</translation>
     </message>
     <message>
         <source>Coordinate cursor locked to location</source>
-        <translation type="unfinished"/>
+        <translation>좌표 커서가 위치에 고정됨</translation>
     </message>
     <message>
         <source>Map canvas unlocked</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스 잠금 해제됨</translation>
     </message>
     <message>
         <source>Map canvas locked to location</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스가 위치에 고정됨</translation>
     </message>
     <message>
         <source>Map canvas locked to location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스가 위치 및 나침반 방향에 고정됨</translation>
     </message>
     <message>
         <source>Map canvas follows location and compass orientation</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스가 위치 및 나침반 방향을 따라갑니다</translation>
     </message>
     <message>
         <source>Map canvas follows location</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스가 위치를 따라갑니다</translation>
     </message>
     <message>
         <source>Lock Coordinate Cursor to Location</source>
-        <translation type="unfinished"/>
+        <translation>좌표 커서를 위치에 고정</translation>
     </message>
     <message>
         <source>Lock Map Canvas to Location</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스를 위치에 고정</translation>
     </message>
     <message>
         <source>Map canvas lock paused</source>
-        <translation type="unfinished"/>
+        <translation>지도 캔버스 잠금 일시 중지됨</translation>
     </message>
     <message>
-        <source>Tap on your location marker
-to show actions</source>
-        <translation type="unfinished"/>
+        <source>Tap on your location marker\nto show actions</source>
+        <translation>위치 마커를 탭하여\n작업을 표시하세요</translation>
     </message>
     <message>
         <source>This button toggles the positioning system. When enabled, a position marker will appear top of the map. Long-pressing the button will open the positioning menu where additional functionalities can be explored.</source>
-        <translation type="unfinished"/>
+        <translation>이 버튼은 위치 측정 시스템을 켜고 끕니다. 활성화하면 지도 위에 위치 마커가 나타납니다. 버튼을 길게 누르면 추가 기능을 사용할 수 있는 위치 측정 메뉴가 열립니다.</translation>
     </message>
     <message numerus="yes">
         <source>Tracking active on %n layer(s)</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation>
+            <numerusform>%n개의 레이어에서 추적 활성 중</numerusform>
+        </translation>
     </message>
     <message>
         <source>Stop all</source>
-        <translation type="unfinished"/>
+        <translation>모두 중지</translation>
     </message>
     <message numerus="yes">
         <source>Tracking on %n layer(s) stopped</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation>
+            <numerusform>%n개의 레이어에서 추적 중지됨</numerusform>
+        </translation>
     </message>
     <message>
         <source>No compatible layers available to launch tracking</source>
-        <translation type="unfinished"/>
+        <translation>추적을 시작할 수 있는 호환 레이어가 없습니다</translation>
     </message>
 </context>
 <context>
     <name>relation_editor</name>
     <message>
         <source>Ensure contraints</source>
-        <translation type="vanished">Ensure contraints</translation>
+        <translation type="vanished">제약 조건 확인</translation>
     </message>
     <message>
         <source>Adding child feature in layer %1</source>
-        <translation type="vanished">Adding child feature in layer %1</translation>
+        <translation type="vanished">%1 레이어에 하위 객체 추가 중</translation>
     </message>
     <message>
         <source>Cannot add child feature: parent primary keys are not available</source>
-        <translation type="vanished">Cannot add child feature: parent primary keys are not available</translation>
+        <translation type="vanished">하위 객체를 추가할 수 없습니다: 상위 객체의 기본 키(Primary Key)를 사용할 수 없습니다</translation>
     </message>
     <message>
         <source>Unlink feature %1 (%2) of %3</source>
-        <translation type="vanished">Unlink feature %1 (%2) of %3</translation>
+        <translation type="vanished">%3 레이어의 객체 %1 (%2) 연결 해제</translation>
     </message>
     <message>
         <source>Delete feature %1 (%2) on %3</source>
-        <translation type="vanished">대상 삭제 %1 (%2) on %3</translation>
+        <translation type="vanished">%3 레이어의 객체 %1 (%2) 삭제</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</source>
-        <translation type="vanished">Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; of layer &lt;b&gt;%3&lt;/b&gt; be unlinked?&lt;br&gt;&lt;i&gt;(The connection will be deleted on layer &lt;b&gt;%4&lt;/b&gt;)&lt;/i&gt;</translation>
+        <translation type="vanished">&lt;b&gt;%3&lt;/b&gt; 레이어의 객체 &lt;b&gt;%1 (%2)&lt;/b&gt; 연결을 해제할까요?&lt;br&gt;&lt;i&gt;(%4 레이어에서 연결이 삭제됩니다)&lt;/i&gt;</translation>
     </message>
     <message>
         <source>Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</source>
-        <translation type="vanished">Should the feature &lt;b&gt;%1 (%2)&lt;/b&gt; on layer &lt;b&gt;%3&lt;/b&gt; be deleted?</translation>
+        <translation type="vanished">&lt;b&gt;%3&lt;/b&gt; 레이어의 객체 &lt;b&gt;%1 (%2)&lt;/b&gt;을(를) 삭제할까요?</translation>
     </message>
     <message>
         <source>Failed to delete referencing feature</source>
-        <translation type="vanished">어떤 문제로 참조 레이어를 삭제하는데 실패했습니다.</translation>
+        <translation type="vanished">참조 객체를 삭제하는 데 실패했습니다.</translation>
     </message>
 </context>
 </TS>
