@@ -45,7 +45,8 @@ Item {
           if (meterBar.relatedUrl === "") {
             return qsTr("Storage");
           }
-          return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
+          return value >= meterBar.criticalThreshold ? qsTr("터치하여 저장 공간 업그레이드") : qsTr("터치하여 저장 공간 업그레이드");
+          //return value >= meterBar.criticalThreshold ? qsTr("Tap to upgrade storage") : qsTr("Tap to manage storage");
         }
         font: Theme.tipFont
         color: Theme.mainTextColor

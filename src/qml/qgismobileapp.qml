@@ -2220,7 +2220,8 @@ ApplicationWindow {
         id: close3DView
         visible: stateMachine.state === '3d'
         toolImage: Theme.getThemeVectorIcon("ic_3d_white_24dp")
-        toolText: qsTr('Close 3D view')
+        //toolText: qsTr('Close 3D view')
+        toolText: qsTr('3D뷰 모드 닫기')
 
         onClicked: {
           if (mapCanvas3DLoader.item && mapCanvas3DLoader.item.playClosingAnimation) {
@@ -3619,7 +3620,8 @@ ApplicationWindow {
     }
 
     MenuItem {
-      text: qsTr("Plugin Manager")
+      //text: qsTr("Plugin Manager")
+      text: qsTr("플러그인 관리자")
 
       font: Theme.defaultFont
       icon.source: Theme.getThemeVectorIcon("ic_plugin_black_24dp")
