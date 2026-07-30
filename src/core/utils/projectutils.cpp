@@ -358,10 +358,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
       
       const QStringList orderedFields = {
-        QStringLiteral( "color" ),
         QStringLiteral( "title" ),
         QStringLiteral( "note" ),
         QStringLiteral( "timestamp" ) };
+        QStringLiteral( "color" ),
       for ( const QString &fieldName : orderedFields )
       {
         const int idx = notesLayer->fields().indexOf( fieldName );
@@ -375,6 +375,175 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       root->addChildElement( relationElement );
       notesLayer->setEditFormConfig( notesFormConfig );
     }
+  }
+
+  // ── 시설물 관리 레이어 생성 ───────────────────────────────────────────
+  QgsVectorLayer *facilitiesLayer = nullptr;
+  if ( options.value( QStringLiteral( "facilities" ) ).toBool() )
+  {
+    const QString facilitiesFilepath = QStringLiteral( "%1/facilities.gpkg" ).arg( createdProjectDir );
+
+    // 1. 필드 정의 (관리번호, 분류, 점검상태, 사진, 점검일시, 특이사항)
+    QgsFields fields;
+    fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_id" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "category" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "status" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "photo" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "inspect_date" ), QMetaType::QDateTime ) );
+    fields.append( QgsField( QStringLiteral( "remarks" ), QMetaType::QString ) );
+
+    // 2. GeoPackage 생성 (PointZ / WGS84)
+    QgsVectorFileWriter::SaveVectorOptions writerOptions;
+    QgsVectorFileWriter *writer = QgsVectorFileWriter::create(
+      facilitiesFilepath, fields, Qgis::WkbType::PointZ,
+      QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    delete writer;
+
+    // 3. 레이어 로드 및 기본 렌더러/라벨링 설정
+    facilitiesLayer = new QgsVectorLayer( facilitiesFilepath, tr( "Facilities" ) );
+    fields = facilitiesLayer->fields();
+    LayerUtils::setDefaultRenderer( facilitiesLayer, nullptr, QString(), QStringLiteral( "status" ) );
+    LayerUtils::setDefaultLabeling( facilitiesLayer );
+
+    // 피처 목록 표기 표현식 (관리번호가 없으면 Facility #fid 형태)
+    facilitiesLayer->setDisplayExpression( QStringLiteral( "COALESCE( facility_id, 'Facility #' || fid )" ) );
+
+    int fieldIndex;
+    QVariantMap widgetOptions;
+    QgsEditorWidgetSetup widgetSetup;
+
+    // fid: Hidden
+    fieldIndex = fields.indexOf( QStringLiteral( "fid" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+    }
+
+    // uuid: Hidden + uuid() 자동 생성
+    fieldIndex = fields.indexOf( QStringLiteral( "uuid" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), QVariantMap() );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "uuid()" ), false ) );
+    }
+
+    // facility_id: TextEdit
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_id" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Facility ID" ) );
+    }
+
+    // category: ValueMap (드롭다운)
+    fieldIndex = fields.indexOf( QStringLiteral( "category" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "map" )] = QVariantList{
+        QVariantMap{ { tr( "Street Light" ), QStringLiteral( "STREET_LIGHT" ) } },
+        QVariantMap{ { tr( "Hydrant" ), QStringLiteral( "HYDRANT" ) } },
+        QVariantMap{ { tr( "Signboard" ), QStringLiteral( "SIGNBOARD" ) } },
+        QVariantMap{ { tr( "Other" ), QStringLiteral( "OTHER" ) } }
+      };
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueMap" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'STREET_LIGHT'" ), false ) );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Category" ) );
+    }
+
+    // status: ValueMap (드롭다운)
+    fieldIndex = fields.indexOf( QStringLiteral( "status" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "map" )] = QVariantList{
+        QVariantMap{ { tr( "Good" ), QStringLiteral( "GOOD" ) } },
+        QVariantMap{ { tr( "Needs Repair" ), QStringLiteral( "REPAIR" ) } },
+        QVariantMap{ { tr( "Critical" ), QStringLiteral( "CRITICAL" ) } }
+      };
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueMap" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'GOOD'" ), false ) );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Status" ) );
+    }
+
+    // photo: ExternalResource (QField 카메라 연동)
+    fieldIndex = fields.indexOf( QStringLiteral( "photo" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Photo" ) );
+    }
+
+    // inspect_date: DateTime (now() 기본값)
+    fieldIndex = fields.indexOf( QStringLiteral( "inspect_date" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "display_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format" )] = QStringLiteral( "yyyy-MM-dd HH:mm" );
+      widgetOptions[QStringLiteral( "field_format_overwrite" )] = true;
+      widgetOptions[QStringLiteral( "allow_null" )] = true;
+      widgetOptions[QStringLiteral( "calendar_popup" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "DateTime" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Inspection Date" ) );
+    }
+
+    // remarks: TextEdit (Multiline)
+    fieldIndex = fields.indexOf( QStringLiteral( "remarks" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "IsMultiline" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      facilitiesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      facilitiesLayer->setFieldAlias( fieldIndex, tr( "Remarks" ) );
+    }
+
+    // QFieldCloud 동기화 속성 설정
+    facilitiesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
+    facilitiesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
+
+    // 4. Drag & Drop 속성 폼 순서 구성
+    QgsEditFormConfig formConfig = facilitiesLayer->editFormConfig();
+    formConfig.clearTabs();
+    formConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
+    QgsAttributeEditorContainer *root = formConfig.invisibleRootContainer();
+
+    const QStringList orderedFields = {
+      QStringLiteral( "facility_id" ),
+      QStringLiteral( "category" ),
+      QStringLiteral( "status" ),
+      QStringLiteral( "photo" ),
+      QStringLiteral( "inspect_date" ),
+      QStringLiteral( "remarks" )
+    };
+
+    for ( const QString &fieldName : orderedFields )
+    {
+      const int idx = facilitiesLayer->fields().indexOf( fieldName );
+      if ( idx >= 0 )
+      {
+        root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
+      }
+    }
+    facilitiesLayer->setEditFormConfig( formConfig );
+
+    createdProjectLayers << facilitiesLayer;
   }
 
   // ── 트랙 레이어 생성 ─────────────────────────────────────────────────
