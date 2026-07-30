@@ -360,8 +360,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       const QStringList orderedFields = {
         QStringLiteral( "title" ),
         QStringLiteral( "note" ),
-        QStringLiteral( "timestamp" ) };
         QStringLiteral( "color" ),
+        QStringLiteral( "timestamp" ) };
       for ( const QString &fieldName : orderedFields )
       {
         const int idx = notesLayer->fields().indexOf( fieldName );
