@@ -148,6 +148,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
@@ -228,6 +229,24 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "시설물명" ) );
       //notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
+    }
+
+    // facility_type 필드: 드롭다운(ValueMap) 위젯 설정
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_type" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      QVariantMap typeMap;
+      typeMap[QStringLiteral( "선택 안함" )] = QStringLiteral( "" );
+      typeMap[QStringLiteral( "소화전" )] = QStringLiteral( "소화전" );
+      typeMap[QStringLiteral( "제수변" )] = QStringLiteral( "제수변" );
+      typeMap[QStringLiteral( "맨홀" )] = QStringLiteral( "맨홀" );
+      typeMap[QStringLiteral( "가로등" )] = QStringLiteral( "가로등" );
+      widgetOptions[QStringLiteral( "map" )] = typeMap;
+
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueMap" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물 유형" ) );
     }
 
     // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
@@ -363,6 +382,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       
       const QStringList orderedFields = {
         QStringLiteral( "facility_nm" ),
+        QStringLiteral( "facility_type" ),
         QStringLiteral( "note" ),
         QStringLiteral( "color" ),
         QStringLiteral( "timestamp" ), };
