@@ -147,7 +147,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     QgsFields fields;
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
@@ -387,7 +387,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     // 트랙 레이어 필드 정의: color(트랙 색상), title(제목), timestamp(기록 시각)
     QgsFields fields;
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "title" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
     // LineStringZM 타입으로 트랙 레이어 생성 (Z=고도, M=시간값)
