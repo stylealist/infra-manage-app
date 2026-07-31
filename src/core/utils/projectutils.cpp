@@ -148,7 +148,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_group" ), QMetaType::QString ) ); // 👈 대분류 필드 추가
+    fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );  // 소분류 필드
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
@@ -156,6 +157,50 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
+
+    // ── 👇 [추가] 대분류-소분류 매핑용 기준 테이블 생성 ──
+    const QString lookupFilepath = notesFilepath; // 동일한 notes.gpkg에 생성
+    QgsFields lookupFields;
+    lookupFields.append( QgsField( QStringLiteral( "group_nm" ), QMetaType::QString ) );
+    lookupFields.append( QgsField( QStringLiteral( "type_nm" ), QMetaType::QString ) );
+
+    QgsVectorFileWriter::SaveVectorOptions lookupWriterOptions;
+    lookupWriterOptions.layerName = QStringLiteral( "facility_type_lookup" );
+    lookupWriterOptions.actionOnExistingFile = QgsVectorFileWriter::CreateOrOverwriteLayer;
+    QgsVectorFileWriter *lookupWriter = QgsVectorFileWriter::create(
+      lookupFilepath, lookupFields, Qgis::WkbType::NoGeometry,
+      QgsCoordinateReferenceSystem(), createdProject->transformContext(), lookupWriterOptions );
+
+    if ( lookupWriter && lookupWriter->hasError() == Qgis::VectorFileWriter::NoError )
+    {
+      // 매핑 데이터 리스트 {대분류, 소분류}
+      const QList<QPair<QString, QString>> mappingData = {
+        { QStringLiteral( "상수도" ), QStringLiteral( "소화전" ) },
+        { QStringLiteral( "상수도" ), QStringLiteral( "제수변" ) },
+        { QStringLiteral( "상수도" ), QStringLiteral( "수도계량기" ) },
+        { QStringLiteral( "하수도" ), QStringLiteral( "하수 맨홀" ) },
+        { QStringLiteral( "하수도" ), QStringLiteral( "빗물받이" ) },
+        { QStringLiteral( "도로/교통" ), QStringLiteral( "가로등" ) },
+        { QStringLiteral( "도로/교통" ), QStringLiteral( "신호등" ) },
+        { QStringLiteral( "도로/교통" ), QStringLiteral( "도로표지판" ) },
+        { QStringLiteral( "기타" ), QStringLiteral( "기타 시설물" ) }
+      };
+
+      for ( const auto &pair : mappingData )
+      {
+        QgsFeature feature( lookupFields );
+        feature.setAttribute( QStringLiteral( "group_nm" ), pair.first );
+        feature.setAttribute( QStringLiteral( "type_nm" ), pair.second );
+        lookupWriter->addFeature( feature );
+      }
+    }
+    delete lookupWriter;
+
+    // 기준 레이어 로드 및 프로젝트 추가 (비공개 처리)
+    const QString lookupUri = QStringLiteral( "%1|layername=facility_type_lookup" ).arg( lookupFilepath );
+    QgsVectorLayer *lookupLayer = new QgsVectorLayer( lookupUri, tr( "Facility Type Lookup" ) );
+    lookupLayer->setFlags( lookupLayer->flags() | QgsMapLayer::Private );
+    createdProjectLayers << lookupLayer;
 
     // 메모 레이어 로드 및 기본 렌더러/레이블 설정
     // 카메라 캡처 활성화 시 첨부파일 관계 집계 표현식 사용
@@ -231,22 +276,40 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       //notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
     }
 
-    // facility_type 필드: 드롭다운(ValueMap) 위젯 설정
-    fieldIndex = fields.indexOf( QStringLiteral( "facility_type" ) );
+    // 1) facility_group 필드: 대분류 드롭다운(ValueMap) 위젯
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_group" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      QVariantMap typeMap;
-      typeMap[QStringLiteral( "선택 안함" )] = QStringLiteral( "" );
-      typeMap[QStringLiteral( "소화전" )] = QStringLiteral( "소화전" );
-      typeMap[QStringLiteral( "제수변" )] = QStringLiteral( "제수변" );
-      typeMap[QStringLiteral( "맨홀" )] = QStringLiteral( "맨홀" );
-      typeMap[QStringLiteral( "가로등" )] = QStringLiteral( "가로등" );
-      widgetOptions[QStringLiteral( "map" )] = typeMap;
+      QVariantMap groupMap;
+      groupMap[QStringLiteral( "선택 안함" )] = QStringLiteral( "" );
+      groupMap[QStringLiteral( "상수도" )] = QStringLiteral( "상수도" );
+      groupMap[QStringLiteral( "하수도" )] = QStringLiteral( "하수도" );
+      groupMap[QStringLiteral( "도로/교통" )] = QStringLiteral( "도로/교통" );
+      groupMap[QStringLiteral( "기타" )] = QStringLiteral( "기타" );
+      widgetOptions[QStringLiteral( "map" )] = groupMap;
 
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueMap" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "시설물 유형" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물 대분류" ) );
+    }
+
+    // 2) facility_type 필드: 대분류 연동 소분류(ValueRelation) 위젯
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_type" ) );
+    if ( fieldIndex >= 0 && lookupLayer )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "Layer" )] = lookupLayer->id();
+      widgetOptions[QStringLiteral( "Key" )] = QStringLiteral( "type_nm" );
+      widgetOptions[QStringLiteral( "Value" )] = QStringLiteral( "type_nm" );
+      widgetOptions[QStringLiteral( "AllowNull" )] = true;
+      widgetOptions[QStringLiteral( "OrderByValue" )] = true;
+      // 대분류 선택값에 따라 소분류를 필터링하는 조건 표현식
+      widgetOptions[QStringLiteral( "FilterExpression" )] = QStringLiteral( "\"group_nm\" = current_value('facility_group')" );
+
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueRelation" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물 소분류" ) );
     }
 
     // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
@@ -382,7 +445,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       
       const QStringList orderedFields = {
         QStringLiteral( "facility_nm" ),
-        QStringLiteral( "facility_type" ),
+        QStringLiteral( "facility_group" ), // 👈 대분류
+        QStringLiteral( "facility_type" ),  // 👈 소분류
         QStringLiteral( "note" ),
         QStringLiteral( "color" ),
         QStringLiteral( "timestamp" ), };
