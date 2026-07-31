@@ -179,6 +179,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       };
 
       const QList<MappingItem> mappingData = {
+        { QStringLiteral( "" ), QStringLiteral( "선택 안함" ) },
         { QStringLiteral( "상수도" ), QStringLiteral( "소화전" ) },
         { QStringLiteral( "상수도" ), QStringLiteral( "제수변" ) },
         { QStringLiteral( "상수도" ), QStringLiteral( "수도계량기" ) },
@@ -309,10 +310,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       widgetOptions[QStringLiteral( "Layer" )] = lookupLayer->id();
       widgetOptions[QStringLiteral( "Key" )] = QStringLiteral( "type_nm" );
       widgetOptions[QStringLiteral( "Value" )] = QStringLiteral( "type_nm" );
-      widgetOptions[QStringLiteral( "AllowNull" )] = true;
+      widgetOptions[QStringLiteral( "AllowNull" )] = false;
       widgetOptions[QStringLiteral( "OrderByValue" )] = true;
-      // 대분류 선택값에 따라 소분류를 필터링하는 조건 표현식
-      widgetOptions[QStringLiteral( "FilterExpression" )] = QStringLiteral( "\"group_nm\" = current_value('facility_group')" );
+      // 대분류 선택값에 따라 소분류를 필터링하는 조건 표현식 (대분류가 비었을 때는 '선택 안함'만 노출)
+      widgetOptions[QStringLiteral( "FilterExpression" )] = QStringLiteral( "\"group_nm\" = current_value('facility_group') OR \"group_nm\" = ''" );
 
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ValueRelation" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
