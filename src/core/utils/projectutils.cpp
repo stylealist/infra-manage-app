@@ -148,8 +148,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "facility_group" ), QMetaType::QString ) ); // 👈 대분류 필드 추가
-    fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );  // 소분류 필드
+    fields.append( QgsField( QStringLiteral( "facility_group" ), QMetaType::QString ) ); // 👈 추가된 줄
+    fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
@@ -158,7 +158,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
 
-    // ── 👇 [추가] 대분류-소분류 매핑용 기준 테이블 생성 ──
+    // ── 대분류-소분류 매핑용 기준 테이블 생성 (안전한 struct 정의 적용) ──
     const QString lookupFilepath = notesFilepath; // 동일한 notes.gpkg에 생성
     QgsFields lookupFields;
     lookupFields.append( QgsField( QStringLiteral( "group_nm" ), QMetaType::QString ) );
@@ -171,10 +171,14 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       lookupFilepath, lookupFields, Qgis::WkbType::NoGeometry,
       QgsCoordinateReferenceSystem(), createdProject->transformContext(), lookupWriterOptions );
 
-    if ( lookupWriter && lookupWriter->hasError() == Qgis::VectorFileWriter::NoError )
+    if ( lookupWriter )
     {
-      // 매핑 데이터 리스트 {대분류, 소분류}
-      const QList<QPair<QString, QString>> mappingData = {
+      struct MappingItem {
+        QString groupNm;
+        QString typeNm;
+      };
+
+      const QList<MappingItem> mappingData = {
         { QStringLiteral( "상수도" ), QStringLiteral( "소화전" ) },
         { QStringLiteral( "상수도" ), QStringLiteral( "제수변" ) },
         { QStringLiteral( "상수도" ), QStringLiteral( "수도계량기" ) },
@@ -186,11 +190,11 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         { QStringLiteral( "기타" ), QStringLiteral( "기타 시설물" ) }
       };
 
-      for ( const auto &pair : mappingData )
+      for ( const MappingItem &item : mappingData )
       {
         QgsFeature feature( lookupFields );
-        feature.setAttribute( QStringLiteral( "group_nm" ), pair.first );
-        feature.setAttribute( QStringLiteral( "type_nm" ), pair.second );
+        feature.setAttribute( QStringLiteral( "group_nm" ), item.groupNm );
+        feature.setAttribute( QStringLiteral( "type_nm" ), item.typeNm );
         lookupWriter->addFeature( feature );
       }
     }
@@ -199,8 +203,11 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     // 기준 레이어 로드 및 프로젝트 추가 (비공개 처리)
     const QString lookupUri = QStringLiteral( "%1|layername=facility_type_lookup" ).arg( lookupFilepath );
     QgsVectorLayer *lookupLayer = new QgsVectorLayer( lookupUri, tr( "Facility Type Lookup" ) );
-    lookupLayer->setFlags( lookupLayer->flags() | QgsMapLayer::Private );
-    createdProjectLayers << lookupLayer;
+    if ( lookupLayer && lookupLayer->isValid() )
+    {
+      lookupLayer->setFlags( lookupLayer->flags() | QgsMapLayer::Private );
+      createdProjectLayers << lookupLayer;
+    }
 
     // 메모 레이어 로드 및 기본 렌더러/레이블 설정
     // 카메라 캡처 활성화 시 첨부파일 관계 집계 표현식 사용
