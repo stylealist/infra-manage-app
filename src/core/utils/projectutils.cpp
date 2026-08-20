@@ -176,7 +176,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // 피처 목록에 표시될 표현식 설정: 제목이 없으면 "Note #번호 from 날짜" 형식
-    notesLayer->setDisplayExpression( "COALESCE( fclt_nm , inst_nm , lotno_addr, daddr, pic_dept_nm, pic_nm, pic_telno, pic_eml 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
+    //notesLayer->setDisplayExpression( "COALESCE( fclt_nm , inst_nm , lotno_addr, daddr, pic_dept_nm, pic_nm, pic_telno, pic_eml 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
     //notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
 
     int fieldIndex;
