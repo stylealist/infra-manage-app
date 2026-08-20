@@ -157,6 +157,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_condition" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "repair_required_yn" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
@@ -175,7 +176,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // 피처 목록에 표시될 표현식 설정: 제목이 없으면 "Note #번호 from 날짜" 형식
-    notesLayer->setDisplayExpression( "COALESCE( fclt_nm , inst_nm , lotno_addr, daddr, pic_dept_nm, pic_nm, pic_telno, pic_eml 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
+    notesLayer->setDisplayExpression( "COALESCE( fclt_nm , inst_nm , lotno_addr, daddr, pic_dept_nm, pic_nm, pic_telno, pic_eml, facility_memo 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
     //notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
 
     int fieldIndex;
@@ -308,7 +309,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "담당자 이메일" ) );
     }
-
+    
     // 1) facility_condition 필드: 대분류 드롭다운(ValueMap) 위젯
     fieldIndex = fields.indexOf( QStringLiteral( "facility_condition" ) );
     if ( fieldIndex >= 0 )
@@ -342,6 +343,16 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "보수 필요 여부" ) );
     }
 
+    // 시설물 특이사항
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_memo" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물 특이사항" ) );
+    }
+
     // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
     fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
     if ( fieldIndex >= 0 )
@@ -366,8 +377,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayer->setDisplayExpression( QStringLiteral( "\"pic_nm\"" ) );
     notesLayer->setDisplayExpression( QStringLiteral( "\"pic_telno\"" ) );
     notesLayer->setDisplayExpression( QStringLiteral( "\"pic_eml\"" ) );
-
-    createdProjectLayers << notesLayer;
+    notesLayer->setDisplayExpression( QStringLiteral( "\"facility_memo\"" ) );
 
     // ── 첨부파일 자식 레이어 생성 (카메라 캡처 옵션 활성화 시) ─────────
     if ( options.value( QStringLiteral( "camera_capture" ) ).toBool() )
@@ -490,6 +500,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "pic_eml" ),
         QStringLiteral( "facility_condition" ),
         QStringLiteral( "repair_required_yn" ),
+        QStringLiteral( "facility_memo" ),
         QStringLiteral( "note" ),
         QStringLiteral( "color" ),
         QStringLiteral( "timestamp" ), };
@@ -525,6 +536,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "pic_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "pic_telno" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "pic_eml" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
     // LineStringZM 타입으로 트랙 레이어 생성 (Z=고도, M=시간값)
@@ -635,6 +647,15 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
       tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       tracksLayer->setFieldAlias( fieldIndex, tr( "담당자 이메일" ) );
+    }
+    // 담당자 이메일
+    fieldIndex = fields.indexOf( QStringLiteral( "facility_memo" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "시설물 특이사항" ) );
     }
 
     // timestamp 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
