@@ -143,7 +143,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     const QString notesFilepath = QStringLiteral( "%1/notes.gpkg" ).arg( createdProjectDir );
 
-    // 메모 레이어 필드 정의: uuid(고유키), color(색상), title(제목), note(내용), timestamp(시간)
+    // 메모 레이어 필드 정의: uuid(고유키), color(색상), title(제목), note(내용), inspected_at(시간)
     QgsFields fields;
     fields.append( QgsField( QStringLiteral( "fclt_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "inst_nm" ), QMetaType::QString ) );
@@ -158,8 +158,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "facility_condition" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "repair_required_yn" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "inspected_at" ), QMetaType::QDateTime ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
+   
 
     // GeoPackage 파일로 메모 레이어 생성 (포인트Z 타입, WGS84)
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
@@ -202,8 +203,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "uuid()" ), false ) );
     }
 
-    // timestamp 필드: 날짜/시간 위젯 설정, 기본값은 현재 시각(now())
-    fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
+    // inspected_at 필드: 날짜/시간 위젯 설정, 기본값은 현재 시각(now())
+    fieldIndex = fields.indexOf( QStringLiteral( "inspected_at" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
@@ -390,7 +391,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       attachFields.append( QgsField( QStringLiteral( "note_uuid" ), QMetaType::QString ) );  // 부모 메모와 연결하는 외래키
       attachFields.append( QgsField( QStringLiteral( "media" ), QMetaType::QString ) );       // 미디어 파일 경로
       attachFields.append( QgsField( QStringLiteral( "description" ), QMetaType::QString ) ); // 첨부파일 설명
-      attachFields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) ); // 첨부 시각
+      attachFields.append( QgsField( QStringLiteral( "inspected_at" ), QMetaType::QDateTime ) ); // 첨부 시각
 
       // 지오메트리 없는 테이블로 첨부파일 레이어 생성
       QgsVectorFileWriter::SaveVectorOptions attachWriterOptions;
@@ -452,8 +453,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         attachmentsLayer->setFieldAlias( attachFieldIndex, tr( "Description" ) );
       }
 
-      // timestamp 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
-      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "timestamp" ) );
+      // inspected_at 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
+      attachFieldIndex = liveAttachFields.indexOf( QStringLiteral( "inspected_at" ) );
       if ( attachFieldIndex >= 0 )
       {
         attachWidgetOptions.clear();
@@ -504,9 +505,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "facility_condition" ),
         QStringLiteral( "repair_required_yn" ),
         QStringLiteral( "facility_memo" ),
+        QStringLiteral( "inspected_at" ),
         QStringLiteral( "note" ),
-        QStringLiteral( "color" ),
-        QStringLiteral( "timestamp" ), };
+        QStringLiteral( "color" ),};
       for ( const QString &fieldName : orderedFields )
       {
         const int idx = notesLayer->fields().indexOf( fieldName );
@@ -528,7 +529,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
   {
     const QString tracksFilepath = QStringLiteral( "%1/tracks.gpkg" ).arg( createdProjectDir );
 
-    // 트랙 레이어 필드 정의: color(트랙 색상), title(제목), timestamp(기록 시각)
+    // 트랙 레이어 필드 정의: color(트랙 색상), title(제목), inspected_at(기록 시각)
     QgsFields fields;
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "fclt_nm" ), QMetaType::QString ) );
@@ -540,7 +541,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "pic_telno" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "pic_eml" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
+    fields.append( QgsField( QStringLiteral( "inspected_at" ), QMetaType::QDateTime ) );
 
     // LineStringZM 타입으로 트랙 레이어 생성 (Z=고도, M=시간값)
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
@@ -553,7 +554,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( "color" ) );
 
     // 피처 목록 표시 표현식: "Track #번호 from 날짜" 형식
-    tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' )" );
+    tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( inspected_at, 'yyyy-MM-dd HH:mm' )" );
 
     int fieldIndex;
     QVariantMap widgetOptions;
@@ -661,8 +662,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       tracksLayer->setFieldAlias( fieldIndex, tr( "시설물 특이사항" ) );
     }
 
-    // timestamp 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
-    fieldIndex = fields.indexOf( QStringLiteral( "timestamp" ) );
+    // inspected_at 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
+    fieldIndex = fields.indexOf( QStringLiteral( "inspected_at" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
