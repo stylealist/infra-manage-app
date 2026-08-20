@@ -145,9 +145,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     // 메모 레이어 필드 정의: uuid(고유키), color(색상), title(제목), note(내용), timestamp(시간)
     QgsFields fields;
+    fields.append( QgsField( QStringLiteral( "fclt_nm" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "inst_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_group" ), QMetaType::QString ) ); // 👈 추가된 줄
     fields.append( QgsField( QStringLiteral( "facility_type" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
@@ -220,7 +221,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // 피처 목록에 표시될 표현식 설정: 제목이 없으면 "Note #번호 from 날짜" 형식
-    notesLayer->setDisplayExpression( "COALESCE( facility_nm , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
+    notesLayer->setDisplayExpression( "COALESCE( fclt_nm , inst_nm ,  'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
     //notesLayer->setDisplayExpression( "COALESCE( title , 'Note #' || fid || ' from ' || format_date( timestamp, 'yyyy-MM-dd HH:mm' ) )" );
 
     int fieldIndex;
@@ -273,14 +274,28 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     }
 
     // title 필드: 일반 텍스트 입력 위젯
-    fieldIndex = fields.indexOf( QStringLiteral( "facility_nm" ) );
+    // 시설명
+    fieldIndex = fields.indexOf( QStringLiteral( "fclt_nm" ) );
     //fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "시설물명" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설명" ) );
+      //notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
+    }
+
+    // title 필드: 일반 텍스트 입력 위젯
+    // 
+    fieldIndex = fields.indexOf( QStringLiteral( "inst_nm" ) );
+    //fieldIndex = fields.indexOf( QStringLiteral( "title" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "기관명" ) );
       //notesLayer->setFieldAlias( fieldIndex, tr( "Title" ) );
     }
 
@@ -336,7 +351,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
 
     // 피처 목록 표시 표현식을 title 필드로 설정
-    notesLayer->setDisplayExpression( QStringLiteral( "\"facility_nm\"" ) );
+    notesLayer->setDisplayExpression( QStringLiteral( "\"fclt_nm\"" ) );
+    notesLayer->setDisplayExpression( QStringLiteral( "\"inst_nm\"" ) );
     //notesLayer->setDisplayExpression( QStringLiteral( "\"title\"" ) );
 
     createdProjectLayers << notesLayer;
@@ -452,7 +468,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
       
       const QStringList orderedFields = {
-        QStringLiteral( "facility_nm" ),
+        QStringLiteral( "fclt_nm" ),
+        QStringLiteral( "inst_nm" ),
         QStringLiteral( "facility_group" ), // 👈 대분류
         QStringLiteral( "facility_type" ),  // 👈 소분류
         QStringLiteral( "note" ),
@@ -482,7 +499,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     // 트랙 레이어 필드 정의: color(트랙 색상), title(제목), timestamp(기록 시각)
     QgsFields fields;
     fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "facility_nm" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "fclt_nm" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "inst_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "timestamp" ), QMetaType::QDateTime ) );
 
     // LineStringZM 타입으로 트랙 레이어 생성 (Z=고도, M=시간값)
@@ -521,14 +539,24 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       tracksLayer->setFieldAlias( fieldIndex, tr( "Track color" ) );
     }
 
-    // title 필드: 일반 텍스트 입력 위젯
-    fieldIndex = fields.indexOf( QStringLiteral( "facility_nm" ) );
+    // 시설명
+    fieldIndex = fields.indexOf( QStringLiteral( "fclt_nm" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
       tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      tracksLayer->setFieldAlias( fieldIndex, tr( "시설물명" ) );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "시설명" ) );
+    }
+
+    // 기관명
+    fieldIndex = fields.indexOf( QStringLiteral( "inst_nm" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
+      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      tracksLayer->setFieldAlias( fieldIndex, tr( "기관명" ) );
     }
 
     // timestamp 필드: 날짜/시간 위젯, 기본값은 현재 시각(now())
