@@ -164,6 +164,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "photo_3" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "photo_4" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "photo_5" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "audio_memo" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "video" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
    
 
@@ -425,6 +427,36 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진5" ) ); // 별칭(Alias) 적용
     }
 
+    //audio(음성 메모) 위젯 설정: QField 음성 녹음 및 오디오 뷰어 연동
+    //DocumentViewer=2 (Audio/오디오 뷰어)
+    fieldIndex = fields.indexOf( QStringLiteral( "audio_memo" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: 오디오(Audio) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항" ) );
+    }
+
+    //video(현장 동영상) 위젯 설정: QField 동영상 촬영 및 비디오 뷰어 연동
+    //DocumentViewer=3 (Video/비디오 뷰어)
+    fieldIndex = fields.indexOf( QStringLiteral( "video" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: 비디오(Video) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "현장 영상" ) );
+    }
+
     // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
     fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
     if ( fieldIndex >= 0 )
@@ -581,6 +613,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "photo_3" ),
         QStringLiteral( "photo_4" ),
         QStringLiteral( "photo_5" ),
+        QStringLiteral( "audio_memo" ),  
+        QStringLiteral( "video" ),
         QStringLiteral( "note" ),
         QStringLiteral( "color" ),};
       for ( const QString &fieldName : orderedFields )
