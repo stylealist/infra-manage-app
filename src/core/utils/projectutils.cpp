@@ -433,13 +433,15 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: 오디오(Audio) 뷰어 활성화
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: Audio 뷰어
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // 0: 파일 저장(File)
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Audio (*.mp3 *.m4a *.wav *.ogg *.aac)" ); // 오디오 파일 필터
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항(음성)" ) );
     }
 
     //video(현장 동영상) 위젯 설정: QField 동영상 촬영 및 비디오 뷰어 연동
@@ -448,10 +450,12 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: 비디오(Video) 뷰어 활성화
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: Video 뷰어
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로 저장
+      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // 0: 파일 저장(File)
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Video (*.mp4 *.mkv *.avi *.mov *.3gp)" ); // 비디오 파일 필터
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "현장 영상" ) );
