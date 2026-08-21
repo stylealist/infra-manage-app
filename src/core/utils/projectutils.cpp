@@ -160,6 +160,10 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "inspected_at" ), QMetaType::QDateTime ) );
     fields.append( QgsField( QStringLiteral( "photo_1" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "photo_2" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "photo_3" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "photo_4" ), QMetaType::QString ) );
+    fields.append( QgsField( QStringLiteral( "photo_5" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
    
 
@@ -369,6 +373,58 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진1" ) ); // 별칭(Alias) 적용
     }
 
+    fieldIndex = fields.indexOf( QStringLiteral( "photo_2" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;        // 1: 이미지(Image/Raster) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진2" ) ); // 별칭(Alias) 적용
+    }
+
+    fieldIndex = fields.indexOf( QStringLiteral( "photo_3" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;        // 1: 이미지(Image/Raster) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진3" ) ); // 별칭(Alias) 적용
+    }
+
+    fieldIndex = fields.indexOf( QStringLiteral( "photo_4" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;        // 1: 이미지(Image/Raster) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진4" ) ); // 별칭(Alias) 적용
+    }
+
+    fieldIndex = fields.indexOf( QStringLiteral( "photo_5" ) );
+    if ( fieldIndex >= 0 )
+    {
+      widgetOptions.clear();
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 1;        // 1: 이미지(Image/Raster) 뷰어 활성화
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로로 저장
+      widgetOptions[QStringLiteral( "FileWidget" )] = true;
+      widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
+      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
+      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
+      notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진5" ) ); // 별칭(Alias) 적용
+    }
+
     // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
     fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
     if ( fieldIndex >= 0 )
@@ -520,7 +576,11 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "repair_required_yn" ),
         QStringLiteral( "facility_memo" ),
         QStringLiteral( "inspected_at" ),
-        QStringLiteral( "photo_1" ), // ⭐ 여기에 photo_1 배치 추가
+        QStringLiteral( "photo_1" ),
+        QStringLiteral( "photo_2" ),
+        QStringLiteral( "photo_3" ),
+        QStringLiteral( "photo_4" ),
+        QStringLiteral( "photo_5" ),
         QStringLiteral( "note" ),
         QStringLiteral( "color" ),};
       for ( const QString &fieldName : orderedFields )
