@@ -429,19 +429,18 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     // =========================================================================
     // [설정] audio_memo: 마이크(🎙) 아이콘 연동
-    // DocumentViewer = 2 (Audio)
+    // DocumentViewer = 3 (Audio)
     // =========================================================================
     fieldIndex = fields.indexOf( QStringLiteral( "audio_memo" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: 오디오/마이크 아이콘
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 상대 경로 저장
-      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // File 기반 저장
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;              // 3: Audio (NoContent=0, Image=1, Web=2, Audio=3, Video=4)
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;             // 프로젝트 상대 경로 저장
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Audio (*.mp3 *.m4a *.wav *.ogg *.aac *.3gp)" );
-      
+      widgetOptions[QStringLiteral( "FileWidgetFilter" )] = QStringLiteral( "Audio (*.mp3 *.m4a *.wav *.ogg *.aac *.3gp)" );
+
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항" ) );
@@ -449,19 +448,18 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     // =========================================================================
     // [설정] video: 비디오(📹) 아이콘 연동
-    // DocumentViewer = 3 (Video)
+    // DocumentViewer = 4 (Video)
     // =========================================================================
     fieldIndex = fields.indexOf( QStringLiteral( "video" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: 동영상/비디오 아이콘
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 상대 경로 저장
-      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // File 기반 저장
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 4;              // 4: Video (NoContent=0, Image=1, Web=2, Audio=3, Video=4)
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;             // 프로젝트 상대 경로 저장
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Video (*.mp4 *.mkv *.avi *.mov *.3gp)" );
-      
+      widgetOptions[QStringLiteral( "FileWidgetFilter" )] = QStringLiteral( "Video (*.mp4 *.mkv *.avi *.mov *.3gp)" );
+
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "현장 영상" ) );
