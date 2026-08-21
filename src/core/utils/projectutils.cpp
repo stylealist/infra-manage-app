@@ -427,35 +427,41 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "시설물사진5" ) ); // 별칭(Alias) 적용
     }
 
-    //audio(음성 메모) 위젯 설정: QField 음성 녹음 및 오디오 뷰어 연동
-    //DocumentViewer=2 (Audio/오디오 뷰어)
+    // =========================================================================
+    // [설정] audio_memo: 마이크(🎙) 아이콘 연동
+    // DocumentViewer = 2 (Audio)
+    // =========================================================================
     fieldIndex = fields.indexOf( QStringLiteral( "audio_memo" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: Audio 뷰어
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로 저장
-      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // 0: 파일 저장(File)
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 2;        // 2: 오디오/마이크 아이콘
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 상대 경로 저장
+      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // File 기반 저장
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Audio (*.mp3 *.m4a *.wav *.ogg *.aac)" ); // 오디오 파일 필터
+      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Audio (*.mp3 *.m4a *.wav *.ogg *.aac *.3gp)" );
+      
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항(음성)" ) );
+      notesLayer->setFieldAlias( fieldIndex, tr( "현장 특이사항" ) );
     }
 
-    //video(현장 동영상) 위젯 설정: QField 동영상 촬영 및 비디오 뷰어 연동
-    //DocumentViewer=3 (Video/비디오 뷰어)
+    // =========================================================================
+    // [설정] video: 비디오(📹) 아이콘 연동
+    // DocumentViewer = 3 (Video)
+    // =========================================================================
     fieldIndex = fields.indexOf( QStringLiteral( "video" ) );
     if ( fieldIndex >= 0 )
     {
       widgetOptions.clear();
-      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: Video 뷰어
-      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 1: 프로젝트 폴더 기준 상대 경로 저장
-      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // 0: 파일 저장(File)
+      widgetOptions[QStringLiteral( "DocumentViewer" )] = 3;        // 3: 동영상/비디오 아이콘
+      widgetOptions[QStringLiteral( "RelativeStorage" )] = 1;       // 프로젝트 상대 경로 저장
+      widgetOptions[QStringLiteral( "StorageType" )] = 0;          // File 기반 저장
       widgetOptions[QStringLiteral( "FileWidget" )] = true;
       widgetOptions[QStringLiteral( "FileWidgetButton" )] = true;
-      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Video (*.mp4 *.mkv *.avi *.mov *.3gp)" ); // 비디오 파일 필터
+      widgetOptions[QStringLiteral( "FileFilter" )] = QStringLiteral( "Video (*.mp4 *.mkv *.avi *.mov *.3gp)" );
+      
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "ExternalResource" ), widgetOptions );
       notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
       notesLayer->setFieldAlias( fieldIndex, tr( "현장 영상" ) );
