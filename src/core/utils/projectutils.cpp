@@ -169,7 +169,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     // GeoPackage 파일로 메모 레이어 생성 (포인트Z 타입, WGS84)
     QgsVectorFileWriter::SaveVectorOptions writerOptions;
-    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    //QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::PointZ, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
+    QgsVectorFileWriter *writer = QgsVectorFileWriter::create( notesFilepath, fields, Qgis::WkbType::Point, QgsCoordinateReferenceSystem( "EPSG:4326" ), createdProject->transformContext(), writerOptions );
     delete writer;
 
 
