@@ -166,7 +166,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "photo_5" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "audio_memo" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "video" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "note" ), QMetaType::QString ) );
    
 
     // GeoPackage 파일로 메모 레이어 생성 (포인트Z 타입, WGS84)
@@ -465,17 +464,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setFieldAlias( fieldIndex, tr( "현장 영상" ) );
     }
 
-    // note 필드: 여러 줄 입력이 가능한 텍스트 위젯
-    fieldIndex = fields.indexOf( QStringLiteral( "note" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetOptions[QStringLiteral( "IsMultiline" )] = true;
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "TextEdit" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Note" ) );
-    }
-
     // QFieldCloud 오프라인 동기화를 위한 커스텀 속성 설정
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/cloud_action" ), QStringLiteral( "offline" ) );
     notesLayer->setCustomProperty( QStringLiteral( "QFieldSync/action" ), QStringLiteral( "offline" ) );
@@ -641,7 +629,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "repair_required_yn" ),
         QStringLiteral( "facility_memo" ),
         QStringLiteral( "inspected_at" ),
-        QStringLiteral( "note" ),
         QStringLiteral( "color" )
       };
 
