@@ -154,7 +154,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     fields.append( QgsField( QStringLiteral( "pic_telno" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "pic_eml" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "uuid" ), QMetaType::QString ) );
-    fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_condition" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "repair_required_yn" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "facility_memo" ), QMetaType::QString ) );
@@ -179,8 +178,8 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     notesLayer = new QgsVectorLayer( notesFilepath, tr( "Notes" ) );
     fields = notesLayer->fields();
     LayerUtils::setDefaultRenderer( notesLayer, nullptr,
-                                    options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
-                                    QStringLiteral( "color" ) );
+                                options.value( QStringLiteral( "camera_capture" ) ).toBool() ? QStringLiteral( "relation_aggregate('notes_attachments_relation', 'max', \"media\")" ) : QString(),
+                                QString() );
     LayerUtils::setDefaultLabeling( notesLayer );
 
     // 피처 목록에 표시될 표현식 설정: 제목이 없으면 "Note #번호 from 날짜" 형식
@@ -224,18 +223,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "now()" ), false ) );
       notesLayer->setFieldAlias( fieldIndex, tr( "점검 일시" ) );
     }
-
-    // color 필드: 색상 선택 위젯, 기본값은 파란색(#377eb8)
-    fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
-      notesLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      notesLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
-      notesLayer->setFieldAlias( fieldIndex, tr( "Marker color" ) );
-    }
-
  
     // 시설명
     fieldIndex = fields.indexOf( QStringLiteral( "fclt_nm" ) );
@@ -628,8 +615,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "facility_condition" ),
         QStringLiteral( "repair_required_yn" ),
         QStringLiteral( "facility_memo" ),
-        QStringLiteral( "inspected_at" ),
-        QStringLiteral( "color" )
+        QStringLiteral( "inspected_at" )
       };
 
       for ( const QString &fieldName : facilityFields )
@@ -686,7 +672,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
 
     // 트랙 레이어 필드 정의: color(트랙 색상), title(제목), inspected_at(기록 시각)
     QgsFields fields;
-    fields.append( QgsField( QStringLiteral( "color" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "fclt_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "inst_nm" ), QMetaType::QString ) );
     fields.append( QgsField( QStringLiteral( "lotno_addr" ), QMetaType::QString ) );
@@ -706,7 +691,7 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     // 트랙 레이어 로드 및 기본 렌더러 설정
     tracksLayer = new QgsVectorLayer( tracksFilepath, tr( "Tracks" ) );
     fields = tracksLayer->fields();
-    LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QStringLiteral( "color" ) );
+    LayerUtils::setDefaultRenderer( tracksLayer, nullptr, QString(), QString() );
 
     // 피처 목록 표시 표현식: "Track #번호 from 날짜" 형식
     tracksLayer->setDisplayExpression( "'Track #' || fid || ' from ' || format_date( inspected_at, 'yyyy-MM-dd HH:mm' )" );
@@ -721,17 +706,6 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
     {
       widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Hidden" ), widgetOptions );
       tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-    }
-
-    // color 필드: 색상 선택 위젯, 기본값은 파란색(#377eb8)
-    fieldIndex = fields.indexOf( QStringLiteral( "color" ) );
-    if ( fieldIndex >= 0 )
-    {
-      widgetOptions.clear();
-      widgetSetup = QgsEditorWidgetSetup( QStringLiteral( "Color" ), widgetOptions );
-      tracksLayer->setEditorWidgetSetup( fieldIndex, widgetSetup );
-      tracksLayer->setDefaultValueDefinition( fieldIndex, QgsDefaultValue( QStringLiteral( "'#377eb8'" ), false ) );
-      tracksLayer->setFieldAlias( fieldIndex, tr( "Track color" ) );
     }
 
     // 시설명
