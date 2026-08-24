@@ -603,7 +603,13 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       notesFormConfig.setLayout( Qgis::AttributeFormLayout::DragAndDrop );
       QgsAttributeEditorContainer *root = notesFormConfig.invisibleRootContainer();
       
-      const QStringList orderedFields = {
+      // -------------------------------------------------------------------------
+      // 1. [탭 1] 기본 정보 (Basic Info)
+      // -------------------------------------------------------------------------
+      QgsAttributeEditorContainer *tabBasicInfo = new QgsAttributeEditorContainer( tr( "기본 정보" ), root );
+      tabBasicInfo->setIsGroupBox( false ); // Tab 형태로 표시
+
+      const QStringList basicFields = {
         QStringLiteral( "fclt_nm" ),
         QStringLiteral( "inst_nm" ),
         QStringLiteral( "lotno_addr" ),
@@ -611,31 +617,76 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
         QStringLiteral( "pic_dept_nm" ),
         QStringLiteral( "pic_nm" ),
         QStringLiteral( "pic_telno" ),
-        QStringLiteral( "pic_eml" ),
+        QStringLiteral( "pic_eml" )
+      };
+
+      for ( const QString &fieldName : basicFields )
+      {
+        const int idx = notesLayer->fields().indexOf( fieldName );
+        if ( idx >= 0 )
+        {
+          tabBasicInfo->addChildElement( new QgsAttributeEditorField( fieldName, idx, tabBasicInfo ) );
+        }
+      }
+      root->addChildElement( tabBasicInfo );
+
+      // -------------------------------------------------------------------------
+      // 2. [탭 2] 시설물 관리 (Facility Management)
+      // -------------------------------------------------------------------------
+      QgsAttributeEditorContainer *tabFacilityMgmt = new QgsAttributeEditorContainer( tr( "시설물 관리" ), root );
+      tabFacilityMgmt->setIsGroupBox( false );
+
+      const QStringList facilityFields = {
         QStringLiteral( "facility_condition" ),
         QStringLiteral( "repair_required_yn" ),
         QStringLiteral( "facility_memo" ),
         QStringLiteral( "inspected_at" ),
+        QStringLiteral( "note" ),
+        QStringLiteral( "color" )
+      };
+
+      for ( const QString &fieldName : facilityFields )
+      {
+        const int idx = notesLayer->fields().indexOf( fieldName );
+        if ( idx >= 0 )
+        {
+          tabFacilityMgmt->addChildElement( new QgsAttributeEditorField( fieldName, idx, tabFacilityMgmt ) );
+        }
+      }
+      root->addChildElement( tabFacilityMgmt );
+
+      // -------------------------------------------------------------------------
+      // 3. [탭 3] 현장 미디어 (Field Media)
+      // -------------------------------------------------------------------------
+      QgsAttributeEditorContainer *tabMedia = new QgsAttributeEditorContainer( tr( "현장 미디어" ), root );
+      tabMedia->setIsGroupBox( false );
+
+      const QStringList mediaFields = {
         QStringLiteral( "photo_1" ),
         QStringLiteral( "photo_2" ),
         QStringLiteral( "photo_3" ),
         QStringLiteral( "photo_4" ),
         QStringLiteral( "photo_5" ),
-        QStringLiteral( "audio_memo" ),  
-        QStringLiteral( "video" ),
-        QStringLiteral( "note" ),
-        QStringLiteral( "color" ),};
-      for ( const QString &fieldName : orderedFields )
+        QStringLiteral( "audio_memo" ),
+        QStringLiteral( "video" )
+      };
+
+      for ( const QString &fieldName : mediaFields )
       {
         const int idx = notesLayer->fields().indexOf( fieldName );
         if ( idx >= 0 )
         {
-          root->addChildElement( new QgsAttributeEditorField( fieldName, idx, root ) );
+          tabMedia->addChildElement( new QgsAttributeEditorField( fieldName, idx, tabMedia ) );
         }
       }
 
-      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), root );
-      root->addChildElement( relationElement );
+      // 하위 첨부파일 관계(Relation Editor)를 미디어 탭에 추가
+      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), tabMedia );
+      tabMedia->addChildElement( relationElement );
+
+      root->addChildElement( tabMedia );
+
+      // 최종 설정 적용
       notesLayer->setEditFormConfig( notesFormConfig );
     }
   }
