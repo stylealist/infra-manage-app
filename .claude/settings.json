@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "bash .claude/hooks/check-banned-keywords.sh",
+            "timeout": 30,
+            "statusMessage": "Checking for banned C++ keywords..."
+          }
+        ]
+      }
+    ]
+  }
+}
