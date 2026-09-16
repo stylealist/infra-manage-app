@@ -655,8 +655,9 @@ QString ProjectUtils::createProject( const QVariantMap &options, const GnssPosit
       }
 
       // 하위 첨부파일 관계(Relation Editor)를 미디어 탭에 추가
-      QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), tabMedia );
-      tabMedia->addChildElement( relationElement );
+      // 현장 미디어 탭 하단의 Attachments 위젯을 숨기기 위해 비활성화
+      // QgsAttributeEditorRelation *relationElement = new QgsAttributeEditorRelation( QStringLiteral( "notes_attachments_relation" ), tabMedia );
+      // tabMedia->addChildElement( relationElement );
 
       root->addChildElement( tabMedia );
 
