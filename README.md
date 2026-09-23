@@ -1,3 +1,24 @@
+<!-- ===== SJ-LAB 포크 안내 (아래 본문은 업스트림 QField 문서 원본) ===== -->
+
+# infra-manage-app — 시설물 점검용 QField 포크
+
+> [QField](https://github.com/opengisch/QField)(QGIS 기반 현장조사 앱, C++/QML)의 **포크**로, 인프라·시설물 점검 용도로 커스터마이징한 앱입니다.
+> sj-lab 시설물 관리 플랫폼에서 **데이터가 시작되는 지점**입니다.
+
+```
+[이 앱] 현장에서 시설물 점검·사진·음성 메모 입력
+   │ 업로드
+[QFieldCloud] https://qfield.sj-lab.co.kr
+   │ 30초 주기 동기화(sj-qfieldsync)
+[PostGIS] qfield 스키마 → [백엔드 mapservice-rest] → [웹 지도 sj-lab.co.kr/map/]
+```
+
+- **기본 브랜치는 `master`** 입니다(다른 sj-lab 저장소는 `main`).
+- 업스트림과 계속 동기화되는 대규모 코드베이스이므로, **커스텀 변경은 최소 지점에 집중하고 업스트림 구조를 그대로 유지**하는 것이 원칙입니다.
+- 빌드는 CMake + vcpkg 기반이며 전체 의존성 빌드에 수 시간이 걸립니다. 기존 빌드 디렉터리와 대상 플랫폼을 먼저 확인하세요. 상세 절차는 아래 업스트림 문서와 `doc/dev.md`, 작업 규칙은 `CLAUDE.md`를 참고합니다.
+- 수집된 데이터가 어떻게 흘러 웹 지도까지 가는지는 총괄 저장소 `mapservice-rest`의 `docs/system-architecture.md`에 정리돼 있습니다.
+
+---
 [![Read the Docs](https://img.shields.io/badge/Read-the%20Docs-green.svg)](https://docs.qfield.org/)
 [![Community Platform](https://img.shields.io/discourse/topics?server=https://community.qfield.org)](https://community.qfield.org)
 [![Sponsor](https://img.shields.io/static/v1?label=Support&message=%E2%9D%A4)](https://github.com/sponsors/opengisch)
